@@ -1,0 +1,10 @@
+.gitignore
+.idea/
+.vscode/
+node_modules/
+npm-debug.log
+scripts-babel/
+test/coverage/
+test/jasmine/
+lib/
+built/
