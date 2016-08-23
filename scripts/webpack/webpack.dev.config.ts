@@ -1,6 +1,5 @@
 import * as webpack from 'webpack'
-import * as path from 'path'
-import dllLists from './dll-lists'
+import dll from './dll'
 import * as config from '../../config'
 
 const webpackConfig = {
@@ -9,45 +8,37 @@ const webpackConfig = {
     entry: [
         `webpack-dev-server/client?http://localhost:${config.localWebpackPort}`,
         'webpack/hot/only-dev-server',
-        './src/index.js'
+        './built/client/main.browser.js'
     ],
 
     output: {
-        path      : __dirname,
+        path: __dirname,
         publicPath: `http://localhost:${config.localWebpackPort}/`,
-        filename  : 'bundle.js'
+        filename: 'bundle.js'
     },
 
     module: {
         loaders: [
             {
-                test   : /\.(tsx|ts)?$/,
+                test: /\.(jsx|js)?$/,
                 exclude: [/node_modules/],
-                loaders: ['react-hot-loader','babel', 'ts-loader', 'html-path-loader']
+                loaders: ['react-hot']
             }, {
-                test   : /\.(jsx|js)?$/,
+                test: /\.(scss|css)/,
                 exclude: [/node_modules/],
-                loaders: ['react-hot-loader', 'babel', 'html-path-loader']
-            }, {
-                test   : /\.(scss|css)/,
-                exclude: [/node_modules/, /lib\/pc\/style/, /lib\/mobile\/style/],
-                loaders: ['style', 'css', 'autoprefixer', 'sass', 'css-path-loader']
-            }, {
-                test   : /\.(scss|css)/,
-                include: [/node_modules/, /lib\/pc\/style/, /lib\/mobile\/style/],
                 loaders: ['style', 'css', 'autoprefixer', 'sass']
             }, {
-                test   : /\.(png|jpg)$/,
+                test: /\.(png|jpg)$/,
                 exclude: /node_modules/,
                 loaders: ['url?limit=3000&name=img/[hash:8].[name].[ext]']
             }, {
-                test   : /\.(woff|woff2|ttf|eot|svg)/,
+                test: /\.(woff|woff2|ttf|eot|svg)/,
                 loaders: ['url?limit=3000&name=font/[hash:8].[name].[ext]']
             }, {
-                test  : /\.json$/,
+                test: /\.json$/,
                 loader: 'json-loader'
             }, {
-                test  : /\.md$/,
+                test: /\.md$/,
                 loader: 'text-loader'
             }
         ]
@@ -61,12 +52,12 @@ const webpackConfig = {
         new webpack.NoErrorsPlugin(),
         new webpack.SourceMapDevToolPlugin({
             filename: '[file].map',
-            columns : false
+            columns: false
         })
     ]
 }
 
-dllLists.forEach(function (item) {
+dll.forEach(function (item) {
     webpackConfig.plugins.push(item)
 })
 

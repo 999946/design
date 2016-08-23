@@ -305,6 +305,10 @@ declare module "webpack" {
              * DllReferencePlugin
              */
             DllReferencePlugin: any;
+            /**
+             * DllPlugin
+             */
+            DllPlugin: any;
         }
 
         interface Optimize {

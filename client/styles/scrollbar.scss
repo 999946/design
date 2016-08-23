@@ -1,0 +1,9 @@
+// 滚动条
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+}

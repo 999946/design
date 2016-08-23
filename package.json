@@ -4,7 +4,16 @@
   "description": "next-designer",
   "main": "page/index.tsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-before": "npm run tsc && npm run dll",
+    "start": "npm run gulp & npm run client-build",
+    "tsc": "rm -rf built && tsc",
+    "dll": "webpack --config built/scripts/webpack/webpack.dll.config.js",
+    "client-build": "node built/scripts/webpack/webpack-server.js",
+    "server": "node built/server/main.js",
+    "gulp": "gulp --gulpfile built/scripts/gulp/gulpfile.js --cwd ./",
+    "clean-watch": "sh scripts/clean.sh",
+    "ggg":"gulp move-client-others --gulpfile built/scripts/gulp/gulpfile.js --cwd ./"
   },
   "repository": {
     "type": "git",
@@ -16,14 +25,27 @@
   "author": "huangziyi01",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "css-loader": "^0.23.1",
+    "gulp": "^3.9.1",
+    "gulp-cached": "^1.1.0",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-typescript": "^2.13.6",
+    "react-hot-loader": "^1.3.0",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
     "typescript": "^1.8.10",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "koa": "^1.2.1",
+    "koa-static-cache": "^3.1.7",
     "mobx": "^2.4.3",
     "mobx-react": "^3.5.5",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
-    "react-native": "^0.31.0"
+    "react-native": "^0.32.0-rc.0",
+    "react-router": "^2.7.0"
   }
 }

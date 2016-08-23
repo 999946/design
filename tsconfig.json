@@ -15,8 +15,8 @@
         "forkChecker": true,
         "useCache": true
     },
-    "compileOnSave": false,
-    "buildOnSave": false,
+    "compileOnSave": true,
+    "buildOnSave": true,
     "exclude": [
         "node_modules",
         "built"
