@@ -2,6 +2,12 @@ import * as webpack from 'webpack'
 import dll from './dll'
 import * as config from '../../config'
 
+const alias: {
+    [key: string]: string
+} = {
+    'react-native': 'react-native-web'
+}
+
 const webpackConfig = {
     debug: true,
 
@@ -17,16 +23,23 @@ const webpackConfig = {
         filename: 'bundle.js'
     },
 
+    resolve: {
+        alias
+    },
+
     module: {
         loaders: [
             {
                 test: /\.(jsx|js)?$/,
                 exclude: [/node_modules/],
-                loaders: ['react-hot']
+                loaders: ['react-hot', 'html-path']
             }, {
-                test: /\.(scss|css)/,
+                test: /\.(scss)/,
                 exclude: [/node_modules/],
-                loaders: ['style', 'css', 'autoprefixer', 'sass']
+                loaders: ['style', 'css', 'autoprefixer', 'sass', 'css-path']
+            }, {
+                test: /\.(css)/,
+                loaders: ['style', 'css']
             }, {
                 test: /\.(png|jpg)$/,
                 exclude: /node_modules/,

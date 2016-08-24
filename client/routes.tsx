@@ -18,8 +18,27 @@ const getHome = (nextState: any, callback: any)=> {
     })
 }
 
+const getDesignSpace = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+design-space/design-space.component').default)
+    })
+}
+
+const getDesigner = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+designer/designer.component').default)
+    })
+}
+
+
 export default [
     <Route path="/"
            key="home"
-           getComponent={getHome}/>
+           getComponent={getHome}/>,
+    <Route path="/design-space"
+           key="design-space"
+           getComponent={getDesignSpace}/>,
+    <Route path="/designer"
+           key="designer"
+           getComponent={getDesigner}/>
 ]

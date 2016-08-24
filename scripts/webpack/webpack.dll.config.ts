@@ -8,9 +8,9 @@ module.exports = {
     },
 
     output: {
-        filename: '[name].dll.js',
-        path    : path.join(__dirname, '../../output/static/dll'),
-        library : '[name]'
+        filename: 'static/dll/[name].dll.js',
+        path: path.join(__dirname, '../../output'),
+        library: '[name]'
     },
 
     plugins: [
@@ -23,16 +23,16 @@ module.exports = {
     module: {
         loaders: [
             {
-                test   : /\.css/,
+                test: /\.css/,
                 loaders: ['style', 'css']
             }, {
-                test  : /\.(png|jpg)$/,
-                loader: 'url?limit=1024&name=img/[hash:8].[name].[ext]'
+                test: /\.(png|jpg)$/,
+                loader: 'url?limit=1024&name=static/dll/img/[hash:8].[name].[ext]'
             }, {
-                test  : /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-                loader: 'url?limit=1024&name=font/[hash:8].[name].[ext]'
+                test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+                loader: 'url?limit=1024&name=static/dll/font/[hash:8].[name].[ext]'
             }, {
-                test  : /\.json$/,
+                test: /\.json$/,
                 loader: 'json-loader'
             }
         ]
