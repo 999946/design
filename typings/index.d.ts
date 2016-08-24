@@ -1,3 +1,4 @@
+/// <reference path="custom-typings.d.ts" />
 /// <reference path="globals/cookies/index.d.ts" />
 /// <reference path="globals/gulp-cached/index.d.ts" />
 /// <reference path="globals/gulp-nodemon/index.d.ts" />
