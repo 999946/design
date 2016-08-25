@@ -9,6 +9,7 @@ const tsServerProject = gulpTypescript.createProject(path.join(__dirname, '../..
 
 const filePath = {
     clientNotTs: `client/**/!(*.ts|*.tsx)`,
+    componentsNotTs: `components/**/!(*.ts|*.tsx)`,
     server: `server/**/*.ts`
 }
 
@@ -32,6 +33,16 @@ gulp.task('move-client-others', ()=> {
         .pipe(gulp.dest('built/client'))
 })
 
-gulp.task('default', ['move-client-others', 'server-nodemon'], ()=> {
+/**
+ * 移动除了 ts 以外的部分
+ */
+gulp.task('move-components-others', ()=> {
+    return gulp.src(filePath.componentsNotTs)
+        .pipe(cached(filePath.componentsNotTs))
+        .pipe(gulp.dest('built/components'))
+})
+
+gulp.task('default', ['move-client-others', 'move-components-others', 'server-nodemon'], ()=> {
     gulp.watch(filePath.clientNotTs, ['move-client-others'])
+    gulp.watch(filePath.componentsNotTs, ['move-components-others'])
 })

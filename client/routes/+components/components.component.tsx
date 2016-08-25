@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom'
 import * as typings from './components.type'
 import {observer, inject} from 'mobx-react'
 import {Link} from 'react-router'
+import ResourceCard from '../../../components/wefan/resource-card/resource-card.component'
 
 import './components.scss'
 
@@ -14,7 +15,7 @@ export default class Components extends React.Component <typings.PropsDefine, ty
     render() {
         return (
             <div className="_namespace">
-                111
+                <ResourceCard title="5555"/>
             </div>
         )
     }
