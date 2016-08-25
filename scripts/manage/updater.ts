@@ -8,7 +8,7 @@ import {exec, execSync} from 'child_process'
 import * as path from 'path'
 import * as fs from 'fs'
 
-export default ()=> {
+export default (commander:any)=> {
     //
     Object.keys(components).forEach(categoryKey=> {
         // 分类信息

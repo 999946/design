@@ -12,9 +12,9 @@ commander.version('1.0.0')
     .parse(process.argv)
 
 if (commander['update']) {
-    updater()
+    updater(commander)
 }
 
 if (commander['push']) {
-    pusher()
+    pusher(commander)
 }
