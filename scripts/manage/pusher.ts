@@ -25,6 +25,7 @@ export default (commander: any)=> {
                 execSync(`git subtree push -P ${componentRootPath} ${config.privateGit}/${categoryKey}-${component.name}.git master`)
             }
         })
-
     })
+
+    execSync(`git push origin master`)
 }
