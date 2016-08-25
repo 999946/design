@@ -16,11 +16,11 @@ export default ()=> {
 
         category.components.forEach(component=> {
             // 组件根目录
-            const componentRootPath = `${categoryKey}/${component.name}`
+            const componentRootPath = `${config.componentsPath}/${categoryKey}/${component.name}`
 
             // 如果组件不存在, 添加
             if (!fs.existsSync(componentRootPath)) {
-                execSync(`git subtree add -P ${config.componentsPath}/${componentRootPath} ${config.privateGit}/${categoryKey}-${component.name}.git master`)
+                execSync(`git subtree add -P ${componentRootPath} ${config.privateGit}/${categoryKey}-${component.name}.git master`)
             }
         })
 
