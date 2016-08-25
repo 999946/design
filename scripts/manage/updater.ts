@@ -8,8 +8,16 @@ import components from '../../components'
 import {exec, execSync} from 'child_process'
 import * as path from 'path'
 import * as fs from 'fs'
+import hasChange from './utils/has-change'
+import consoleLog from './utils/console-log'
 
 export default (commander: any)=> {
+    // 判断是否有修改, 如果有修改, 终止更新
+    if (hasChange('./')) {
+        consoleLog('有未提交修改, 停止更新', 'red')
+        return
+    }
+
     Object.keys(components).forEach(categoryKey=> {
         // 分类信息
         const category = components[categoryKey]
