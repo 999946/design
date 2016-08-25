@@ -20,7 +20,7 @@ export default ()=> {
 
             // 如果组件不存在, 添加
             if (!fs.existsSync(componentRootPath)) {
-                execSync(`git submodule add ${config.privateGit}/${categoryKey}-${component.name}.git ${config.componentsPath}/${componentRootPath}`)
+                execSync(`git subtree add -P ${config.componentsPath}/${componentRootPath} ${config.privateGit}/${categoryKey}-${component.name}.git master`)
             }
         })
 
