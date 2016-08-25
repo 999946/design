@@ -30,6 +30,11 @@ const getDesigner = (nextState: any, callback: any)=> {
     })
 }
 
+const getComponents = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+components/components.component').default)
+    })
+}
 
 export default [
     <Route path="/"
@@ -40,5 +45,8 @@ export default [
            getComponent={getDesignSpace}/>,
     <Route path="/designer"
            key="designer"
-           getComponent={getDesigner}/>
+           getComponent={getDesigner}/>,
+    <Route path="/components"
+           key="components"
+           getComponent={getComponents}/>
 ]

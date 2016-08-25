@@ -1,0 +1,3 @@
+[submodule "components/wefan/resource-card"]
+	path = components/wefan/resource-card
+	url = http://gitlab.baidu.com/tb-next-component/wefan-resource-card.git
