@@ -34,6 +34,7 @@ export class PropsGaea {
 
 export class Props extends PropsGaea implements PropsDefine {
     hasUnderLine = true
+    title = ''
     left = (
         <Image style={{height:65}}
                source={require('./images/back.png')}/>
