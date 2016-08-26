@@ -117,6 +117,6 @@ export default (publishFullPaths: Array<string>)=> {
         }
     })
 
-    // 全部提交
-    // execSync(`npm run manage -- --push --message "发布组件 ${publishFullPaths.toString()}"`)
+    // 根目录提交
+    execSync(`git push`)
 }
