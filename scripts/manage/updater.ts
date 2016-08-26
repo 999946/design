@@ -11,10 +11,10 @@ import * as fs from 'fs'
 import hasChange from './utils/has-change'
 import consoleLog from './utils/console-log'
 
-export default (commander: any)=> {
+export default ()=> {
     // 判断是否有修改, 如果有修改, 终止更新
     if (hasChange('./')) {
-        consoleLog('有未提交修改, 停止更新', 'red')
+        consoleLog.error('有未提交修改, 停止更新')
         return
     }
 

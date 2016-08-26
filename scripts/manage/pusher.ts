@@ -8,9 +8,9 @@ import {exec, execSync} from 'child_process'
 import * as path from 'path'
 import * as fs from 'fs'
 
-export default (commander: any)=> {
+export default (message:string)=> {
     execSync(`git add -A`)
-    execSync(`git commit -m "${commander['message']}"`)
+    execSync(`git commit -m "${message}"`)
 
     Object.keys(components).forEach(categoryKey=> {
         // 分类信息

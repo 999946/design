@@ -12,3 +12,9 @@ export const publicGit = 'https://github.com/next-component'
 
 // 组件库文件夹
 export const componentsPath = 'components'
+
+// 作者
+export const author = 'ascoders'
+
+// 组件编译产出目录名
+export const componentBuildPath = 'lib'

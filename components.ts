@@ -8,12 +8,11 @@ export interface CategoryConfig {
      */
     prefix: string
     /**
-     * 隐私等级
+     * 是否隐私
      * private: 提交、发布到私有仓库
-     * protected: 提交到私有仓库, 发布到公有仓库
      * public: 提交、发布到公有仓库
      */
-    access: 'private'|'protected'|'public'
+    isPrivate: boolean
     /**
      * 组件列表
      */
@@ -37,11 +36,11 @@ export default {
      */
     wefan: {
         prefix: 'nt-wefan',
-        access: 'private',
+        isPrivate: true,
         components: [{
             name: 'resource-card',
             chinese: '资源卡片'
-        },{
+        }, {
             name: 'navbar',
             chinese: '导航条'
         }]

@@ -16,6 +16,7 @@
 /// <reference path="globals/react-router/history/index.d.ts" />
 /// <reference path="globals/react-router/index.d.ts" />
 /// <reference path="globals/react/index.d.ts" />
+/// <reference path="globals/semver/index.d.ts" />
 /// <reference path="globals/source-map/index.d.ts" />
 /// <reference path="globals/uglify-js/index.d.ts" />
 /// <reference path="globals/webpack/index.d.ts" />

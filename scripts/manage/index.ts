@@ -14,13 +14,13 @@ commander.version('1.0.0')
     .parse(process.argv)
 
 if (commander['update']) {
-    updater(commander)
+    updater()
 }
 
 if (commander['push']) {
-    pusher(commander)
+    pusher(commander['message'])
 }
 
-if (commander['publish']){
-
+if (commander['publish']) {
+    publisher(commander.args)
 }
