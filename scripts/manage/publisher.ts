@@ -106,10 +106,10 @@ export default (publishFullPaths: Array<string>)=> {
         let {publishLevel, publishCategory, publishCategoryName, publishComponent, publishPath, packageJson} = getComponentInfoByFullPath(publishFullPath)
         if (publishCategory.isPrivate) { // 私有发布
             // 打 tag
-            execSync(`cd ${publishPath}; git tag ${packageJson.version}`)
+            execSync(`cd ${publishPath}; git tag v${packageJson.version}`)
 
             // push 标签
-            execSync(`cd ${publishPath}; git push origin ${packageJson.version}`)
+            execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishCategoryName}-${publishComponent.name}.git master v${packageJson.version}`)
         } else {  // 公有发布
 
         }
