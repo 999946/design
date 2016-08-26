@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 import {execSync} from 'child_process'
 import components from '../../components'
-import htmlPathLoader from './utils/html-path-loader'
+//import htmlPathLoader from './utils/html-path-loader'
 
 /**
  * 根据后缀找文件
@@ -49,6 +49,6 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
 
     let jsFilePaths = getFilesBySuffix('js', libPath)
     jsFilePaths.forEach(filePath=> {
-        htmlPathLoader(filePath)
+        //htmlPathLoader(filePath)
     })
 }
