@@ -1,0 +1,15 @@
+{
+  "name": "nt-wefan-resource-card",
+  "version": "0.0.1",
+  "description": "资源卡片",
+  "main": "lib/resource-card.component.js",
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.baidu.com/tb-next-component/wefan-resource-card.git"
+  },
+  "keywords": [
+    "resource-card"
+  ],
+  "author": "ascoders",
+  "license": "ISC"
+}
