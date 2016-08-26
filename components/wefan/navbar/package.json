@@ -1,0 +1,15 @@
+{
+  "name": "nt-wefan-navbar",
+  "version": "0.0.1",
+  "description": "导航条",
+  "main": "lib/navbar.component.js",
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.baidu.com/tb-next-component/wefan-navbar.git"
+  },
+  "keywords": [
+    "navbar"
+  ],
+  "author": "ascoders",
+  "license": "ISC"
+}
