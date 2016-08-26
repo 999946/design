@@ -25,7 +25,7 @@ gulp.task('server-nodemon', function () {
 })
 
 /**
- * 移动除了 ts 以外的部分
+ * 移动 client 除了 ts 以外的部分
  */
 gulp.task('move-client-others', ()=> {
     return gulp.src(filePath.clientNotTs)
@@ -34,7 +34,7 @@ gulp.task('move-client-others', ()=> {
 })
 
 /**
- * 移动除了 ts 以外的部分
+ * 移动 components 除了 ts 以外的部分
  */
 gulp.task('move-components-others', ()=> {
     return gulp.src(filePath.componentsNotTs)
@@ -46,3 +46,5 @@ gulp.task('default', ['move-client-others', 'move-components-others', 'server-no
     gulp.watch(filePath.clientNotTs, ['move-client-others'])
     gulp.watch(filePath.componentsNotTs, ['move-components-others'])
 })
+
+gulp.task('production', ['move-client-others', 'move-components-others'])

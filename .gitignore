@@ -8,3 +8,4 @@ test/coverage/
 test/jasmine/
 lib/
 built/
+built-production/

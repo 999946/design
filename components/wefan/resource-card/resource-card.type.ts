@@ -11,9 +11,21 @@ export interface PropsDefine {
     title: string
 }
 
-export class Props implements PropsDefine {
+export class PropsGaea {
+    gaeaName = '资源卡片'
+    gaeaIcon = 'square-o'
+    gaeaUniqueKey = 'wefan-resource-card'
+    gaeaEdit = [{
+        field: 'title',
+        label: '资源描述',
+        editor: 'text',
+        editable: true
+    }]
+}
+
+export class Props extends PropsGaea implements PropsDefine {
     title = '资源'
-    pictureSource = require('./images/icon_more_url.png')
+    pictureSource = require('./images/resource.png')
 }
 
 export interface StateDefine {

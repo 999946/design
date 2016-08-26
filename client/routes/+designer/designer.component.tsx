@@ -4,6 +4,12 @@ import * as typings from './designer.type'
 import {observer, inject} from 'mobx-react'
 import {Link} from 'react-router'
 import Gaea from 'fit-gaea'
+import GaeaNativeComponents from 'fit-gaea-native-components'
+
+import Navbar from '../../../components/wefan/navbar/navbar.component'
+import ResourceCard from '../../../components/wefan/resource-card/resource-card.component'
+
+const customComponents = [Navbar, ResourceCard]
 
 @observer
 export default class Home extends React.Component <typings.PropsDefine, typings.StateDefine> {
@@ -12,7 +18,8 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
 
     render() {
         return (
-            <Gaea/>
+            <Gaea customComponents={customComponents}
+                  baseComponents={GaeaNativeComponents}/>
         )
     }
 }

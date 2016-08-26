@@ -1,6 +1,8 @@
 import * as webpack from 'webpack'
-import * as config from '../../config'
 import * as path from 'path'
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const extractSCSS = new ExtractTextPlugin('style.css')
+console.log(__dirname)
 
 const alias: {
     [key: string]: string
@@ -12,14 +14,11 @@ const webpackConfig = {
     debug: true,
 
     entry: [
-        `webpack-dev-server/client?http://localhost:${config.localWebpackPort}`,
-        'webpack/hot/only-dev-server',
         './built/client/main.browser.js'
     ],
 
     output: {
-        path: __dirname,
-        publicPath: `http://localhost:${config.localWebpackPort}/`,
+        path: 'built-production/static',
         filename: 'bundle.js'
     },
 
@@ -32,7 +31,7 @@ const webpackConfig = {
             {
                 test: /\.(jsx|js)?$/,
                 exclude: [/node_modules/],
-                loaders: ['react-hot', 'html-path']
+                loaders: ['babel', 'html-path']
             }, {
                 test: /\.(scss)/,
                 exclude: [/node_modules/],
@@ -58,18 +57,16 @@ const webpackConfig = {
     },
 
     plugins: [
+        extractSCSS,
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"development"'
+            'process.env.NODE_ENV': '"production"'
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
-        new webpack.SourceMapDevToolPlugin({
-            filename: '[file].map',
-            columns: false
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: false
         }),
         new webpack.DllReferencePlugin({
             context : '.',
-            manifest: require(path.join(process.cwd(), 'built/output/static/dll/library-mainfest.json'))
+            manifest: require(path.join(process.cwd(), 'built-production/static/dll/library-mainfest.json'))
         })
     ]
 }
