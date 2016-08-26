@@ -1,5 +1,4 @@
 import * as React from 'react'
-import {Platform} from 'react-native'
 
 export interface PropsDefine {
     /**
@@ -14,7 +13,7 @@ export interface PropsDefine {
 
 export class Props implements PropsDefine {
     title = '资源'
-    pictureSource = require('./images/icon_more_url@2x.png')
+    pictureSource = require('./images/icon_more_url.png')
 }
 
 export interface StateDefine {
