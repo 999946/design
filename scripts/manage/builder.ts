@@ -44,7 +44,7 @@ export const buildDTs = ()=> {
 export const buildLib = (component: Components.ComponentConfig, category: Components.Category)=> {
     // 先删除 lib 目录
     if (fs.existsSync(`components/${category.name}/${component.name}/lib`)) {
-        fs.rmdirSync(`components/${category.name}/${component.name}/lib`)
+        execSync(`rm -rf components/${category.name}/${component.name}/lib`)
     }
 
     // 将编译后的文件移到当前 lib 目录下
