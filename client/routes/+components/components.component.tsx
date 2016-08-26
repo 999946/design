@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom'
 import * as typings from './components.type'
 import {observer, inject} from 'mobx-react'
 import {Link} from 'react-router'
-import ResourceCard from '../../../components/wefan/resource-card/resource-card.component'
+import ResourceCard from '../../../components/wefan/navbar/navbar.component'
 
 import './components.scss'
 
