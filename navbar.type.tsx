@@ -20,10 +20,23 @@ export interface PropsDefine {
     onRightPress?: () => any
 }
 
-export class Props implements PropsDefine {
+export class PropsGaea {
+    gaeaName = '导航条'
+    gaeaIcon = 'square-o'
+    gaeaUniqueKey = 'wefan-navbar'
+    gaeaEdit = [{
+        field: 'title',
+        label: '文字',
+        editor: 'text',
+        editable: true
+    }]
+}
+
+export class Props extends PropsGaea implements PropsDefine {
     hasUnderLine = true
     left = (
-        <Image style={{height:65}} source={require('./images/back.png')}/>
+        <Image style={{height:65}}
+               source={require('./images/back.png')}/>
     )
 }
 
