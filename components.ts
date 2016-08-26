@@ -41,6 +41,9 @@ export default {
         components: [{
             name: 'resource-card',
             chinese: '资源卡片'
+        },{
+            name: 'navbar',
+            chinese: '导航条'
         }]
     }
 } as Category
