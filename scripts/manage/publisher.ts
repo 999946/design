@@ -35,13 +35,13 @@ const getComponentInfoByFullPath = (publishFullPath: string)=> {
     const publishComponentName = publishPathSplit[1]
 
     // 发布分类信息
-    const publishCategory = components[publishCategoryName]
-    if (!components[publishCategoryName]) {
+    const publishCategory = components.find(category=>category.name === publishCategoryName)
+    if (!publishCategory) {
         consoleLog.error(`${publishCategoryName} 分类不存在`)
     }
 
     // 发布组件信息
-    const publishComponent = components[publishCategoryName].components.find(item=>item.name === publishComponentName)
+    const publishComponent = publishCategory.components.find(item=>item.name === publishComponentName)
     if (!publishComponent) {
         consoleLog.error(`${publishComponentName} 组件不存在`)
     }
@@ -55,27 +55,27 @@ const getComponentInfoByFullPath = (publishFullPath: string)=> {
     let packageJson: packageJsonManage.PackageJson
 
     // 如果没有 package.json, 就创建一个
-    if (!fs.existsSync(`${publishPath}/package.json`)) {
-        consoleLog.warn(`${publishPath} 没有 package.json, 将自动生成`)
-        packageJson = {
-            name: `${publishCategory.prefix}-${publishComponent.name}`,
-            version: '0.0.0',
-            description: publishComponent.chinese,
-            main: `${config.componentBuildPath}/${publishComponent.name}.component.js`,
-            repository: {
-                type: 'git',
-                url: publishCategory.isPrivate ? `${config.privateGit}/${publishCategoryName}-${publishComponent.name}.git` : `${config.publicGit}/${publishCategoryName}-${publishComponent.name}.git`
-            },
-            keywords: [publishComponent.name],
-            author: config.author,
-            license: 'ISC'
-        }
-    } else {
-        packageJson = packageJsonManage.getPackageJSON(publishPath)
-    }
+    // if (!fs.existsSync(`${publishPath}/package.json`)) {
+    //     consoleLog.warn(`${publishPath} 没有 package.json, 将自动生成`)
+    //     packageJson = {
+    //         name: `${publishCategory.prefix}-${publishComponent.name}`,
+    //         version: '0.0.0',
+    //         description: publishComponent.chinese,
+    //         main: `${config.componentBuildPath}/${publishComponent.name}.component.js`,
+    //         repository: {
+    //             type: 'git',
+    //             url: publishCategory.isPrivate ? `${config.privateGit}/${publishCategoryName}-${publishComponent.name}.git` : `${config.publicGit}/${publishCategoryName}-${publishComponent.name}.git`
+    //         },
+    //         keywords: [publishComponent.name],
+    //         author: config.author,
+    //         license: 'ISC'
+    //     }
+    // } else {
+    //     packageJson = packageJsonManage.getPackageJSON(publishPath)
+    // }
 
     return {
-        publishLevel, publishCategory, publishCategoryName, publishComponent, publishPath, packageJson
+        publishLevel, publishCategory, publishComponent, publishPath, packageJson
     }
 }
 
@@ -92,10 +92,10 @@ export default (publishFullPaths: Array<string>)=> {
     builder.buildDTs()
 
     publishFullPaths.forEach(publishFullPath=> {
-        let {publishLevel, publishCategory, publishCategoryName, publishComponent, publishPath, packageJson} = getComponentInfoByFullPath(publishFullPath)
+        let componentInfo = getComponentInfoByFullPath(publishFullPath)
 
-       // 将编译后的文件移到当前 lib 目录下
-        execSync(`mv built-components/${publishCategoryName}/${publishComponent.name} components/${publishCategoryName}/${publishComponent.name}/lib`)
+        // 编译到 lib 文件夹中
+        builder.buildLib(componentInfo.publishComponent, componentInfo.publishCategory)
     })
 
     // publishFullPaths.forEach(publishFullPath=> {

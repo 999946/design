@@ -1,6 +1,18 @@
 import * as fs from 'fs'
 import {execSync} from 'child_process'
 import components from '../../components'
+import htmlPathLoader from './utils/html-path-loader'
+
+/**
+ * 根据后缀找文件
+ */
+const getFilesBySuffix = (suffix: string, modulePath: string): Array<string>=> {
+    let files = execSync(`find ${modulePath} -name "*.${suffix}"`).toString().split('\n')
+    files = files.filter((item)=> {
+        return item !== ''
+    })
+    return files
+}
 
 /**
  * 产出定义文件
@@ -26,4 +38,17 @@ export const buildDTs = ()=> {
     fs.unlink(comboFilePath)
 }
 
-buildDTs()
+/**
+ * 编译 lib 文件夹
+ */
+export const buildLib = (component: Components.ComponentConfig, category: Components.Category)=> {
+    // 将编译后的文件移到当前 lib 目录下
+    execSync(`mv built-components/${category.name}/${component.name} components/${category.name}/${component.name}/lib`)
+
+    const libPath = `components/${category.name}/${component.name}/lib`
+
+    let jsFilePaths = getFilesBySuffix('js', libPath)
+    jsFilePaths.forEach(filePath=> {
+        htmlPathLoader(filePath)
+    })
+}

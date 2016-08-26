@@ -18,17 +18,14 @@ export default (message: string)=> {
     execSync(`git add -A`)
     execSync(`git commit -m "${message}"`)
 
-    Object.keys(components).forEach(categoryKey=> {
-        // 分类信息
-        const category = components[categoryKey]
-
+    components.forEach(category=> {
         category.components.forEach(component=> {
             // 组件根目录
-            const componentRootPath = `${config.componentsPath}/${categoryKey}/${component.name}`
+            const componentRootPath = `${config.componentsPath}/${category.name}/${component.name}`
 
             // 如果组件存在, 并且有改动, 提交
             if (fs.existsSync(componentRootPath)) {
-                execSync(`git subtree push -P ${componentRootPath} ${config.privateGit}/${categoryKey}-${component.name}.git master`)
+                execSync(`git subtree push -P ${componentRootPath} ${config.privateGit}/${category.name}-${component.name}.git master`)
             }
         })
     })

@@ -1,3 +1,5 @@
+///<reference path="../../typings/components.d.ts" />
+
 import updater from './updater'
 import pusher from './pusher'
 import publisher from './publisher'

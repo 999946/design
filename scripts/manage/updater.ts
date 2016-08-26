@@ -18,20 +18,17 @@ export default ()=> {
         return
     }
 
-    Object.keys(components).forEach(categoryKey=> {
-        // 分类信息
-        const category = components[categoryKey]
-
+    components.forEach(category=> {
         category.components.forEach(component=> {
             // 组件根目录
-            const componentRootPath = `${config.componentsPath}/${categoryKey}/${component.name}`
+            const componentRootPath = `${config.componentsPath}/${category.name}/${component.name}`
 
             if (!fs.existsSync(componentRootPath)) {
                 // 如果组件不存在, 添加
-                execSync(`git subtree add -P ${componentRootPath} ${config.privateGit}/${categoryKey}-${component.name}.git master`)
+                execSync(`git subtree add -P ${componentRootPath} ${config.privateGit}/${category.name}-${component.name}.git master`)
             } else {
                 // 组件存在, 更新
-                execSync(`git subtree pull -P ${componentRootPath} ${config.privateGit}/${categoryKey}-${component.name}.git master`)
+                execSync(`git subtree pull -P ${componentRootPath} ${config.privateGit}/${category.name}-${component.name}.git master`)
             }
         })
     })
