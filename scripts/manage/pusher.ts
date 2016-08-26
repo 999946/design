@@ -5,6 +5,7 @@
 import * as config from '../../config'
 import components from '../../components'
 import {exec, execSync} from 'child_process'
+import hasChange from './utils/has-change'
 import * as path from 'path'
 import * as fs from 'fs'
 
@@ -20,8 +21,8 @@ export default (message:string)=> {
             // 组件根目录
             const componentRootPath = `${config.componentsPath}/${categoryKey}/${component.name}`
 
-            // 如果组件存在, 提交
-            if (fs.existsSync(componentRootPath)) {
+            // 如果组件存在, 并且有改动, 提交
+            if (fs.existsSync(componentRootPath) && hasChange(componentRootPath)) {
                 execSync(`git subtree push -P ${componentRootPath} ${config.privateGit}/${categoryKey}-${component.name}.git master`)
             }
         })

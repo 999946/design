@@ -107,6 +107,9 @@ export default (publishFullPaths: Array<string>)=> {
         if (publishCategory.isPrivate) { // 私有发布
             // 打 tag
             execSync(`cd ${publishPath}; git tag ${packageJson.version}`)
+
+            // 直接push
+            execSync(`cd ${publishPath}; git push`)
         } else {  // 公有发布
 
         }
