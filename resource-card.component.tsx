@@ -9,7 +9,7 @@ export default class ResourceCard extends React.Component <typings.PropsDefine, 
 
     render() {
         return (
-            <View style={style.content}>
+            <View style={style.container}>
                 <Image style={style.image}
                        source={this.props.pictureSource}/>
                 <View style={style.textContainer}>

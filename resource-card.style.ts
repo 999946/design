@@ -1,9 +1,10 @@
 export default {
-    content: {
+    container: {
         backgroundColor: '#eee',
         flexDirection: 'row',
         alignItems: 'center',
-        height: 60
+        height: 60,
+        flex: 1
     } as React.ViewStyle,
     image: {
         height: 60,
