@@ -8,8 +8,13 @@ import {exec, execSync} from 'child_process'
 import hasChange from './utils/has-change'
 import * as path from 'path'
 import * as fs from 'fs'
+import consoleLog from './utils/console-log'
 
-export default (message:string)=> {
+export default (message: string)=> {
+    if (!hasChange('./')) {
+        consoleLog.error('没有改动')
+    }
+
     execSync(`git add -A`)
     execSync(`git commit -m "${message}"`)
 
