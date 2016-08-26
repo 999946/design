@@ -42,17 +42,19 @@ export const buildDTs = ()=> {
  * 编译 lib 文件夹
  */
 export const buildLib = (component: Components.ComponentConfig, category: Components.Category)=> {
+    // lib 路径
+    const libPath = `components/${category.name}/${component.name}/lib`
+
     // 先删除 lib 目录
-    if (fs.existsSync(`components/${category.name}/${component.name}/lib`)) {
-        execSync(`rm -rf components/${category.name}/${component.name}/lib`)
+    if (fs.existsSync(libPath)) {
+        execSync(`rm -rf ${libPath}`)
     }
 
     // 将编译后的文件移到当前 lib 目录下
-    execSync(`mv built-components/${category.name}/${component.name} components/${category.name}/${component.name}/lib`)
-
-    const libPath = `components/${category.name}/${component.name}/lib`
+    execSync(`mv built-components/${category.name}/${component.name} ${libPath}`)
 
     let jsFilePaths = getFilesBySuffix('js', libPath)
+    console.log(jsFilePaths)
     jsFilePaths.forEach(filePath=> {
         //htmlPathLoader(filePath)
     })
