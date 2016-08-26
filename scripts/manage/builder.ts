@@ -23,12 +23,12 @@ export const buildDTs = ()=> {
     // 先创建聚合文件
     let comboComponentContent = `///<reference path="../typings/index.d.ts" />\n`
 
-    Object.keys(components).forEach(componentCategoryName=> {
-        const componentCategory = components[componentCategoryName]
-        componentCategory.components.forEach(component=> {
-            comboComponentContent += `import './${componentCategoryName}/${component.name}/${component.name}.component'\n`
+    components.forEach(category=> {
+        category.components.forEach(component=> {
+            comboComponentContent += `import './${category.name}/${component.name}/${component.name}.component'\n`
         })
     })
+
     fs.writeFileSync(comboFilePath, comboComponentContent)
 
     // 生成整体 d.ts
