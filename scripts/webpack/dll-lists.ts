@@ -12,5 +12,6 @@ export default [
     'fit-menu',
     'fit-tree',
     'fit-button',
-    'fit-layout-global'
+    'fit-layout-global',
+    'react-native'
 ]

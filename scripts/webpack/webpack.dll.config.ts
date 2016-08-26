@@ -2,6 +2,12 @@ import * as path from 'path'
 import * as webpack from 'webpack'
 import dllLists from './dll-lists'
 
+const alias: {
+    [key: string]: string
+} = {
+    'react-native': 'react-native-web'
+}
+
 module.exports = {
     entry: {
         library: dllLists
@@ -11,6 +17,10 @@ module.exports = {
         filename: 'static/dll/[name].dll.js',
         path: path.join(__dirname, '../../output'),
         library: '[name]'
+    },
+
+    resolve: {
+        alias
     },
 
     plugins: [
