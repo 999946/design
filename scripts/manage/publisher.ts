@@ -108,8 +108,10 @@ export default (publishFullPaths: Array<string>)=> {
             // 打 tag
             execSync(`cd ${publishPath}; git tag v${packageJson.version}`)
 
-            // push 标签
+            // push 分支
             execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishCategoryName}-${publishComponent.name}.git v${packageJson.version}`)
+            // push master
+            execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishCategoryName}-${publishComponent.name}.git master`)
         } else {  // 公有发布
 
         }
