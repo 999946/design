@@ -109,7 +109,7 @@ export default (publishFullPaths: Array<string>)=> {
             execSync(`cd ${publishPath}; git tag v${packageJson.version}`)
 
             // push 标签
-            execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishCategoryName}-${publishComponent.name}.git master v${packageJson.version}`)
+            execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishCategoryName}-${publishComponent.name}.git v${packageJson.version}`)
         } else {  // 公有发布
 
         }
