@@ -178,15 +178,17 @@ export default (publishFullPaths: Array<string>)=> {
         // 编译 lib 目录
         builder.buildLib(componentInfo.publishComponent, componentInfo.publishCategory)
 
-        // 寻找依赖这个组件的组件
-        console.log('要发布的组件是', componentInfo.publishComponent.name)
-        allComponentsInfoWithDep.forEach(componentInfoWithDep=> {
-            componentInfoWithDep.dependence.forEach(dep=> {
-                if (dep.type === 'component' && dep.category === componentInfo.publishCategory.name && dep.name === componentInfo.publishComponent.name) {
-                    console.log(componentInfoWithDep.component.name, '依赖了他')
-                }
+        if (componentInfo.publishLevel === 'major') {
+            // 如果发布的是主版本, 所有对其直接依赖的组件都要更新 patch
+            // 寻找依赖这个组件的组件
+            allComponentsInfoWithDep.forEach(componentInfoWithDep=> {
+                componentInfoWithDep.dependence.forEach(dep=> {
+                    if (dep.type === 'component' && dep.category === componentInfo.publishCategory.name && dep.name === componentInfo.publishComponent.name) {
+                        console.log(componentInfoWithDep.component.name, '依赖了他')
+                    }
+                })
             })
-        })
+        }
     })
 
     // publishFullPaths.forEach(publishFullPath=> {
