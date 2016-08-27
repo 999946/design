@@ -41,9 +41,16 @@ const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
         const filePathSplit = filePath.split('/')
         filePathSplit.pop()
         const filePathDir = filePathSplit.join('/')
-        // 引用模块的完整路径
-        const importFullPath = path.join(filePathDir, importPath)
-        console.log(importFullPath)
+
+        if (importPath.startsWith('./') || importPath.startsWith('../')) {
+            // 是个相对引用
+            // 引用模块的完整路径
+            const importFullPath = path.join(filePathDir, importPath)
+            console.log(importFullPath)
+        } else {
+            // 绝对引用, 暂时认为一定引用了 node_modules 库
+            console.log('npm', importPath)
+        }
     }
 }
 
