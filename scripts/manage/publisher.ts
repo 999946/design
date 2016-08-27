@@ -22,7 +22,7 @@ const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
 
     filesPath.forEach(filePath=> {
         const source = fs.readFileSync(filePath).toString()
-        const regex = /import\s+[\sa-zA-Z{},]*\s+from/g
+        const regex = /import\s+[\sa-zA-Z{},]*from/g
 
         let match: any
         while ((match = regex.exec(source)) != null) {
