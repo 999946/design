@@ -3,6 +3,8 @@ import * as typings from './resource-card.type'
 import style from './resource-card.style'
 import {View, Image, Text} from 'react-native'
 
+import './preview/preview.component'
+
 export default class ResourceCard extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
