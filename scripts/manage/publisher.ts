@@ -16,9 +16,9 @@ import * as builder from './builder'
 /**
  * 根据组件信息, 寻找这个组件所有依赖
  */
-const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
+const getDependencies = (componentPath: string)=> {
     // 找到这个目录下所有 ts tsx 文件
-    const filesPath: Array<string> = execSync(`find ${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name} -name "*.ts" -not -path "${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}/${config.componentBuildPath}/*" -or -name "*.tsx" -not -path "${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}/${config.componentBuildPath}/*"`).toString().split('\n').filter(filePath=>filePath !== '')
+    const filesPath: Array<string> = execSync(`find ${componentPath} -name "*.ts" -not -path "${componentPath}/${config.componentBuildPath}/*" -or -name "*.tsx" -not -path "${componentPath}/${config.componentBuildPath}/*"`).toString().split('\n').filter(filePath=>filePath !== '')
 
     const importPaths: Map<string,string> = new Map()
 
@@ -152,7 +152,8 @@ export default (publishFullPaths: Array<string>)=> {
 
     // 遍历要发布的组件, 遍历其所有文件, 寻找其所有依赖
     publishComponentsInfo.forEach(componentInfo=> {
-        getDependencies(componentInfo)
+        const componentPath = `${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}`
+        getDependencies(componentPath)
     })
 
     // publishFullPaths.forEach(publishFullPath=> {
