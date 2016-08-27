@@ -35,7 +35,7 @@ const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
     })
 
     for (let importPath of importPaths.keys()) {
-        console.log(importPath, importPaths.get(importPath), path.join(importPaths.get(importPath), '../../'))
+        console.log(importPath, importPaths.get(importPath), path.relative(importPaths.get(importPath), '../../'))
     }
 }
 
