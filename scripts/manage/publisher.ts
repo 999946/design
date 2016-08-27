@@ -24,11 +24,12 @@ const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
 
     filesPath.forEach(filePath=> {
         const source = fs.readFileSync(filePath).toString()
-        const regex = /import\s+[a-zA-Z{},\s\*]*from?\s+\'([^']+)\'/g
+        const regex = /import\s+[a-zA-Z{},\s\*]*(from)?\s+\'([^']+)\'/g
 
         let match: any
         while ((match = regex.exec(source)) != null) {
             // 引用的路径
+            console.log(match)
             const importPath = match[1] as string
             importPaths.set(importPath, filePath)
         }
