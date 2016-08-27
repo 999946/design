@@ -47,8 +47,11 @@ const getDependencies = (componentPath: string)=> {
             // 引用模块的完整路径
             const importFullPath = path.join(filePathDir, importPath)
             const importFullPathSplit = importFullPath.split('/')
-            // 保证引用一定是 components 下的
-            console.log('components', importFullPathSplit[1], importFullPathSplit[2])
+
+            if (`${config.componentsPath}/${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== componentPath) {
+                // 保证引用一定是 components 下的
+                console.log('components', importFullPathSplit[1], importFullPathSplit[2])
+            }
         } else {
             // 绝对引用, 暂时认为一定引用了 node_modules 库
             console.log('npm', importPath)
