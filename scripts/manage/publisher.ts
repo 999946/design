@@ -158,7 +158,7 @@ export default (publishFullPaths: Array<string>)=> {
     builder.buildDTs()
 
     // 所有组件以及依赖信息
-    let allComponentsInfoWithDep: Array<Components.FullInfoWithDependence>
+    let allComponentsInfoWithDep: Array<Components.FullInfoWithDependence> = []
 
     // 获取所有组件以及依赖信息
     components.forEach(category=> {
@@ -167,7 +167,6 @@ export default (publishFullPaths: Array<string>)=> {
             createPackageJsonIfNotExist(component, category)
 
             // 把这个组件加入依赖信息
-            const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
             allComponentsInfoWithDep.push(getInfoWithDependencies(component, category))
         })
     })
