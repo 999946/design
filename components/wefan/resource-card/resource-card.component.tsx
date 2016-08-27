@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as typings from './resource-card.type'
 import style from './resource-card.style'
 import {View, Image, Text} from 'react-native'
-import aaa from '../navbar/navbar.component'
+import '../navbar/navbar.component'
 
 export default class ResourceCard extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
