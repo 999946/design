@@ -24,9 +24,17 @@ const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
         const source = fs.readFileSync(filePath).toString()
         const regex = /import\s+[a-zA-Z{},\s\*]*from\s+\'([^']+)\'/g
 
+        const importPaths: Map<string,boolean> = new Map()
+
         let match: any
         while ((match = regex.exec(source)) != null) {
-            console.log(match[1])
+            // 引用的路径
+            const importPath = match[1] as string
+            importPaths.set(importPath, true)
+        }
+
+        while(!importPaths.keys().next().done){
+            console.log(importPaths.keys().next().value)
         }
     })
 }
