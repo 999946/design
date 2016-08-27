@@ -13,6 +13,6 @@ export default (filePath: string, component: Components.ComponentConfig, categor
     if (name === '') return
 
     source = source.replace(/_namespace/g, name)
-    console.log(name)
-    //fs.writeFileSync(filePath, source)
+
+    fs.writeFileSync(filePath, source)
 }

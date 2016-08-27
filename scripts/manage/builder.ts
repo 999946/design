@@ -1,4 +1,5 @@
 import * as fs from 'fs'
+import * as path from 'path'
 import {execSync} from 'child_process'
 import components from '../../components'
 import * as babel from 'babel-core'
@@ -6,6 +7,31 @@ import * as sass from 'node-sass'
 import * as autoprefixer from 'autoprefixer'
 import * as postcss  from 'postcss'
 import htmlPathLoader from './utils/html-path-loader'
+import cssPathLoader from './utils/css-path-loader'
+
+/**
+ * babel 编译
+ */
+const parseBabel = (filePath: string, component: Components.ComponentConfig, category: Components.Category) => {
+    let jsFileContent = fs.readFileSync(filePath).toString()
+
+    // 忽略 @babel ignore 模块
+    if (jsFileContent.indexOf('@babel ignore') > -1) {
+        return
+    }
+
+    // scss 改为 css 后缀
+    jsFileContent = jsFileContent.replace(/\.scss/g, '.css')
+
+    // babel 编译
+    const babelResult = babel.transform(jsFileContent, {
+        extends: '.babelrc'
+    })
+
+    let resultCode = babelResult.code
+
+    fs.writeFileSync(filePath, resultCode)
+}
 
 /**
  * 根据后缀找文件
@@ -62,5 +88,13 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
 
     jsFilePaths.forEach(filePath=> {
         htmlPathLoader(filePath, component, category)
+        parseBabel(filePath, component, category)
+    })
+
+    // 找出 lib 目录下 scss 文件
+    let scssFilePaths = getFilesBySuffix('scss', libPath)
+    scssFilePaths.map(filePath=> {
+        cssPathLoader(filePath, component, category)
+        //parseSass(item, info)
     })
 }
