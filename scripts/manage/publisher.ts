@@ -35,7 +35,15 @@ const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
     })
 
     for (let importPath of importPaths.keys()) {
-        console.log(importPath, importPaths.get(importPath), path.relative(importPaths.get(importPath), '../../'))
+        // 获得文件路径
+        const filePath = importPaths.get(importPath)
+        // 获得文件所在文件夹路径
+        const filePathSplit = filePath.split('/')
+        filePathSplit.pop()
+        const filePathDir = filePathSplit.join('/')
+        // 引用模块的完整路径
+        const importFullPath = path.join(filePathDir, importPath)
+        console.log(importFullPath)
     }
 }
 
