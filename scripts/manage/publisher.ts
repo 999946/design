@@ -14,6 +14,13 @@ import * as semver from 'semver'
 import * as builder from './builder'
 
 /**
+ * 根据组件信息, 寻找这个组件所有依赖
+ */
+const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
+    console.log(componentInfo.category.name)
+}
+
+/**
  * 根据传进来的参数, 获取组件信息
  */
 const getComponentInfoByFullPath = (publishFullPath: string)=> {
@@ -88,14 +95,28 @@ export default (publishFullPaths: Array<string>)=> {
         return consoleLog.error('发布目录不能为空')
     }
 
-    // 先 tsc, 保证所有文件都由 typescript 编译了
+    // 生成 ts 编译和定义文件
     builder.buildDTs()
+
+    // 要发布组件信息的数组
+    const publishComponentsInfo: Array<Components.ComponentFullInfo> = []
 
     publishFullPaths.forEach(publishFullPath=> {
         let componentInfo = getComponentInfoByFullPath(publishFullPath)
 
-        // 编译到 lib 文件夹中
+        // 填充要发布的组件详细信息
+        publishComponentsInfo.push({
+            component: componentInfo.publishComponent,
+            category: componentInfo.publishCategory
+        })
+
+        // 编译 lib 目录
         builder.buildLib(componentInfo.publishComponent, componentInfo.publishCategory)
+    })
+
+    // 遍历要发布的组件, 遍历其所有文件, 寻找其所有依赖
+    publishComponentsInfo.forEach(componentInfo=> {
+        getDependencies(componentInfo)
     })
 
     // publishFullPaths.forEach(publishFullPath=> {

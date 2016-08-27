@@ -30,4 +30,9 @@ declare namespace Components {
          */
         chinese: string
     }
+
+    export interface ComponentFullInfo {
+        component: Components.ComponentConfig
+        category: Components.Category
+    }
 }

@@ -8,7 +8,6 @@ import * as autoprefixer from 'autoprefixer'
 import * as postcss  from 'postcss'
 import htmlPathLoader from './utils/html-path-loader'
 import cssPathLoader from './utils/css-path-loader'
-import {file} from "babel-types";
 
 /**
  * babel 编译
