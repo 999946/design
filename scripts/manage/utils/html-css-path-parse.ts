@@ -8,6 +8,9 @@ export default (filePath: string, component: Components.ComponentConfig, categor
     if (filePath.indexOf('/')) {
         // 如果没有 /, 说明是第一级
         return prefix
+    } else {
+        filePath = filePath.replace(/-/g, '_')
+        filePath = filePath.replace(/\//g, '-')
     }
 
     return filePath
