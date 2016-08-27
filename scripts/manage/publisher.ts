@@ -17,7 +17,7 @@ import * as builder from './builder'
  * 根据组件信息, 寻找这个组件所有依赖
  */
 const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
-    const filesPath = execSync(`find ${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name} -name "*.ts" -not -path "${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}/${config.componentBuildPath}/*" -or -name "*.tsx" -not -path "${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}/${config.componentBuildPath}/*"`).toString()
+    const filesPath = execSync(`find ${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name} -name "*.ts" -not -path "${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}/${config.componentBuildPath}/*" -or -name "*.tsx" -not -path "${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}/${config.componentBuildPath}/*"`).toString().split('\n')
     console.log(filesPath)
 }
 
