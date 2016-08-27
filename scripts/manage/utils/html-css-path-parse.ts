@@ -13,5 +13,5 @@ export default (filePath: string, component: Components.ComponentConfig, categor
         filePath = filePath.replace(/\//g, '-')
     }
 
-    return filePath
+    return prefix + '-' + filePath
 }
