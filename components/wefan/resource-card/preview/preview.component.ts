@@ -1,1 +1,3 @@
-export default const a = 5
+export default {
+    a: 1
+}
