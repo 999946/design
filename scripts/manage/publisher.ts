@@ -20,7 +20,7 @@ const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
     // 找到这个目录下所有 ts tsx 文件
     const filesPath: Array<string> = execSync(`find ${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name} -name "*.ts" -not -path "${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}/${config.componentBuildPath}/*" -or -name "*.tsx" -not -path "${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}/${config.componentBuildPath}/*"`).toString().split('\n').filter(filePath=>filePath !== '')
 
-    const importPaths: Map<string,boolean> = new Map()
+    const importPaths: Map<string,string> = new Map()
 
     filesPath.forEach(filePath=> {
         const source = fs.readFileSync(filePath).toString()
@@ -30,12 +30,12 @@ const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
         while ((match = regex.exec(source)) != null) {
             // 引用的路径
             const importPath = match[1] as string
-            importPaths.set(importPath, true)
+            importPaths.set(importPath, filePath)
         }
     })
 
     for (let importPath of importPaths.keys()) {
-        console.log(importPath)
+        console.log(importPath, importPaths.get(importPath))
     }
 }
 
