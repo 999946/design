@@ -33,8 +33,8 @@ const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
             importPaths.set(importPath, true)
         }
 
-        while(!importPaths.keys().next().done){
-            console.log(importPaths.keys().next().value)
+        for (let importPath of importPaths.keys()) {
+            console.log(importPath)
         }
     })
 }
