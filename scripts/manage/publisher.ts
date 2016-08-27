@@ -31,6 +31,7 @@ const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
             // 引用的路径
             const importPath = match[1] as string
             importPaths.set(importPath, true)
+            console.log(importPath)
         }
 
         for (let importPath of importPaths.keys()) {
