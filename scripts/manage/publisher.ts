@@ -13,6 +13,47 @@ import * as packageJsonManage from './utils/package-json'
 import * as semver from 'semver'
 import * as builder from './builder'
 
+// 所有组件以及依赖信息
+const allComponentsInfoWithDep: Array<Components.FullInfoWithDependence> = []
+
+// 所有直接依赖这次发布组件的组件 （含发布组件）
+const allPublishComponents: Array<{
+    componentInfoWithDep: Components.FullInfoWithDependence
+    publishLevel: Components.PublishLevel
+}> = []
+
+const getAllComponentsInfoWithDep = ()=> {
+    // 获取所有组件以及依赖信息
+    components.forEach(category=> {
+        category.components.forEach(component=> {
+            // 如果没有 package.json 就创建一个
+            createPackageJsonIfNotExist(component, category)
+
+            // 把这个组件加入依赖信息
+            allComponentsInfoWithDep.push(getInfoWithDependencies(component, category))
+        })
+    })
+}
+
+/**
+ * 将一个组件添加到这次依赖的发布组件
+ */
+const addComponentToPublishComponents = (component: Components.ComponentConfig, category: Components.Category, publishLevel: Components.PublishLevel)=> {
+    // 从全部组件信息中找到这个组件的全信息
+    const componentInfoWithDep = allComponentsInfoWithDep.find(componentInfoWithDep=>componentInfoWithDep.component.name === component.name && componentInfoWithDep.category.name === category.name)
+
+    // 从发布组件库中找到这个组件的信息
+    let publishComponentIndex = allPublishComponents.findIndex(publishComponent=>publishComponent.componentInfoWithDep.component.name === component.name && publishComponent.componentInfoWithDep.category.name === category.name)
+    console.log(publishComponentIndex)
+    // 如果这个组件已经在依赖中, 如果这次发布的版本号比之前的高, 更新
+
+
+    // allPublishComponents.push({
+    //     publishLevel,
+    //     componentInfoWithDep
+    // })
+}
+
 /**
  * 创建 package.json
  */
@@ -36,50 +77,6 @@ const createPackageJsonIfNotExist = (component: Components.ComponentConfig, cate
         } as Components.PackageJson
         packageJsonManage.writePackageJSON(componentPath, packageJson)
     }
-}
-
-/**
- * 初始化执行
- * ==============
- */
-
-// 所有组件以及依赖信息
-const allComponentsInfoWithDep: Array<Components.FullInfoWithDependence> = []
-
-// 获取所有组件以及依赖信息
-components.forEach(category=> {
-    category.components.forEach(component=> {
-        // 如果没有 package.json 就创建一个
-        createPackageJsonIfNotExist(component, category)
-
-        // 把这个组件加入依赖信息
-        allComponentsInfoWithDep.push(getInfoWithDependencies(component, category))
-    })
-})
-
-// 所有直接依赖这次发布组件的组件 （含发布组件）
-const allPublishComponents: Array<{
-    componentInfoWithDep: Components.FullInfoWithDependence
-    publishLevel: Components.PublishLevel
-}> = []
-
-/**
- * 将一个组件添加到这次依赖的发布组件
- */
-const addComponentToPublishComponents = (component: Components.ComponentConfig, category: Components.Category, publishLevel: Components.PublishLevel)=> {
-    // 从全部组件信息中找到这个组件的全信息
-    const componentInfoWithDep = allComponentsInfoWithDep.find(componentInfoWithDep=>componentInfoWithDep.component.name === component.name && componentInfoWithDep.category.name === category.name)
-
-    // 从发布组件库中找到这个组件的信息
-    let publishComponentIndex = allPublishComponents.findIndex(publishComponent=>publishComponent.componentInfoWithDep.component.name === component.name && publishComponent.componentInfoWithDep.category.name === category.name)
-    console.log(publishComponentIndex)
-    // 如果这个组件已经在依赖中, 如果这次发布的版本号比之前的高, 更新
-
-
-    // allPublishComponents.push({
-    //     publishLevel,
-    //     componentInfoWithDep
-    // })
 }
 
 /**
@@ -198,6 +195,8 @@ export default (publishFullPaths: Array<string>)=> {
     if (publishFullPaths.length === 0) {
         return consoleLog.error('发布目录不能为空')
     }
+
+    getAllComponentsInfoWithDep()
 
     // 生成 ts 编译和定义文件
     builder.buildDTs()
