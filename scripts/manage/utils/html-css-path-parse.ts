@@ -5,7 +5,7 @@ export default (filePath: string, component: Components.ComponentConfig, categor
     // 返回的前缀
     const prefix = `${category.prefix}-${component.name}`
 
-    if (filePath.indexOf('/')) {
+    if (!filePath.indexOf('/')) {
         // 如果没有 /, 说明是第一级
         return prefix
     } else {
