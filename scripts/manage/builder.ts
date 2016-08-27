@@ -1,7 +1,11 @@
 import * as fs from 'fs'
 import {execSync} from 'child_process'
 import components from '../../components'
-//import htmlPathLoader from './utils/html-path-loader'
+import * as babel from 'babel-core'
+import * as sass from 'node-sass'
+import * as autoprefixer from 'autoprefixer'
+import * as postcss  from 'postcss'
+import htmlPathLoader from './utils/html-path-loader'
 
 /**
  * 根据后缀找文件
@@ -53,9 +57,10 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
     // 将编译后的文件移到当前 lib 目录下
     execSync(`mv built-components/${category.name}/${component.name} ${libPath}`)
 
+    // 找出 lib 目录下的 js 文件
     let jsFilePaths = getFilesBySuffix('js', libPath)
-    console.log(jsFilePaths)
+
     jsFilePaths.forEach(filePath=> {
-        //htmlPathLoader(filePath)
+        htmlPathLoader(filePath, component, category)
     })
 }

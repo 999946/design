@@ -8,6 +8,16 @@ declare module 'koa-static-cache' {
     export = api
 }
 
+declare module 'autoprefixer' {
+    const api: any
+    export = api
+}
+
+declare module 'postcss' {
+    const api: any
+    export = api
+}
+
 declare module 'format-json' {
     const api: {
         plain: Function
