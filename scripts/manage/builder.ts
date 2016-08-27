@@ -25,7 +25,7 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
 
     // babel 编译
     const babelResult = babel.transform(jsFileContent, {
-        extends: '../../.babelrc'
+        extends: '../../../../.babelrc'
     })
 
     let resultCode = babelResult.code
