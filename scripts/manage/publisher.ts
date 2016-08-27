@@ -22,6 +22,12 @@ const getDependencies = (componentPath: string)=> {
 
     const importPaths: Map<string,string> = new Map()
 
+    // 当前模块的依赖文件
+    let deps: Components.Dependence = {
+        packageJson: packageJsonManage.getPackageJSON(componentPath),
+        dependence: []
+    }
+
     filesPath.forEach(filePath=> {
         const source = fs.readFileSync(filePath).toString()
         const regex = /import\s+[a-zA-Z{},\s\*]*(from)?\s?\'([^']+)\'/g
@@ -50,13 +56,22 @@ const getDependencies = (componentPath: string)=> {
 
             if (`${config.componentsPath}/${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== componentPath) {
                 // 保证引用一定是 components 下的
-                console.log('components', importFullPathSplit[1], importFullPathSplit[2])
+                deps.dependence.push({
+                    type: 'component',
+                    name: importFullPathSplit[2],
+                    category: importFullPathSplit[1]
+                })
             }
         } else {
             // 绝对引用, 暂时认为一定引用了 node_modules 库
-            console.log('npm', importPath)
+            deps.dependence.push({
+                type: 'npm',
+                name: importPath
+            })
         }
     }
+
+    return deps
 }
 
 /**
@@ -98,7 +113,7 @@ const getComponentInfoByFullPath = (publishFullPath: string)=> {
     }
 
     // package.json 对象
-    let packageJson: packageJsonManage.PackageJson
+    let packageJson: Components.PackageJson
 
     // 如果没有 package.json, 就创建一个
     // if (!fs.existsSync(`${publishPath}/package.json`)) {
@@ -153,10 +168,24 @@ export default (publishFullPaths: Array<string>)=> {
         builder.buildLib(componentInfo.publishComponent, componentInfo.publishCategory)
     })
 
+    // 所有组件的依赖信息
+    let allComponentsDep: {
+        [name: string]: Components.Dependence
+    } = {}
+
+    // 获取所有组件的依赖信息
+    components.forEach(category=> {
+        category.components.forEach(component=> {
+            const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
+            allComponentsDep[`${category.name}/${component.name}`] = getDependencies(componentPath)
+        })
+    })
+
+    console.log(allComponentsDep)
+
     // 遍历要发布的组件, 遍历其所有文件, 寻找其所有依赖
     publishComponentsInfo.forEach(componentInfo=> {
-        const componentPath = `${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}`
-        getDependencies(componentPath)
+
     })
 
     // publishFullPaths.forEach(publishFullPath=> {

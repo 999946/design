@@ -35,4 +35,41 @@ declare namespace Components {
         component: Components.ComponentConfig
         category: Components.Category
     }
+
+    /**
+     * 组件的依赖关系
+     */
+    export interface Dependence {
+        // 当前组件的 packageJson
+        packageJson: PackageJson
+        dependence: Array<{
+            type: 'npm'|'component'
+            name: string
+            // type = component 时才有, 表示属于哪个分类
+            category?: string
+        }>
+    }
+
+    export interface PackageJson {
+        name: string
+        version: string
+        description?: string
+        main: string
+        scripts?: {
+            [name: string]: string
+        }
+        repository: {
+            type: 'git' | 'svn'
+            url: string
+        }
+        keywords?: Array<string>
+        author: string
+        license: string
+        devDependencies?: {
+            [module: string]: string
+        }
+        dependencies?: {
+            [module: string]: string
+        }
+    }
 }
