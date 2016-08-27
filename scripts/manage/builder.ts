@@ -8,6 +8,7 @@ import * as autoprefixer from 'autoprefixer'
 import * as postcss  from 'postcss'
 import htmlPathLoader from './utils/html-path-loader'
 import cssPathLoader from './utils/css-path-loader'
+import {file} from "babel-types";
 
 /**
  * babel 编译
@@ -25,12 +26,32 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
 
     // babel 编译
     const babelResult = babel.transform(jsFileContent, {
-        extends: path.join(__dirname,'../../../.babelrc')
+        extends: path.join(__dirname, '../../../.babelrc')
     })
 
     let resultCode = babelResult.code
 
     fs.writeFileSync(filePath, resultCode)
+}
+
+/**
+ * scss 编译
+ */
+const parseSass = (filePath: string, component: Components.ComponentConfig, category: Components.Category) => {
+    let cssPath = filePath.replace('.scss', '.css')
+
+    // scss 编译
+    let result = sass.renderSync({
+        file: filePath
+    }).css.toString()
+
+    // autoprefixer 插件处理
+    const postResult = postcss([autoprefixer]).process(result).css
+
+    // 移除 scss 后缀的文件
+    execSync(`rm ${filePath}`)
+
+    fs.writeFileSync(cssPath, postResult)
 }
 
 /**
@@ -95,6 +116,6 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
     let scssFilePaths = getFilesBySuffix('scss', libPath)
     scssFilePaths.map(filePath=> {
         cssPathLoader(filePath, component, category)
-        //parseSass(item, info)
+        parseSass(filePath, component, category)
     })
 }
