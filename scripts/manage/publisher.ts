@@ -179,8 +179,11 @@ export default (publishFullPaths: Array<string>)=> {
         builder.buildLib(componentInfo.publishComponent, componentInfo.publishCategory)
 
         // 寻找依赖这个组件的组件
+        console.log('要发布的组件是', componentInfo.publishComponent.name)
         allComponentsInfoWithDep.forEach(componentInfoWithDep=> {
-            console.log(JSON.stringify(componentInfoWithDep))
+            if (componentInfoWithDep.category.name === componentInfo.publishCategory.name && componentInfoWithDep.component.name === componentInfo.publishComponent.name) {
+                console.log('他依赖了', componentInfoWithDep.component.name)
+            }
         })
     })
 
