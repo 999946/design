@@ -29,8 +29,7 @@ const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
         let match: any
         while ((match = regex.exec(source)) != null) {
             // 引用的路径
-            console.log(match)
-            const importPath = match[1] as string
+            const importPath = match[2] as string
             importPaths.set(importPath, filePath)
         }
     })
