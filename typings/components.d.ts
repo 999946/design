@@ -39,7 +39,7 @@ declare namespace Components {
     /**
      * 组件的依赖关系
      */
-    export interface Dependence {
+    export interface FullInfoWithDependence extends ComponentFullInfo {
         // 当前组件的 packageJson
         packageJson: PackageJson
         dependence: Array<{

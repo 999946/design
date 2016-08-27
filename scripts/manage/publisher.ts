@@ -14,16 +14,44 @@ import * as semver from 'semver'
 import * as builder from './builder'
 
 /**
+ * 创建 package.json
+ */
+const createPackageJsonIfNotExist = (component: Components.ComponentConfig, category: Components.Category)=> {
+    const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
+    // 如果当前组件没有 package.json, 就创建一个
+    if (!fs.existsSync(`${componentPath}/package.json`)) {
+        consoleLog.warn(`${componentPath} 没有 package.json, 将自动生成`)
+        const packageJson = {
+            name: `${category.prefix}-${component.name}`,
+            version: '0.0.0',
+            description: component.chinese,
+            main: `${config.componentBuildPath}/${component.name}.component.js`,
+            repository: {
+                type: 'git',
+                url: category.isPrivate ? `${config.privateGit}/${category.name}-${component.name}.git` : `${config.publicGit}/${category.name}-${component.name}.git`
+            },
+            keywords: [component.name],
+            author: config.author,
+            license: 'ISC'
+        }
+    }
+}
+
+/**
  * 根据组件信息, 寻找这个组件所有依赖
  */
-const getDependencies = (componentPath: string)=> {
+const getInfoWithDependencies = (component: Components.ComponentConfig, category: Components.Category)=> {
+    const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
+
     // 找到这个目录下所有 ts tsx 文件
     const filesPath: Array<string> = execSync(`find ${componentPath} -name "*.ts" -not -path "${componentPath}/${config.componentBuildPath}/*" -or -name "*.tsx" -not -path "${componentPath}/${config.componentBuildPath}/*"`).toString().split('\n').filter(filePath=>filePath !== '')
 
     const importPaths: Map<string,string> = new Map()
 
     // 当前模块的依赖文件
-    let deps: Components.Dependence = {
+    let deps: Components.FullInfoWithDependence = {
+        component,
+        category,
         packageJson: packageJsonManage.getPackageJSON(componentPath),
         dependence: []
     }
@@ -112,31 +140,8 @@ const getComponentInfoByFullPath = (publishFullPath: string)=> {
         consoleLog.error(`${publishPath} 组件目录不存在`)
     }
 
-    // package.json 对象
-    let packageJson: Components.PackageJson
-
-    // 如果没有 package.json, 就创建一个
-    // if (!fs.existsSync(`${publishPath}/package.json`)) {
-    //     consoleLog.warn(`${publishPath} 没有 package.json, 将自动生成`)
-    //     packageJson = {
-    //         name: `${publishCategory.prefix}-${publishComponent.name}`,
-    //         version: '0.0.0',
-    //         description: publishComponent.chinese,
-    //         main: `${config.componentBuildPath}/${publishComponent.name}.component.js`,
-    //         repository: {
-    //             type: 'git',
-    //             url: publishCategory.isPrivate ? `${config.privateGit}/${publishCategoryName}-${publishComponent.name}.git` : `${config.publicGit}/${publishCategoryName}-${publishComponent.name}.git`
-    //         },
-    //         keywords: [publishComponent.name],
-    //         author: config.author,
-    //         license: 'ISC'
-    //     }
-    // } else {
-    //     packageJson = packageJsonManage.getPackageJSON(publishPath)
-    // }
-
     return {
-        publishLevel, publishCategory, publishComponent, publishPath, packageJson
+        publishLevel, publishCategory, publishComponent, publishPath
     }
 }
 
@@ -152,40 +157,32 @@ export default (publishFullPaths: Array<string>)=> {
     // 生成 ts 编译和定义文件
     builder.buildDTs()
 
-    // 要发布组件信息的数组
-    const publishComponentsInfo: Array<Components.ComponentFullInfo> = []
+    // 所有组件以及依赖信息
+    let allComponentsInfoWithDep: Array<Components.FullInfoWithDependence>
 
+    // 获取所有组件以及依赖信息
+    components.forEach(category=> {
+        category.components.forEach(component=> {
+            // 如果没有 package.json 就创建一个
+            createPackageJsonIfNotExist(component, category)
+
+            // 把这个组件加入依赖信息
+            const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
+            allComponentsInfoWithDep.push(getInfoWithDependencies(component, category))
+        })
+    })
+
+    // 遍历要发布的组件
     publishFullPaths.forEach(publishFullPath=> {
         let componentInfo = getComponentInfoByFullPath(publishFullPath)
 
-        // 填充要发布的组件详细信息
-        publishComponentsInfo.push({
-            component: componentInfo.publishComponent,
-            category: componentInfo.publishCategory
-        })
-
         // 编译 lib 目录
         builder.buildLib(componentInfo.publishComponent, componentInfo.publishCategory)
-    })
 
-    // 所有组件的依赖信息
-    let allComponentsDep: {
-        [name: string]: Components.Dependence
-    } = {}
-
-    // 获取所有组件的依赖信息
-    components.forEach(category=> {
-        category.components.forEach(component=> {
-            const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
-            allComponentsDep[`${category.name}/${component.name}`] = getDependencies(componentPath)
+        // 寻找依赖这个组件的组件
+        allComponentsInfoWithDep.forEach(componentInfoWithDep=> {
+            console.log(JSON.stringify(componentInfoWithDep))
         })
-    })
-
-    console.log(allComponentsDep)
-
-    // 遍历要发布的组件, 遍历其所有文件, 寻找其所有依赖
-    publishComponentsInfo.forEach(componentInfo=> {
-
     })
 
     // publishFullPaths.forEach(publishFullPath=> {
