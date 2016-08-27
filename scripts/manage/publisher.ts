@@ -26,7 +26,7 @@ const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
 
         let match: any
         while ((match = regex.exec(source)) != null) {
-            console.log(match)
+            console.log(match[0])
         }
     })
 }
