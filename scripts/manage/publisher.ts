@@ -18,10 +18,10 @@ import * as builder from './builder'
  */
 const getDependencies = (componentInfo: Components.ComponentFullInfo)=> {
     // 找到这个目录下所有 ts tsx 文件
-    const filesPath:Array<string> = execSync(`find ${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name} -name "*.ts" -not -path "${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}/${config.componentBuildPath}/*" -or -name "*.tsx" -not -path "${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}/${config.componentBuildPath}/*"`).toString().split('\n').filter(filePath=>filePath !== '')
+    const filesPath: Array<string> = execSync(`find ${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name} -name "*.ts" -not -path "${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}/${config.componentBuildPath}/*" -or -name "*.tsx" -not -path "${config.componentsPath}/${componentInfo.category.name}/${componentInfo.component.name}/${config.componentBuildPath}/*"`).toString().split('\n').filter(filePath=>filePath !== '')
 
-    filesPath.forEach(filePath=>{
-        const source = fs.readFileSync(filePath)
+    filesPath.forEach(filePath=> {
+        const source = fs.readFileSync(filePath).toString()
         console.log(source)
     })
 }
