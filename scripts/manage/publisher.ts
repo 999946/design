@@ -13,6 +13,36 @@ import * as packageJsonManage from './utils/package-json'
 import * as semver from 'semver'
 import * as builder from './builder'
 
+/**
+ * 创建 package.json
+ */
+const createPackageJsonIfNotExist = (component: Components.ComponentConfig, category: Components.Category)=> {
+    const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
+    // 如果当前组件没有 package.json, 就创建一个
+    if (!fs.existsSync(`${componentPath}/package.json`)) {
+        consoleLog.warn(`${componentPath} 没有 package.json, 将自动生成`)
+        const packageJson = {
+            name: `${category.prefix}-${component.name}`,
+            version: '0.0.0',
+            description: component.chinese,
+            main: `${config.componentBuildPath}/${component.name}.component.js`,
+            repository: {
+                type: 'git',
+                url: category.isPrivate ? `${config.privateGit}/${category.name}-${component.name}.git` : `${config.publicGit}/${category.name}-${component.name}.git`
+            },
+            keywords: [component.name],
+            author: config.author,
+            license: 'ISC'
+        } as Components.PackageJson
+        packageJsonManage.writePackageJSON(componentPath, packageJson)
+    }
+}
+
+/**
+ * 初始化执行
+ * ==============
+ */
+
 // 所有组件以及依赖信息
 const allComponentsInfoWithDep: Array<Components.FullInfoWithDependence> = []
 
@@ -50,31 +80,6 @@ const addComponentToPublishComponents = (component: Components.ComponentConfig, 
     //     publishLevel,
     //     componentInfoWithDep
     // })
-}
-
-/**
- * 创建 package.json
- */
-const createPackageJsonIfNotExist = (component: Components.ComponentConfig, category: Components.Category)=> {
-    const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
-    // 如果当前组件没有 package.json, 就创建一个
-    if (!fs.existsSync(`${componentPath}/package.json`)) {
-        consoleLog.warn(`${componentPath} 没有 package.json, 将自动生成`)
-        const packageJson = {
-            name: `${category.prefix}-${component.name}`,
-            version: '0.0.0',
-            description: component.chinese,
-            main: `${config.componentBuildPath}/${component.name}.component.js`,
-            repository: {
-                type: 'git',
-                url: category.isPrivate ? `${config.privateGit}/${category.name}-${component.name}.git` : `${config.publicGit}/${category.name}-${component.name}.git`
-            },
-            keywords: [component.name],
-            author: config.author,
-            license: 'ISC'
-        } as Components.PackageJson
-        packageJsonManage.writePackageJSON(componentPath, packageJson)
-    }
 }
 
 /**
