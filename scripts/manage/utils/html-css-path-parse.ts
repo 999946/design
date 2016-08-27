@@ -9,6 +9,9 @@ export default (filePath: string, component: Components.ComponentConfig, categor
         // 如果没有 /, 说明是第一级
         return prefix
     } else {
+        const filePathSplit = filePath.split('/')
+        filePathSplit.pop()
+        filePath = filePathSplit.join('/')
         filePath = filePath.replace(/-/g, '_')
         filePath = filePath.replace(/\//g, '-')
     }
