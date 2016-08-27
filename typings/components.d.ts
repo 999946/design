@@ -72,4 +72,9 @@ declare namespace Components {
             [module: string]: string
         }
     }
+
+    /**
+     * 发布级别字符串
+     */
+    export type PublishLevel = 'major' | 'minor' | 'patch'
 }

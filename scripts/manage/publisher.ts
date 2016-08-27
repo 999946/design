@@ -13,6 +13,45 @@ import * as packageJsonManage from './utils/package-json'
 import * as semver from 'semver'
 import * as builder from './builder'
 
+// 所有组件以及依赖信息
+const allComponentsInfoWithDep: Array<Components.FullInfoWithDependence> = []
+
+// 获取所有组件以及依赖信息
+components.forEach(category=> {
+    category.components.forEach(component=> {
+        // 如果没有 package.json 就创建一个
+        createPackageJsonIfNotExist(component, category)
+
+        // 把这个组件加入依赖信息
+        allComponentsInfoWithDep.push(getInfoWithDependencies(component, category))
+    })
+})
+
+// 所有直接依赖这次发布组件的组件 （含发布组件）
+const allPublishComponents: Array<{
+    componentInfoWithDep: Components.FullInfoWithDependence
+    publishLevel: Components.PublishLevel
+}> = []
+
+/**
+ * 将一个组件添加到这次依赖的发布组件
+ */
+const addComponentToPublishComponents = (component: Components.ComponentConfig, category: Components.Category, publishLevel: Components.PublishLevel)=> {
+    // 从全部组件信息中找到这个组件的全信息
+    const componentInfoWithDep = allComponentsInfoWithDep.find(componentInfoWithDep=>componentInfoWithDep.component.name === component.name && componentInfoWithDep.category.name === category.name)
+
+    // 从发布组件库中找到这个组件的信息
+    let publishComponentIndex = allPublishComponents.findIndex(publishComponent=>publishComponent.componentInfoWithDep.component.name === component.name && publishComponent.componentInfoWithDep.category.name === category.name)
+    console.log(publishComponentIndex)
+    // 如果这个组件已经在依赖中, 如果这次发布的版本号比之前的高, 更新
+
+
+    // allPublishComponents.push({
+    //     publishLevel,
+    //     componentInfoWithDep
+    // })
+}
+
 /**
  * 创建 package.json
  */
@@ -114,7 +153,7 @@ const getComponentInfoByFullPath = (publishFullPath: string)=> {
     // 发布目录
     const publishSecondPath = publishFullPathSplit[0]
     // 发布级别
-    const publishLevel = publishFullPathSplit[1]
+    const publishLevel = publishFullPathSplit[1] as Components.PublishLevel
 
     if (publishLevel !== 'major' && publishLevel !== 'minor' && publishLevel !== 'patch') {
         consoleLog.error('发布级别可选项: major | minor | patch')
@@ -158,26 +197,15 @@ export default (publishFullPaths: Array<string>)=> {
     // 生成 ts 编译和定义文件
     builder.buildDTs()
 
-    // 所有组件以及依赖信息
-    let allComponentsInfoWithDep: Array<Components.FullInfoWithDependence> = []
-
-    // 获取所有组件以及依赖信息
-    components.forEach(category=> {
-        category.components.forEach(component=> {
-            // 如果没有 package.json 就创建一个
-            createPackageJsonIfNotExist(component, category)
-
-            // 把这个组件加入依赖信息
-            allComponentsInfoWithDep.push(getInfoWithDependencies(component, category))
-        })
-    })
-
     // 遍历要发布的组件
     publishFullPaths.forEach(publishFullPath=> {
         let componentInfo = getComponentInfoByFullPath(publishFullPath)
 
         // 编译 lib 目录
         builder.buildLib(componentInfo.publishComponent, componentInfo.publishCategory)
+
+        // 将其添加到待发布组件中
+        addComponentToPublishComponents(componentInfo.publishComponent, componentInfo.publishCategory, componentInfo.publishLevel)
 
         if (componentInfo.publishLevel === 'major') {
             // 如果发布的是主版本, 所有对其直接依赖的组件都要更新 patch
@@ -188,7 +216,6 @@ export default (publishFullPaths: Array<string>)=> {
                         // 这个组件依赖了当前要发布的组件, 而且这个发布的还是主版本号, 因此给它发布一个 minor 版本
                         // 不需要更新其它依赖, package.json 更新依赖只有要发布的组件才会享受, 其它的又不发布, 不需要更新依赖, 保持版本号更新发个新版本就行了, 他自己的依赖会在发布他的时候修正
                         componentInfoWithDep.packageJson.version = semver.inc(componentInfoWithDep.packageJson.version, 'minor')
-                        console.log(componentInfoWithDep.packageJson.version)
                     }
                 })
             })
