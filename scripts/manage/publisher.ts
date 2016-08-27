@@ -33,7 +33,7 @@ const createPackageJsonIfNotExist = (component: Components.ComponentConfig, cate
             keywords: [component.name],
             author: config.author,
             license: 'ISC'
-        }
+        } as Components.PackageJson
     }
 }
 
@@ -181,9 +181,11 @@ export default (publishFullPaths: Array<string>)=> {
         // 寻找依赖这个组件的组件
         console.log('要发布的组件是', componentInfo.publishComponent.name)
         allComponentsInfoWithDep.forEach(componentInfoWithDep=> {
-            if (componentInfoWithDep.category.name === componentInfo.publishCategory.name && componentInfoWithDep.component.name === componentInfo.publishComponent.name) {
-                console.log('他依赖了', componentInfoWithDep.component.name)
-            }
+            componentInfoWithDep.dependence.forEach(dep=> {
+                if (dep.type === 'component' && dep.category === componentInfo.publishCategory.name && dep.name === componentInfo.publishComponent.name) {
+                    console.log(componentInfoWithDep.component.name, '依赖了他')
+                }
+            })
         })
     })
 
