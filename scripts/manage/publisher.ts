@@ -332,13 +332,13 @@ const startPublish = ()=> {
                         peerDependences['react'] = `^0.14.0 || ^15.0.0`
                         break
                     case 'react-native':
-                        peerDependences['react'] = `^0.31.0`
+                        peerDependences['react-native'] = `^0.31.0`
                         break
                     case 'react-dom':
                         peerDependences['react-dom'] = `^0.14.0 || ^15.0.0`
                         break
                     case 'react-router':
-                        peerDependences['react'] = `^2.7.0`
+                        peerDependences['react-router'] = `^2.7.0`
                         break
                     default:
                         if (!rootPackageJson.dependencies[dependence.name]) {
