@@ -451,6 +451,10 @@ export default (publishFullPaths: Array<string>)=> {
                 }
             })
 
+            // 这时候已经有组件的 package.json 修改了, 根目录提交
+            execSync(`git add -A`)
+            execSync(`git commit -m "发布组件"`)
+
             // 根目录提交
             execSync(`git push`)
         }
