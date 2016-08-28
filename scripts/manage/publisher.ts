@@ -13,6 +13,7 @@ import * as packageJsonManage from './utils/package-json'
 import * as semver from 'semver'
 import * as builder from './builder'
 import showPublishTable from './utils/publish-table'
+import * as formatJson from 'format-json'
 
 // 所有组件以及依赖信息
 const allComponentsInfoWithDep: Array<Components.FullInfoWithDependence> = []
@@ -67,7 +68,7 @@ const addComponentToPublishComponents = (component: Components.ComponentConfig, 
         }
     } else {
         // 不存在直接添加
-        let userPublishLevel = 'empty'
+        let userPublishLevel: Components.PublishLevel = 'empty'
         if (isUserOperate) {
             userPublishLevel = publishLevel
         }
@@ -284,6 +285,9 @@ export default (publishFullPaths: Array<string>)=> {
     allPublishComponents.forEach(publishComponent=> {
 
     })
+
+    // 把这次发布的依赖分析写入到 publish.json 中
+    fs.writeFileSync('publish.json', formatJson.plain(allPublishComponents))
 
 
     // publishFullPaths.forEach(publishFullPath=> {
