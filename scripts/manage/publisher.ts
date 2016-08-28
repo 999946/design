@@ -444,6 +444,9 @@ export default (publishFullPaths: Array<string>)=> {
         if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
             const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
 
+            // 发布的版本号
+            const publishVersionCode = semver.inc(publishInfo.componentInfoWithDep.packageJson.version, publishInfo.publishLevel)
+
             // push master, 为了提交这次修改
             execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
 
