@@ -343,9 +343,10 @@ export default (publishFullPaths: Array<string>)=> {
         }
     })
 
-    // 添加未依赖的组件到模拟发布队列
-    pushNoDepPublishComponents()
-    pushNoDepPublishComponents()
+    // 添加未依赖的组件到模拟发布队列, 直到队列长度与发布组件长度相等
+    while (simulations.length !== allPublishComponents.length) {
+        pushNoDepPublishComponents()
+    }
 
     showPublishTable(allPublishComponents)
 
