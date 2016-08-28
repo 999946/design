@@ -364,7 +364,9 @@ export default (publishFullPaths: Array<string>)=> {
         type: 'boolean',
         required: true
     }], (err: Error, result: any) => {
-        console.log(result.publish)
+        if (result.publish){
+            console.log(123)
+        }
     })
 
     // publishFullPaths.forEach(publishFullPath=> {
