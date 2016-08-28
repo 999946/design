@@ -26,6 +26,9 @@ const allPublishComponents: Array<Components.PublishInfo> = []
 // 模拟发布的组件数组
 const simulations: Array<Components.PublishInfo> = []
 
+// 当前根项目 package.json
+const rootPackageJson = packageJsonManage.getPackageJSON('./')
+
 /**
  * 初始化所有组件信息
  */
@@ -305,6 +308,41 @@ const getComponentInfoByFullPath = (publishFullPath: string)=> {
     }
 }
 
+/**
+ * 读取发布列表逐一发布
+ */
+const startPublish = ()=> {
+    simulations.forEach(publishInfo=> {
+        // 更新自己的依赖
+        let dependences: {
+            [name: string]: string
+        } = {}
+        publishInfo.componentInfoWithDep.dependence.forEach(dependence=> {
+            if (dependence.type === 'npm') {
+                if (!rootPackageJson.dependencies[dependence.name]) {
+                    consoleLog.error(`${dependence.name} 的依赖没有在根项目中安装`)
+                }
+                // npm 的依赖用根目录的版本号
+                dependences[dependence.name] = rootPackageJson.dependencies[dependence.name]
+            } else {
+                // 组件的依赖, 用其发布后的版本号
+                // 优先在模拟发布队列中寻找, 找不到再从整个组件中找
+                const dependenceFullInfo = simulations.find(simulation=>simulation.componentInfoWithDep.category.name === dependence.category && simulation.componentInfoWithDep.component.name === dependence.name)
+                if (dependenceFullInfo) {
+                    // 在发布队列找到了, 用其发布后的版本号
+                    dependences[`${dependenceFullInfo.componentInfoWithDep.category.prefix}-${dependenceFullInfo.componentInfoWithDep.component.name}`] = `^${semver.inc(dependenceFullInfo.componentInfoWithDep.packageJson.version, dependenceFullInfo.publishLevel)}`
+                } else {
+                    // 发布队列没找到, 从完整组件中寻找
+                    const dependenceInfo = allComponentsInfoWithDep.find(componentInfo=>componentInfo.category.name === dependence.category && componentInfo.component.name === dependence.name)
+                    dependences[`${dependenceInfo.category.prefix}-${dependenceInfo.component.name}`] = `^${dependenceInfo.packageJson.version}`
+                }
+            }
+        })
+
+        console.log(dependences)
+    })
+}
+
 export default (publishFullPaths: Array<string>)=> {
     if (hasChange('./')) {
         return consoleLog.error('不能有未提交修改')
@@ -364,8 +402,8 @@ export default (publishFullPaths: Array<string>)=> {
         type: 'boolean',
         required: true
     }], (err: Error, result: any) => {
-        if (result.publish){
-            console.log(123)
+        if (result.publish) {
+            startPublish()
         }
     })
 
