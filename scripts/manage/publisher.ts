@@ -313,7 +313,7 @@ const getComponentInfoByFullPath = (publishFullPath: string)=> {
 /**
  * 读取发布列表逐一发布
  */
-const startPublish = ()=> {
+const writeNowPublishToPackageJson = ()=> {
     simulations.forEach(publishInfo=> {
         // 更新自己的依赖
         let dependences: {
@@ -430,43 +430,33 @@ export default (publishFullPaths: Array<string>)=> {
         required: true
     }], (err: Error, result: any) => {
         if (result.publish) {
-            startPublish()
+            // 根据发布信息, 写入 package.json
+            writeNowPublishToPackageJson()
         }
     })
 
-    // publishFullPaths.forEach(publishFullPath=> {
-    //     let {publishLevel, publishCategory, publishCategoryName, publishComponent, publishPath, packageJson} = getComponentInfoByFullPath(publishFullPath)
-    //
-    //     // 根据用户输入, 发个新版本
-    //     packageJson.version = semver.inc(packageJson.version, publishLevel)
-    //
-    //     // 写 package.json
-    //     packageJsonManage.writePackageJSON(publishPath, packageJson)
-    // })
-
-    // TODO 第一次遍历要发布的文件, 编译这些文件
-    // TODO 先把所有要编译的文件存为数组, 获取其完整依赖树, 再根据依赖树更新组件状态, 返回所有更新版本的组件, 再提交
-
     // 根项目 commit
-    // execSync(`git add -A`)
-    // execSync(`git commit -m "更新组件版本 ${publishFullPaths.toString()}"`)
-    //
-    // // 再循环一遍, 这次从根目录已经提交了
-    // publishFullPaths.forEach(publishFullPath=> {
-    //     let {publishLevel, publishCategory, publishCategoryName, publishComponent, publishPath, packageJson} = getComponentInfoByFullPath(publishFullPath)
-    //     if (publishCategory.isPrivate) { // 私有发布
-    //         // 打 tag
-    //         execSync(`cd ${publishPath}; git tag v${packageJson.version}`)
-    //
-    //         // push 分支
-    //         execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishCategoryName}-${publishComponent.name}.git v${packageJson.version}`)
-    //         // push master
-    //         execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishCategoryName}-${publishComponent.name}.git master`)
-    //     } else {  // 公有发布
-    //
-    //     }
-    // })
-    //
-    // // 根目录提交
-    // execSync(`git push`)
+    execSync(`git add -A`)
+    execSync(`git commit -m "发布组件"`)
+
+    // 再循环一遍, 这次从根目录已经提交了
+    simulations.forEach(publishInfo=> {
+        if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
+            const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
+
+            // push master, 为了提交这次修改
+            execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name.name}.git master`)
+
+            // 打 tag
+            execSync(`cd ${publishPath}; git tag v${publishInfo.componentInfoWithDep.packageJson.version}`)
+
+            // push 分支
+            execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git v${publishInfo.componentInfoWithDep.packageJson.version}`)
+        } else { // TODO 公有发布
+
+        }
+    })
+
+    // 根目录提交
+    execSync(`git push`)
 }
