@@ -42,6 +42,7 @@ const getAllComponentsInfoWithDep = ()=> {
  * 将一个组件添加到这次依赖的发布组件
  */
 const addComponentToPublishComponents = (component: Components.ComponentConfig, category: Components.Category, publishLevel: Components.PublishLevel)=> {
+    console.log(11111111, publishLevel)
     // 从全部组件信息中找到这个组件的全信息
     const componentInfoWithDep = allComponentsInfoWithDep.find(componentInfoWithDep=>componentInfoWithDep.component.name === component.name && componentInfoWithDep.category.name === category.name)
 
