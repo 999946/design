@@ -17,6 +17,7 @@ export default (allPublishComponents: Array<Components.PublishInfo>)=> {
         borderStyle: 1,
         borderColor: 'blue',
         paddingBottom: 0,
+        paddingTop: 0,
         headerAlign: 'center',
         align: 'center',
         color: 'white'
