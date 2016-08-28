@@ -4,8 +4,8 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "navbar",
-        "chinese": "导航条"
+        "name": "resource-card",
+        "chinese": "资源卡片"
       },
       "category": {
         "name": "wefan",
@@ -23,20 +23,22 @@
         ]
       },
       "packageJson": {
-        "name": "nt-wefan-navbar",
-        "version": "0.0.8",
-        "description": "导航条",
-        "main": "lib/navbar.component.js",
+        "name": "nt-wefan-resource-card",
+        "version": "0.0.3",
+        "description": "资源卡片",
+        "main": "lib/resource-card.component.js",
         "repository": {
           "type": "git",
-          "url": "http://gitlab.baidu.com/tb-next-component/wefan-navbar.git"
+          "url": "http://gitlab.baidu.com/tb-next-component/wefan-resource-card.git"
         },
         "keywords": [
-          "navbar"
+          "resource-card"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {},
+        "dependencies": {
+          "nt-wefan-navbar": "^1.0.0"
+        },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
           "react-native": "^0.31.0"
@@ -50,6 +52,11 @@
         {
           "type": "npm",
           "name": "react-native"
+        },
+        {
+          "type": "component",
+          "name": "navbar",
+          "category": "wefan"
         }
       ]
     },
