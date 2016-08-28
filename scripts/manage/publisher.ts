@@ -442,7 +442,7 @@ export default (publishFullPaths: Array<string>)=> {
                     const publishVersionCode = semver.inc(publishInfo.componentInfoWithDep.packageJson.version, publishInfo.publishLevel)
 
                     // push master, 为了提交这次修改
-                    execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
+                    // execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
 
                     // 打 tag
                     execSync(`cd ${publishPath}; git tag v${publishVersionCode}`)
