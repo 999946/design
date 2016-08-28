@@ -16,7 +16,7 @@ const header = [{
                 return value
             case 'patch':
                 return value
-            case null:
+            case 'empty':
                 return colors.grey('依赖发布')
         }
     }

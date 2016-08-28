@@ -76,7 +76,7 @@ declare namespace Components {
     /**
      * 发布级别字符串
      */
-    export type PublishLevel = 'major' | 'minor' | 'patch'
+    export type PublishLevel = 'major' | 'minor' | 'patch' | 'empty'
 
     /**
      * 将要发布的组件的详细信息
