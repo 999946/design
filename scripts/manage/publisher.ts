@@ -363,6 +363,7 @@ const startPublish = ()=> {
         })
 
         // 写入 package.json 中
+        publishInfo.componentInfoWithDep.packageJson.version = semver.inc(publishInfo.componentInfoWithDep.packageJson.version, publishInfo.publishLevel)
         publishInfo.componentInfoWithDep.packageJson.dependencies = dependences
         publishInfo.componentInfoWithDep.packageJson.peerDependencies = peerDependences
         packageJsonManage.writePackageJSON(`${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`, publishInfo.componentInfoWithDep.packageJson)
