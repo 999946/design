@@ -1,4 +1,5 @@
 import * as semver from 'semver'
+import * as colors from 'colors'
 const ttyTable = require('tty-table')
 
 const header = [{
@@ -6,7 +7,17 @@ const header = [{
 }, {
     value: '组件名'
 }, {
-    value: '发布级别'
+    value: '发布级别',
+    formatter: (value: Components.PublishLevel)=> {
+        switch (value) {
+            case 'major':
+                return colors.red(value)
+            case 'minor':
+                return colors.bgYellow(value)
+            case 'patch':
+                return colors.bgBlack(value)
+        }
+    }
 }, {
     value: '当前版本号'
 }, {
