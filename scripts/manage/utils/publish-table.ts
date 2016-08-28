@@ -30,6 +30,13 @@ export default (allPublishComponents: Array<Components.PublishInfo>)=> {
         row.push(publishComponent.componentInfoWithDep.packageJson.version)
         row.push(semver.inc(publishComponent.componentInfoWithDep.packageJson.version, publishComponent.publishLevel))
 
+        let reason: string
+        if (publishComponent.isUserOperate) {
+            reason = '主动发布'
+        } else {
+            reason = '依赖发布'
+        }
+
         rows.push(row)
     })
 
