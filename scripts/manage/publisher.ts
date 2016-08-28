@@ -291,20 +291,25 @@ export default (publishFullPaths: Array<string>)=> {
         let isRelyToPublishComponent = false
 
         publishComponent.componentInfoWithDep.dependence.forEach(dependence=> {
+            if (dependence.type === 'npm') {
+                // 不看 npm 依赖
+                return
+            }
+
+            // 遍历要发布的组件
             for (let elPublishComponent of allPublishComponents) {
-                let isInSimulation = false
-                for (let simulation of simulations) {
-                    console.log(111,simulation)
-                    if (simulation.componentInfoWithDep.category.name === elPublishComponent.componentInfoWithDep.category.name && simulation.componentInfoWithDep.component.name === elPublishComponent.componentInfoWithDep.component.name) {
-                        isInSimulation = true
-                        break
-                    }
-                }
-                if (isInSimulation) {
-                    console.log('跳过')
-                    // 如果这个发布的组件已经在模拟发布组件中, 跳过
-                    continue
-                }
+                // // 是否在模拟发布列表中
+                // let isInSimulation = false
+                // for (let simulation of simulations) {
+                //     if (simulation.componentInfoWithDep.category.name === elPublishComponent.componentInfoWithDep.category.name && simulation.componentInfoWithDep.component.name === elPublishComponent.componentInfoWithDep.component.name) {
+                //         isInSimulation = true
+                //         break
+                //     }
+                // }
+                // if (isInSimulation) {
+                //     // 如果这个发布的组件已经在模拟发布组件中, 跳过
+                //     continue
+                // }
 
                 if (elPublishComponent.componentInfoWithDep.component.name === dependence.name && elPublishComponent.componentInfoWithDep.category.name === dependence.category) {
                     // 这个依赖在这次发布组件中
