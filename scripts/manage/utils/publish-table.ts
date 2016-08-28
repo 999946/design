@@ -10,7 +10,8 @@ const header = [{
 }, {
     value: '当前版本号'
 }, {
-    value: '发布版本号'
+    value: '发布版本号',
+    color: 'green'
 }, {
     value: '原因'
 }]
