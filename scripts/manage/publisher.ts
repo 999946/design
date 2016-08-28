@@ -348,9 +348,8 @@ export default (publishFullPaths: Array<string>)=> {
         pushNoDepPublishComponents()
     }
 
-    showPublishTable(allPublishComponents)
-
-    console.log(simulations.length)
+    // 显示发布关系队列
+    showPublishTable(simulations)
 
     // 把这次发布的依赖分析写入到 publish.json 中
     fs.writeFileSync('publish.json', formatJson.plain(allPublishComponents))
