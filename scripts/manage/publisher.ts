@@ -357,10 +357,13 @@ export default (publishFullPaths: Array<string>)=> {
 
     // 询问用户是否继续
     prompt.start()
-    prompt.get(['username', 'email'], (err: Error, result: any) => {
-        console.log('Command-line input received:')
-        console.log('  username: ' + result.username)
-        console.log('  email: ' + result.email)
+    prompt.get([{
+        name: 'name',
+        description: 'Your name',
+        type: 'boolean',
+        required: true
+    }], (err: Error, result: any) => {
+        console.log('  email: ' + result)
     })
 
     // publishFullPaths.forEach(publishFullPath=> {
