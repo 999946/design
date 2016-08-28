@@ -17,7 +17,7 @@ const header = [{
             case 'patch':
                 return value
             case 'empty':
-                return ''
+                return colors.grey('依赖发布')
         }
     }
 }, {
