@@ -351,8 +351,11 @@ export default (publishFullPaths: Array<string>)=> {
     // 显示发布关系队列
     showPublishTable(simulations)
 
-    // 把这次发布的依赖分析写入到 publish.json 中
-    fs.writeFileSync('publish.json', formatJson.plain(allPublishComponents))
+    // 把这次发布的信息写入 publish.json 中
+    fs.writeFileSync('publish.json', formatJson.plain(simulations))
+
+    // 让用户确认是否进行下一步
+    execSync(`node scripts/manage/utils/confirm-publish.sh`)
 
 
     // publishFullPaths.forEach(publishFullPath=> {
