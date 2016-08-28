@@ -432,27 +432,27 @@ export default (publishFullPaths: Array<string>)=> {
         if (result.publish) {
             // 根据发布信息, 写入 package.json
             writeNowPublishToPackageJson()
-        }
-    })
 
-    // 再循环一遍, 这次从根目录已经提交了
-    simulations.forEach(publishInfo=> {
-        if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
-            const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
+            // 再循环一遍, 这次从根目录已经提交了
+            simulations.forEach(publishInfo=> {
+                if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
+                    const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
 
-            // 发布的版本号
-            const publishVersionCode = semver.inc(publishInfo.componentInfoWithDep.packageJson.version, publishInfo.publishLevel)
+                    // 发布的版本号
+                    const publishVersionCode = semver.inc(publishInfo.componentInfoWithDep.packageJson.version, publishInfo.publishLevel)
 
-            // push master, 为了提交这次修改
-            execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
+                    // push master, 为了提交这次修改
+                    execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
 
-            // 打 tag
-            execSync(`cd ${publishPath}; git tag v${publishVersionCode}`)
+                    // 打 tag
+                    execSync(`cd ${publishPath}; git tag v${publishVersionCode}`)
 
-            // push 分支
-            execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git v${publishVersionCode}`)
-        } else { // TODO 公有发布
+                    // push 分支
+                    execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git v${publishVersionCode}`)
+                } else { // TODO 公有发布
 
+                }
+            })
         }
     })
 
