@@ -1,6 +1,6 @@
 {
   "name": "nt-wefan-resource-card",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "资源卡片",
   "main": "lib/resource-card.component.js",
   "repository": {
@@ -13,7 +13,7 @@
   "author": "ascoders",
   "license": "ISC",
   "dependencies": {
-    "nt-wefan-navbar": "^1.0.0"
+    "nt-wefan-navbar": "^0.0.9"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
