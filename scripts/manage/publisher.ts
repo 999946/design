@@ -355,7 +355,7 @@ export default (publishFullPaths: Array<string>)=> {
     fs.writeFileSync('publish.json', formatJson.plain(simulations))
 
     // 让用户确认是否进行下一步
-    execSync(`node scripts/manage/utils/confirm-publish.sh`)
+    execSync(`sh scripts/manage/utils/confirm-publish.sh`)
 
 
     // publishFullPaths.forEach(publishFullPath=> {
