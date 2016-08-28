@@ -17,7 +17,7 @@ const header = [{
             case 'patch':
                 return value
             case 'empty':
-                return colors.grey(value)
+                return ''
         }
     }
 }, {
