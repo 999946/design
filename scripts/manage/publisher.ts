@@ -64,7 +64,6 @@ const addComponentToPublishComponents = (component: Components.ComponentConfig, 
                 break
         }
     } else {
-        console.log('直接添加',componentInfoWithDep.component.name)
         // 不存在直接添加
         allPublishComponents.push({
             publishLevel,
@@ -270,7 +269,7 @@ export default (publishFullPaths: Array<string>)=> {
         }
     })
 
-    console.log(JSON.stringify(publishFullPaths))
+    console.log(JSON.stringify(allPublishComponents))
 
     // publishFullPaths.forEach(publishFullPath=> {
     //     let {publishLevel, publishCategory, publishCategoryName, publishComponent, publishPath, packageJson} = getComponentInfoByFullPath(publishFullPath)
