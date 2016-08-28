@@ -1,3 +1,4 @@
+import * as semver from 'semver'
 const ttyTable = require('tty-table')
 
 const header = [{
@@ -24,6 +25,9 @@ export default (allPublishComponents: Array<Components.PublishInfo>)=> {
         const row: Array<string> = []
         row.push(publishComponent.componentInfoWithDep.category.name)
         row.push(publishComponent.componentInfoWithDep.component.name)
+        row.push(publishComponent.publishLevel)
+        row.push(publishComponent.componentInfoWithDep.packageJson.version)
+        row.push(semver.inc(publishComponent.componentInfoWithDep.packageJson.version, publishComponent.publishLevel))
 
         rows.push(row)
     })
