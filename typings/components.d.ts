@@ -83,6 +83,9 @@ declare namespace Components {
      */
     export interface PublishInfo {
         componentInfoWithDep: Components.FullInfoWithDependence
+        // 用户期望发布级别
+        userPublishLevel: Components.PublishLevel
+        // 实际发布级别
         publishLevel: Components.PublishLevel
         isUserOperate: boolean
     }

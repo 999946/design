@@ -19,20 +19,22 @@ const header = [{
         }
     }
 }, {
+    value: '实际发布级别',
+    formatter: (value: Components.PublishLevel)=> {
+        switch (value) {
+            case 'major':
+                return colors.bold(value)
+            case 'minor':
+                return value
+            case 'patch':
+                return value
+        }
+    }
+}, {
     value: '当前版本号'
 }, {
     value: '发布版本号',
     color: 'green'
-}, {
-    value: '原因',
-    formatter: (value: string)=> {
-        switch (value) {
-            case '主动发布':
-                return colors.bold(value)
-            case '依赖发布':
-                return value
-        }
-    }
 }]
 
 /**
@@ -45,17 +47,10 @@ export default (allPublishComponents: Array<Components.PublishInfo>)=> {
         const row: Array<string> = []
         row.push(publishComponent.componentInfoWithDep.category.name)
         row.push(publishComponent.componentInfoWithDep.component.name)
+        row.push(publishComponent.userPublishLevel)
         row.push(publishComponent.publishLevel)
         row.push(publishComponent.componentInfoWithDep.packageJson.version)
         row.push(semver.inc(publishComponent.componentInfoWithDep.packageJson.version, publishComponent.publishLevel))
-
-        let reason: string
-        if (publishComponent.isUserOperate) {
-            reason = '主动发布'
-        } else {
-            reason = '依赖发布'
-        }
-        row.push(reason)
 
         rows.push(row)
     })

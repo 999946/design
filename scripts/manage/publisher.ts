@@ -67,6 +67,7 @@ const addComponentToPublishComponents = (component: Components.ComponentConfig, 
     } else {
         // 不存在直接添加
         allPublishComponents.push({
+            userPublishLevel: publishLevel,
             publishLevel,
             componentInfoWithDep,
             isUserOperate
