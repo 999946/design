@@ -300,12 +300,14 @@ export default (publishFullPaths: Array<string>)=> {
                     }
                 }
                 if (isInSimulation) {
+                    console.log('跳过')
                     // 如果这个发布的组件已经在模拟发布组件中, 跳过
                     continue
                 }
 
                 if (elPublishComponent.componentInfoWithDep.component.name === dependence.name && elPublishComponent.componentInfoWithDep.category.name === dependence.category) {
                     // 这个依赖在这次发布组件中
+                    console.log('在中')
                     isRelyToPublishComponent = true
                     break
                 }
