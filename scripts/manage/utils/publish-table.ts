@@ -32,8 +32,7 @@ export default (allPublishComponents: Array<Components.PublishInfo>)=> {
         borderStyle: 1,
         paddingBottom: 0,
         headerAlign: 'center',
-        align: 'center',
-        color: 'white'
+        align: 'center'
     })
 
     console.log(table.render())
