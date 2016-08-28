@@ -121,6 +121,16 @@ const pushNoDepPublishComponents = ()=> {
     // 遍历要发布的组件
     allPublishComponents.forEach(publishComponent=> {
         // 过滤已经在发布队列中的组件
+        let isPublishInSimulation = false
+        for (let simulation of simulationsCopy) {
+            if (simulation === publishComponent) {
+                isPublishInSimulation = true
+                break
+            }
+        }
+        if (isPublishInSimulation) {
+            return
+        }
 
         // 是否依赖了本次发布的组件
         let isRelyToPublishComponent = false
