@@ -435,10 +435,6 @@ export default (publishFullPaths: Array<string>)=> {
         }
     })
 
-    // 根项目 commit
-    execSync(`git add -A`)
-    execSync(`git commit -m "发布组件"`)
-
     // 再循环一遍, 这次从根目录已经提交了
     simulations.forEach(publishInfo=> {
         if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
