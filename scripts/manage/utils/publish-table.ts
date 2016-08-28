@@ -30,7 +30,7 @@ const header = [{
             case '主动发布':
                 return colors.bold(value)
             case '依赖发布':
-                return colors.green(value)
+                return value
         }
     }
 }]
