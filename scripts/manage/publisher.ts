@@ -358,12 +358,13 @@ export default (publishFullPaths: Array<string>)=> {
     // 询问用户是否继续
     prompt.start()
     prompt.get([{
-        name: 'name',
-        description: 'Your name',
+        name: 'publish',
+        description: '以上是最终发布信息, 确认发布吗? (true or false)',
+        message: '选择必须是 true or false 中的任意一个',
         type: 'boolean',
         required: true
     }], (err: Error, result: any) => {
-        console.log('  email: ' + result)
+        console.log(result.publish)
     })
 
     // publishFullPaths.forEach(publishFullPath=> {
