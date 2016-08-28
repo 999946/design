@@ -354,7 +354,7 @@ export default (publishFullPaths: Array<string>)=> {
     // 把这次发布的信息写入 publish.json 中
     fs.writeFileSync('publish.json', formatJson.plain(simulations))
 
-    execSync(`sh scripts/manage/utils/confirm-publish.sh`)
+    console.log(execSync(`sh scripts/manage/utils/confirm-publish.sh`).toString())
 
 
     // publishFullPaths.forEach(publishFullPath=> {
