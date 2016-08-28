@@ -36,6 +36,7 @@ export default (allPublishComponents: Array<Components.PublishInfo>)=> {
         } else {
             reason = '依赖发布'
         }
+        row.push(reason)
 
         rows.push(row)
     })
