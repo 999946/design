@@ -42,7 +42,6 @@ const getAllComponentsInfoWithDep = ()=> {
  * 将一个组件添加到这次依赖的发布组件
  */
 const addComponentToPublishComponents = (component: Components.ComponentConfig, category: Components.Category, publishLevel: Components.PublishLevel)=> {
-    console.log(11111111, publishLevel)
     // 从全部组件信息中找到这个组件的全信息
     const componentInfoWithDep = allComponentsInfoWithDep.find(componentInfoWithDep=>componentInfoWithDep.component.name === component.name && componentInfoWithDep.category.name === category.name)
 
@@ -51,7 +50,7 @@ const addComponentToPublishComponents = (component: Components.ComponentConfig, 
 
     // 如果这个组件已经在依赖中, 如果这次发布的版本号比之前的高, 更新
     if (publishComponentIndex > -1) {
-        switch (semver.compare(publishLevel, allPublishComponents[publishComponentIndex].publishLevel)) {
+        switch (comparePublishLevel(publishLevel, allPublishComponents[publishComponentIndex].publishLevel)) {
             case 0:
                 // 相同
                 break
@@ -70,6 +69,31 @@ const addComponentToPublishComponents = (component: Components.ComponentConfig, 
             publishLevel,
             componentInfoWithDep
         })
+    }
+}
+
+/**
+ * 对比发布级别的大小
+ */
+const comparePublishLevel = (targetLevel: string, beforeLevel: string)=> {
+    // 相等的情况
+    if (targetLevel === beforeLevel) {
+        return 0
+    }
+
+    switch (targetLevel) {
+        case 'major':
+            return 1
+        case 'minor':
+            if (beforeLevel === 'patch') {
+                return 1
+            } else {
+                return -1
+            }
+        case 'patch':
+            return -1
+        default:
+            return -1
     }
 }
 
