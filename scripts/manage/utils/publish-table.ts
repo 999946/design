@@ -5,9 +5,9 @@ const header = [{
 }, {
     value: '组件名'
 }, {
-    value: '当前版本号'
-}, {
     value: '发布级别'
+}, {
+    value: '当前版本号'
 }, {
     value: '发布后版本号'
 }]
