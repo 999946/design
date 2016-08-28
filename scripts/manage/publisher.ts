@@ -59,7 +59,6 @@ const addComponentToPublishComponents = (component: Components.ComponentConfig, 
                 break
             case 1:
                 // 这次的等级变大了, 直接覆盖
-                consoleLog.success(`组件 ${category.name}/${component.name} 发布等级由 ${allPublishComponents[publishComponentIndex].publishLevel} 升级为 ${publishLevel}`)
                 allPublishComponents[publishComponentIndex].publishLevel = publishLevel
                 break
         }
@@ -244,7 +243,7 @@ export default (publishFullPaths: Array<string>)=> {
     // 生成 ts 编译和定义文件
     builder.buildDTs()
 
-    // 遍历要发布的组件
+    // 遍历用户要发布的组件
     publishFullPaths.forEach(publishFullPath=> {
         let componentInfo = getComponentInfoByFullPath(publishFullPath)
 
@@ -269,7 +268,11 @@ export default (publishFullPaths: Array<string>)=> {
         }
     })
 
-    console.log(JSON.stringify(allPublishComponents))
+    // 遍历所有要发布的组件
+    allPublishComponents.forEach(publishComponent=> {
+        console.log('要发布的组件', publishComponent.componentInfoWithDep.component.name, publishComponent.publishLevel)
+    })
+
 
     // publishFullPaths.forEach(publishFullPath=> {
     //     let {publishLevel, publishCategory, publishCategoryName, publishComponent, publishPath, packageJson} = getComponentInfoByFullPath(publishFullPath)
