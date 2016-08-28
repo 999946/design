@@ -11,5 +11,11 @@
     "resource-card"
   ],
   "author": "ascoders",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "nt-wefan-navbar": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^0.31.0"
+  }
 }
