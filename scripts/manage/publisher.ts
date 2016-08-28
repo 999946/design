@@ -22,6 +22,9 @@ const allPublishComponents: Array<{
     publishLevel: Components.PublishLevel
 }> = []
 
+/**
+ * 初始化所有组件信息
+ */
 const getAllComponentsInfoWithDep = ()=> {
     // 获取所有组件以及依赖信息
     components.forEach(category=> {
@@ -44,14 +47,29 @@ const addComponentToPublishComponents = (component: Components.ComponentConfig, 
 
     // 从发布组件库中找到这个组件的信息
     let publishComponentIndex = allPublishComponents.findIndex(publishComponent=>publishComponent.componentInfoWithDep.component.name === component.name && publishComponent.componentInfoWithDep.category.name === category.name)
-    console.log(publishComponentIndex)
+
     // 如果这个组件已经在依赖中, 如果这次发布的版本号比之前的高, 更新
-
-
-    // allPublishComponents.push({
-    //     publishLevel,
-    //     componentInfoWithDep
-    // })
+    if (publishComponentIndex > -1) {
+        switch (semver.compare(publishLevel, allPublishComponents[publishComponentIndex].publishLevel)) {
+            case 0:
+                // 相同
+                break
+            case -1:
+                // 这次的等级变小了, 不用管
+                break
+            case 1:
+                // 这次的等级变大了, 直接覆盖
+                consoleLog.success(`组件 ${category.name}/${component.name} 发布等级由 ${allPublishComponents[publishComponentIndex].publishLevel} 升级为 ${publishLevel}`)
+                allPublishComponents[publishComponentIndex].publishLevel = publishLevel
+                break
+        }
+    } else {
+        // 不存在直接添加
+        allPublishComponents.push({
+            publishLevel,
+            componentInfoWithDep
+        })
+    }
 }
 
 /**
@@ -219,7 +237,7 @@ export default (publishFullPaths: Array<string>)=> {
                     if (dep.type === 'component' && dep.category === componentInfo.publishCategory.name && dep.name === componentInfo.publishComponent.name) {
                         // 这个组件依赖了当前要发布的组件, 而且这个发布的还是主版本号, 因此给它发布一个 minor 版本
                         // 不需要更新其它依赖, package.json 更新依赖只有要发布的组件才会享受, 其它的又不发布, 不需要更新依赖, 保持版本号更新发个新版本就行了, 他自己的依赖会在发布他的时候修正
-                        componentInfoWithDep.packageJson.version = semver.inc(componentInfoWithDep.packageJson.version, 'minor')
+                        addComponentToPublishComponents(componentInfoWithDep.component, componentInfoWithDep.category, 'minor')
                     }
                 })
             })
