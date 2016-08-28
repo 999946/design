@@ -13,9 +13,9 @@ const header = [{
             case 'major':
                 return colors.bold(value)
             case 'minor':
-                return colors.bgYellow(value)
+                return value
             case 'patch':
-                return colors.bgBlack(value)
+                return value
         }
     }
 }, {
