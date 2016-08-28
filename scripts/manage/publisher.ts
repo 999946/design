@@ -21,6 +21,10 @@ const allComponentsInfoWithDep: Array<Components.FullInfoWithDependence> = []
 // 所有直接依赖这次发布组件的组件 （含发布组件）
 const allPublishComponents: Array<Components.PublishInfo> = []
 
+// 按照对这次发布组件的依赖从低到高排列, 需要先模拟发布
+// 模拟发布的组件数组
+const simulations: Array<Components.PublishInfo> = []
+
 /**
  * 初始化所有组件信息
  */
@@ -105,6 +109,55 @@ const comparePublishLevel = (targetLevel: string, beforeLevel: string)=> {
         default:
             return -1
     }
+}
+
+/**
+ * 遍历要发布的组件, 将没有依赖的（或者依赖了组件,但是在模拟发布队列中）组件添加到模拟发布队列中
+ */
+const pushNoDepPublishComponents = ()=> {
+    // 为了防止对模拟发布列表的修改影响本次判断, 做一份拷贝
+    const simulationsCopy = simulations.concat()
+
+    // 遍历要发布的组件
+    allPublishComponents.forEach(publishComponent=> {
+        // 是否依赖了本次发布的组件
+        let isRelyToPublishComponent = false
+
+        publishComponent.componentInfoWithDep.dependence.forEach(dependence=> {
+            if (dependence.type === 'npm') {
+                // 不看 npm 依赖
+                return
+            }
+
+            // 遍历要发布的组件
+            for (let elPublishComponent of allPublishComponents) {
+                // 是否在模拟发布列表中
+                let isInSimulation = false
+                for (let simulation of simulationsCopy) {
+                    if (simulation.componentInfoWithDep.category.name === elPublishComponent.componentInfoWithDep.category.name && simulation.componentInfoWithDep.component.name === elPublishComponent.componentInfoWithDep.component.name) {
+                        isInSimulation = true
+                        break
+                    }
+                }
+                if (isInSimulation) {
+                    // 如果这个发布的组件已经在模拟发布组件中, 跳过
+                    continue
+                }
+
+                if (elPublishComponent.componentInfoWithDep.component.name === dependence.name && elPublishComponent.componentInfoWithDep.category.name === dependence.category) {
+                    // 这个依赖在这次发布组件中
+                    console.log('在中')
+                    isRelyToPublishComponent = true
+                    break
+                }
+            }
+        })
+
+        if (!isRelyToPublishComponent) {
+            // 这个组件没有依赖本次要发布的组件, 把它添加到发布列表中
+            simulations.push(publishComponent)
+        }
+    })
 }
 
 /**
@@ -254,7 +307,7 @@ export default (publishFullPaths: Array<string>)=> {
     // 生成 ts 编译和定义文件
     builder.buildDTs()
 
-    // 遍历用户要发布的组件
+    // 统计出所有要发布的组件（可能因为依赖而连带发布的）
     publishFullPaths.forEach(publishFullPath=> {
         let componentInfo = getComponentInfoByFullPath(publishFullPath)
 
@@ -279,52 +332,10 @@ export default (publishFullPaths: Array<string>)=> {
         }
     })
 
+    // 添加未依赖的组件到模拟发布队列
+    pushNoDepPublishComponents()
+
     showPublishTable(allPublishComponents)
-
-    // 按照对这次发布组件的依赖从低到高排列, 需要先模拟发布
-    // 模拟发布的组件数组
-    const simulations: Array<Components.PublishInfo> = []
-
-    // 遍历要发布的组件
-    allPublishComponents.forEach(publishComponent=> {
-        // 是否依赖了本次发布的组件
-        let isRelyToPublishComponent = false
-
-        publishComponent.componentInfoWithDep.dependence.forEach(dependence=> {
-            if (dependence.type === 'npm') {
-                // 不看 npm 依赖
-                return
-            }
-
-            // 遍历要发布的组件
-            for (let elPublishComponent of allPublishComponents) {
-                // // 是否在模拟发布列表中
-                // let isInSimulation = false
-                // for (let simulation of simulations) {
-                //     if (simulation.componentInfoWithDep.category.name === elPublishComponent.componentInfoWithDep.category.name && simulation.componentInfoWithDep.component.name === elPublishComponent.componentInfoWithDep.component.name) {
-                //         isInSimulation = true
-                //         break
-                //     }
-                // }
-                // if (isInSimulation) {
-                //     // 如果这个发布的组件已经在模拟发布组件中, 跳过
-                //     continue
-                // }
-
-                if (elPublishComponent.componentInfoWithDep.component.name === dependence.name && elPublishComponent.componentInfoWithDep.category.name === dependence.category) {
-                    // 这个依赖在这次发布组件中
-                    console.log('在中')
-                    isRelyToPublishComponent = true
-                    break
-                }
-            }
-        })
-
-        if (!isRelyToPublishComponent) {
-            // 这个组件没有依赖本次要发布的组件, 把它添加到发布列表中
-            simulations.push(publishComponent)
-        }
-    })
 
     console.log(simulations.length)
 
