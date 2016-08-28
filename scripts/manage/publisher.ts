@@ -354,7 +354,6 @@ export default (publishFullPaths: Array<string>)=> {
     // 把这次发布的信息写入 publish.json 中
     fs.writeFileSync('publish.json', formatJson.plain(simulations))
 
-    // 让用户确认是否进行下一步
     execSync(`sh scripts/manage/utils/confirm-publish.sh`)
 
 
