@@ -17,10 +17,7 @@ import * as builder from './builder'
 const allComponentsInfoWithDep: Array<Components.FullInfoWithDependence> = []
 
 // 所有直接依赖这次发布组件的组件 （含发布组件）
-const allPublishComponents: Array<{
-    componentInfoWithDep: Components.FullInfoWithDependence
-    publishLevel: Components.PublishLevel
-}> = []
+const allPublishComponents: Array<Components.PublishInfo> = []
 
 /**
  * 初始化所有组件信息
@@ -41,7 +38,7 @@ const getAllComponentsInfoWithDep = ()=> {
 /**
  * 将一个组件添加到这次依赖的发布组件
  */
-const addComponentToPublishComponents = (component: Components.ComponentConfig, category: Components.Category, publishLevel: Components.PublishLevel)=> {
+const addComponentToPublishComponents = (component: Components.ComponentConfig, category: Components.Category, publishLevel: Components.PublishLevel, isUserOperate: boolean = false)=> {
     // 从全部组件信息中找到这个组件的全信息
     const componentInfoWithDep = allComponentsInfoWithDep.find(componentInfoWithDep=>componentInfoWithDep.component.name === component.name && componentInfoWithDep.category.name === category.name)
 
@@ -62,11 +59,16 @@ const addComponentToPublishComponents = (component: Components.ComponentConfig, 
                 allPublishComponents[publishComponentIndex].publishLevel = publishLevel
                 break
         }
+
+        if (isUserOperate === true) {
+            allPublishComponents[publishComponentIndex].isUserOperate = true
+        }
     } else {
         // 不存在直接添加
         allPublishComponents.push({
             publishLevel,
-            componentInfoWithDep
+            componentInfoWithDep,
+            isUserOperate
         })
     }
 }
@@ -251,7 +253,7 @@ export default (publishFullPaths: Array<string>)=> {
         builder.buildLib(componentInfo.publishComponent, componentInfo.publishCategory)
 
         // 将其添加到待发布组件中
-        addComponentToPublishComponents(componentInfo.publishComponent, componentInfo.publishCategory, componentInfo.publishLevel)
+        addComponentToPublishComponents(componentInfo.publishComponent, componentInfo.publishCategory, componentInfo.publishLevel, true)
 
         if (componentInfo.publishLevel === 'major') {
             // 如果发布的是主版本, 所有对其直接依赖的组件都要更新 patch

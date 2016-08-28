@@ -77,4 +77,13 @@ declare namespace Components {
      * 发布级别字符串
      */
     export type PublishLevel = 'major' | 'minor' | 'patch'
+
+    /**
+     * 将要发布的组件的详细信息
+     */
+    export interface PublishInfo {
+        componentInfoWithDep: Components.FullInfoWithDependence
+        publishLevel: Components.PublishLevel
+        isUserOperate: boolean
+    }
 }
