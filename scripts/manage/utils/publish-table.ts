@@ -9,7 +9,9 @@ const header = [{
 }, {
     value: '当前版本号'
 }, {
-    value: '发布后版本号'
+    value: '发布版本号'
+}, {
+    value: '原因'
 }]
 
 /**
@@ -22,6 +24,16 @@ export default (allPublishComponents: Array<Components.PublishInfo>)=> {
         headerAlign: 'center',
         align: 'center',
         color: 'white'
+    })
+
+    const rows: Array<Array<string>> = []
+
+    allPublishComponents.forEach(publishComponent=> {
+        const row: Array<string> = []
+        row.push(publishComponent.componentInfoWithDep.category.name)
+        row.push(publishComponent.componentInfoWithDep.component.name)
+
+        rows.push(row)
     })
 
     console.log(table.render())
