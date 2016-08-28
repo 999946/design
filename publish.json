@@ -1,0 +1,109 @@
+[
+  {
+    "userPublishLevel": "major",
+    "publishLevel": "major",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "navbar",
+        "chinese": "导航条"
+      },
+      "category": {
+        "name": "wefan",
+        "prefix": "nt-wefan",
+        "isPrivate": true,
+        "components": [
+          {
+            "name": "resource-card",
+            "chinese": "资源卡片"
+          },
+          {
+            "name": "navbar",
+            "chinese": "导航条"
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "nt-wefan-navbar",
+        "version": "0.0.8",
+        "description": "导航条",
+        "main": "lib/navbar.component.js",
+        "repository": {
+          "type": "git",
+          "url": "http://gitlab.baidu.com/tb-next-component/wefan-navbar.git"
+        },
+        "keywords": [
+          "navbar"
+        ],
+        "author": "ascoders",
+        "license": "ISC"
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "react-native"
+        }
+      ]
+    },
+    "isUserOperate": true
+  },
+  {
+    "userPublishLevel": "empty",
+    "publishLevel": "minor",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "resource-card",
+        "chinese": "资源卡片"
+      },
+      "category": {
+        "name": "wefan",
+        "prefix": "nt-wefan",
+        "isPrivate": true,
+        "components": [
+          {
+            "name": "resource-card",
+            "chinese": "资源卡片"
+          },
+          {
+            "name": "navbar",
+            "chinese": "导航条"
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "nt-wefan-resource-card",
+        "version": "0.0.3",
+        "description": "资源卡片",
+        "main": "lib/resource-card.component.js",
+        "repository": {
+          "type": "git",
+          "url": "http://gitlab.baidu.com/tb-next-component/wefan-resource-card.git"
+        },
+        "keywords": [
+          "resource-card"
+        ],
+        "author": "ascoders",
+        "license": "ISC"
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "react-native"
+        },
+        {
+          "type": "component",
+          "name": "navbar",
+          "category": "wefan"
+        }
+      ]
+    },
+    "isUserOperate": false
+  }
+]
