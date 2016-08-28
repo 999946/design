@@ -146,7 +146,6 @@ const pushNoDepPublishComponents = ()=> {
 
                 if (elPublishComponent.componentInfoWithDep.component.name === dependence.name && elPublishComponent.componentInfoWithDep.category.name === dependence.category) {
                     // 这个依赖在这次发布组件中
-                    console.log('在中')
                     isRelyToPublishComponent = true
                     break
                 }
@@ -333,6 +332,7 @@ export default (publishFullPaths: Array<string>)=> {
     })
 
     // 添加未依赖的组件到模拟发布队列
+    pushNoDepPublishComponents()
     pushNoDepPublishComponents()
 
     showPublishTable(allPublishComponents)
