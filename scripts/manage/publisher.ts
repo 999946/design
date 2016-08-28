@@ -445,7 +445,7 @@ export default (publishFullPaths: Array<string>)=> {
             const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
 
             // push master, 为了提交这次修改
-            execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name.name}.git master`)
+            execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
 
             // 打 tag
             execSync(`cd ${publishPath}; git tag v${publishInfo.componentInfoWithDep.packageJson.version}`)
