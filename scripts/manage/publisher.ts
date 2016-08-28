@@ -294,6 +294,7 @@ export default (publishFullPaths: Array<string>)=> {
             for (let elPublishComponent of allPublishComponents) {
                 let isInSimulation = false
                 for (let simulation of simulations) {
+                    console.log(111,simulation)
                     if (simulation.componentInfoWithDep.category.name === elPublishComponent.componentInfoWithDep.category.name && simulation.componentInfoWithDep.component.name === elPublishComponent.componentInfoWithDep.component.name) {
                         isInSimulation = true
                         break
