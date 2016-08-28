@@ -12,6 +12,7 @@ import consoleLog from './utils/console-log'
 import * as packageJsonManage from './utils/package-json'
 import * as semver from 'semver'
 import * as builder from './builder'
+import showPublishTable from './utils/publish-table'
 
 // 所有组件以及依赖信息
 const allComponentsInfoWithDep: Array<Components.FullInfoWithDependence> = []
@@ -270,9 +271,11 @@ export default (publishFullPaths: Array<string>)=> {
         }
     })
 
+    showPublishTable(allPublishComponents)
+
     // 遍历所有要发布的组件
     allPublishComponents.forEach(publishComponent=> {
-        console.log('要发布的组件', publishComponent.componentInfoWithDep.component.name, publishComponent.publishLevel)
+
     })
 
 
