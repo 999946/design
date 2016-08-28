@@ -18,14 +18,6 @@ const header = [{
  * 生成发布信息的表格输出到控制台
  */
 export default (allPublishComponents: Array<Components.PublishInfo>)=> {
-    const table = ttyTable(header, null, null, {
-        borderStyle: 1,
-        paddingBottom: 0,
-        headerAlign: 'center',
-        align: 'center',
-        color: 'white'
-    })
-
     const rows: Array<Array<string>> = []
 
     allPublishComponents.forEach(publishComponent=> {
@@ -34,6 +26,14 @@ export default (allPublishComponents: Array<Components.PublishInfo>)=> {
         row.push(publishComponent.componentInfoWithDep.component.name)
 
         rows.push(row)
+    })
+
+    const table = ttyTable(header, rows, null, {
+        borderStyle: 1,
+        paddingBottom: 0,
+        headerAlign: 'center',
+        align: 'center',
+        color: 'white'
     })
 
     console.log(table.render())
