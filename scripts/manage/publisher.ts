@@ -14,6 +14,7 @@ import * as semver from 'semver'
 import * as builder from './builder'
 import showPublishTable from './utils/publish-table'
 import * as formatJson from 'format-json'
+const prompt = require('prompt')
 
 // 所有组件以及依赖信息
 const allComponentsInfoWithDep: Array<Components.FullInfoWithDependence> = []
@@ -354,8 +355,13 @@ export default (publishFullPaths: Array<string>)=> {
     // 把这次发布的信息写入 publish.json 中
     fs.writeFileSync('publish.json', formatJson.plain(simulations))
 
-    console.log(execSync(`sh scripts/manage/utils/confirm-publish.sh`).toString())
-
+    // 询问用户是否继续
+    prompt.start()
+    prompt.get(['username', 'email'], (err: Error, result: any) => {
+        console.log('Command-line input received:')
+        console.log('  username: ' + result.username)
+        console.log('  email: ' + result.email)
+    })
 
     // publishFullPaths.forEach(publishFullPath=> {
     //     let {publishLevel, publishCategory, publishCategoryName, publishComponent, publishPath, packageJson} = getComponentInfoByFullPath(publishFullPath)
