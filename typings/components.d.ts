@@ -71,6 +71,9 @@ declare namespace Components {
         dependencies?: {
             [module: string]: string
         }
+        peerDependencies?: {
+            [module: string]: string
+        }
     }
 
     /**

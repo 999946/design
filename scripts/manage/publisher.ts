@@ -319,6 +319,11 @@ const startPublish = ()=> {
         } = {}
         publishInfo.componentInfoWithDep.dependence.forEach(dependence=> {
             if (dependence.type === 'npm') {
+                if (['react', 'react-native', 'react-dom', 'react-router'].findIndex(moduleName=>moduleName === dependence.name) > -1) {
+                    // 对几个重要模块特殊处理
+                    return
+                }
+
                 if (!rootPackageJson.dependencies[dependence.name]) {
                     consoleLog.error(`${dependence.name} 的依赖没有在根项目中安装`)
                 }
