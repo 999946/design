@@ -269,6 +269,8 @@ export default (publishFullPaths: Array<string>)=> {
         }
     })
 
+    console.log(JSON.stringify(publishFullPaths))
+
     // publishFullPaths.forEach(publishFullPath=> {
     //     let {publishLevel, publishCategory, publishCategoryName, publishComponent, publishPath, packageJson} = getComponentInfoByFullPath(publishFullPath)
     //
