@@ -67,7 +67,7 @@ const addComponentToPublishComponents = (component: Components.ComponentConfig, 
         }
     } else {
         // 不存在直接添加
-        let userPublishLevel = 'empty'
+        let userPublishLevel:string = null
         if (isUserOperate) {
             userPublishLevel = publishLevel
         }
