@@ -63,11 +63,17 @@ const addComponentToPublishComponents = (component: Components.ComponentConfig, 
 
         if (isUserOperate === true) {
             allPublishComponents[publishComponentIndex].isUserOperate = true
+            allPublishComponents[publishComponentIndex].userPublishLevel = publishLevel
         }
     } else {
         // 不存在直接添加
+        let userPublishLevel = 'empty'
+        if (isUserOperate) {
+            userPublishLevel = publishLevel
+        }
+
         allPublishComponents.push({
-            userPublishLevel: publishLevel,
+            userPublishLevel,
             publishLevel,
             componentInfoWithDep,
             isUserOperate
