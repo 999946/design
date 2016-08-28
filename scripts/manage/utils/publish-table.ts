@@ -2,7 +2,6 @@ const ttyTable = require('tty-table')
 
 const header = [{
     value: '所属分类',
-    headerColor: "cyan",
     color: "white",
     align: "left",
     paddingLeft: 5,
@@ -17,7 +16,6 @@ export default (allPublishComponents: Array<Components.PublishInfo>)=> {
         borderStyle: 1,
         borderColor: 'blue',
         paddingBottom: 0,
-        paddingTop: 0,
         headerAlign: 'center',
         align: 'center',
         color: 'white'
