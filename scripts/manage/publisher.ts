@@ -194,7 +194,9 @@ const createPackageJsonIfNotExist = (component: Components.ComponentConfig, cate
             },
             keywords: [component.name],
             author: config.author,
-            license: 'ISC'
+            license: 'ISC',
+            dependencies: {},
+            peerDependencies: {}
         } as Components.PackageJson
         packageJsonManage.writePackageJSON(componentPath, packageJson)
     }
@@ -317,18 +319,34 @@ const startPublish = ()=> {
         let dependences: {
             [name: string]: string
         } = {}
+
+        let peerDependences: {
+            [name: string]: string
+        } = {}
+
         publishInfo.componentInfoWithDep.dependence.forEach(dependence=> {
             if (dependence.type === 'npm') {
-                if (['react', 'react-native', 'react-dom', 'react-router'].findIndex(moduleName=>moduleName === dependence.name) > -1) {
-                    // 对几个重要模块特殊处理
-                    return
+                // 对几个重要模块特殊处理
+                switch (dependence.name) {
+                    case 'react':
+                        peerDependences['react'] = `^0.14.0 || ^15.0.0`
+                        break
+                    case 'react-native':
+                        peerDependences['react'] = `^0.31.0`
+                        break
+                    case 'react-dom':
+                        peerDependences['react-dom'] = `^0.14.0 || ^15.0.0`
+                        break
+                    case 'react-router':
+                        peerDependences['react'] = `^2.7.0`
+                        break
+                    default:
+                        if (!rootPackageJson.dependencies[dependence.name]) {
+                            consoleLog.error(`${dependence.name} 的依赖没有在根项目中安装`)
+                        }
+                        // npm 的依赖用根目录的版本号
+                        dependences[dependence.name] = rootPackageJson.dependencies[dependence.name]
                 }
-
-                if (!rootPackageJson.dependencies[dependence.name]) {
-                    consoleLog.error(`${dependence.name} 的依赖没有在根项目中安装`)
-                }
-                // npm 的依赖用根目录的版本号
-                dependences[dependence.name] = rootPackageJson.dependencies[dependence.name]
             } else {
                 // 组件的依赖, 用其发布后的版本号
                 // 优先在模拟发布队列中寻找, 找不到再从整个组件中找
@@ -344,7 +362,10 @@ const startPublish = ()=> {
             }
         })
 
-        console.log(dependences)
+        // 写入 package.json 中
+        publishInfo.componentInfoWithDep.packageJson.dependencies = dependences
+        publishInfo.componentInfoWithDep.packageJson.peerDependencies = peerDependences
+        packageJsonManage.writePackageJSON(`${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`, publishInfo.componentInfoWithDep.packageJson)
     })
 }
 
