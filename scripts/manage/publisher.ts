@@ -453,9 +453,9 @@ export default (publishFullPaths: Array<string>)=> {
 
                 }
             })
+
+            // 根目录提交
+            execSync(`git push`)
         }
     })
-
-    // 根目录提交
-    execSync(`git push`)
 }
