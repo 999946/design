@@ -281,10 +281,44 @@ export default (publishFullPaths: Array<string>)=> {
 
     showPublishTable(allPublishComponents)
 
-    // 遍历所有要发布的组件
-    allPublishComponents.forEach(publishComponent=> {
+    // 按照对这次发布组件的依赖从低到高排列, 需要先模拟发布
+    // 模拟发布的组件数组
+    const simulations: Array<Components.PublishInfo> = []
 
+    // 遍历要发布的组件
+    allPublishComponents.forEach(publishComponent=> {
+        // 是否依赖了本次发布的组件
+        let isRelyToPublishComponent = false
+
+        publishComponent.componentInfoWithDep.dependence.forEach(dependence=> {
+            for (let elPublishComponent of allPublishComponents) {
+                let isInSimulation = false
+                for (let simulation of simulations) {
+                    if (simulation === elPublishComponent) {
+                        isInSimulation = true
+                        break
+                    }
+                }
+                if (isInSimulation) {
+                    // 如果这个发布的组件已经在模拟发布组件中, 跳过
+                    continue
+                }
+
+                if (elPublishComponent.componentInfoWithDep.component.name === dependence.name && elPublishComponent.componentInfoWithDep.category.name === dependence.category) {
+                    // 这个依赖在这次发布组件中
+                    isRelyToPublishComponent = true
+                    break
+                }
+            }
+        })
+
+        if (!isRelyToPublishComponent) {
+            // 这个组件没有依赖本次要发布的组件, 把它添加到发布列表中
+            simulations.push(publishComponent)
+        }
     })
+
+    console.log(simulations.length)
 
     // 把这次发布的依赖分析写入到 publish.json 中
     fs.writeFileSync('publish.json', formatJson.plain(allPublishComponents))

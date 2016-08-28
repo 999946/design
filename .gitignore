@@ -10,3 +10,4 @@ lib/
 built/
 built-production/
 built-components/
+publish.json
