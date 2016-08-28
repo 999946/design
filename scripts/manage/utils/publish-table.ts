@@ -24,7 +24,15 @@ const header = [{
     value: '发布版本号',
     color: 'green'
 }, {
-    value: '原因'
+    value: '原因',
+    formatter: (value: string)=> {
+        switch (value) {
+            case '主动发布':
+                return colors.bold(value)
+            case '依赖发布':
+                return colors.green(value)
+        }
+    }
 }]
 
 /**
