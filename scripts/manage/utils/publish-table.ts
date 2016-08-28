@@ -11,7 +11,7 @@ const header = [{
     formatter: (value: Components.PublishLevel)=> {
         switch (value) {
             case 'major':
-                return colors.red(value)
+                return colors.bold(value)
             case 'minor':
                 return colors.bgYellow(value)
             case 'patch':
