@@ -18,3 +18,22 @@ export const author = 'ascoders'
 
 // 组件编译产出目录名
 export const componentBuildPath = 'lib'
+
+// 定制依赖版本的 npm 包
+export const customNpmPackage = [{
+    name: 'react',
+    type: 'peerDependences',
+    version: '^0.14.0 || ^15.0.0'
+}, {
+    name: 'react-native',
+    type: 'peerDependences',
+    version: '^0.31.0'
+}, {
+    name: 'react-dom',
+    type: 'peerDependences',
+    version: '^0.14.0 || ^15.0.0'
+}, {
+    name: 'react-router',
+    type: 'peerDependences',
+    version: '^2.7.0'
+}]

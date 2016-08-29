@@ -327,25 +327,24 @@ const writeNowPublishToPackageJson = ()=> {
         publishInfo.componentInfoWithDep.dependence.forEach(dependence=> {
             if (dependence.type === 'npm') {
                 // 对几个重要模块特殊处理
-                switch (dependence.name) {
-                    case 'react':
-                        peerDependences['react'] = `^0.14.0 || ^15.0.0`
-                        break
-                    case 'react-native':
-                        peerDependences['react-native'] = `^0.31.0`
-                        break
-                    case 'react-dom':
-                        peerDependences['react-dom'] = `^0.14.0 || ^15.0.0`
-                        break
-                    case 'react-router':
-                        peerDependences['react-router'] = `^2.7.0`
-                        break
-                    default:
-                        if (!rootPackageJson.dependencies[dependence.name]) {
-                            consoleLog.error(`${dependence.name} 的依赖没有在根项目中安装`)
-                        }
-                        // npm 的依赖用根目录的版本号
-                        dependences[dependence.name] = rootPackageJson.dependencies[dependence.name]
+                const customPackageInfo = config.customNpmPackage.find(customPackage=>customPackage.name === dependence.name)
+                if (customPackageInfo) {
+                    // 如果在配置文件中, 用配置文件中的版本号
+                    switch (customPackageInfo.type) {
+                        case 'peerDependences':
+                            peerDependences[customPackageInfo.name] = customPackageInfo.version
+                            return
+                        case 'dependences':
+                            dependences[customPackageInfo.name] = customPackageInfo.version
+                            return
+                    }
+                } else {
+                    // 否则直接在根目录的 package.json 中寻找版本号
+                    if (!rootPackageJson.dependencies[dependence.name]) {
+                        consoleLog.error(`${dependence.name} 的依赖没有在根项目中安装`)
+                    }
+                    // npm 的依赖用根目录的版本号
+                    dependences[dependence.name] = rootPackageJson.dependencies[dependence.name]
                 }
             } else {
                 // 组件的依赖, 用其发布后的版本号
