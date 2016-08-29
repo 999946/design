@@ -1,6 +1,6 @@
 {
   "name": "nt-wefan-resource-card",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "资源卡片",
   "main": "lib/resource-card.component.js",
   "typings": "lib/resource-card.component.d.ts",
