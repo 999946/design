@@ -105,7 +105,7 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
     execSync(`rsync -av --progress ${sourcePath}/* ${libPath} --exclude ${libPath} --exclude package.json --exclude readme.md --exclude "*.ts" --exclude "*.tsx"`)
 
     // 将编译后的文件移到当前 lib 目录下, 这里只有 js 文件
-    execSync(`mv built-components/${category.name}/${component.name} ${libPath}`)
+    execSync(`mv built-components/${category.name}/${component.name}/* ${libPath}`)
 
     // 找出 lib 目录下的 js 文件
     let jsFilePaths = getFilesBySuffix('js', libPath)
