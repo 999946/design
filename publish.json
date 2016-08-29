@@ -24,7 +24,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-resource-card",
-        "version": "0.0.10",
+        "version": "0.0.11",
         "description": "资源卡片",
         "main": "lib/resource-card.component.js",
         "repository": {
