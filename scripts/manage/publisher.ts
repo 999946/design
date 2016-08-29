@@ -447,6 +447,9 @@ export default (publishFullPaths: Array<string>)=> {
 
                     // push 分支
                     execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git v${publishInfo.componentInfoWithDep.packageJson.version}`)
+
+                    // push 到 master
+                    execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
                 } else { // TODO 公有发布
 
                 }
