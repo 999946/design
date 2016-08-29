@@ -24,7 +24,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-navbar",
-        "version": "0.0.11",
+        "version": "0.0.12",
         "description": "导航条",
         "main": "lib/navbar.component.js",
         "repository": {
@@ -33,6 +33,62 @@
         },
         "keywords": [
           "navbar"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {},
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-native": "^0.31.0"
+        }
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "react-native"
+        }
+      ]
+    },
+    "isUserOperate": true
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "resource-card",
+        "chinese": "资源卡片"
+      },
+      "category": {
+        "name": "wefan",
+        "prefix": "nt-wefan",
+        "isPrivate": true,
+        "components": [
+          {
+            "name": "resource-card",
+            "chinese": "资源卡片"
+          },
+          {
+            "name": "navbar",
+            "chinese": "导航条"
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "nt-wefan-resource-card",
+        "version": "0.0.9",
+        "description": "资源卡片",
+        "main": "lib/resource-card.component.js",
+        "repository": {
+          "type": "git",
+          "url": "http://gitlab.baidu.com/tb-next-component/wefan-resource-card.git"
+        },
+        "keywords": [
+          "resource-card"
         ],
         "author": "ascoders",
         "license": "ISC",
