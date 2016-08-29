@@ -3,6 +3,7 @@
   "version": "0.0.16",
   "description": "资源卡片",
   "main": "lib/resource-card.component.js",
+  "typings": "lib/resource-card.component.d.ts",
   "repository": {
     "type": "git",
     "url": "http://gitlab.baidu.com/tb-next-component/wefan-resource-card.git"
