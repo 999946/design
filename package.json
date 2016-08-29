@@ -3,6 +3,7 @@
   "version": "0.0.16",
   "description": "导航条",
   "main": "lib/navbar.component.js",
+  "typings": "lib/navbar.component.d.ts",
   "repository": {
     "type": "git",
     "url": "http://gitlab.baidu.com/tb-next-component/wefan-navbar.git"
