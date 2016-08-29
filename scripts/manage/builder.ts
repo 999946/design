@@ -93,6 +93,7 @@ export const buildDTs = ()=> {
  */
 export const buildLib = (component: Components.ComponentConfig, category: Components.Category)=> {
     // lib 路径
+    const sourcePath = `components/${category.name}/${component.name}`
     const libPath = `components/${category.name}/${component.name}/lib`
 
     // 先删除 lib 目录
@@ -100,11 +101,8 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
         execSync(`rm -rf ${libPath}`)
     }
 
-    // 拷贝全量到 lib 目录
-    execSync(`cp -r components/${category.name}/${component.name} components/${category.name}/${component.name}/lib`)
-
-    // 删除 lib 目录下 ts、tsx 文件
-    execSync(`find components/${category.name}/${component.name}/lib/* -name "*.ts" -or -name "*.tsx" | xargs rm`)
+    // 拷贝除了 ts tsx 到 lib 目录下
+    execSync(`rsync -av --progress ${sourcePath}/* ${libPath} --exclude ${libPath} --exclude package.json --exclude readme.md --exclude "*.ts" --exclude "*.tsx"`)
 
     // 将编译后的文件移到当前 lib 目录下, 这里只有 js 文件
     execSync(`mv built-components/${category.name}/${component.name} ${libPath}`)
