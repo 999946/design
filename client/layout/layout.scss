@@ -1,0 +1,36 @@
+.nav-bar-container {
+    display: flex;
+    justify-content: space-between;
+    background: #67315e;
+    height: 40px;
+}
+
+.nav-bar-second-container {
+    display: flex;
+}
+
+.item {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0 15px;
+    transition: color .3s;
+    display: flex;
+    align-items: center;
+    &:hover, &.active {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    &.brand {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 22px;
+    }
+    &.disabled {
+
+    }
+}
+
+.github-link {
+    font-size: 25px;
+    color: white;
+}

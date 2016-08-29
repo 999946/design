@@ -70,9 +70,11 @@
   },
   "dependencies": {
     "fit-auto-bind": "^1.0.15",
-    "fit-gaea": "^1.0.35",
-    "fit-gaea-native-components": "^1.0.6",
+    "fit-button": "^3.1.47",
+    "fit-gaea": "^1.0.37",
+    "fit-gaea-native-components": "^1.0.7",
     "fit-gaea-preview": "^1.0.4",
+    "fit-gaea-web-components": "^1.0.5",
     "koa": "^1.2.1",
     "koa-static-cache": "^3.1.7",
     "mobx": "^2.4.3",

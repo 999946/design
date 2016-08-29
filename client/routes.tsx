@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {Route, IndexRoute} from 'react-router'
+import Layout from './layout/layout.component'
 
 declare var require: any
 
@@ -36,17 +37,15 @@ const getComponents = (nextState: any, callback: any)=> {
     })
 }
 
-export default [
+export default (
     <Route path="/"
-           key="home"
-           getComponent={getHome}/>,
-    <Route path="/design-space"
-           key="design-space"
-           getComponent={getDesignSpace}/>,
-    <Route path="/designer"
-           key="designer"
-           getComponent={getDesigner}/>,
-    <Route path="/components"
-           key="components"
-           getComponent={getComponents}/>
-]
+           component={Layout}>
+        <IndexRoute getComponent={getHome}/>
+        <Route path="/design-space"
+               getComponent={getDesignSpace}/>
+        <Route path="/designer"
+               getComponent={getDesigner}/>
+        <Route path="/components"
+               getComponent={getComponents}/>
+    </Route>
+)

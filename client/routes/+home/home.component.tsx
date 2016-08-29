@@ -15,32 +15,14 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
         return (
             <div className="_namespace">
                 <div className="hero">
-                    <div className="container nav-bar">
-                        <div className="nav-bar-second-container">
-                            <Link to="/"
-                                  className="brand item">Next</Link>
-                            <Link to="/components"
-                                  className="item">组件库</Link>
-                            <Link to="/design-space"
-                                  className="item">在线编辑器</Link>
-                            <a href="http://fit.baidu.com/"
-                               target="_blank"
-                               className="item">Web组件库</a>
-                        </div>
-
-                        <div className="nav-bar-second-container">
-                            <a className="github-link"
-                               target="_blank"
-                               href="https://github.com/fex-team/fit"><i className="fa fa-github"/></a>
-                        </div>
-                    </div>
                     <div className="super-content">
                         <div className="brand">Next</div>
-                        <div className="description">ReactNative + Web 组件化解决方案
-                        </div>
+                        <div className="description">ReactNative + Web 组件可视化解决方案</div>
 
                     </div>
                 </div>
+
+                <div>介绍</div>
             </div>
         )
     }
