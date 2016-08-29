@@ -24,7 +24,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-navbar",
-        "version": "0.0.13",
+        "version": "0.0.14",
         "description": "导航条",
         "main": "lib/navbar.component.js",
         "repository": {
