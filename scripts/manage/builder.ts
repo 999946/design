@@ -100,7 +100,13 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
         execSync(`rm -rf ${libPath}`)
     }
 
-    // 将编译后的文件移到当前 lib 目录下
+    // 拷贝全量到 lib 目录
+    execSync(`cp -r components/${category.name}/${component.name} components/${category.name}/${component.name}/lib`)
+
+    // 删除 lib 目录下 ts、tsx 文件
+    execSync(`find components/${category.name}/${component.name}/lib/* -name "*.ts" -or -name "*.tsx" | xargs rm`)
+
+    // 将编译后的文件移到当前 lib 目录下, 这里只有 js 文件
     execSync(`mv built-components/${category.name}/${component.name} ${libPath}`)
 
     // 找出 lib 目录下的 js 文件

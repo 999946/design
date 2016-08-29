@@ -7,6 +7,7 @@
 /// <reference path="globals/colors/index.d.ts" />
 /// <reference path="globals/commander/index.d.ts" />
 /// <reference path="globals/cookies/index.d.ts" />
+/// <reference path="globals/fs-extra/index.d.ts" />
 /// <reference path="globals/gulp-cached/index.d.ts" />
 /// <reference path="globals/gulp-nodemon/index.d.ts" />
 /// <reference path="globals/gulp-sass/index.d.ts" />
