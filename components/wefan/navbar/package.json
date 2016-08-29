@@ -1,6 +1,6 @@
 {
   "name": "nt-wefan-navbar",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "导航条",
   "main": "lib/navbar.component.js",
   "typings": "lib/navbar.component.d.ts",
