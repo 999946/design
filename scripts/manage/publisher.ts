@@ -443,7 +443,6 @@ export default (publishFullPaths: Array<string>)=> {
                     const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
 
                     // 打 tag
-                    console.log(111111111111111111, publishInfo.componentInfoWithDep.component.name, publishInfo.componentInfoWithDep.packageJson.version)
                     execSync(`cd ${publishPath}; git tag v${publishInfo.componentInfoWithDep.packageJson.version}`)
 
                     // push 分支
@@ -451,6 +450,9 @@ export default (publishFullPaths: Array<string>)=> {
 
                     // push 到 master
                     execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
+
+                    // 因为这个 tag 也打到了根目录, 所以在根目录删除这个 tag
+                    execSync(`git tag -d v${publishInfo.componentInfoWithDep.packageJson.version}`)
                 } else { // TODO 公有发布
 
                 }
