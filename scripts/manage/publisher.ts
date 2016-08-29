@@ -188,6 +188,7 @@ const createPackageJsonIfNotExist = (component: Components.ComponentConfig, cate
             version: '0.0.0',
             description: component.chinese,
             main: `${config.componentBuildPath}/${component.name}.component.js`,
+            typings: `${config.componentBuildPath}/${component.name}.component.d.ts`,
             repository: {
                 type: 'git',
                 url: category.isPrivate ? `${config.privateGit}/${category.name}-${component.name}.git` : `${config.publicGit}/${category.name}-${component.name}.git`

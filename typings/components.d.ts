@@ -55,6 +55,7 @@ declare namespace Components {
         version: string
         description?: string
         main: string
+        typings: string
         scripts?: {
             [name: string]: string
         }
