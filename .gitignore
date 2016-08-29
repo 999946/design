@@ -5,7 +5,6 @@ npm-debug.log
 scripts-babel/
 test/coverage/
 test/jasmine/
-lib/
 built/
 built-production/
 built-components/
