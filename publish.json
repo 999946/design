@@ -24,7 +24,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-resource-card",
-        "version": "0.0.18",
+        "version": "0.0.19",
         "description": "资源卡片",
         "main": "lib/resource-card.component.js",
         "typings": "lib/resource-card.component.d.ts",
@@ -81,7 +81,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-navbar",
-        "version": "0.0.18",
+        "version": "0.0.19",
         "description": "导航条",
         "main": "lib/navbar.component.js",
         "typings": "lib/navbar.component.d.ts",
