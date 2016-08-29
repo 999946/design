@@ -4,8 +4,8 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "resource-card",
-        "chinese": "资源卡片"
+        "name": "navbar",
+        "chinese": "导航条"
       },
       "category": {
         "name": "wefan",
@@ -23,17 +23,17 @@
         ]
       },
       "packageJson": {
-        "name": "nt-wefan-resource-card",
-        "version": "0.0.20",
-        "description": "资源卡片",
-        "main": "lib/resource-card.component.js",
-        "typings": "lib/resource-card.component.d.ts",
+        "name": "nt-wefan-navbar",
+        "version": "0.0.21",
+        "description": "导航条",
+        "main": "lib/navbar.component.js",
+        "typings": "lib/navbar.component.d.ts",
         "repository": {
           "type": "git",
-          "url": "http://gitlab.baidu.com/tb-next-component/wefan-resource-card.git"
+          "url": "http://gitlab.baidu.com/tb-next-component/wefan-navbar.git"
         },
         "keywords": [
-          "resource-card"
+          "navbar"
         ],
         "author": "ascoders",
         "license": "ISC",
@@ -61,8 +61,8 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "navbar",
-        "chinese": "导航条"
+        "name": "resource-card",
+        "chinese": "资源卡片"
       },
       "category": {
         "name": "wefan",
@@ -80,17 +80,17 @@
         ]
       },
       "packageJson": {
-        "name": "nt-wefan-navbar",
-        "version": "0.0.20",
-        "description": "导航条",
-        "main": "lib/navbar.component.js",
-        "typings": "lib/navbar.component.d.ts",
+        "name": "nt-wefan-resource-card",
+        "version": "0.0.21",
+        "description": "资源卡片",
+        "main": "lib/resource-card.component.js",
+        "typings": "lib/resource-card.component.d.ts",
         "repository": {
           "type": "git",
-          "url": "http://gitlab.baidu.com/tb-next-component/wefan-navbar.git"
+          "url": "http://gitlab.baidu.com/tb-next-component/wefan-resource-card.git"
         },
         "keywords": [
-          "navbar"
+          "resource-card"
         ],
         "author": "ascoders",
         "license": "ISC",
