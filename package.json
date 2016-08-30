@@ -2,8 +2,8 @@
   "name": "nt-wefan-navbar",
   "version": "0.0.23",
   "description": "导航条",
-  "main": "lib/navbar.component.js",
-  "typings": "lib/navbar.component.d.ts",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "http://gitlab.baidu.com/tb-next-component/wefan-navbar.git"

@@ -14,7 +14,7 @@ export default class Navbar extends React.Component <typings.PropsDefine, typing
                     <TouchableOpacity activeOpacity={0.7}
                                       style={style.navBtn}
                                       onPress={this.props.onLeftPress}>
-                        {this.props.left}
+                        {this.props.left()}
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.7}
                                       style={style.navBtn}

@@ -1,11 +1,11 @@
 export default {
     container: {
-        paddingTop: 20,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: 'transparent',
-        height: 65
+        height: 65,
+        flex: 1
     } as React.ViewStyle,
     navBtn: {
         paddingRight: 15,
