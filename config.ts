@@ -19,6 +19,9 @@ export const author = 'ascoders'
 // 组件编译产出目录名
 export const componentBuildPath = 'lib'
 
+// 静态资源路径前缀
+export const publicPath = 'static'
+
 // 定制依赖版本的 npm 包
 export const customNpmPackage = [{
     name: 'react',

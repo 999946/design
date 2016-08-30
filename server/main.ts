@@ -4,9 +4,13 @@ import * as staticCache from 'koa-static-cache'
 import templateHtml from '../client/html'
 
 const app = new koa()
+const isProduction = process.argv[2] === '--production'
+
+// 编译后的静态文件路径
+const builtStaticPath = isProduction ? 'built-production/static' : 'built/output/static'
 
 // 设置静态资源缓存
-app.use(staticCache('built/output/static', {
+app.use(staticCache(`${builtStaticPath}`, {
     prefix: '/static',
     maxAge: 365 * 24 * 60 * 60,
     buffer: true,

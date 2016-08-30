@@ -2,7 +2,7 @@ import * as webpack from 'webpack'
 import * as path from 'path'
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const extractSCSS = new ExtractTextPlugin('style.css')
-console.log(__dirname)
+import * as config from '../../config'
 
 const alias: {
     [key: string]: string
@@ -19,7 +19,8 @@ const webpackConfig = {
 
     output: {
         path: 'built-production/static',
-        filename: 'bundle.js'
+        publicPath: `/${config.publicPath}/`,
+        filename: 'bundle.js',
     },
 
     resolve: {
@@ -65,7 +66,7 @@ const webpackConfig = {
             mangle: false
         }),
         new webpack.DllReferencePlugin({
-            context : '.',
+            context: '.',
             manifest: require(path.join(process.cwd(), 'built-production/static/dll/library-mainfest.json'))
         })
     ]

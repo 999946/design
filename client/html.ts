@@ -1,5 +1,21 @@
 import * as config from '../config'
 
+const isProduction = process.argv[2] === '--production'
+
+let scripts: string
+
+if (isProduction) {
+    scripts = `
+        <script src='/${config.publicPath}/dll/library.dll.js'></script>
+        <script src='/${config.publicPath}/bundle.js'></script>
+    `
+} else {
+    scripts = `
+        <script src='/${config.publicPath}/dll/library.dll.js'></script>
+        <script src='http://localhost:${config.localWebpackPort}/bundle.js'></script>
+    `
+}
+
 export default `
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -14,7 +30,6 @@ export default `
 <div id='react-dom'></div>
 </body>
 
-<script src='/static/dll/library.dll.js'></script>
-<script src='http://localhost:${config.localWebpackPort}/bundle.js'></script>
+${scripts}
 </html>
 `

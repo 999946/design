@@ -44,3 +44,9 @@ npm run start-before-production
 npm run gulp-production
 npm run client-build-production
 ```
+
+## 本地上线预览
+
+```bash
+npm run server-production
+```
