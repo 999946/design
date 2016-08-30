@@ -1,9 +1,12 @@
 import * as React from 'react'
 import {RouteComponentProps} from 'react-router'
-import Application from '../store/application'
 
-export interface PropsDefine extends RouteComponentProps<{}, {}> {
-    application?: Application
+export interface CategoryParams {
+    category: string
+}
+
+export interface PropsDefine extends RouteComponentProps<CategoryParams, {}> {
+
 }
 
 export class Props implements PropsDefine {

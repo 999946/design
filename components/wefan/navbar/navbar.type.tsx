@@ -7,7 +7,7 @@ export interface PropsDefine {
      */
     hasUnderLine?: boolean
 
-    left?: any,
+    left?: ()=>React.ReactElement<any>,
     leftExt?: JSX.Element,
     center?: JSX.Element,
     rightExt?: JSX.Element,
@@ -34,11 +34,13 @@ export class PropsGaea {
 
 export class Props extends PropsGaea implements PropsDefine {
     hasUnderLine = true
-    title = ''
-    left = (
-        <Image style={{height:65}}
-               source={require('./images/back.png')}/>
-    )
+    title = '标题'
+    left = ()=> {
+        return (
+            <Image style={{height:65}}
+                   source={require('./images/back.png')}/>
+        )
+    }
 }
 
 export interface StateDefine {

@@ -12,6 +12,7 @@ export default [
     'fit-menu',
     'fit-tree',
     'fit-button',
-    'fit-layout-global',
-    'react-native'
+    'fit-collapse',
+    'react-native',
+    'highlight.js'
 ]

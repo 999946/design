@@ -6,7 +6,7 @@ import {Link} from 'react-router'
 
 import './layout.scss'
 
-@observer
+@inject('application') @observer
 export default class Layout extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
@@ -14,7 +14,8 @@ export default class Layout extends React.Component <typings.PropsDefine, typing
     render() {
         return (
             <div className="_namespace">
-                <div className="nav-bar-container">
+                <div className="nav-bar-container"
+                     style={{height: this.props.application.headerHeight}}>
                     <div className="nav-bar-second-container">
                         <Link to="/"
                               activeClassName="active"

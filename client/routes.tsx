@@ -37,6 +37,24 @@ const getComponents = (nextState: any, callback: any)=> {
     })
 }
 
+const getComponentsHome = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+components/+home/home.component').default)
+    })
+}
+
+const getComponentsCategory = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+components/+category/category.component').default)
+    })
+}
+
+const getComponentsCategoryComponent = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+components/+category/+component/component.component').default)
+    })
+}
+
 export default (
     <Route path="/"
            component={Layout}>
@@ -46,6 +64,13 @@ export default (
         <Route path="/designer"
                getComponent={getDesigner}/>
         <Route path="/components"
-               getComponent={getComponents}/>
+               getComponent={getComponents}>
+            <IndexRoute getComponent={getComponentsHome}/>
+            <Route path=":category"
+                   getComponent={getComponentsCategory}>
+                <Route path=":component"
+                       getComponent={getComponentsCategoryComponent}/>
+            </Route>
+        </Route>
     </Route>
 )

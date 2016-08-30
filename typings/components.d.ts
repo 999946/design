@@ -5,6 +5,10 @@ declare namespace Components {
          */
         name: string
         /**
+         * 分类中文名
+         */
+        chinese: string
+        /**
          * 发布时候的前缀
          */
         prefix: string
@@ -92,5 +96,19 @@ declare namespace Components {
         // 实际发布级别
         publishLevel: Components.PublishLevel
         isUserOperate: boolean
+    }
+
+    /**
+     * demo 类
+     */
+    export interface DemoProps<P> extends __React.ComponentClass<P> {
+        /**
+         * 标题
+         */
+        title: string
+        /**
+         * 文档
+         */
+        description: string
     }
 }

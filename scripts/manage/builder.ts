@@ -101,8 +101,8 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
         execSync(`rm -rf ${libPath}`)
     }
 
-    // 拷贝除了 ts tsx 到 lib 目录下
-    execSync(`rsync -av --progress ${sourcePath}/* ${libPath} --exclude ${libPath} --exclude package.json --exclude readme.md --exclude "*.ts" --exclude "*.tsx"`)
+    // 拷贝除了 ts tsx lib/ demo/ test/ 到 lib 目录下
+    execSync(`rsync -av --progress ${sourcePath}/* ${libPath} --exclude ${libPath} --exclude ${sourcePath}/demo --exclude ${sourcePath}/test --exclude package.json --exclude readme.md --exclude "*.ts" --exclude "*.tsx"`)
 
     // 将编译后的文件移到当前 lib 目录下, 这里只有 js 文件
     execSync(`mv built-components/${category.name}/${component.name}/* ${libPath}`)

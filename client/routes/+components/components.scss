@@ -1,0 +1,27 @@
+& {
+    width: 100%;
+}
+
+.component-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background: #FDFDFD;
+    border-bottom: 1px solid rgba(43, 50, 57, 0.15);
+    .left {
+        display: flex;
+    }
+}
+
+.navbar-title {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    &:hover {
+        cursor: pointer;
+        color: black;
+        transition: color .3s;
+    }
+}
