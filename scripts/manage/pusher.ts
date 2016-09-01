@@ -23,7 +23,7 @@ export default (message: string)=> {
             // 组件根目录
             const componentRootPath = `${config.componentsPath}/${category.name}/${component.name}`
 
-            // 如果组件存在, 并且有改动, 提交
+            // 如果组件存在, 提交
             if (fs.existsSync(componentRootPath)) {
                 execSync(`git subtree push -P ${componentRootPath} ${config.privateGit}/${category.name}-${component.name}.git master`)
             }

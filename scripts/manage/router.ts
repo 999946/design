@@ -4,12 +4,18 @@
 
 import * as config from '../../config'
 import components from '../../components'
+import {execSync} from 'child_process'
 import * as fs from 'fs'
 
 export default ()=> {
     let setRouter = ''
+    let setPackageJson = ''
+
     components.forEach(category=> {
         category.components.forEach(component=> {
+            /**
+             * router
+             */
             const demoPath = `${config.componentsPath}/${category.name}/${component.name}/demo`
 
             if (fs.existsSync(demoPath)) {
@@ -21,12 +27,12 @@ export default ()=> {
                 let requireList = ''
 
                 fileNames.forEach(fileName => {
-                    let fileNameWithoutExt = fileName.replace('.ts', '')
-                    fileNameWithoutExt = fileNameWithoutExt.replace('.tsx', '')
+                    let fileNameWithoutExt = fileName.replace('.tsx', '')
+                    fileNameWithoutExt = fileNameWithoutExt.replace('.ts', '')
                     requireList += `
                         demoLists.push({
                             Class: require('../${config.componentsPath}/${category.name}/${component.name}/demo/${fileNameWithoutExt}').default,
-                            code: require('-!text!../${config.componentsPath}/${category.name}/${component.name}/demo/${fileNameWithoutExt}')
+                            code: require('-!text!../../${config.componentsPath}/${category.name}/${component.name}/demo/${fileName}')
                         })
                     `
                 })
@@ -42,6 +48,18 @@ export default ()=> {
                     })\n`
                 }
             }
+
+            /**
+             * package.json
+             */
+            const packageJsonPath = `${config.componentsPath}/${category.name}/${component.name}/package.json`
+            if (fs.existsSync(packageJsonPath)) {
+                setPackageJson += `packageJsonMap.set('${category.name}/${component.name}', (nextState: any, callback: any) => {
+                    require.ensure([], function (require: any) {
+                        callback(require('-!text!../${config.componentsPath}/${category.name}/${component.name}/package.json'))
+                    })
+                })\n`
+            }
         })
     })
 
@@ -55,4 +73,18 @@ export default ()=> {
         export default routerMap
     `
     fs.writeFileSync('./auto-create/components-router.ts', routerInfo)
+
+    const packageJsonInfo = `
+        declare var require: any
+
+        const packageJsonMap = new Map<string, any>()
+        
+        ${setPackageJson}
+    
+        export default packageJsonMap
+    `
+    fs.writeFileSync('./auto-create/package-json.ts', packageJsonInfo)
+
+    // 由于代码修改了 ts 文件, 需要执行 tsc
+    execSync(`tsc`)
 }

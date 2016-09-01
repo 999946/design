@@ -2,11 +2,10 @@ import * as React from 'react'
 import * as typings from './components.type'
 import {observer, inject} from 'mobx-react'
 import {Link} from 'react-router'
+import * as classNames from 'classnames'
 import components from '../../../components'
 
 import './components.scss'
-
-import Blukit from 'fit-bluekit'
 
 
 @inject('application') @observer
@@ -16,8 +15,14 @@ export default class Components extends React.Component <typings.PropsDefine, ty
 
     render() {
         const navBarCategorys = components.map((category, index)=> {
+            const classes = classNames({
+                'navbar-title': true,
+                'active': category.name === this.props.params.category
+            })
             return (
-                <Link className="navbar-title" key={index} to={`/components/${category.name}`}>{category.chinese}</Link>
+                <Link className={classes}
+                      key={index}
+                      to={`/components/${category.name}`}>{category.chinese}</Link>
             )
         })
 

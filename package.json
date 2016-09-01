@@ -5,20 +5,21 @@
   "main": "page/index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-before": "npm run tsc && npm run dll",
+    "start-before": "npm run tsc && npm run dll && npm run manage -- --router",
     "start-before-production": "npm run tsc && npm run dll-production",
     "start": "npm run gulp & npm run client-build",
     "tsc": "rm -rf built && tsc",
     "dll": "webpack --config built/scripts/webpack/webpack.dll.config.js",
     "dll-production": "webpack --config built/scripts/webpack/webpack.dll.production.config.js",
     "client-build": "node built/scripts/webpack/webpack-server.js",
-    "client-build-production": "webpack --config built/scripts/webpack/webpack.production.config.js",
+    "client-build-production": "webpack --config built/scripts/webpack/webpack.production.config.js --production",
     "server": "node built/server/main.js",
     "server-production": "node built/server/main.js --production",
     "gulp": "gulp --gulpfile built/scripts/gulp/gulpfile.js --cwd ./",
     "gulp-production": "gulp production --gulpfile built/scripts/gulp/gulpfile.js --cwd ./",
     "clean-watch": "sh scripts/clean.sh",
-    "manage": "node built/scripts/manage/index.js"
+    "manage": "node built/scripts/manage/index.js",
+    "production": "rm -rf built-production && npm run start-before-production && npm run gulp-production && npm run client-build-production"
   },
   "repository": {
     "type": "git",
@@ -70,14 +71,16 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "fit-auto-bind": "^1.0.15",
-    "fit-bluekit": "0.0.39",
     "fit-button": "^3.1.47",
     "fit-gaea": "^1.0.37",
     "fit-gaea-native-components": "^1.0.7",
     "fit-gaea-preview": "^1.0.4",
     "fit-gaea-web-components": "^1.0.5",
+    "fit-modal": "^3.0.58",
     "font-awesome": "^4.6.3",
+    "highlight.js": "^9.6.0",
     "koa": "^1.2.1",
     "koa-static-cache": "^3.1.7",
     "mobx": "^2.4.3",

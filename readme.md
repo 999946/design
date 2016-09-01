@@ -35,6 +35,12 @@ npm run start-before
 npm start
 ```
 
+## 生成 demo 动态路由
+
+```bash
+npm run manage -- --router
+```
+
 ## 上线前编译
 
 - 产出在 built-production 文件夹

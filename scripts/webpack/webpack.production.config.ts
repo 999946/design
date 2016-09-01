@@ -3,6 +3,7 @@ import * as path from 'path'
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const extractSCSS = new ExtractTextPlugin('style.css')
 import * as config from '../../config'
+import BundleHashPlugin from './plugin/bundle-hash-plugin'
 
 const alias: {
     [key: string]: string
@@ -19,8 +20,8 @@ const webpackConfig = {
 
     output: {
         path: 'built-production/static',
-        publicPath: `/${config.publicPath}/`,
-        filename: 'bundle.js',
+        publicPath: `${path.join(config.staticPathPrefixProduction, config.publicPath).replace(/http:\//g, 'http://')}/`,
+        filename: 'bundle.[hash:5].js?',
     },
 
     resolve: {
@@ -43,10 +44,10 @@ const webpackConfig = {
             }, {
                 test: /\.(png|jpg)$/,
                 exclude: /node_modules/,
-                loaders: ['url?limit=3000&name=img/[hash:8].[name].[ext]']
+                loaders: ['url?limit=3000&name=img/[name].[hash:5].[ext]']
             }, {
                 test: /\.(woff|woff2|ttf|eot|svg)/,
-                loaders: ['url?limit=3000&name=font/[hash:8].[name].[ext]']
+                loaders: ['url?limit=3000&name=font/[name].[hash:5].[ext]']
             }, {
                 test: /\.json$/,
                 loader: 'json-loader'
@@ -60,8 +61,11 @@ const webpackConfig = {
     plugins: [
         extractSCSS,
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"production"'
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
         }),
+        new BundleHashPlugin(),
         new webpack.optimize.UglifyJsPlugin({
             mangle: false
         }),

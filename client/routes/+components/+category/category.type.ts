@@ -3,6 +3,7 @@ import {RouteComponentProps} from 'react-router'
 
 export interface CategoryParams {
     category: string
+    component: string
 }
 
 export interface PropsDefine extends RouteComponentProps<CategoryParams, {}> {

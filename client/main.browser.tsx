@@ -2,8 +2,10 @@
 
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import {Router, browserHistory} from 'react-router'
-import {observer, Provider} from 'mobx-react'
+import {createHistory} from 'history'
+import {Router, useRouterHistory} from 'react-router'
+import {Provider} from 'mobx-react'
+import * as config from '../config'
 
 import Routes from './routes'
 
@@ -11,6 +13,10 @@ import './main.browser.scss'
 import 'font-awesome/css/font-awesome.min.css'
 
 import Application from './store/application'
+
+export const browserHistory = useRouterHistory(createHistory)({
+    basename: config.routerBasename
+})
 
 const MainRouter = (
     <Router history={browserHistory}>

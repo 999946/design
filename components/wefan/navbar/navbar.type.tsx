@@ -8,10 +8,10 @@ export interface PropsDefine {
     hasUnderLine?: boolean
 
     left?: ()=>React.ReactElement<any>,
-    leftExt?: JSX.Element,
-    center?: JSX.Element,
-    rightExt?: JSX.Element,
-    right?: JSX.Element,
+    leftExt?: ()=>React.ReactElement<any>,
+    center?: ()=>React.ReactElement<any>,
+    rightExt?: ()=>React.ReactElement<any>,
+    right?: ()=>React.ReactElement<any>,
     title?: string,
     titleStyle?: string,
     onLeftPress?: () => any,

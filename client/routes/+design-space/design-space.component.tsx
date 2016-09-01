@@ -1,8 +1,7 @@
 import * as React from 'react'
-import {browserHistory} from 'react-router'
 import * as typings from './design-space.type'
 import {observer, inject} from 'mobx-react'
-import {Link} from 'react-router'
+import {browserHistory} from '../../main.browser'
 
 import Button from 'fit-button'
 import './design-space.scss'
@@ -26,10 +25,10 @@ export default class DesignSpace extends React.Component <typings.PropsDefine, t
 
                     <div className="right">
                         <Button type="primary"
-                                onClick={this.jumpToPath.bind(this,'/designer?type=web')}>+ web 应用</Button>
+                                onClick={this.jumpToPath.bind(this, '/designer?type=web')}>+ web 应用</Button>
                         <Button type="primary"
                                 className="second-designer-jump-button"
-                                onClick={this.jumpToPath.bind(this,'/designer?type=native')}>+ native 应用</Button>
+                                onClick={this.jumpToPath.bind(this, '/designer?type=native')}>+ native 应用</Button>
                     </div>
                 </div>
             </div>

@@ -14,6 +14,7 @@
 .right-component {
     flex-grow: 5;
     width: 0;
+    overflow-y: auto;
 }
 
 .empty {
@@ -29,9 +30,17 @@
 
 .component-item {
     display: block;
-    padding: 8px 15px;
+    padding: 10px 15px;
     font-weight: bold;
+    transition: color, background-color 0.3s;
     &:hover {
         cursor: pointer;
+        color: #67315e;
+    }
+    &.active {
+        border-left: 2px solid #67315e;
+        padding-left: 13px;
+        color: #67315e;
+        background-color: #f9f9f9;
     }
 }

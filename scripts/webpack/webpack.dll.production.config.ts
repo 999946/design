@@ -1,6 +1,8 @@
 import * as path from 'path'
 import * as webpack from 'webpack'
 import dllLists from './dll-lists'
+import * as config from '../../config'
+import DllHashPlugin from './plugin/dll-hash-plugin'
 
 const alias: {
     [key: string]: string
@@ -14,8 +16,9 @@ module.exports = {
     },
 
     output: {
-        filename: 'static/dll/[name].dll.js',
-        path: 'built-production',
+        filename: '[name].[hash:5].dll.js',
+        path: 'built-production/static/dll',
+        publicPath: `${path.join(config.staticPathPrefixProduction, config.publicPath).replace(/http:\//g, 'http://')}/dll/`,
         library: '[name]'
     },
 
@@ -25,15 +28,19 @@ module.exports = {
 
     plugins: [
         new webpack.DllPlugin({
-            path:  'built-production/static/dll/[name]-mainfest.json',
+            path: 'built-production/static/dll/[name]-mainfest.json',
             name: '[name]'
         }),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"production"'
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
         }),
         new webpack.optimize.UglifyJsPlugin({
             mangle: false
-        })
+        }),
+        // 将 html 文件的 Dll hash 替换
+        new DllHashPlugin()
     ],
 
     module: {
@@ -43,10 +50,10 @@ module.exports = {
                 loaders: ['style', 'css']
             }, {
                 test: /\.(png|jpg)$/,
-                loader: 'url?limit=1024&name=static/dll/img/[hash:8].[name].[ext]'
+                loader: `url?limit=1024&name=img/[name].[hash:5].[ext]`
             }, {
                 test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-                loader: 'url?limit=1024&name=static/dll/font/[hash:8].[name].[ext]'
+                loader: `url?limit=1024&name=font/[name].[hash:5].[ext]`
             }, {
                 test: /\.json$/,
                 loader: 'json-loader'

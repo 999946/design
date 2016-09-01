@@ -40,3 +40,11 @@ export const customNpmPackage = [{
     type: 'peerDependences',
     version: '^2.7.0'
 }]
+
+// 路由统一前缀
+export const routerBasenameProduction = '/n/next-design'
+export const routerBasename = process.env['NODE_ENV'] === 'production' ? routerBasenameProduction : ''
+
+// 发布静态资源路径前缀
+// [注意] 为空时要写成 '/', 保证绝对路径, 否则引用路径会变为相对路径
+export const staticPathPrefixProduction = 'http://tb1.bdstatic.com/static/next-design'
