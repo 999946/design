@@ -1,7 +1,7 @@
 [
   {
-    "userPublishLevel": "major",
-    "publishLevel": "major",
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
         "name": "navbar",
