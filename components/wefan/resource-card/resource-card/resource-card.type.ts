@@ -25,7 +25,7 @@ export class PropsGaea {
 
 export class Props extends PropsGaea implements PropsDefine {
     title = '资源'
-    pictureSource = require('./images/resource.png')
+    pictureSource = require('../images/resource.png')
 }
 
 export interface StateDefine {

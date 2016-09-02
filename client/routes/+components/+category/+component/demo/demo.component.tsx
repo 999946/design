@@ -41,7 +41,7 @@ export default class Demo extends React.Component <typings.PropsDefine, typings.
     }
 
     render() {
-        const Demos = this.props.demos.map((demo, index)=> {
+        const Demos = this.props.demos && this.props.demos.map((demo, index)=> {
             return (
                 <div key={index}
                      className="demo-item">

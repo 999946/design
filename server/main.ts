@@ -6,6 +6,10 @@ import templateHtml from '../client/html'
 const app = new koa()
 const isProduction = process.argv[2] === '--production'
 
+const proxy = require('koa-proxy')
+import * as Router from 'koa-router'
+const router = new Router()
+
 // 编译后的静态文件路径
 const builtStaticPath = isProduction ? 'built-production/static' : 'built/output/static'
 
@@ -32,9 +36,15 @@ process.on('uncaughtException', (err: any)=> {
     }
 })
 
-app.use(function *(): any {
+router.all('/rn/*', proxy({
+    host: 'http://tieba.baidu.com'
+}))
+
+router.get('/*', function *(): any {
     this.type = 'text/html; charset=utf-8'
     this.body = templateHtml
 })
+
+app.use(router.routes())
 
 module.exports = app.listen(config.localPort)

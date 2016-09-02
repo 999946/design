@@ -5,6 +5,7 @@
         
         routerMap.set('wefan/resource-card', (nextState: any, callback: any) => {
                         const demoLists: any = []
+                        const documents: any = []
                         
                         require.ensure([], function (require: any) {
                             
@@ -18,11 +19,23 @@
                             code: require('-!text!../../components/wefan/resource-card/demo/image.tsx')
                         })
                     
-                            callback(demoLists)
+                            
+                        documents.push({
+                            type: require('../components/wefan/resource-card/resource-card/resource-card.type'),
+                            typeCode: require('-!text!../../components/wefan/resource-card/resource-card/resource-card.type.ts')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/wefan/resource-card/package.json')),
+                                documents
+                            })
                         })
                     })
 routerMap.set('wefan/navbar', (nextState: any, callback: any) => {
                         const demoLists: any = []
+                        const documents: any = []
                         
                         require.ensure([], function (require: any) {
                             
@@ -31,7 +44,18 @@ routerMap.set('wefan/navbar', (nextState: any, callback: any) => {
                             code: require('-!text!../../components/wefan/navbar/demo/basic.tsx')
                         })
                     
-                            callback(demoLists)
+                            
+                        documents.push({
+                            type: require('../components/wefan/navbar/navbar/navbar.type'),
+                            typeCode: require('-!text!../../components/wefan/navbar/navbar/navbar.type.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/wefan/navbar/package.json')),
+                                documents
+                            })
                         })
                     })
 

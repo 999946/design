@@ -1,8 +1,8 @@
 // 本地 server 端口号
-export const localPort = 18080
+export const localPort = 8080
 
 // 本地 dev 模式 webpack 文件服务端口号
-export const localWebpackPort = 8090
+export const localWebpackPort = 8081
 
 // 私有代码仓库
 export const privateGit = 'http://gitlab.baidu.com/tb-next-component'

@@ -1,0 +1,1 @@
+/// <reference path="./designer.d.ts" />

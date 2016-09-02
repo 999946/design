@@ -13,6 +13,8 @@ export default [
     'fit-tree',
     'fit-button',
     'fit-modal',
+    'fit-message',
     'react-native',
-    'highlight.js'
+    'lodash',
+    'superagent',
 ]

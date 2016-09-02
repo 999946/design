@@ -74,20 +74,26 @@
     "classnames": "^2.2.5",
     "fit-auto-bind": "^1.0.15",
     "fit-button": "^3.1.47",
-    "fit-gaea": "^1.0.37",
+    "fit-gaea": "^1.0.38",
     "fit-gaea-native-components": "^1.0.7",
     "fit-gaea-preview": "^1.0.4",
     "fit-gaea-web-components": "^1.0.5",
+    "fit-message": "^3.0.29",
     "fit-modal": "^3.0.58",
     "font-awesome": "^4.6.3",
     "highlight.js": "^9.6.0",
     "koa": "^1.2.1",
+    "koa-proxy": "^0.6.0",
+    "koa-router": "^5.4.0",
     "koa-static-cache": "^3.1.7",
+    "lodash": "^4.15.0",
     "mobx": "^2.4.3",
     "mobx-react": "^3.5.5",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-native-web": "0.0.44",
-    "react-router": "^2.7.0"
+    "react-router": "^2.7.0",
+    "request": "^2.74.0",
+    "superagent": "^2.2.0"
   }
 }

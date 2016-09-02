@@ -23,17 +23,12 @@ export class Props implements PropsDefine {
 
 export interface StateDefine {
     /**
-     * 全部 demo
+     * 当前组件的完整信息
      */
-    demos?: Array<Demo>
+    componentFullInfo?: ComponentFullInfo
 
     /**
-     * 当前组件的 package.json
-     */
-    packageJson?: Components.PackageJson
-
-    /**
-     * 当前组件的信息
+     * 当前组件的信息, 从根目录 components 里读的
      */
     componentInfo?: Components.ComponentConfig
 
@@ -44,8 +39,7 @@ export interface StateDefine {
 }
 
 export class State implements StateDefine {
-    demos = [] as Array<Demo>
-    packageJson = null as Components.PackageJson
+    componentFullInfo = null as ComponentFullInfo
     componentInfo = null as Components.ComponentConfig
     statu = Statu.DEMO
 }
@@ -53,4 +47,15 @@ export class State implements StateDefine {
 export interface Demo {
     Class: Components.DemoProps<any>
     code: string
+}
+
+export interface Document {
+    type: any
+    typeCode: string
+}
+
+export interface ComponentFullInfo {
+    packageJson: Components.PackageJson
+    demos: Array<Demo>
+    documents: Array<Document>
 }

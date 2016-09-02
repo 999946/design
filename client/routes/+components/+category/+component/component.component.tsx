@@ -1,8 +1,7 @@
 import * as React from 'react'
 import * as typings from './component.type'
 import {observer} from 'mobx-react'
-import componentsRouter from '../../../../../auto-create/components-router'
-import packageJsons from '../../../../../auto-create/package-json'
+import componentInfos from '../../../../../auto-create/component-infos'
 import components from '../../../../../components'
 import {Button, ButtonGroup} from 'fit-button'
 
@@ -20,15 +19,13 @@ export default class ComponentsCategoryComponent extends React.Component <typing
     public state: typings.StateDefine = new typings.State()
 
     componentWillMount() {
-        this.asyncGetComponents(this.props)
-        this.asyncGetPackageJson(this.props)
+        this.asyncGetComponentInfo(this.props)
         this.getComponentInfo(this.props)
     }
 
     componentWillReceiveProps(nextProps: typings.PropsDefine) {
         this.initState()
-        this.asyncGetComponents(nextProps)
-        this.asyncGetPackageJson(nextProps)
+        this.asyncGetComponentInfo(nextProps)
         this.getComponentInfo(nextProps)
     }
 
@@ -40,27 +37,13 @@ export default class ComponentsCategoryComponent extends React.Component <typing
     }
 
     /**
-     * 获取所有 demo 信息
+     * 异步获取组件所有信息
      */
-    asyncGetComponents(props: typings.PropsDefine) {
-        const getComponentDemos = componentsRouter.get(`${props.params.category}/${props.params.component}`)
-
-        getComponentDemos && getComponentDemos(null, (demos: any)=> {
+    asyncGetComponentInfo(props: typings.PropsDefine) {
+        const getComponentFullInfo = componentInfos.get(`${props.params.category}/${props.params.component}`)
+        getComponentFullInfo && getComponentFullInfo(null, (componentFullInfo: typings.ComponentFullInfo)=> {
             this.setState({
-                demos
-            })
-        })
-    }
-
-    /**
-     * 异步获取 package.json
-     * @param props
-     */
-    asyncGetPackageJson(props: typings.PropsDefine) {
-        const getPackageJson = packageJsons.get(`${props.params.category}/${props.params.component}`)
-        getPackageJson && getPackageJson(null, (packageJson: any)=> {
-            this.setState({
-                packageJson: JSON.parse(packageJson)
+                componentFullInfo
             })
         })
     }
@@ -89,17 +72,17 @@ export default class ComponentsCategoryComponent extends React.Component <typing
         switch (this.state.statu) {
             case typings.Statu.DEMO:
                 child = (
-                    <Demo demos={this.state.demos}/>
+                    <Demo demos={this.state.componentFullInfo && this.state.componentFullInfo.demos}/>
                 )
                 break
             case typings.Statu.DOCUMENT:
                 child = (
-                    <Document/>
+                    <Document documents={this.state.componentFullInfo && this.state.componentFullInfo.documents}/>
                 )
                 break
             case typings.Statu.DEPENDENCE:
                 child = (
-                    <Dependence packageJson={this.state.packageJson}/>
+                    <Dependence packageJson={this.state.componentFullInfo && this.state.componentFullInfo.packageJson}/>
                 )
                 break
         }
@@ -109,7 +92,7 @@ export default class ComponentsCategoryComponent extends React.Component <typing
                 <div className="component-title">
                     <div className="left">
                         <span className="component-name">{this.state.componentInfo.chinese}</span>
-                        <span className="component-version">v{this.state.packageJson && this.state.packageJson.version}</span>
+                        <span className="component-version">v{this.state.componentFullInfo && this.state.componentFullInfo.packageJson.version}</span>
                     </div>
                     <div className="right">
                         <ButtonGroup>

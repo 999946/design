@@ -5,17 +5,17 @@
 import * as config from '../../config'
 import components from '../../components'
 import {execSync} from 'child_process'
+import * as _ from 'lodash'
 import * as fs from 'fs'
+import * as path from 'path'
+import consoleLog from './utils/console-log'
 
 export default ()=> {
-    let setRouter = ''
-    let setPackageJson = ''
+    let setFullInfo = ''
 
     components.forEach(category=> {
         category.components.forEach(component=> {
-            /**
-             * router
-             */
+
             const demoPath = `${config.componentsPath}/${category.name}/${component.name}/demo`
 
             if (fs.existsSync(demoPath)) {
@@ -37,53 +37,72 @@ export default ()=> {
                     `
                 })
 
+                let documentsRequireList = ''
+
+                // 组件入口文件
+                const mainSource = fs.readFileSync(`${config.componentsPath}/${category.name}/${component.name}/index.ts`).toString()
+
+                // 找到入口文件
+                const exportString = _.trim(/export\s?\{([a-zA-Z0-9]+)\}/.exec(mainSource)[1])
+                let exportStringSplit = exportString.split(',')
+                exportStringSplit.forEach(exportName=> {
+                    exportName = _.trim(exportName)
+                    const pattern = new RegExp(`import\\s+${exportName}\\s+from\\s+\\'([^']+)\\'`)
+                    // 引用资源的路径
+                    const exportPath = pattern.exec(mainSource)[1]
+                    const exportPathNoComponent = _.trimEnd(exportPath, '.component')
+                    const exportTypePath = exportPathNoComponent + '.type'
+                    // .type 文件完整路径
+                    const exportTypeAbsolutePath = path.join(`${config.componentsPath}/${category.name}/${component.name}`, exportTypePath)
+                    let typeExt = '.ts'
+
+                    if (!fs.existsSync(exportTypeAbsolutePath + typeExt)) {
+                        // 试试 .tsx
+                        typeExt = '.tsx'
+                        if (!fs.existsSync(exportTypeAbsolutePath + typeExt)) {
+                            consoleLog.error(`${exportTypeAbsolutePath} 文件不存在`)
+                        }
+                    }
+
+                    documentsRequireList += `
+                        documents.push({
+                            type: require('../${exportTypeAbsolutePath}'),
+                            typeCode: require('-!text!../../${exportTypeAbsolutePath}${typeExt}')
+                        })
+                    `
+                })
+
                 if (fileNames.length > 0) {
-                    setRouter += `routerMap.set('${category.name}/${component.name}', (nextState: any, callback: any) => {
+                    setFullInfo += `routerMap.set('${category.name}/${component.name}', (nextState: any, callback: any) => {
                         const demoLists: any = []
+                        const documents: any = []
                         
                         require.ensure([], function (require: any) {
                             ${requireList}
-                            callback(demoLists)
+                            ${documentsRequireList}
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../${config.componentsPath}/${category.name}/${component.name}/package.json')),
+                                documents
+                            })
                         })
                     })\n`
                 }
             }
-
-            /**
-             * package.json
-             */
-            const packageJsonPath = `${config.componentsPath}/${category.name}/${component.name}/package.json`
-            if (fs.existsSync(packageJsonPath)) {
-                setPackageJson += `packageJsonMap.set('${category.name}/${component.name}', (nextState: any, callback: any) => {
-                    require.ensure([], function (require: any) {
-                        callback(require('-!text!../${config.componentsPath}/${category.name}/${component.name}/package.json'))
-                    })
-                })\n`
-            }
         })
     })
 
-    const routerInfo = `
+    const fullInfo = `
         declare var require: any
 
         const routerMap = new Map<string, any>()
         
-        ${setRouter}
+        ${setFullInfo}
     
         export default routerMap
     `
-    fs.writeFileSync('./auto-create/components-router.ts', routerInfo)
-
-    const packageJsonInfo = `
-        declare var require: any
-
-        const packageJsonMap = new Map<string, any>()
-        
-        ${setPackageJson}
-    
-        export default packageJsonMap
-    `
-    fs.writeFileSync('./auto-create/package-json.ts', packageJsonInfo)
+    fs.writeFileSync('auto-create/component-infos.ts', fullInfo)
 
     // 由于代码修改了 ts 文件, 需要执行 tsc
     execSync(`tsc`)

@@ -3,3 +3,20 @@
     padding: 10px;
     background-color: white;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    thead tr td {
+        background-color: #f6f8f8;
+        padding: 0 15px;
+        height: 40px;
+        border: 1px solid #edf1f2;
+        font-weight: bold;
+    }
+    tbody tr td {
+        padding: 0 15px;
+        height: 40px;
+        border: 1px solid #edf1f2;
+    }
+}
