@@ -75,7 +75,7 @@ export const buildDTs = ()=> {
 
     components.forEach(category=> {
         category.components.forEach(component=> {
-            comboComponentContent += `import './${category.name}/${component.name}/${component.name}.component'\n`
+            comboComponentContent += `import './${category.name}/${component.name}/${component.name}.index'\n`
         })
     })
 
