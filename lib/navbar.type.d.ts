@@ -1,10 +1,11 @@
+import * as React from 'react';
 export interface PropsDefine {
     hasUnderLine?: boolean;
-    left?: any;
-    leftExt?: JSX.Element;
-    center?: JSX.Element;
-    rightExt?: JSX.Element;
-    right?: JSX.Element;
+    left?: () => React.ReactElement<any>;
+    leftExt?: () => React.ReactElement<any>;
+    center?: () => React.ReactElement<any>;
+    rightExt?: () => React.ReactElement<any>;
+    right?: () => React.ReactElement<any>;
     title?: string;
     titleStyle?: string;
     onLeftPress?: () => any;
@@ -26,7 +27,7 @@ export declare class PropsGaea {
 export declare class Props extends PropsGaea implements PropsDefine {
     hasUnderLine: boolean;
     title: string;
-    left: JSX.Element;
+    left: () => JSX.Element;
 }
 export interface StateDefine {
 }

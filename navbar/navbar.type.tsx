@@ -38,7 +38,7 @@ export class Props extends PropsGaea implements PropsDefine {
     left = ()=> {
         return (
             <Image style={{height:65}}
-                   source={require('./images/back.png')}/>
+                   source={require('../images/back.png')}/>
         )
     }
 }
