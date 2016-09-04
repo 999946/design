@@ -4,7 +4,7 @@ import Navbar from '../index'
 
 @observer
 export default class Demo extends React.Component <any, any> {
-    static title = '默认态'
+    static title = '基本用法'
     static description = ``
 
     render() {
