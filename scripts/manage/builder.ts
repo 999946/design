@@ -101,6 +101,9 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
         execSync(`rm -rf ${libPath}`)
     }
 
+    // 再创建 lib 目录
+    fs.mkdirSync(libPath)
+
     // 将编译后的文件移到当前 lib 目录下, 这里只有 js 文件
     execSync(`mv built-components/${category.name}/${component.name}/* ${libPath}`)
 
