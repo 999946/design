@@ -24,7 +24,7 @@
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/common/tooltip/package.json')),
                                 documents,
                                 main: require('../components/common/tooltip/index')
                             })

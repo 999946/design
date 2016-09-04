@@ -27,7 +27,7 @@ export default class Dependence extends React.Component <typings.PropsDefine, ty
             return (
                 <tr key={index}>
                     <td>{dependence}</td>
-                    <td>{this.props.packageJson.peerDependencies[dependence]}</td>
+                    <td>{this.props.packageJson.dependencies[dependence]}</td>
                 </tr>
             )
         })
