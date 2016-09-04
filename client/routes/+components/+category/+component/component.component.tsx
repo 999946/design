@@ -21,15 +21,29 @@ export default class ComponentsCategoryComponent extends React.Component <typing
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
 
+    private Tooltip: React.ComponentClass<any> = null
+
     componentWillMount() {
         this.asyncGetComponentInfo(this.props)
         this.getComponentInfo(this.props)
+        this.asyncGetComponents.call(this)
     }
 
     componentWillReceiveProps(nextProps: typings.PropsDefine) {
         this.initState()
         this.asyncGetComponentInfo(nextProps)
         this.getComponentInfo(nextProps)
+    }
+
+    /**
+     * 动态获取需要的组件
+     */
+    asyncGetComponents() {
+        const getTooltip = componentInfos.get('common/tooltip')
+        getTooltip && getTooltip((componentFullInfo: RouterComponentsModel.ComponentFullInfo)=> {
+            this.Tooltip = componentFullInfo.main.Tooltip
+            this.forceUpdate()
+        })
     }
 
     /**
@@ -44,7 +58,7 @@ export default class ComponentsCategoryComponent extends React.Component <typing
      */
     asyncGetComponentInfo(props: typings.PropsDefine) {
         const getComponentFullInfo = componentInfos.get(`${props.params.category}/${props.params.component}`)
-        getComponentFullInfo && getComponentFullInfo(null, (componentFullInfo: typings.ComponentFullInfo)=> {
+        getComponentFullInfo && getComponentFullInfo((componentFullInfo: RouterComponentsModel.ComponentFullInfo)=> {
             this.setState({
                 componentFullInfo
             })
@@ -79,6 +93,10 @@ export default class ComponentsCategoryComponent extends React.Component <typing
     }
 
     render() {
+        // if (this.Tooltip === null) {
+        //     return null
+        // }
+
         let child: React.ReactElement<any>
 
         switch (this.state.statu) {
@@ -104,14 +122,69 @@ export default class ComponentsCategoryComponent extends React.Component <typing
         }
 
         // npm install
-        const npmInstall = this.state.categoryInfo && this.state.categoryInfo.isPrivate ? `${config.privateGit}/${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}/repository/archive.tar.gz?ref=${this.state.componentFullInfo && this.state.componentFullInfo.packageJson.version} --save` : `npm install ${config.publicGit}/${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}@${this.state.componentFullInfo && this.state.componentFullInfo.packageJson.version} --save`
+        const npmInstall = this.state.categoryInfo && this.state.categoryInfo.isPrivate ? `npm install ${config.privateGit}/${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}/repository/archive.tar.gz?ref=${this.state.componentFullInfo && this.state.componentFullInfo.packageJson.version} --save` : `npm install ${this.state.categoryInfo.prefix}-${this.state.componentInfo.name} --save`
+
+        // 适用于 web
+        let ForWeb: React.ReactElement<any> = null
+        if (this.state.componentInfo.isWeb) {
+            const Element = (
+                <span className="support">
+                    <i className="fa fa-internet-explorer"
+                       style={{fontSize:11}}/>
+                </span>
+            )
+            if (this.Tooltip === null) {
+                ForWeb = Element
+            } else {
+                ForWeb = React.createElement(this.Tooltip, {
+                    title: '兼容网页'
+                }, Element)
+            }
+        }
+
+        // 适用于 android
+        let ForAndroid: React.ReactElement<any> = null
+        if (this.state.componentInfo.isAndroid) {
+            const Element = (
+                <span className="support">
+                    <i className="fa fa-android"/>
+                </span>
+            )
+            if (this.Tooltip === null) {
+                ForAndroid = Element
+            } else {
+                ForAndroid = React.createElement(this.Tooltip, {
+                    title: '兼容安卓'
+                }, Element)
+            }
+        }
+
+        // 适用于 ios
+        let ForIos: React.ReactElement<any> = null
+        if (this.state.componentInfo.isIos) {
+            const Element = (
+                <span className="support">
+                    <i className="fa fa-apple"/>
+                </span>
+            )
+            if (this.Tooltip === null) {
+                ForIos = Element
+            } else {
+                ForIos = React.createElement(this.Tooltip, {
+                    title: '兼容苹果'
+                }, Element)
+            }
+        }
 
         return (
             <div className="_namespace">
                 <div className="component-title">
                     <div className="left">
                         <span className="component-name">{this.state.componentInfo.chinese}</span>
-                        <span className="component-version">v{this.state.componentFullInfo && this.state.componentFullInfo.packageJson.version}</span>
+                        <span className="component-version">{this.state.componentFullInfo && this.state.componentFullInfo.packageJson && `v` + this.state.componentFullInfo.packageJson.version}</span>
+                        {ForWeb}
+                        {ForIos}
+                        {ForAndroid}
                     </div>
                     <div className="right">
                         <input readOnly={true}
@@ -119,7 +192,9 @@ export default class ComponentsCategoryComponent extends React.Component <typing
                                className="component-install"/>
                         <ReactCopyToClipboard text={npmInstall}
                                               onCopy={this.handleCopy.bind(this)}>
-                            <Button className="copy"><i className="fa fa-copy"/></Button>
+                            <Button className="copy">
+                                <i className="fa fa-copy"/>
+                            </Button>
                         </ReactCopyToClipboard>
                         <ButtonGroup className="switch-group">
                             <Button active={this.state.statu === typings.Statu.DEMO}

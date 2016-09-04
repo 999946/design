@@ -34,9 +34,13 @@ declare namespace Components {
          */
         chinese: string
         /**
-         * 是否可用于 native
+         * 是否可用于 android
          */
-        isNative?: boolean
+        isAndroid?: boolean
+        /**
+         * 是否可用于 ios
+         */
+        isIos?: boolean
         /**
          * 是否可用于 web
          */

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as typings from './demo.type'
+import componentInfos from '../../../../../../auto-create/component-infos'
 import {observer, inject} from 'mobx-react'
 import Modal from 'fit-modal'
 import {Button, ButtonGroup} from 'fit-button'
@@ -24,7 +25,7 @@ export default class Demo extends React.Component <typings.PropsDefine, typings.
     /**
      * 显示模态框展示全部内容
      */
-    showModal(demo: typings.Demo) {
+    showModal(demo: RouterComponentsModel.Demo) {
         this.setState({
             selectedDemo: demo
         }, ()=> {
@@ -81,7 +82,8 @@ export default class Demo extends React.Component <typings.PropsDefine, typings.
                 <div>
                     <DemoClass/>
                     <br/>
-                    <pre id="component-pre">
+                    <pre id="component-pre"
+                         style={{paddingLeft:15}}>
                         <code className="typescript github">{demoCode}</code>
                     </pre>
                 </div>

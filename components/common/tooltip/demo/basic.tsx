@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {observer} from 'mobx-react'
-import Navbar from '../index'
+import Tooltip from '../index'
 
 @observer
 export default class Demo extends React.Component <any, any> {
@@ -9,7 +9,9 @@ export default class Demo extends React.Component <any, any> {
 
     render() {
         return (
-            <Navbar/>
+            <Tooltip>
+                <span>鼠标移到这,会出现提示</span>
+            </Tooltip>
         )
     }
 }

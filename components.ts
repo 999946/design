@@ -19,11 +19,13 @@ export default [{
         name: 'resource-card',
         chinese: '资源卡片',
         isWeb: true,
-        isNative: true
+        isAndroid: true,
+        isIos:true
     }, {
         name: 'navbar',
         chinese: '导航条',
         isWeb: true,
-        isNative: true
+        isAndroid: true,
+        isIos:true
     }]
 }] as Array<Components.Category>

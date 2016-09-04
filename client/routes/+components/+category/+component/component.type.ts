@@ -25,7 +25,7 @@ export interface StateDefine {
     /**
      * 当前组件的完整信息
      */
-    componentFullInfo?: ComponentFullInfo
+    componentFullInfo?: RouterComponentsModel.ComponentFullInfo
 
     /**
      * 当前组件的信息, 从根目录 components 里读的
@@ -44,25 +44,8 @@ export interface StateDefine {
 }
 
 export class State implements StateDefine {
-    componentFullInfo = null as ComponentFullInfo
+    componentFullInfo = null as RouterComponentsModel.ComponentFullInfo
     componentInfo = null as Components.ComponentConfig
     categoryInfo = null as Components.Category
     statu = Statu.DEMO
-}
-
-export interface Demo {
-    Class: Components.DemoProps<any>
-    code: string
-}
-
-export interface Document {
-    type: any
-    typeCode: string
-    componentName: string
-}
-
-export interface ComponentFullInfo {
-    packageJson: Components.PackageJson
-    demos: Array<Demo>
-    documents: Array<Document>
 }

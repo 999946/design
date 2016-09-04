@@ -12,6 +12,10 @@ export default class Document extends React.Component <typings.PropsDefine, typi
     public state: typings.StateDefine = new typings.State()
 
     render() {
+        if (!this.props.documents) {
+            return null
+        }
+
         let Documents = this.props.documents.map((document, index)=> {
             // props 实例
             const props = new document.type['Props']()

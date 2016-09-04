@@ -1,5 +1,5 @@
 import * as _ from 'lodash'
-import {stringify} from "querystring";
+import * as trimString from '../../../../../../utils/trim-string'
 
 /**
  * 根据源码找到 propsDefine 部分
@@ -179,7 +179,7 @@ export const parsePropsDefine = (propsDefine: string)=> {
         if (nowStep === 'description') {
             if (nowStepLine === 1) {
                 if (lineTrim.startsWith('//')) {
-                    description += _.trim(_.trimStart(lineTrim, '//'))
+                    description += _.trim(trimString.trimStringStart(lineTrim, '//'))
                     descriptionType = 1
                     return
                 } else if (lineTrim.startsWith('/**')) {
@@ -194,7 +194,7 @@ export const parsePropsDefine = (propsDefine: string)=> {
                 switch (descriptionType) {
                     case 1:
                         if (lineTrim.startsWith('//')) {
-                            description += '\n' + _.trim(_.trimStart(lineTrim, '//'))
+                            description += '\n' + _.trim(trimString.trimStringStart(lineTrim, '//'))
                             return
                         } else {
                             nowStep = 'name'
@@ -204,14 +204,14 @@ export const parsePropsDefine = (propsDefine: string)=> {
                     case 2:
                         if (lineTrim.startsWith('*') && !lineTrim.endsWith('*/')) {
                             if (nowStepLine === 2) {
-                                description += _.trim(_.trimStart(lineTrim, '*'))
+                                description += _.trim(trimString.trimStringStart(lineTrim, '*'))
                             } else {
-                                description += '\n' + _.trim(_.trimStart(lineTrim, '*'))
+                                description += '\n' + _.trim(trimString.trimStringStart(lineTrim, '*'))
                             }
                             return
                         } else if (lineTrim.endsWith('*/')) {
                             // 已经是结尾了
-                            const lineOther = _.trimStart(_.trimEnd(lineTrim, '*/'), '*')
+                            const lineOther = trimString.trimStringStart(trimString.trimStringEnd(lineTrim, '*/'), '*')
                             if (lineOther !== '') {
                                 description += '\n' + lineOther
                             }
@@ -402,8 +402,6 @@ export const parseProps = (props: string)=> {
             }
         }
     })
-
-    console.log(params)
 
     return params
 }

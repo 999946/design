@@ -9,6 +9,7 @@ import * as _ from 'lodash'
 import * as fs from 'fs'
 import * as path from 'path'
 import consoleLog from './utils/console-log'
+import * as trimString from '../../utils/trim-string'
 
 export default ()=> {
     let setFullInfo = ''
@@ -21,13 +22,13 @@ export default ()=> {
     components.forEach(category=> {
         category.components.forEach(component=> {
 
-            const demoPath = `${config.componentsPath}/${category.name}/${component.name}/demo`
+            const componentAbsolutePath = `${config.componentsPath}/${category.name}/${component.name}`
 
-            if (fs.existsSync(demoPath)) {
+            if (fs.existsSync(`${componentAbsolutePath}/demo`)) {
                 const demoLists: any = []
 
                 // 遍历当前目录下所有文件
-                const fileNames = fs.readdirSync(demoPath).filter(fileName=>fileName !== '')
+                const fileNames = fs.readdirSync(`${componentAbsolutePath}/demo`).filter(fileName=>fileName !== '')
 
                 let requireList = ''
 
@@ -36,8 +37,8 @@ export default ()=> {
                     fileNameWithoutExt = fileNameWithoutExt.replace('.ts', '')
                     requireList += `
                         demoLists.push({
-                            Class: require('../${config.componentsPath}/${category.name}/${component.name}/demo/${fileNameWithoutExt}').default,
-                            code: require('-!text!../../${config.componentsPath}/${category.name}/${component.name}/demo/${fileName}')
+                            Class: require('../${componentAbsolutePath}/demo/${fileNameWithoutExt}').default,
+                            code: require('-!text!../../${componentAbsolutePath}/demo/${fileName}')
                         })
                     `
                 })
@@ -45,7 +46,7 @@ export default ()=> {
                 let documentsRequireList = ''
 
                 // 组件入口文件
-                const mainSource = fs.readFileSync(`${config.componentsPath}/${category.name}/${component.name}/index.ts`).toString()
+                const mainSource = fs.readFileSync(`${componentAbsolutePath}/index.ts`).toString()
 
                 // 找到入口文件
                 const exportString = _.trim(/export\s?\{([a-zA-Z0-9]+)\}/.exec(mainSource)[1])
@@ -55,10 +56,10 @@ export default ()=> {
                     const pattern = new RegExp(`import\\s+${exportName}\\s+from\\s+\\'([^']+)\\'`)
                     // 引用资源的路径
                     const exportPath = pattern.exec(mainSource)[1]
-                    const exportPathNoComponent = _.trimEnd(exportPath, '.component')
+                    const exportPathNoComponent = trimString.trimStringEnd(exportPath, '.component')
                     const exportTypePath = exportPathNoComponent + '.type'
                     // .type 文件完整路径
-                    const exportTypeAbsolutePath = path.join(`${config.componentsPath}/${category.name}/${component.name}`, exportTypePath)
+                    const exportTypeAbsolutePath = path.join(`${componentAbsolutePath}`, exportTypePath)
                     let typeExt = '.ts'
 
                     if (!fs.existsSync(exportTypeAbsolutePath + typeExt)) {
@@ -79,7 +80,12 @@ export default ()=> {
                 })
 
                 if (fileNames.length > 0) {
-                    setFullInfo += `routerMap.set('${category.name}/${component.name}', (nextState: any, callback: any) => {
+                    let packageJsonRequire = `null`
+                    if (fs.existsSync(`${componentAbsolutePath}/package.json`)) {
+                        packageJsonRequire = `JSON.parse(require('-!text!../${componentAbsolutePath}/package.json'))`
+                    }
+
+                    setFullInfo += `routerMap.set('${category.name}/${component.name}', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
                         
@@ -89,8 +95,9 @@ export default ()=> {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: JSON.parse(require('-!text!../${config.componentsPath}/${category.name}/${component.name}/package.json')),
-                                documents
+                                packageJson: ${packageJsonRequire},
+                                documents,
+                                main: require('../${componentAbsolutePath}/index')
                             })
                         })
                     })\n`

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import {Document} from '../component.type'
 
 export interface PropsDefine {
     /**
@@ -15,7 +14,7 @@ export interface PropsDefine {
     /**
      * 文档
      */
-    documents?: Array<Document>
+    documents?: Array<RouterComponentsModel.Document>
 }
 
 export class Props implements PropsDefine {

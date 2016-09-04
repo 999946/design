@@ -439,9 +439,9 @@ export default (publishFullPaths: Array<string>)=> {
 
             // 再循环一遍, 这次从根目录已经提交了
             simulations.forEach(publishInfo=> {
-                if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
-                    const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
+                const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
 
+                if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
                     // 打 tag
                     execSync(`cd ${publishPath}; git tag v${publishInfo.componentInfoWithDep.packageJson.version}`)
 
@@ -453,8 +453,8 @@ export default (publishFullPaths: Array<string>)=> {
 
                     // 因为这个 tag 也打到了根目录, 所以在根目录删除这个 tag
                     execSync(`git tag -d v${publishInfo.componentInfoWithDep.packageJson.version}`)
-                } else { // TODO 公有发布
-
+                } else {
+                    execSync(`cd ${publishPath}; npm publish`)
                 }
             })
 
