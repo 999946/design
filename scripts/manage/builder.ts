@@ -101,11 +101,12 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
         execSync(`rm -rf ${libPath}`)
     }
 
-    // 拷贝除了 ts tsx lib/ demo/ test/ 到 lib 目录下
-    execSync(`rsync -av --progress ${sourcePath}/* ${libPath} --exclude ${libPath} --exclude ${sourcePath}/demo --exclude ${sourcePath}/test --exclude package.json --exclude readme.md --exclude "*.ts" --exclude "*.tsx"`)
-
     // 将编译后的文件移到当前 lib 目录下, 这里只有 js 文件
     execSync(`mv built-components/${category.name}/${component.name}/* ${libPath}`)
+
+    // 拷贝除了 ts tsx lib/ demo/ test/ 到 lib 目录下
+    // 一定要放上一步 mv 后面, 不然 lib 目录非空了再 mv 会报错
+    execSync(`rsync -av --progress ${sourcePath}/* ${libPath} --exclude ${libPath} --exclude ${sourcePath}/demo --exclude ${sourcePath}/test --exclude package.json --exclude readme.md --exclude "*.ts" --exclude "*.tsx"`)
 
     // 找出 lib 目录下的 js 文件
     let jsFilePaths = getFilesBySuffix('js', libPath)
