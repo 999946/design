@@ -3,6 +3,7 @@ import * as typings from './demo.type'
 import {observer, inject} from 'mobx-react'
 import Modal from 'fit-modal'
 import {Button, ButtonGroup} from 'fit-button'
+import {ScrollListenBox, ScrollListenNail, ScrollListen, createStore} from 'fit-scroll-listen'
 
 const highlightJs = require('highlight.js')
 
@@ -42,29 +43,46 @@ export default class Demo extends React.Component <typings.PropsDefine, typings.
 
     render() {
         const Demos = this.props.demos && this.props.demos.map((demo, index)=> {
-            return (
-                <div key={index}
-                     className="demo-item">
-                    <div className="demo-title">
-                        <span>{demo.Class.title}</span>
-                        <Button type="secondary"
-                                onClick={this.showModal.bind(this, demo)}>查看源码</Button>
+                return (
+                    <div key={index}
+                         className="demo-item">
+                        <div className="demo-title">
+                            <span>{demo.Class.title}</span>
+                            <Button type="secondary"
+                                    onClick={this.showModal.bind(this, demo)}>查看源码</Button>
+                        </div>
+                        <demo.Class/>
                     </div>
-                    <demo.Class/>
-                </div>
-            )
-        })
+                )
+            })
 
         let modalChild: React.ReactElement<any> = null
         if (this.state.selectedDemo) {
             const DemoClass = this.state.selectedDemo.Class
+
+            let demoCode = this.state.selectedDemo.code
+
+            // 把 import xxx from './index' 换成安装路径
+            demoCode = demoCode.replace(/import\s+.*\s+from\s+\'[^\']*\'/g, (matched: string)=> {
+                return matched.replace(/\'..\/index\'/g, `\'${this.props.categoryInfo.prefix}-${this.props.componentInfo.name}\'`)
+            })
+
+            // 干掉这几段代码
+            // import * as React from 'react'
+            // import {observer} from 'mobx-react'
+            // @observe
+            demoCode = demoCode.replace(/import\s+\*\s+as\s+React\s+from\s+\'react\'\n/g, '')
+            demoCode = demoCode.replace(/import\s+\{[^\}]*\}\s+from\s+\'mobx-react\'\n/g, '')
+            demoCode = demoCode.replace(/\@observer\n/g, '')
+            demoCode = demoCode.replace(/\s+static\s+title\s?=\s?.*\n/g, '')
+            demoCode = demoCode.replace(/\s+static\s+description\s?=\s?.*\n/g, '')
 
             modalChild = (
                 <div>
                     <DemoClass/>
                     <br/>
                     <pre id="component-pre">
-                        <code className="typescript github">{this.state.selectedDemo.code}</code>
+                        <code className="typescript github">{demoCode}</code>
                     </pre>
                 </div>
             )

@@ -25,12 +25,47 @@
     justify-content: space-between;
     background: white;
     padding: 20px;
-    .component-name {
-        font-weight: bold;
-        font-size: 18px;
-        margin-right: 10px;
+    .left {
+        display: flex;
+        .component-name {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            white-space: nowrap;
+        }
+        .component-version {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
     }
-    .component-version {
-
+    .right {
+        display: flex;
+        .component-install {
+            display: flex;
+            align-items: center;
+            word-break: break-all;
+            padding: 5px 10px;
+            min-width: 400px;
+            vertical-align: middle;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            outline: none;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+        }
+        .copy {
+            margin-right: 10px;
+            border-left: none;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .switch-group {
+            display: flex;
+        }
     }
 }

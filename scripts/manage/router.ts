@@ -12,6 +12,11 @@ import consoleLog from './utils/console-log'
 
 export default ()=> {
     let setFullInfo = ''
+    const autoCreate = 'auto-create'
+
+    if (!fs.existsSync(autoCreate)) {
+        fs.mkdirSync(autoCreate)
+    }
 
     components.forEach(category=> {
         category.components.forEach(component=> {
@@ -67,7 +72,8 @@ export default ()=> {
                     documentsRequireList += `
                         documents.push({
                             type: require('../${exportTypeAbsolutePath}'),
-                            typeCode: require('-!text!../../${exportTypeAbsolutePath}${typeExt}')
+                            typeCode: require('-!text!../../${exportTypeAbsolutePath}${typeExt}'),
+                            componentName: '${exportName}'
                         })
                     `
                 })
@@ -102,7 +108,7 @@ export default ()=> {
     
         export default routerMap
     `
-    fs.writeFileSync('auto-create/component-infos.ts', fullInfo)
+    fs.writeFileSync(`${autoCreate}/component-infos.ts`, fullInfo)
 
     // 由于代码修改了 ts 文件, 需要执行 tsc
     execSync(`tsc`)

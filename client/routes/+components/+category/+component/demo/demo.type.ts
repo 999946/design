@@ -7,6 +7,16 @@ export interface PropsDefine {
      * 全部 demo
      */
     demos?: Array<Demo>
+
+    /**
+     * 所属分类信息
+     */
+    categoryInfo?: Components.Category
+
+    /**
+     * 组件信息
+     */
+    componentInfo?: Components.ComponentConfig
 }
 
 export class Props implements PropsDefine {

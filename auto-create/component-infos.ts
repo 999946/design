@@ -22,7 +22,8 @@
                             
                         documents.push({
                             type: require('../components/wefan/resource-card/resource-card/resource-card.type'),
-                            typeCode: require('-!text!../../components/wefan/resource-card/resource-card/resource-card.type.ts')
+                            typeCode: require('-!text!../../components/wefan/resource-card/resource-card/resource-card.type.ts'),
+                            componentName: 'ResourceCard'
                         })
                     
                             
@@ -47,7 +48,8 @@ routerMap.set('wefan/navbar', (nextState: any, callback: any) => {
                             
                         documents.push({
                             type: require('../components/wefan/navbar/navbar/navbar.type'),
-                            typeCode: require('-!text!../../components/wefan/navbar/navbar/navbar.type.tsx')
+                            typeCode: require('-!text!../../components/wefan/navbar/navbar/navbar.type.tsx'),
+                            componentName: 'Navbar'
                         })
                     
                             

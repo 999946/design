@@ -6,17 +6,16 @@ export interface PropsDefine {
      * 是否有底部线
      */
     hasUnderLine?: boolean
-
-    left?: ()=>React.ReactElement<any>,
-    leftExt?: ()=>React.ReactElement<any>,
-    center?: ()=>React.ReactElement<any>,
-    rightExt?: ()=>React.ReactElement<any>,
-    right?: ()=>React.ReactElement<any>,
-    title?: string,
-    titleStyle?: string,
-    onLeftPress?: () => any,
-    onLeftExtPress?: () => any,
-    onRightExtPress?: () => any,
+    left?: ()=>React.ReactElement<any>
+    leftExt?: ()=>React.ReactElement<any>
+    center?: ()=>React.ReactElement<any>
+    rightExt?: ()=>React.ReactElement<any>
+    right?: ()=>React.ReactElement<any>
+    title?: string
+    titleStyle?: string
+    onLeftPress?: () => any
+    onLeftExtPress?: () => any
+    onRightExtPress?: () => any
     onRightPress?: () => any
 }
 

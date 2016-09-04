@@ -24,3 +24,18 @@ declare module 'format-json' {
     }
     export = api
 }
+
+declare module 'react-copy-to-clipboard' {
+    const api: any
+    export = api
+}
+
+declare module 'fit-scroll-listen' {
+    const api: {
+        ScrollListenBox: any
+        ScrollListenNail: any
+        ScrollListen: any
+        createStore: any
+    }
+    export = api
+}

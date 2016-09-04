@@ -13,9 +13,13 @@ export default [{
     isPrivate: true,
     components: [{
         name: 'resource-card',
-        chinese: '资源卡片'
+        chinese: '资源卡片',
+        isWeb: true,
+        isNative: true
     }, {
         name: 'navbar',
-        chinese: '导航条'
+        chinese: '导航条',
+        isWeb: true,
+        isNative: true
     }]
 }] as Array<Components.Category>

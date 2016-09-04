@@ -33,6 +33,11 @@ export interface StateDefine {
     componentInfo?: Components.ComponentConfig
 
     /**
+     * 所属分类信息
+     */
+    categoryInfo?: Components.Category
+
+    /**
      * 当前所在 演示/文档/依赖 状态  demo / document / dependence
      */
     statu?: Statu
@@ -41,6 +46,7 @@ export interface StateDefine {
 export class State implements StateDefine {
     componentFullInfo = null as ComponentFullInfo
     componentInfo = null as Components.ComponentConfig
+    categoryInfo = null as Components.Category
     statu = Statu.DEMO
 }
 
@@ -52,6 +58,7 @@ export interface Demo {
 export interface Document {
     type: any
     typeCode: string
+    componentName: string
 }
 
 export interface ComponentFullInfo {

@@ -1,12 +1,11 @@
 & {
     margin: 10px;
-    padding: 10px;
-    background-color: white;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    background-color: white;
     thead tr td {
         background-color: #f6f8f8;
         padding: 0 15px;
@@ -14,9 +13,31 @@ table {
         border: 1px solid #edf1f2;
         font-weight: bold;
     }
-    tbody tr td {
-        padding: 0 15px;
-        height: 40px;
-        border: 1px solid #edf1f2;
+    tbody tr {
+        &.required {
+            background: #f6f8f8;
+            font-weight: bold;
+        }
+        td {
+            padding: 0 15px;
+            height: 40px;
+            border: 1px solid #edf1f2;
+        }
+    }
+}
+
+.export-name {
+    padding: 15px;
+    border: 1px solid #edf1f2;
+    border-bottom: none;
+    background-color: #f6f8f8;
+    display: flex;
+    align-items: center;
+    .title {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .import-doc {
+        margin-left: 10px;
     }
 }

@@ -33,6 +33,14 @@ declare namespace Components {
          * 中文名
          */
         chinese: string
+        /**
+         * 是否可用于 native
+         */
+        isNative: boolean
+        /**
+         * 是否可用于 web
+         */
+        isWeb: boolean
     }
 
     export interface ComponentFullInfo {

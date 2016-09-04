@@ -4,6 +4,9 @@ import {observer} from 'mobx-react'
 import componentInfos from '../../../../../auto-create/component-infos'
 import components from '../../../../../components'
 import {Button, ButtonGroup} from 'fit-button'
+import * as ReactCopyToClipboard from 'react-copy-to-clipboard'
+import Message from 'fit-message'
+import * as config from '../../../../../config'
 
 import 'highlight.js/styles/github.css'
 import 'highlight.js/lib/languages/typescript.js'
@@ -53,9 +56,11 @@ export default class ComponentsCategoryComponent extends React.Component <typing
      */
     getComponentInfo(props: typings.PropsDefine) {
         // 获取这个组件的信息
-        const componentInfo = components.find(category=>category.name === props.params.category).components.find(component=>component.name === props.params.component)
+        const categoryInfo = components.find(category=>category.name === props.params.category)
+        const componentInfo = categoryInfo.components.find(component=>component.name === props.params.component)
         this.setState({
-            componentInfo
+            componentInfo,
+            categoryInfo
         })
     }
 
@@ -66,18 +71,29 @@ export default class ComponentsCategoryComponent extends React.Component <typing
         this.setState({statu})
     }
 
+    /**
+     * 复制了安装地址
+     */
+    handleCopy() {
+        Message.success('安装地址已复制至剪贴板')
+    }
+
     render() {
         let child: React.ReactElement<any>
 
         switch (this.state.statu) {
             case typings.Statu.DEMO:
                 child = (
-                    <Demo demos={this.state.componentFullInfo && this.state.componentFullInfo.demos}/>
+                    <Demo demos={this.state.componentFullInfo && this.state.componentFullInfo.demos}
+                          categoryInfo={this.state.categoryInfo}
+                          componentInfo={this.state.componentInfo}/>
                 )
                 break
             case typings.Statu.DOCUMENT:
                 child = (
-                    <Document documents={this.state.componentFullInfo && this.state.componentFullInfo.documents}/>
+                    <Document documents={this.state.componentFullInfo && this.state.componentFullInfo.documents}
+                              categoryInfo={this.state.categoryInfo}
+                              componentInfo={this.state.componentInfo}/>
                 )
                 break
             case typings.Statu.DEPENDENCE:
@@ -87,6 +103,9 @@ export default class ComponentsCategoryComponent extends React.Component <typing
                 break
         }
 
+        // npm install
+        const npmInstall = this.state.categoryInfo && this.state.categoryInfo.isPrivate ? `${config.privateGit}/${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}/repository/archive.tar.gz?ref=${this.state.componentFullInfo && this.state.componentFullInfo.packageJson.version} --save` : `npm install ${config.publicGit}/${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}@${this.state.componentFullInfo && this.state.componentFullInfo.packageJson.version} --save`
+
         return (
             <div className="_namespace">
                 <div className="component-title">
@@ -95,7 +114,14 @@ export default class ComponentsCategoryComponent extends React.Component <typing
                         <span className="component-version">v{this.state.componentFullInfo && this.state.componentFullInfo.packageJson.version}</span>
                     </div>
                     <div className="right">
-                        <ButtonGroup>
+                        <input readOnly={true}
+                               value={npmInstall}
+                               className="component-install"/>
+                        <ReactCopyToClipboard text={npmInstall}
+                                              onCopy={this.handleCopy.bind(this)}>
+                            <Button className="copy"><i className="fa fa-copy"/></Button>
+                        </ReactCopyToClipboard>
+                        <ButtonGroup className="switch-group">
                             <Button active={this.state.statu === typings.Statu.DEMO}
                                     onClick={this.handleChangeStatu.bind(this, typings.Statu.DEMO)}>演示</Button>
                             <Button active={this.state.statu === typings.Statu.DOCUMENT}
