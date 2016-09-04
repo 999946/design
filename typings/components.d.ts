@@ -36,11 +36,11 @@ declare namespace Components {
         /**
          * 是否可用于 native
          */
-        isNative: boolean
+        isNative?: boolean
         /**
          * 是否可用于 web
          */
-        isWeb: boolean
+        isWeb?: boolean
     }
 
     export interface ComponentFullInfo {

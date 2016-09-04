@@ -5,7 +5,11 @@ export default [{
     chinese: '通用',
     prefix: 'nt',
     isPrivate: false,
-    components: []
+    components: [{
+        name: 'tooltip',
+        chinese: '工具提示',
+        isWeb: true
+    }]
 }, {
     name: 'wefan',
     chinese: '微粉',
