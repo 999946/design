@@ -1,3 +1,5 @@
+/// <reference path="../components.d.ts" />
+
 declare namespace RouterComponentsModel {
     export interface Demo {
         Class: Components.DemoProps<any>
