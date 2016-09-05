@@ -1,8 +1,8 @@
-
+._global {
     @import "./button.mixin";
-.nt-button-button{
-
 }
+
+._global {
     @font-face {
         font-family: 'fit-button';
         src: url('./font/fit-button.eot');
@@ -32,7 +32,7 @@
     .fit-button-loading:before {
         content: "\e982";
     }
-.nt-button-button{
+}
 
 & {
     transition: opacity .3s;
@@ -266,5 +266,4 @@
         opacity: 0;
         transform: scale(2.5);
     }
-}
 }
