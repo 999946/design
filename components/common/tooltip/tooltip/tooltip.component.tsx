@@ -72,7 +72,8 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
     renderTooltip() {
         const toolTipStyle = {
             left: this.state.childrenLeft + this.state.childrenWidth / 2 - this.state.tooltipWidth / 2,
-            top: this.state.childrenTop - this.state.tooltipHeight - 7
+            top: this.state.childrenTop - this.state.tooltipHeight - 7,
+            zIndex: this.props.zIndex
         }
         const toolTipProps = {
             className: classNames({

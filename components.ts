@@ -6,6 +6,10 @@ export default [{
     prefix: 'nt',
     isPrivate: false,
     components: [{
+        name: 'button',
+        chinese: '按钮',
+        isWeb: true
+    }, {
         name: 'tooltip',
         chinese: '工具提示',
         isWeb: true
@@ -20,12 +24,12 @@ export default [{
         chinese: '资源卡片',
         isWeb: true,
         isAndroid: true,
-        isIos:true
+        isIos: true
     }, {
         name: 'navbar',
         chinese: '导航条',
         isWeb: true,
         isAndroid: true,
-        isIos:true
+        isIos: true
     }]
 }] as Array<Components.Category>

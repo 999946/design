@@ -11,6 +11,11 @@ export interface PropsDefine {
      * 与 title 不同, 此项可以返回一个 reactElement 对象, 显示复杂内容
      */
     titleRender?: ()=>React.ReactElement<any>
+
+    /**
+     * 纵向层级
+     */
+    zIndex?: number
 }
 
 export class PropsGaea {
@@ -26,6 +31,7 @@ export class Props extends PropsGaea implements PropsDefine {
             <div>tool tip!</div>
         )
     }
+    zIndex = 100
 }
 
 export interface StateDefine {

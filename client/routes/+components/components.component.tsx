@@ -7,7 +7,6 @@ import components from '../../../components'
 
 import './components.scss'
 
-
 @inject('application') @observer
 export default class Components extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()

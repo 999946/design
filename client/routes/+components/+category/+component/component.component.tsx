@@ -16,34 +16,22 @@ import Demo from './demo/demo.component'
 import Document from './document/document.component'
 import Dependence from './dependence/dependence.component'
 
+import Tooltip from '../../../../../components/common/tooltip'
+
 @observer
 export default class ComponentsCategoryComponent extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
 
-    private Tooltip: React.ComponentClass<any> = null
-
     componentWillMount() {
         this.asyncGetComponentInfo(this.props)
         this.getComponentInfo(this.props)
-        this.asyncGetComponents.call(this)
     }
 
     componentWillReceiveProps(nextProps: typings.PropsDefine) {
         this.initState()
         this.asyncGetComponentInfo(nextProps)
         this.getComponentInfo(nextProps)
-    }
-
-    /**
-     * 动态获取需要的组件
-     */
-    asyncGetComponents() {
-        const getTooltip = componentInfos.get('common/tooltip')
-        getTooltip && getTooltip((componentFullInfo: RouterComponentsModel.ComponentFullInfo)=> {
-            this.Tooltip = componentFullInfo.main.Tooltip
-            this.forceUpdate()
-        })
     }
 
     /**
@@ -93,10 +81,6 @@ export default class ComponentsCategoryComponent extends React.Component <typing
     }
 
     render() {
-        // if (this.Tooltip === null) {
-        //     return null
-        // }
-
         let child: React.ReactElement<any>
 
         switch (this.state.statu) {
@@ -127,53 +111,38 @@ export default class ComponentsCategoryComponent extends React.Component <typing
         // 适用于 web
         let ForWeb: React.ReactElement<any> = null
         if (this.state.componentInfo.isWeb) {
-            const Element = (
+            ForWeb = (
+                <Tooltip title="运行在浏览器">
                 <span className="support">
                     <i className="fa fa-internet-explorer"
                        style={{fontSize:11}}/>
                 </span>
+                </Tooltip>
             )
-            if (this.Tooltip === null) {
-                ForWeb = Element
-            } else {
-                ForWeb = React.createElement(this.Tooltip, {
-                    title: '运行在浏览器'
-                }, Element)
-            }
         }
 
         // 适用于 android
         let ForAndroid: React.ReactElement<any> = null
         if (this.state.componentInfo.isAndroid) {
-            const Element = (
+            ForAndroid = (
+                <Tooltip title="运行在 Android Native">
                 <span className="support">
                     <i className="fa fa-android"/>
                 </span>
+                </Tooltip>
             )
-            if (this.Tooltip === null) {
-                ForAndroid = Element
-            } else {
-                ForAndroid = React.createElement(this.Tooltip, {
-                    title: '运行在 Android Native'
-                }, Element)
-            }
         }
 
         // 适用于 ios
         let ForIos: React.ReactElement<any> = null
         if (this.state.componentInfo.isIos) {
-            const Element = (
+            ForIos = (
+                <Tooltip title="运行在 IOS native">
                 <span className="support">
                     <i className="fa fa-apple"/>
                 </span>
+                </Tooltip>
             )
-            if (this.Tooltip === null) {
-                ForIos = Element
-            } else {
-                ForIos = React.createElement(this.Tooltip, {
-                    title: '运行在 IOS native'
-                }, Element)
-            }
         }
 
         return (
