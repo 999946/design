@@ -4,8 +4,8 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "tooltip",
-        "chinese": "工具提示",
+        "name": "button",
+        "chinese": "按钮",
         "isWeb": true
       },
       "category": {
@@ -15,6 +15,11 @@
         "isPrivate": false,
         "components": [
           {
+            "name": "button",
+            "chinese": "按钮",
+            "isWeb": true
+          },
+          {
             "name": "tooltip",
             "chinese": "工具提示",
             "isWeb": true
@@ -22,27 +27,22 @@
         ]
       },
       "packageJson": {
-        "name": "nt-tooltip",
-        "version": "0.0.1",
-        "description": "工具提示",
+        "name": "nt-button",
+        "version": "0.0.0",
+        "description": "按钮",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/common-tooltip.git"
+          "url": "https://github.com/next-component/common-button.git"
         },
         "keywords": [
-          "tooltip"
+          "button"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {
-          "mobx-react": "^3.5.5"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-dom": "^0.14.0 || ^15.0.0"
-        }
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "dependence": [
         {
@@ -51,7 +51,7 @@
         },
         {
           "type": "npm",
-          "name": "mobx-react"
+          "name": "classnames"
         },
         {
           "type": "npm",
@@ -59,7 +59,7 @@
         },
         {
           "type": "npm",
-          "name": "classnames"
+          "name": "mobx-react"
         }
       ]
     },
