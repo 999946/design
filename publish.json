@@ -28,7 +28,7 @@
       },
       "packageJson": {
         "name": "nt-button",
-        "version": "0.0.0",
+        "version": "0.0.1",
         "description": "按钮",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -41,8 +41,14 @@
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {},
-        "peerDependencies": {}
+        "dependencies": {
+          "classnames": "^2.2.5",
+          "mobx-react": "^3.5.5"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-dom": "^0.14.0 || ^15.0.0"
+        }
       },
       "dependence": [
         {
