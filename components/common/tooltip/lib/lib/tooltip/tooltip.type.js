@@ -53,6 +53,7 @@ var State = function State() {
     this.childrenHeight = 0;
     this.tooltipWidth = 0;
     this.tooltipHeight = 0;
+    this.show = false;
 };
 
 exports.State = State;

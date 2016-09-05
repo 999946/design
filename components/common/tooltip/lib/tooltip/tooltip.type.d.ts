@@ -13,12 +13,13 @@ export declare class Props extends PropsGaea implements PropsDefine {
     titleRender: () => JSX.Element;
 }
 export interface StateDefine {
-    childrenTop: number;
-    childrenLeft: number;
-    childrenWidth: number;
-    childrenHeight: number;
-    tooltipWidth: number;
-    tooltipHeight: number;
+    childrenTop?: number;
+    childrenLeft?: number;
+    childrenWidth?: number;
+    childrenHeight?: number;
+    tooltipWidth?: number;
+    tooltipHeight?: number;
+    show?: boolean;
 }
 export declare class State implements StateDefine {
     childrenTop: number;
@@ -27,4 +28,5 @@ export declare class State implements StateDefine {
     childrenHeight: number;
     tooltipWidth: number;
     tooltipHeight: number;
+    show: boolean;
 }

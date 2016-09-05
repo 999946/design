@@ -4,14 +4,16 @@ import './tooltip.scss';
 export default class ToolTip extends React.Component<typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine;
     state: typings.StateDefine;
-    private selfDom;
     private childrenRef;
     private childrenDom;
-    private tooltipRef;
     private tooltipDom;
     private handleChildrenMouseOverBind;
+    private handleChildrenMouseLeaveBind;
     componentDidMount(): void;
     componentWillUnmount(): void;
     handleChildrenMouseOver(event: MouseEvent): void;
-    render(): JSX.Element;
+    handleChildrenMouseLeave(event: MouseEvent): void;
+    componentDidUpdate(): void;
+    renderTooltip(): void;
+    render(): React.ReactElement<any>;
 }
