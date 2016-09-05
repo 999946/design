@@ -123,7 +123,7 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
     let scssFilePaths = getFilesBySuffix('scss', libPath)
     scssFilePaths.forEach(filePath=> {
         // 豁免 .mixin.scss
-        if (!filePath.endsWith('.mixin.scss')) {
+        if (filePath.endsWith('.mixin.scss')) {
             return
         }
         cssPathLoader(filePath, component, category)
