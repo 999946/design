@@ -121,10 +121,12 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
 
     // 找出 lib 目录下 scss 文件
     let scssFilePaths = getFilesBySuffix('scss', libPath)
-    scssFilePaths.map(filePath=> {
-        console.log('before', fs.readFileSync(filePath).toString())
+    scssFilePaths.forEach(filePath=> {
+        // 豁免 .mixin.scss
+        if (!filePath.endsWith('.mixin.scss')) {
+            return
+        }
         cssPathLoader(filePath, component, category)
-        console.log('after', fs.readFileSync(filePath).toString())
         parseSass(filePath, component, category)
     })
 }
