@@ -32,16 +32,21 @@ export interface StateDefine {
     /**
      * 子元素相对父级的位置
      */
-    childrenTop: number
-    childrenLeft: number
-    childrenWidth: number
-    childrenHeight: number
+    childrenTop?: number
+    childrenLeft?: number
+    childrenWidth?: number
+    childrenHeight?: number
 
     /**
      * tooltip 宽高
      */
-    tooltipWidth: number
-    tooltipHeight: number
+    tooltipWidth?: number
+    tooltipHeight?: number
+
+    /**
+     * 是否显示 tooltip
+     */
+    show?: boolean
 }
 
 export class State implements StateDefine {
@@ -52,4 +57,6 @@ export class State implements StateDefine {
 
     tooltipWidth = 0
     tooltipHeight = 0
+
+    show = false
 }

@@ -137,7 +137,7 @@ export default class ComponentsCategoryComponent extends React.Component <typing
                 ForWeb = Element
             } else {
                 ForWeb = React.createElement(this.Tooltip, {
-                    title: '兼容网页'
+                    title: '运行在浏览器'
                 }, Element)
             }
         }
@@ -154,7 +154,7 @@ export default class ComponentsCategoryComponent extends React.Component <typing
                 ForAndroid = Element
             } else {
                 ForAndroid = React.createElement(this.Tooltip, {
-                    title: '兼容安卓'
+                    title: '运行在 Android Native'
                 }, Element)
             }
         }
@@ -171,7 +171,7 @@ export default class ComponentsCategoryComponent extends React.Component <typing
                 ForIos = Element
             } else {
                 ForIos = React.createElement(this.Tooltip, {
-                    title: '兼容苹果'
+                    title: '运行在 IOS native'
                 }, Element)
             }
         }
