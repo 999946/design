@@ -3,7 +3,45 @@
 
         const routerMap = new Map<string, any>()
         
-        routerMap.set('common/tooltip', (callback: any) => {
+        routerMap.set('common/button', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/button/demo/basic').default,
+                            code: require('-!text!../../components/common/button/demo/basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/common/button/demo/group').default,
+                            code: require('-!text!../../components/common/button/demo/group.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/button/button/button.type'),
+                            typeCode: require('-!text!../../components/common/button/button/button.type.ts'),
+                            componentName: 'Button'
+                        })
+                    
+                        documents.push({
+                            type: require('../components/common/button/button-group/button-group.type'),
+                            typeCode: require('-!text!../../components/common/button/button-group/button-group.type.ts'),
+                            componentName: 'ButtonGroup'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/common/button/index')
+                            })
+                        })
+                    })
+routerMap.set('common/tooltip', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
                         

@@ -73,7 +73,6 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "fit-auto-bind": "^1.0.15",
-    "fit-button": "^3.1.47",
     "fit-gaea": "^1.0.38",
     "fit-gaea-native-components": "^1.0.7",
     "fit-gaea-preview": "^1.0.4",

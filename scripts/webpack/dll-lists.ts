@@ -11,7 +11,6 @@ export default [
     'fit-message',
     'fit-menu',
     'fit-tree',
-    'fit-button',
     'fit-modal',
     'fit-message',
     'react-native',

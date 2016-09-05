@@ -49,7 +49,7 @@ export default ()=> {
                 const mainSource = fs.readFileSync(`${componentAbsolutePath}/index.ts`).toString()
 
                 // 找到入口文件
-                const exportString = _.trim(/export\s?\{([a-zA-Z0-9]+)\}/.exec(mainSource)[1])
+                const exportString = _.trim(/export\s?\{([^}]+)\}/.exec(mainSource)[1])
                 let exportStringSplit = exportString.split(',')
                 exportStringSplit.forEach(exportName=> {
                     exportName = _.trim(exportName)
