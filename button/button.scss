@@ -1,4 +1,6 @@
-@import "./button.mixin";
+._global {
+    @import "./button.mixin";
+}
 
 ._global {
     @font-face {
