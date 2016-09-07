@@ -276,6 +276,17 @@ const getComponentInfoByFullPath = (publishFullPath: string)=> {
     if (publishFullPath.indexOf('#') === -1) {
         consoleLog.error('发布级别必填, eg: [your path]#major 可选项: major | minor | patch')
     }
+
+    if (publishFullPath.endsWith('/')) {
+        consoleLog.error('路径不能以 / 结尾')
+    }
+    // 如果 publishFullPath 是有三级目录，去掉第一级
+    const publishFullPathSplitWithPath = publishFullPath.split('/')
+    if (publishFullPathSplitWithPath.length > 3) {
+        publishFullPathSplitWithPath.shift()
+        publishFullPath = publishFullPathSplitWithPath.join('/')
+    }
+
     const publishFullPathSplit = publishFullPath.split('#')
     // 发布目录
     const publishSecondPath = publishFullPathSplit[0]
