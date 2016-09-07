@@ -26,6 +26,7 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
         if (importPath.startsWith('./') || importPath.startsWith('../')) {
             // 获得文件所在文件夹路径
             const filePathSplit = filePath.split('/')
+            console.log('filePath',filePath)
             filePathSplit.pop()
             const filePathDir = filePathSplit.join('/')
             const importFullPath = path.join(filePathDir, importPath)
