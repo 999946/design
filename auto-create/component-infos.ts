@@ -68,6 +68,33 @@ routerMap.set('web-common/tooltip', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('common/transmit-transparently', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/transmit-transparently/demo/basic').default,
+                            code: require('-!text!../../components/common/transmit-transparently/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type'),
+                            typeCode: require('-!text!../../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type.ts'),
+                            componentName: 'Transmittransparently'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/common/transmit-transparently/index')
+                            })
+                        })
+                    })
 routerMap.set('common/image', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
