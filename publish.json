@@ -4,9 +4,10 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "button",
-        "chinese": "按钮",
-        "isWeb": true
+        "name": "image",
+        "chinese": "图片",
+        "isWeb": true,
+        "isIos": true
       },
       "category": {
         "name": "common",
@@ -15,40 +16,36 @@
         "isPrivate": false,
         "components": [
           {
-            "name": "button",
-            "chinese": "按钮",
-            "isWeb": true
+            "name": "image",
+            "chinese": "图片",
+            "isWeb": true,
+            "isIos": true
           },
           {
-            "name": "tooltip",
-            "chinese": "工具提示",
-            "isWeb": true
+            "name": "gif",
+            "chinese": "GIF",
+            "isWeb": true,
+            "isIos": true
           }
         ]
       },
       "packageJson": {
-        "name": "nt-button",
-        "version": "0.0.1",
-        "description": "按钮",
+        "name": "nt-image",
+        "version": "0.0.0",
+        "description": "图片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/common-button.git"
+          "url": "https://github.com/next-component/common-image.git"
         },
         "keywords": [
-          "button"
+          "image"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {
-          "classnames": "^2.2.5",
-          "mobx-react": "^3.5.5"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-dom": "^0.14.0 || ^15.0.0"
-        }
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "dependence": [
         {
@@ -57,15 +54,11 @@
         },
         {
           "type": "npm",
-          "name": "classnames"
-        },
-        {
-          "type": "npm",
-          "name": "react-dom"
-        },
-        {
-          "type": "npm",
           "name": "mobx-react"
+        },
+        {
+          "type": "npm",
+          "name": "react-native"
         }
       ]
     },
