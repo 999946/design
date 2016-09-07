@@ -20,6 +20,12 @@ export default [{
     prefix: 'nt',
     isPrivate: false,
     components: [{
+        name:'transmit-transparently',
+        chinese: '透传',
+        isWeb: true,
+        isIos: true,
+        isAndroid: true
+    }, {
         name: 'image',
         chinese: '图片',
         isWeb: true,

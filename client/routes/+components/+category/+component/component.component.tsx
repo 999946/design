@@ -106,7 +106,7 @@ export default class ComponentsCategoryComponent extends React.Component <typing
         }
 
         // npm install
-        const npmInstall = this.state.categoryInfo && this.state.categoryInfo.isPrivate ? `npm install ${config.privateGit}/${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}/repository/archive.tar.gz?ref=${this.state.componentFullInfo && this.state.componentFullInfo.packageJson.version} --save` : `npm install ${this.state.categoryInfo.prefix}-${this.state.componentInfo.name} --save`
+        const npmInstall = this.state.categoryInfo && this.state.categoryInfo.isPrivate ? `npm install ${config.privateGit}/${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}/repository/archive.tar.gz?ref=${this.state.componentFullInfo && this.state.componentFullInfo.packageJson && this.state.componentFullInfo.packageJson.version} --save` : `npm install ${this.state.categoryInfo.prefix}-${this.state.componentInfo.name} --save`
 
         // 适用于 web
         let ForWeb: React.ReactElement<any> = null
@@ -156,15 +156,19 @@ export default class ComponentsCategoryComponent extends React.Component <typing
                         {ForAndroid}
                     </div>
                     <div className="right">
-                        <input readOnly={true}
-                               value={npmInstall}
-                               className="component-install"/>
-                        <ReactCopyToClipboard text={npmInstall}
-                                              onCopy={this.handleCopy.bind(this)}>
-                            <Button className="copy">
-                                <i className="fa fa-copy"/>
-                            </Button>
-                        </ReactCopyToClipboard>
+                        {this.state.componentFullInfo && this.state.componentFullInfo.packageJson &&
+                        <div className="component-install-container">
+                            <input readOnly={true}
+                                   value={npmInstall}
+                                   className="component-install"/>
+                            <ReactCopyToClipboard text={npmInstall}
+                                                  onCopy={this.handleCopy.bind(this)}>
+                                <Button className="copy">
+                                    <i className="fa fa-copy"/>
+                                </Button>
+                            </ReactCopyToClipboard>
+                        </div>
+                        }
                         <ButtonGroup className="switch-group">
                             <Button active={this.state.statu === typings.Statu.DEMO}
                                     onClick={this.handleChangeStatu.bind(this, typings.Statu.DEMO)}>演示</Button>

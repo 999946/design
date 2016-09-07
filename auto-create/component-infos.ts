@@ -137,6 +137,33 @@ routerMap.set('common/gif', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('wefan/image', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/wefan/image/demo/basic').default,
+                            code: require('-!text!../../components/wefan/image/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/wefan/image/image/image.type'),
+                            typeCode: require('-!text!../../components/wefan/image/image/image.type.ts'),
+                            componentName: 'Image'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/wefan/image/index')
+                            })
+                        })
+                    })
 routerMap.set('wefan/resource-card', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
