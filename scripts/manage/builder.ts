@@ -15,10 +15,12 @@ import cssPathLoader from './utils/css-path-loader'
 const parseBabel = (filePath: string, component: Components.ComponentConfig, category: Components.Category) => {
     let jsFileContent = fs.readFileSync(filePath).toString()
 
-    // 忽略 @babel ignore 模块
-    if (jsFileContent.indexOf('@babel ignore') > -1) {
-        return
-    }
+    // 把引用的其它组件代码转换成绝对地址
+    const regex = /import\s+[a-zA-Z{},\s\*]*(from)?\s?\'([^']+)\'/g
+    jsFileContent.replace(regex, (...matched: Array<string>)=> {
+        console.log(matched)
+        return ''
+    })
 
     // scss 改为 css 后缀
     jsFileContent = jsFileContent.replace(/\.scss/g, '.css')
