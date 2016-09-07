@@ -1,9 +1,9 @@
 ///<reference path="./typings/components.d.ts" />
 
 export default [{
-    name: 'common',
+    name: 'web-common',
     chinese: 'web通用',
-    prefix: 'nt',
+    prefix: 'nt-web',
     isPrivate: false,
     components: [{
         name: 'button',
@@ -14,6 +14,12 @@ export default [{
         chinese: '工具提示',
         isWeb: true
     }]
+}, {
+    name: 'common',
+    chinese: '通用',
+    prefix: 'nt',
+    isPrivate: false,
+    components: []
 }, {
     name: 'wefan',
     chinese: '微粉',
@@ -33,12 +39,3 @@ export default [{
         isIos: true
     }]
 }] as Array<Components.Category>
-
-//
-// , {
-//     name: 'common',
-//         chinese: '通用',
-//         prefix: 'nt',
-//         isPrivate: false,
-//         components: []
-// }
