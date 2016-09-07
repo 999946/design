@@ -441,6 +441,10 @@ export default (publishFullPaths: Array<string>)=> {
         type: 'boolean',
         required: true
     }], (err: Error, result: any) => {
+        if (err || !result) {
+            return
+        }
+
         if (result.publish) {
             // 根据发布信息, 写入 package.json
             writeNowPublishToPackageJson()
