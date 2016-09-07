@@ -8,18 +8,35 @@ import * as autoprefixer from 'autoprefixer'
 import * as postcss  from 'postcss'
 import htmlPathLoader from './utils/html-path-loader'
 import cssPathLoader from './utils/css-path-loader'
+import * as config from '../../config'
 
 /**
  * babel 编译
  */
 const parseBabel = (filePath: string, component: Components.ComponentConfig, category: Components.Category) => {
+    const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
+
     let jsFileContent = fs.readFileSync(filePath).toString()
 
     // 把引用的其它组件代码转换成绝对地址
     const regex = /require\s?\(\'([^']*)\'\)/g
     jsFileContent.replace(regex, (...matched: Array<string>)=> {
-        console.log(matched[1])
-        return ''
+        const importPath = matched[1]
+        if (importPath.startsWith('./') || importPath.startsWith('../')) {
+            // 获得文件所在文件夹路径
+            const filePathSplit = filePath.split('/')
+            filePathSplit.pop()
+            const filePathDir = filePathSplit.join('/')
+            const importFullPath = path.join(filePathDir, importPath)
+
+            const importFullPathSplit = importFullPath.split('/')
+
+            if (`${config.componentsPath}/${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== componentPath) {
+                // 保证引用的模块不是自己
+                console.log(importFullPathSplit[1], importFullPathSplit[2])
+            }
+        }
+        return matched[0]
     })
 
     // scss 改为 css 后缀
