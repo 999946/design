@@ -22,17 +22,15 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
     const regex = /require\s?\(\'([^']*)\'\)/g
     jsFileContent.replace(regex, (...matched: Array<string>)=> {
         const importPath = matched[1]
-        console.log('importPath',importPath)
         if (importPath.startsWith('./') || importPath.startsWith('../')) {
             // 获得文件所在文件夹路径
             const filePathSplit = filePath.split('/')
-            console.log('filePath',filePath)
             filePathSplit.pop()
             const filePathDir = filePathSplit.join('/')
-            const importFullPath = path.join(filePathDir, importPath)
+            // 加了一层 lib 所以多返回上一级目录
+            const importFullPath = path.join(filePathDir, '../',importPath)
 
             const importFullPathSplit = importFullPath.split('/')
-            console.log(importFullPath)
 
             if (`${config.componentsPath}/${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== componentPath) {
                 // 保证引用的模块不是自己
