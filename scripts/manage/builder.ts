@@ -20,7 +20,7 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
 
     // 把引用的其它组件代码转换成绝对地址
     const regex = /require\s?\(\'([^']*)\'\)/g
-    jsFileContent.replace(regex, (...matched: Array<string>)=> {
+    jsFileContent = jsFileContent.replace(regex, (...matched: Array<string>)=> {
         const importPath = matched[1]
         if (importPath.startsWith('./') || importPath.startsWith('../')) {
             // 获得文件所在文件夹路径
