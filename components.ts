@@ -19,7 +19,13 @@ export default [{
     chinese: '通用',
     prefix: 'nt',
     isPrivate: false,
-    components: []
+    components: [{
+        name: 'image',
+        chinese: '图片',
+        isWeb: true,
+        isAndroid: true,
+        isIos: true
+    }]
 }, {
     name: 'wefan',
     chinese: '微粉',

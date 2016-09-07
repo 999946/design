@@ -3,7 +3,7 @@ import * as typings from './demo.type'
 import componentInfos from '../../../../../../auto-create/component-infos'
 import {observer, inject} from 'mobx-react'
 import Modal from 'fit-modal'
-import {Button, ButtonGroup} from '../../../../../../components/common/button'
+import {Button, ButtonGroup} from '../../../../../../components/web-common/button'
 import {ScrollListenBox, ScrollListenNail, ScrollListen, createStore} from 'fit-scroll-listen'
 
 const highlightJs = require('highlight.js')

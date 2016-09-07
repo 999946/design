@@ -3,68 +3,68 @@
 
         const routerMap = new Map<string, any>()
         
-        routerMap.set('common/button', (callback: any) => {
+        routerMap.set('web-common/button', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
                         
                         require.ensure([], function (require: any) {
                             
                         demoLists.push({
-                            Class: require('../components/common/button/demo/basic').default,
-                            code: require('-!text!../../components/common/button/demo/basic.tsx')
+                            Class: require('../components/web-common/button/demo/basic').default,
+                            code: require('-!text!../../components/web-common/button/demo/basic.tsx')
                         })
                     
                         demoLists.push({
-                            Class: require('../components/common/button/demo/group').default,
-                            code: require('-!text!../../components/common/button/demo/group.tsx')
+                            Class: require('../components/web-common/button/demo/group').default,
+                            code: require('-!text!../../components/web-common/button/demo/group.tsx')
                         })
                     
                             
                         documents.push({
-                            type: require('../components/common/button/button/button.type'),
-                            typeCode: require('-!text!../../components/common/button/button/button.type.ts'),
+                            type: require('../components/web-common/button/button/button.type'),
+                            typeCode: require('-!text!../../components/web-common/button/button/button.type.ts'),
                             componentName: 'Button'
                         })
                     
                         documents.push({
-                            type: require('../components/common/button/button-group/button-group.type'),
-                            typeCode: require('-!text!../../components/common/button/button-group/button-group.type.ts'),
+                            type: require('../components/web-common/button/button-group/button-group.type'),
+                            typeCode: require('-!text!../../components/web-common/button/button-group/button-group.type.ts'),
                             componentName: 'ButtonGroup'
                         })
                     
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: JSON.parse(require('-!text!../components/common/button/package.json')),
+                                packageJson: JSON.parse(require('-!text!../components/web-common/button/package.json')),
                                 documents,
-                                main: require('../components/common/button/index')
+                                main: require('../components/web-common/button/index')
                             })
                         })
                     })
-routerMap.set('common/tooltip', (callback: any) => {
+routerMap.set('web-common/tooltip', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
                         
                         require.ensure([], function (require: any) {
                             
                         demoLists.push({
-                            Class: require('../components/common/tooltip/demo/basic').default,
-                            code: require('-!text!../../components/common/tooltip/demo/basic.tsx')
+                            Class: require('../components/web-common/tooltip/demo/basic').default,
+                            code: require('-!text!../../components/web-common/tooltip/demo/basic.tsx')
                         })
                     
                             
                         documents.push({
-                            type: require('../components/common/tooltip/tooltip/tooltip.type'),
-                            typeCode: require('-!text!../../components/common/tooltip/tooltip/tooltip.type.tsx'),
+                            type: require('../components/web-common/tooltip/tooltip/tooltip.type'),
+                            typeCode: require('-!text!../../components/web-common/tooltip/tooltip/tooltip.type.tsx'),
                             componentName: 'Tooltip'
                         })
                     
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: JSON.parse(require('-!text!../components/common/tooltip/package.json')),
+                                packageJson: JSON.parse(require('-!text!../components/web-common/tooltip/package.json')),
                                 documents,
-                                main: require('../components/common/tooltip/index')
+                                main: require('../components/web-common/tooltip/index')
                             })
                         })
                     })

@@ -3,7 +3,7 @@ import * as typings from './component.type'
 import {observer} from 'mobx-react'
 import componentInfos from '../../../../../auto-create/component-infos'
 import components from '../../../../../components'
-import {Button, ButtonGroup} from '../../../../../components/common/button'
+import {Button, ButtonGroup} from '../../../../../components/web-common/button'
 import * as ReactCopyToClipboard from 'react-copy-to-clipboard'
 import Message from 'fit-message'
 import * as config from '../../../../../config'
@@ -16,7 +16,7 @@ import Demo from './demo/demo.component'
 import Document from './document/document.component'
 import Dependence from './dependence/dependence.component'
 
-import Tooltip from '../../../../../components/common/tooltip'
+import Tooltip from '../../../../../components/web-common/tooltip'
 
 @observer
 export default class ComponentsCategoryComponent extends React.Component <typings.PropsDefine, typings.StateDefine> {

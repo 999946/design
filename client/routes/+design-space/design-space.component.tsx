@@ -3,7 +3,7 @@ import * as typings from './design-space.type'
 import {observer, inject} from 'mobx-react'
 import {browserHistory} from '../../main.browser'
 
-import Button from '../../../components/common/button'
+import Button from '../../../components/web-common/button'
 import './design-space.scss'
 
 @observer
