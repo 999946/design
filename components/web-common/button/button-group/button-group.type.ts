@@ -10,7 +10,7 @@ export interface PropsDefine extends React.HTMLAttributes{
 export class PropsGaea {
     gaeaName = '按钮组'
     gaeaIcon = 'square-o'
-    gaeaUniqueKey = 'common-button-group'
+    gaeaUniqueKey = 'web-common-button-group'
 }
 
 export class Props extends PropsGaea implements PropsDefine {

@@ -68,6 +68,33 @@ routerMap.set('web-common/tooltip', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('common/image', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/image/demo/basic').default,
+                            code: require('-!text!../../components/common/image/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/image/image/image.type'),
+                            typeCode: require('-!text!../../components/common/image/image/image.type.ts'),
+                            componentName: 'Image'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/common/image/index')
+                            })
+                        })
+                    })
 routerMap.set('wefan/resource-card', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

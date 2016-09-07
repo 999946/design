@@ -21,7 +21,7 @@ export interface PropsDefine {
 export class PropsGaea {
     gaeaName = '工具提示'
     gaeaIcon = 'square-o'
-    gaeaUniqueKey = 'common-tooltip'
+    gaeaUniqueKey = 'web-common-tooltip'
 }
 
 export class Props extends PropsGaea implements PropsDefine {
