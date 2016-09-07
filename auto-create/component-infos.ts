@@ -79,6 +79,16 @@ routerMap.set('common/image', (callback: any) => {
                             code: require('-!text!../../components/common/image/demo/basic.tsx')
                         })
                     
+                        demoLists.push({
+                            Class: require('../components/common/image/demo/click-to-reload').default,
+                            code: require('-!text!../../components/common/image/demo/click-to-reload.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/common/image/demo/fallback').default,
+                            code: require('-!text!../../components/common/image/demo/fallback.tsx')
+                        })
+                    
                             
                         documents.push({
                             type: require('../components/common/image/image/image.type'),

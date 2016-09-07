@@ -23,7 +23,11 @@ export default [{
         name: 'image',
         chinese: '图片',
         isWeb: true,
-        isAndroid: true,
+        isIos: true
+    },{
+        name: 'gif',
+        chinese: 'GIF',
+        isWeb: true,
         isIos: true
     }]
 }, {

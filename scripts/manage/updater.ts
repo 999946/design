@@ -65,9 +65,10 @@ export default ()=> {
 
                 fs.writeFileSync(`${componentRootPath}/${component.name}/${component.name}.type.ts`, `
                     import * as React from 'react'
+                    import * as ReactNative from 'react-native'
 
-                    export interface PropsDefine extends React.HTMLAttributes{
-                    
+                    export interface PropsDefine extends ReactNative.ViewProperties {
+
                     }
                     
                     export class PropsGaea {
@@ -77,7 +78,7 @@ export default ()=> {
                     }
                     
                     export class Props extends PropsGaea implements PropsDefine {
-                        vertical = false
+                        
                     }
                     
                     export interface StateDefine {
