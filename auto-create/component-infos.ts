@@ -83,7 +83,13 @@ routerMap.set('common/transmit-transparently', (callback: any) => {
                         documents.push({
                             type: require('../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type'),
                             typeCode: require('-!text!../../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type.ts'),
-                            componentName: 'Transmittransparently'
+                            componentName: 'TransmitTransparently'
+                        })
+                    
+                        documents.push({
+                            type: require('../components/common/transmit-transparently/others/others.type'),
+                            typeCode: require('-!text!../../components/common/transmit-transparently/others/others.type.ts'),
+                            componentName: 'others'
                         })
                     
                             
