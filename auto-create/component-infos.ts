@@ -79,6 +79,11 @@ routerMap.set('common/transmit-transparently', (callback: any) => {
                             code: require('-!text!../../components/common/transmit-transparently/demo/basic.tsx')
                         })
                     
+                        demoLists.push({
+                            Class: require('../components/common/transmit-transparently/demo/ignore').default,
+                            code: require('-!text!../../components/common/transmit-transparently/demo/ignore.tsx')
+                        })
+                    
                             
                         documents.push({
                             type: require('../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type'),
@@ -95,7 +100,7 @@ routerMap.set('common/transmit-transparently', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/common/transmit-transparently/package.json')),
                                 documents,
                                 main: require('../components/common/transmit-transparently/index')
                             })
@@ -115,6 +120,16 @@ routerMap.set('common/image', (callback: any) => {
                         demoLists.push({
                             Class: require('../components/common/image/demo/click-to-reload').default,
                             code: require('-!text!../../components/common/image/demo/click-to-reload.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/common/image/demo/error-addon').default,
+                            code: require('-!text!../../components/common/image/demo/error-addon.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/common/image/demo/fallback-color').default,
+                            code: require('-!text!../../components/common/image/demo/fallback-color.tsx')
                         })
                     
                         demoLists.push({
@@ -181,6 +196,16 @@ routerMap.set('wefan/image', (callback: any) => {
                             code: require('-!text!../../components/wefan/image/demo/basic.tsx')
                         })
                     
+                        demoLists.push({
+                            Class: require('../components/wefan/image/demo/click-to-play').default,
+                            code: require('-!text!../../components/wefan/image/demo/click-to-play.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/wefan/image/demo/error').default,
+                            code: require('-!text!../../components/wefan/image/demo/error.tsx')
+                        })
+                    
                             
                         documents.push({
                             type: require('../components/wefan/image/image/image.type'),
@@ -191,7 +216,7 @@ routerMap.set('wefan/image', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/wefan/image/package.json')),
                                 documents,
                                 main: require('../components/wefan/image/index')
                             })

@@ -1,16 +1,15 @@
 import * as React from 'react'
 import * as typings from './image.type'
 import {TouchableOpacity, Image} from 'react-native'
+import {TransmitTransparently} from '../../transmit-transparently/index'
 
+@TransmitTransparently('fallbackSource', 'fallbackColor', 'pressToReload', 'fallbackAddon', 'fallbackHideImage')
 export default class ImageComponent extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
 
     // 兜底图加载失败次数， 失败 3 次会取消一切补救操作
     private fallbackLoadCounter = 0
-
-    // 是否成功加载了预期图片
-    private loadImageSuccess = false
 
     componentWillMount() {
         this.setState({
@@ -20,7 +19,8 @@ export default class ImageComponent extends React.Component <typings.PropsDefine
 
     componentWillReceiveProps(nextProps: typings.PropsDefine) {
         this.setState({
-            source: nextProps.source
+            source: nextProps.source,
+            loadImageSuccess: true
         })
     }
 
@@ -28,12 +28,19 @@ export default class ImageComponent extends React.Component <typings.PropsDefine
         this.fallbackLoadCounter = 0
 
         if (this.state.source === this.props.source) {
-            this.loadImageSuccess = true
+            this.setState({
+                loadImageSuccess: true
+            })
         }
     }
 
     handleLoadError() {
-        this.loadImageSuccess = false
+        this.props.onError()
+
+        this.setState({
+            loadImageSuccess: false
+        })
+
         if (this.props.fallbackSource) {
             if (this.fallbackLoadCounter < 3) {
                 this.fallbackLoadCounter++
@@ -46,24 +53,38 @@ export default class ImageComponent extends React.Component <typings.PropsDefine
     }
 
     handlePress() {
-        this.props.onPress && this.props.onPress()
-        if (this.props.pressToReload && this.loadImageSuccess === false) {
+        this.props.onPress()
+        if (this.props.pressToReload && this.state.loadImageSuccess === false) {
             // 重新加载原图
             this.fallbackLoadCounter = 0
             this.setState({
                 source: this.props.source
             })
+            this.forceUpdate()
         }
     }
 
     render() {
+        this.props.others.style = Object.assign({}, this.props.others.style, {
+            backgroundColor: this.state.loadImageSuccess ? 'transparent' : this.props.fallbackColor
+        })
+
         return (
             <TouchableOpacity activeOpacity={1}
-                              onPress={this.handlePress.bind(this)}>
-                <Image style={this.props.style}
-                       onError={this.handleLoadError.bind(this)}
+                              onPress={this.handlePress.bind(this)}
+                {...this.props.others}>
+
+                {!(!this.state.loadImageSuccess && this.props.fallbackHideImage) &&
+                <Image onError={this.handleLoadError.bind(this)}
                        onLoad={this.handleLoadSuccess.bind(this)}
-                       source={this.state.source}/>
+                       source={this.state.source}
+                    {...this.props.others}/>
+                }
+
+                {!this.state.loadImageSuccess &&
+                this.props.fallbackAddon()
+                }
+
             </TouchableOpacity>
         )
     }

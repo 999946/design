@@ -247,9 +247,10 @@ const getInfoWithDependencies = (component: Components.ComponentConfig, category
             // 引用模块的完整路径
             const importFullPath = path.join(filePathDir, importPath)
             const importFullPathSplit = importFullPath.split('/')
+            console.log(importFullPath)
 
             if (`${config.componentsPath}/${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== componentPath) {
-                // 保证引用一定是 components 下的
+                // 保证引用的模块不是自己
                 deps.dependence.push({
                     type: 'component',
                     name: importFullPathSplit[2],
