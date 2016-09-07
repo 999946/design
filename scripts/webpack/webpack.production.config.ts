@@ -1,15 +1,12 @@
 import * as webpack from 'webpack'
 import * as path from 'path'
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const extractSCSS = new ExtractTextPlugin('style.css')
+
 import * as config from '../../config'
 import BundleHashPlugin from './plugin/bundle-hash-plugin'
+import alias from './alias'
 
-const alias: {
-    [key: string]: string
-} = {
-    'react-native': 'react-native-web'
-}
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const extractSCSS = new ExtractTextPlugin('style.css')
 
 const webpackConfig = {
     debug: true,
@@ -43,7 +40,6 @@ const webpackConfig = {
                 loaders: ['style', 'css']
             }, {
                 test: /\.(png|jpg)$/,
-                exclude: /node_modules/,
                 loaders: ['url?limit=3000&name=img/[name].[hash:5].[ext]']
             }, {
                 test: /\.(woff|woff2|ttf|eot|svg)/,

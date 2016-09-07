@@ -35,7 +35,7 @@
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/common/button/package.json')),
                                 documents,
                                 main: require('../components/common/button/index')
                             })
@@ -82,6 +82,11 @@ routerMap.set('wefan/resource-card', (callback: any) => {
                         demoLists.push({
                             Class: require('../components/wefan/resource-card/demo/image').default,
                             code: require('-!text!../../components/wefan/resource-card/demo/image.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/wefan/resource-card/demo/title').default,
+                            code: require('-!text!../../components/wefan/resource-card/demo/title.tsx')
                         })
                     
                             

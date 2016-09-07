@@ -5,7 +5,9 @@ import * as trimString from '../../../../../../utils/trim-string'
  * 根据源码找到 propsDefine 部分
  */
 export const getPropsDefineBySourceCode = (sourceCode: string)=> {
-    const propsDefineStartString = 'interface PropsDefine {'
+    // 找到 interface PropsDefine xxxx {
+    const propsDefineStartString = sourceCode.match(/interface\s+PropsDefine[^{]*\{/)[0]
+
     const sourceCodeStartIndex = sourceCode.indexOf(propsDefineStartString)
     if (sourceCodeStartIndex === -1) {
         return ''

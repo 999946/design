@@ -1,12 +1,7 @@
 import * as path from 'path'
 import * as webpack from 'webpack'
 import dllLists from './dll-lists'
-
-const alias: {
-    [key: string]: string
-} = {
-    'react-native': 'react-native-web'
-}
+import alias from './alias'
 
 module.exports = {
     entry: {

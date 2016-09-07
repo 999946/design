@@ -8,6 +8,8 @@ import {ScrollListenBox, ScrollListenNail, ScrollListen, createStore} from 'fit-
 
 const highlightJs = require('highlight.js')
 
+import './demo.scss'
+
 @observer
 export default class Demo extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()

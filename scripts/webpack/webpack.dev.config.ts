@@ -1,12 +1,7 @@
 import * as webpack from 'webpack'
 import * as config from '../../config'
 import * as path from 'path'
-
-const alias: {
-    [key: string]: string
-} = {
-    'react-native': 'react-native-web'
-}
+import alias from './alias'
 
 const webpackConfig = {
     debug: true,
@@ -42,7 +37,6 @@ const webpackConfig = {
                 loaders: ['style', 'css']
             }, {
                 test: /\.(png|jpg)$/,
-                exclude: /node_modules/,
                 loaders: ['url?limit=3000&name=img/[hash:8].[name].[ext]']
             }, {
                 test: /\.(woff|woff2|ttf|eot|svg)/,

@@ -3,12 +3,7 @@ import * as webpack from 'webpack'
 import dllLists from './dll-lists'
 import * as config from '../../config'
 import DllHashPlugin from './plugin/dll-hash-plugin'
-
-const alias: {
-    [key: string]: string
-} = {
-    'react-native': 'react-native-web'
-}
+import alias from './alias'
 
 module.exports = {
     entry: {

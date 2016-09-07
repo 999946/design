@@ -2,7 +2,7 @@
 
 export default [{
     name: 'common',
-    chinese: '通用',
+    chinese: 'web通用',
     prefix: 'nt',
     isPrivate: false,
     components: [{
@@ -33,3 +33,12 @@ export default [{
         isIos: true
     }]
 }] as Array<Components.Category>
+
+//
+// , {
+//     name: 'common',
+//         chinese: '通用',
+//         prefix: 'nt',
+//         isPrivate: false,
+//         components: []
+// }

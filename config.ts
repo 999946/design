@@ -42,11 +42,9 @@ export const customNpmPackage = [{
 }]
 
 // 路由统一前缀
-// /n/next-design
-export const routerBasenameProduction = ''
+export const routerBasenameProduction = '/n/next-design'
 export const routerBasename = process.env['NODE_ENV'] === 'production' ? routerBasenameProduction : ''
 
 // 发布静态资源路径前缀
 // [注意] 为空时要写成 '/', 保证绝对路径, 否则引用路径会变为相对路径
-// http://tb1.bdstatic.com/static/next-design
-export const staticPathPrefixProduction = '/'
+export const staticPathPrefixProduction = 'http://tb1.bdstatic.com/static/next-design'

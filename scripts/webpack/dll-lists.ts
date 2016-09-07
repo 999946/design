@@ -9,7 +9,6 @@ export default [
     'fit-modal',
     'fit-render-to',
     'fit-message',
-    'fit-menu',
     'fit-tree',
     'fit-modal',
     'fit-message',
