@@ -99,9 +99,41 @@ routerMap.set('common/image', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/common/image/package.json')),
                                 documents,
                                 main: require('../components/common/image/index')
+                            })
+                        })
+                    })
+routerMap.set('common/gif', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/gif/demo/basic').default,
+                            code: require('-!text!../../components/common/gif/demo/basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/common/gif/demo/click-to-play').default,
+                            code: require('-!text!../../components/common/gif/demo/click-to-play.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/gif/gif/gif.type'),
+                            typeCode: require('-!text!../../components/common/gif/gif/gif.type.ts'),
+                            componentName: 'Gif'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/common/gif/package.json')),
+                                documents,
+                                main: require('../components/common/gif/index')
                             })
                         })
                     })

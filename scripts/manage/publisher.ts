@@ -209,8 +209,8 @@ const createPackageJsonIfNotExist = (component: Components.ComponentConfig, cate
 const getInfoWithDependencies = (component: Components.ComponentConfig, category: Components.Category)=> {
     const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
 
-    // 找到这个目录下所有 ts tsx 文件
-    const filesPath: Array<string> = execSync(`find ${componentPath} -name "*.ts" -not -path "${componentPath}/${config.componentBuildPath}/*" -or -name "*.tsx" -not -path "${componentPath}/${config.componentBuildPath}/*"`).toString().split('\n').filter(filePath=>filePath !== '')
+    // 找到这个目录下所有 ts tsx 文件, 排除 gif demo 用来做依赖解析
+    const filesPath: Array<string> = execSync(`find ${componentPath} -name "*.ts" -not -path "${componentPath}/${config.componentBuildPath}/*" -or -name "*.tsx" -not -path "${componentPath}/${config.componentBuildPath}/*" -not -path "${componentPath}/demo/*" -not -path "${componentPath}/test/*"`).toString().split('\n').filter(filePath=>filePath !== '')
 
     const importPaths: Map<string,string> = new Map()
 

@@ -18,6 +18,12 @@ export default class ImageComponent extends React.Component <typings.PropsDefine
         })
     }
 
+    componentWillReceiveProps(nextProps: typings.PropsDefine) {
+        this.setState({
+            source: nextProps.source
+        })
+    }
+
     handleLoadSuccess() {
         this.fallbackLoadCounter = 0
 

@@ -36,7 +36,7 @@ const webpackConfig = {
                 test: /\.(css)/,
                 loaders: ['style', 'css']
             }, {
-                test: /\.(png|jpg)$/,
+                test: /\.(png|jpg|gif)$/,
                 loaders: ['url?limit=3000&name=img/[hash:8].[name].[ext]']
             }, {
                 test: /\.(woff|woff2|ttf|eot|svg)/,

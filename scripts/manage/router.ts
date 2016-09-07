@@ -28,7 +28,11 @@ export default ()=> {
                 const demoLists: any = []
 
                 // 遍历当前目录下所有文件
-                const fileNames = fs.readdirSync(`${componentAbsolutePath}/demo`).filter(fileName=>fileName !== '')
+                let fileNames = fs.readdirSync(`${componentAbsolutePath}/demo`).filter(fileName=>fileName !== '')
+                fileNames = fileNames.filter(fileName=> {
+                    // 只保留 ts tsx 后缀的文件作为 demo
+                    return fileName.endsWith('.ts') || fileName.endsWith('.tsx')
+                })
 
                 let requireList = ''
 
