@@ -34,7 +34,9 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
 
             if (`${config.componentsPath}/${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== componentPath) {
                 // 保证引用的模块不是自己
-                console.log(importFullPathSplit[1], importFullPathSplit[2])
+                const depCategory = components.find(category=>category.name===importFullPathSplit[1])
+                const depComponent = depCategory.components.find(component=>component.name===importFullPathSplit[2])
+                return `require('${depCategory.prefix}-${component.name}')`
             }
         }
         return matched[0]
