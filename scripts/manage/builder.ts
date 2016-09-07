@@ -82,7 +82,7 @@ export const buildDTs = ()=> {
     fs.writeFileSync(comboFilePath, comboComponentContent)
 
     // 生成整体 d.ts
-    execSync(`tsc -m commonjs -t es6 -d --removeComments --outDir built-components --jsx react ${comboFilePath}`)
+    execSync(`tsc -m commonjs -t es6 -d --removeComments --outDir built-components --jsx react --experimentalDecorators ${comboFilePath}`)
 
     // 再删除聚合文件, 就像它从未出现过一样
     fs.unlink(comboFilePath)
