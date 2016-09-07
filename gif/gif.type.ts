@@ -18,6 +18,21 @@ export interface PropsDefine extends ReactNative.ViewProperties {
     fallbackSource?: {uri: string} | string
 
     /**
+     * 加载失败时的背景颜色
+     */
+    fallbackColor?: string
+
+    /**
+     * 加载失败是否隐藏图片
+     */
+    fallbackHideImage?: boolean
+
+    /**
+     * 当图片加载非预期（包括显示了兜底图）时，可以往图片容器里加一些元素
+     */
+    fallbackAddon?: ()=>React.ReactElement<any>
+
+    /**
      * 当属性为真的时候， 点击图片会重新尝试拉取原图片
      */
     pressToReload?: boolean
@@ -70,6 +85,8 @@ export interface PropsDefine extends ReactNative.ViewProperties {
      * in UI Automation testing scripts.
      */
     testID?: string
+
+    others?: any
 }
 
 export class PropsGaea {
@@ -80,6 +97,8 @@ export class PropsGaea {
 
 export class Props extends PropsGaea implements PropsDefine {
     source = ''
+    onPress = ()=> {
+    }
 }
 
 export interface StateDefine {
