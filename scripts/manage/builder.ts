@@ -22,6 +22,7 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
     const regex = /require\s?\(\'([^']*)\'\)/g
     jsFileContent.replace(regex, (...matched: Array<string>)=> {
         const importPath = matched[1]
+        console.log('importPath',importPath)
         if (importPath.startsWith('./') || importPath.startsWith('../')) {
             // 获得文件所在文件夹路径
             const filePathSplit = filePath.split('/')
