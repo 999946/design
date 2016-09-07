@@ -4,11 +4,10 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "transmit-transparently",
-        "chinese": "透传",
+        "name": "gif",
+        "chinese": "GIF",
         "isWeb": true,
-        "isIos": true,
-        "isAndroid": true
+        "isIos": true
       },
       "category": {
         "name": "common",
@@ -38,22 +37,27 @@
         ]
       },
       "packageJson": {
-        "name": "nt-transmit-transparently",
-        "version": "0.0.0",
-        "description": "透传",
+        "name": "nt-gif",
+        "version": "0.0.1",
+        "description": "GIF",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/common-transmit-transparently.git"
+          "url": "https://github.com/next-component/common-gif.git"
         },
         "keywords": [
-          "transmit-transparently"
+          "gif"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {},
-        "peerDependencies": {}
+        "dependencies": {
+          "nt-image": "^0.0.3"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-native": "^0.29.0"
+        }
       },
       "dependence": [
         {
@@ -61,8 +65,18 @@
           "name": "react"
         },
         {
+          "type": "component",
+          "name": "image",
+          "category": "common"
+        },
+        {
           "type": "npm",
           "name": "react-native"
+        },
+        {
+          "type": "component",
+          "name": "transmit-transparently",
+          "category": "common"
         }
       ]
     },
