@@ -16,9 +16,9 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
     let jsFileContent = fs.readFileSync(filePath).toString()
 
     // 把引用的其它组件代码转换成绝对地址
-    const regex = /require\s?\(\'[^']*\'\)/g
+    const regex = /require\s?\(\'([^']*)\'\)/g
     jsFileContent.replace(regex, (...matched: Array<string>)=> {
-        console.log(matched[1])
+        console.log(matched)
         return ''
     })
 
