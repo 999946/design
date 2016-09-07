@@ -29,8 +29,8 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
 };
 var React = require('react');
 var typings = require('./gif.type');
-var index_1 = require('nt-gif');
-var index_2 = require('nt-gif');
+var index_1 = require('nt-image');
+var index_2 = require('nt-transmit-transparently');
 var Gif = function (_React$Component) {
     _inherits(Gif, _React$Component);
 
