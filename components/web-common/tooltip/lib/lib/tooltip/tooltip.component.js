@@ -93,11 +93,12 @@ var ToolTip = function (_React$Component) {
         value: function renderTooltip() {
             var toolTipStyle = {
                 left: this.state.childrenLeft + this.state.childrenWidth / 2 - this.state.tooltipWidth / 2,
-                top: this.state.childrenTop - this.state.tooltipHeight - 7
+                top: this.state.childrenTop - this.state.tooltipHeight - 7,
+                zIndex: this.props.zIndex
             };
             var toolTipProps = {
                 className: classNames({
-                    'nt-tooltip-lib-tooltip': true,
+                    'nt-web-tooltip-lib-tooltip': true,
                     'active': this.state.show
                 }),
                 style: toolTipStyle

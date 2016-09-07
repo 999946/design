@@ -11,7 +11,7 @@ var PropsGaea = function PropsGaea() {
 
     this.gaeaName = '按钮组';
     this.gaeaIcon = 'square-o';
-    this.gaeaUniqueKey = 'common-button-group';
+    this.gaeaUniqueKey = 'web-common-button-group';
 };
 
 exports.PropsGaea = PropsGaea;

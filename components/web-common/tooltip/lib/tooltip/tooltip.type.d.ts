@@ -2,6 +2,7 @@ import * as React from 'react';
 export interface PropsDefine {
     title?: string;
     titleRender?: () => React.ReactElement<any>;
+    zIndex?: number;
 }
 export declare class PropsGaea {
     gaeaName: string;
@@ -11,6 +12,7 @@ export declare class PropsGaea {
 export declare class Props extends PropsGaea implements PropsDefine {
     title: string;
     titleRender: () => JSX.Element;
+    zIndex: number;
 }
 export interface StateDefine {
     childrenTop?: number;

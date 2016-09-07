@@ -6,6 +6,7 @@ export default class ImageComponent extends React.Component<typings.PropsDefine,
     private fallbackLoadCounter;
     private loadImageSuccess;
     componentWillMount(): void;
+    componentWillReceiveProps(nextProps: typings.PropsDefine): void;
     handleLoadSuccess(): void;
     handleLoadError(): void;
     handlePress(): void;

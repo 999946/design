@@ -37,7 +37,7 @@ var ButtonGroup = function (_React$Component) {
         key: 'render',
         value: function render() {
             var groupClass = classNames(_defineProperty({
-                'nt-button-lib-button_group': true,
+                'nt-web-button-lib-button_group': true,
                 'btn-group': !this.props.vertical,
                 'btn-group-vertical': this.props.vertical
             }, this.props.className, !!this.props.className));

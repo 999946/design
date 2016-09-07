@@ -13,7 +13,7 @@ var PropsGaea = function PropsGaea() {
 
     this.gaeaName = '工具提示';
     this.gaeaIcon = 'square-o';
-    this.gaeaUniqueKey = 'common-tooltip';
+    this.gaeaUniqueKey = 'web-common-tooltip';
 };
 
 exports.PropsGaea = PropsGaea;
@@ -36,6 +36,7 @@ var Props = function (_PropsGaea) {
         _this.titleRender = function () {
             return React.createElement("div", null, "tool tip!");
         };
+        _this.zIndex = 100;
         return _this;
     }
 
