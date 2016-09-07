@@ -24,7 +24,7 @@ export default [{
         chinese: '图片',
         isWeb: true,
         isIos: true
-    },{
+    }, {
         name: 'gif',
         chinese: 'GIF',
         isWeb: true,
@@ -36,6 +36,11 @@ export default [{
     prefix: 'nt-wefan',
     isPrivate: true,
     components: [{
+        name: 'image',
+        chinese: '图片',
+        isWeb: true,
+        isIos: true
+    }, {
         name: 'resource-card',
         chinese: '资源卡片',
         isWeb: true,
