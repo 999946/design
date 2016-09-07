@@ -282,7 +282,7 @@ const getComponentInfoByFullPath = (publishFullPath: string)=> {
     }
     // 如果 publishFullPath 是有三级目录，去掉第一级
     const publishFullPathSplitWithPath = publishFullPath.split('/')
-    if (publishFullPathSplitWithPath.length > 3) {
+    if (publishFullPathSplitWithPath.length >= 3) {
         publishFullPathSplitWithPath.shift()
         publishFullPath = publishFullPathSplitWithPath.join('/')
     }
