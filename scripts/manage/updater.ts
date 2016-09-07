@@ -40,12 +40,12 @@ export default ()=> {
                     import ${_.capitalize(_.camelCase(component.name))} from './${component.name}/${component.name}.component'
 
                     export {${_.capitalize(_.camelCase(component.name))}}
-                    export default ${_.camelCase(component.name)}
+                    export default ${_.capitalize(_.camelCase(component.name))}
                 `)
                 fs.mkdirSync(`${componentRootPath}/demo`)
                 fs.mkdirSync(`${componentRootPath}/${component.name}`)
 
-                fs.writeFileSync(`${componentRootPath}/${component.name}/${component.name}.component.tsx`,`
+                fs.writeFileSync(`${componentRootPath}/${component.name}/${component.name}.component.tsx`, `
                     import * as React from 'react'
                     import * as typings from './${component.name}.type'
                     
@@ -63,7 +63,7 @@ export default ()=> {
                     }
                 `)
 
-                fs.writeFileSync(`${componentRootPath}/${component.name}/${component.name}.type.ts`,`
+                fs.writeFileSync(`${componentRootPath}/${component.name}/${component.name}.type.ts`, `
                     import * as React from 'react'
 
                     export interface PropsDefine extends React.HTMLAttributes{
@@ -89,7 +89,7 @@ export default ()=> {
                     }
                 `)
 
-                fs.writeFileSync(`${componentRootPath}/demo/basic`,`
+                fs.writeFileSync(`${componentRootPath}/demo/basic.tsx`, `
                     import * as React from 'react'
                     import {observer} from 'mobx-react'
                     import ${_.capitalize(_.camelCase(component.name))} from '../index'
