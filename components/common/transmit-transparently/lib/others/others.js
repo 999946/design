@@ -8,15 +8,14 @@ exports.default = function () {
     var defaultProps = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
     var props = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
     var ignore = arguments[2];
-    var isReactNative = arguments[3];
 
     var defaultPropsKeys = Object.keys(defaultProps);
     var others = {};
     ignore = ignore || [];
     Object.keys(props).forEach(function (key) {
-        if (defaultPropsKeys.findIndex(function (item) {
+        if (ignore.findIndex(function (item) {
             return item === key;
-        }) === -1 && ignore.findIndex(function (item) {
+        }) > -1 || defaultPropsKeys.findIndex(function (item) {
             return item === key;
         }) === -1 && htmlAttributes.findIndex(function (item) {
             return item === key;

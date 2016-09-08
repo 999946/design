@@ -31,93 +31,46 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
 };
 var React = require('react');
 var typings = require('./image.type');
+var index_1 = require('nt-gif');
+var index_2 = require('nt-transmit-transparently');
 var react_native_1 = require('react-native');
-var index_1 = require('nt-transmit-transparently');
-var ImageComponent = function (_React$Component) {
-    _inherits(ImageComponent, _React$Component);
+var WefanImage = function (_React$Component) {
+    _inherits(WefanImage, _React$Component);
 
-    function ImageComponent() {
+    function WefanImage() {
         var _ref;
 
-        _classCallCheck(this, ImageComponent);
+        _classCallCheck(this, WefanImage);
 
         for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
             args[_key] = arguments[_key];
         }
 
-        var _this = _possibleConstructorReturn(this, (_ref = ImageComponent.__proto__ || Object.getPrototypeOf(ImageComponent)).call.apply(_ref, [this].concat(args)));
+        var _this = _possibleConstructorReturn(this, (_ref = WefanImage.__proto__ || Object.getPrototypeOf(WefanImage)).call.apply(_ref, [this].concat(args)));
 
         _this.state = new typings.State();
-        _this.fallbackLoadCounter = 0;
         return _this;
     }
 
-    _createClass(ImageComponent, [{
-        key: "componentWillMount",
-        value: function componentWillMount() {
-            this.setState({
-                source: this.props.source
-            });
-        }
-    }, {
-        key: "componentWillReceiveProps",
-        value: function componentWillReceiveProps(nextProps) {
-            this.setState({
-                source: nextProps.source,
-                loadImageSuccess: true
-            });
-        }
-    }, {
-        key: "handleLoadSuccess",
-        value: function handleLoadSuccess() {
-            this.fallbackLoadCounter = 0;
-            if (this.state.source === this.props.source) {
-                this.setState({
-                    loadImageSuccess: true
-                });
-            }
-        }
-    }, {
-        key: "handleLoadError",
-        value: function handleLoadError() {
-            this.props.onError();
-            this.setState({
-                loadImageSuccess: false
-            });
-            if (this.props.fallbackSource) {
-                if (this.fallbackLoadCounter < 3) {
-                    this.fallbackLoadCounter++;
-                    this.setState({
-                        source: this.props.fallbackSource
-                    });
-                }
-            }
-        }
-    }, {
-        key: "handlePress",
-        value: function handlePress() {
-            this.props.onPress();
-            if (this.props.pressToReload && this.state.loadImageSuccess === false) {
-                this.fallbackLoadCounter = 0;
-                this.setState({
-                    source: this.props.source
-                });
-                this.forceUpdate();
-            }
+    _createClass(WefanImage, [{
+        key: "fallbackAddon",
+        value: function fallbackAddon() {
+            return React.createElement(react_native_1.Image, { style: { width: 120, height: 80 }, source: require('../resources/empty.png') });
         }
     }, {
         key: "render",
         value: function render() {
             this.props.others.style = _extends({}, this.props.others.style, {
-                backgroundColor: this.state.loadImageSuccess ? 'transparent' : this.props.fallbackColor
+                justifyContent: 'center',
+                alignItems: 'center'
             });
-            return React.createElement(react_native_1.TouchableOpacity, __assign({ activeOpacity: 1, onPress: this.handlePress.bind(this) }, this.props.others), !(!this.state.loadImageSuccess && this.props.fallbackHideImage) && React.createElement(react_native_1.Image, __assign({ onError: this.handleLoadError.bind(this), onLoad: this.handleLoadSuccess.bind(this), source: this.state.source }, this.props.others)), !this.state.loadImageSuccess && this.props.fallbackAddon());
+            return React.createElement(index_1.default, __assign({ firstSource: this.props.firstSource, source: this.props.source, fallbackColor: "#eee", fallbackHideImage: true, fallbackAddon: this.fallbackAddon.bind(this), pressToReload: true }, this.props.others));
         }
     }]);
 
-    return ImageComponent;
+    return WefanImage;
 }(React.Component);
-ImageComponent.defaultProps = new typings.Props();
-ImageComponent = __decorate([index_1.TransmitTransparently('fallbackSource', 'fallbackColor', 'pressToReload', 'fallbackAddon', 'fallbackHideImage')], ImageComponent);
+WefanImage.defaultProps = new typings.Props();
+WefanImage = __decorate([index_2.TransmitTransparently('fallbackSource', 'fallbackColor', 'fallbackAddon', 'pressToReload', 'firstSource', 'onPress')], WefanImage);
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ImageComponent;
+exports.default = WefanImage;

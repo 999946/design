@@ -11,7 +11,7 @@ var PropsGaea = function PropsGaea() {
 
     this.gaeaName = '图片';
     this.gaeaIcon = 'square-o';
-    this.gaeaUniqueKey = 'nt-image';
+    this.gaeaUniqueKey = 'nt-wefan-image';
 };
 
 exports.PropsGaea = PropsGaea;
@@ -31,13 +31,6 @@ var Props = function (_PropsGaea) {
         var _this = _possibleConstructorReturn(this, (_ref = Props.__proto__ || Object.getPrototypeOf(Props)).call.apply(_ref, [this].concat(args)));
 
         _this.source = '';
-        _this.pressToReload = false;
-        _this.onPress = function () {};
-        _this.fallbackAddon = function () {
-            return null;
-        };
-        _this.onError = function () {};
-        _this.fallbackHideImage = false;
         return _this;
     }
 
@@ -48,9 +41,6 @@ exports.Props = Props;
 
 var State = function State() {
     _classCallCheck(this, State);
-
-    this.source = '';
-    this.loadImageSuccess = true;
 };
 
 exports.State = State;

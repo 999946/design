@@ -32,6 +32,12 @@ var Props = function (_PropsGaea) {
 
         _this.source = '';
         _this.pressToReload = false;
+        _this.onPress = function () {};
+        _this.fallbackAddon = function () {
+            return null;
+        };
+        _this.onError = function () {};
+        _this.fallbackHideImage = false;
         return _this;
     }
 
@@ -44,6 +50,7 @@ var State = function State() {
     _classCallCheck(this, State);
 
     this.source = '';
+    this.loadImageSuccess = true;
 };
 
 exports.State = State;

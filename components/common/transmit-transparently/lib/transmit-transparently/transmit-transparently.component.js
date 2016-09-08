@@ -12,7 +12,11 @@ var React = require('react');
 var typings = require('./transmit-transparently.type');
 var others_1 = require('../others/others');
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = function (ignore) {
+exports.default = function () {
+    for (var _len = arguments.length, ignore = Array(_len), _key = 0; _key < _len; _key++) {
+        ignore[_key] = arguments[_key];
+    }
+
     return function (Target) {
         var Transmit = function (_React$Component) {
             _inherits(Transmit, _React$Component);
@@ -22,8 +26,8 @@ exports.default = function (ignore) {
 
                 _classCallCheck(this, Transmit);
 
-                for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-                    args[_key] = arguments[_key];
+                for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+                    args[_key2] = arguments[_key2];
                 }
 
                 var _this = _possibleConstructorReturn(this, (_ref = Transmit.__proto__ || Object.getPrototypeOf(Transmit)).call.apply(_ref, [this].concat(args)));

@@ -4,7 +4,6 @@ export default class ImageComponent extends React.Component<typings.PropsDefine,
     static defaultProps: typings.PropsDefine;
     state: typings.StateDefine;
     private fallbackLoadCounter;
-    private loadImageSuccess;
     componentWillMount(): void;
     componentWillReceiveProps(nextProps: typings.PropsDefine): void;
     handleLoadSuccess(): void;
