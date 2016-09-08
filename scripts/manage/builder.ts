@@ -49,7 +49,8 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
                     importFullPathSplit.shift()
                     importFullPathSplit.shift()
                     importFullPathSplit.shift()
-                    const requirePath = path.join(`${depCategory.prefix}-${depComponent.name}/${importFullPathSplit.join('/')}`)
+                    // 补上入口路径
+                    const requirePath = path.join(`${depCategory.prefix}-${depComponent.name}/${config.componentBuildPath}/${importFullPathSplit.join('/')}`)
                     return `require('${requirePath}')`
                 }
             }
