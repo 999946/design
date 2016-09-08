@@ -31,12 +31,13 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
             const importFullPath = path.join(filePathDir, '../',importPath)
 
             const importFullPathSplit = importFullPath.split('/')
+            console.log('filePathDir',filePathDir,'importPath',importPath)
+            console.log('importFullPathSplit',importFullPathSplit)
 
             if (`${config.componentsPath}/${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== componentPath) {
                 // 保证引用的模块不是自己
                 const depCategory = components.find(category=>category.name===importFullPathSplit[1])
                 const depComponent = depCategory.components.find(component=>component.name===importFullPathSplit[2])
-                console.log(importFullPathSplit)
                 return `require('${depCategory.prefix}-${depComponent.name}')`
             }
         }
