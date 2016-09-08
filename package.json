@@ -1,6 +1,6 @@
 {
   "name": "nt-image",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "图片",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -13,7 +13,9 @@
   ],
   "author": "ascoders",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "nt-transmit-transparently": "^0.0.3"
+  },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
     "react-native": "^0.29.0"
