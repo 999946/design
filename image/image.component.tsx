@@ -4,13 +4,6 @@ import Gif from '../../../common/gif/index'
 import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 import {Image} from 'react-native'
 
-import {PropsDefine} from '../../../common/gif/gif/gif.type'
-
-let a: PropsDefine
-
-import GGG from '../../../common/gif/gif/gif.component'
-const ggg = GGG
-
 @TransmitTransparently('fallbackSource', 'fallbackColor', 'fallbackAddon', 'pressToReload', 'firstSource', 'onPress')
 export default class WefanImage extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
