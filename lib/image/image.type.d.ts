@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactNative from 'react-native';
-import { PropsDefine } from '../../../common/gif/gif/gif.type';
 export interface PropsDefine extends ReactNative.ViewProperties {
     source: {
         uri: string;
