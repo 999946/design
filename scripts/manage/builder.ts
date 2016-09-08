@@ -32,7 +32,7 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
 
             const importFullPathSplit = importFullPath.split('/')
             console.log('filePathDir',filePathDir,'importPath',importPath)
-            console.log('importFullPathSplit',importFullPathSplit)
+            console.log('importFullPathSplit',importFullPath)
 
             if (`${config.componentsPath}/${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== componentPath) {
                 // 保证引用的模块不是自己
