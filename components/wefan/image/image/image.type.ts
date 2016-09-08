@@ -3,12 +3,12 @@ import * as ReactNative from 'react-native'
 
 export interface PropsDefine extends ReactNative.ViewProperties {
     /**
-     * gif 图片地址
+     * 图片地址
      */
     source: {uri: string} | string
 
     /**
-     * 首帧 gif 图片地址
+     * 如果是 gif 图，首帧 gif 图片地址
      */
     firstSource?: {uri: string} | string
 
