@@ -28,16 +28,16 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
             filePathSplit.pop()
             const filePathDir = filePathSplit.join('/')
             // 加了一层 lib 所以多返回上一级目录
-            const importFullPath = path.join(filePathDir, '../',importPath)
+            const importFullPath = path.join(filePathDir, '../', importPath)
 
             const importFullPathSplit = importFullPath.split('/')
-            console.log('filePathDir',filePathDir,'importPath',importPath)
-            console.log('importFullPathSplit',importFullPath)
+            console.log('filePathDir', filePathDir, 'importPath', importPath)
+            console.log('importFullPathSplit', importFullPath)
 
             if (`${config.componentsPath}/${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== componentPath) {
                 // 保证引用的模块不是自己
-                const depCategory = components.find(category=>category.name===importFullPathSplit[1])
-                const depComponent = depCategory.components.find(component=>component.name===importFullPathSplit[2])
+                const depCategory = components.find(category=>category.name === importFullPathSplit[1])
+                const depComponent = depCategory.components.find(component=>component.name === importFullPathSplit[2])
                 return `require('${depCategory.prefix}-${depComponent.name}')`
             }
         }
@@ -133,24 +133,24 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
 
     // 拷贝除了 ts tsx lib/ demo/ test/ 到 lib 目录下
     // 一定要放上一步 mv 后面, 不然 lib 目录非空了再 mv 会报错
-    execSync(`rsync -av --progress ${sourcePath}/* ${libPath} --exclude ${libPath} --exclude ${sourcePath}/demo --exclude ${sourcePath}/test --exclude package.json --exclude readme.md --exclude "*.ts" --exclude "*.tsx"`)
+    execSync(`rsync -av --progress ${sourcePath}/* ${libPath} --exclude ${libPath}/* --exclude ${sourcePath}/demo/* --exclude ${sourcePath}/test/* --exclude package.json --exclude readme.md --exclude "*.ts" --exclude "*.tsx"`)
 
-    // // 找出 lib 目录下的 js 文件
-    // let jsFilePaths = getFilesBySuffix('js', libPath)
-    //
-    // jsFilePaths.forEach(filePath=> {
-    //     htmlPathLoader(filePath, component, category)
-    //     parseBabel(filePath, component, category)
-    // })
-    //
-    // // 找出 lib 目录下 scss 文件
-    // let scssFilePaths = getFilesBySuffix('scss', libPath)
-    // scssFilePaths.forEach(filePath=> {
-    //     // 豁免 .mixin.scss
-    //     if (filePath.endsWith('.mixin.scss')) {
-    //         return
-    //     }
-    //     cssPathLoader(filePath, component, category)
-    //     parseSass(filePath, component, category)
-    // })
+    // 找出 lib 目录下的 js 文件
+    let jsFilePaths = getFilesBySuffix('js', libPath)
+
+    jsFilePaths.forEach(filePath=> {
+        htmlPathLoader(filePath, component, category)
+        parseBabel(filePath, component, category)
+    })
+
+    // 找出 lib 目录下 scss 文件
+    let scssFilePaths = getFilesBySuffix('scss', libPath)
+    scssFilePaths.forEach(filePath=> {
+        // 豁免 .mixin.scss
+        if (filePath.endsWith('.mixin.scss')) {
+            return
+        }
+        cssPathLoader(filePath, component, category)
+        parseSass(filePath, component, category)
+    })
 }
