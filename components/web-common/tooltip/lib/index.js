@@ -1,6 +1,5 @@
 "use strict";
-
-var tooltip_component_1 = require('./tooltip/tooltip.component');
+const tooltip_component_1 = require('./tooltip/tooltip.component');
 exports.Tooltip = tooltip_component_1.default;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = tooltip_component_1.default;
