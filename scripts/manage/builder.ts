@@ -167,4 +167,6 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
         cssPathLoader(filePath, component, category)
         parseSass(filePath, component, category)
     })
+
+    // 找出 lib 目录下 d.ts 文件
 }
