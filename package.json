@@ -1,6 +1,6 @@
 {
   "name": "nt-wefan-image",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "图片",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -13,6 +13,12 @@
   ],
   "author": "ascoders",
   "license": "ISC",
-  "dependencies": {},
-  "peerDependencies": {}
+  "dependencies": {
+    "nt-gif": "^0.0.6",
+    "nt-transmit-transparently": "^0.0.3"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-native": "^0.29.0"
+  }
 }
