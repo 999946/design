@@ -37,10 +37,21 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
                 const depCategory = components.find(category=>category.name === importFullPathSplit[1])
                 const depComponent = depCategory.components.find(component=>component.name === importFullPathSplit[2])
 
-                // if (importFullPathSplit.length===3){
-                //     // 只引用到了模块本身
-                // }
-                return `require('${depCategory.prefix}-${depComponent.name}')`
+                if (importFullPathSplit.length === 4 && importFullPathSplit[3] === 'index') {
+                    // 这种引入了模块根路径的方式，和直接引用无异
+                    importFullPathSplit.pop()
+                }
+
+                if (importFullPathSplit.length === 3) {
+                    // 只引用到了模块本身
+                    return `require('${depCategory.prefix}-${depComponent.name}')`
+                } else {
+                    importFullPathSplit.shift()
+                    importFullPathSplit.shift()
+                    importFullPathSplit.shift()
+                    const requirePath = path.join(`${depCategory.prefix}-${depComponent.name}/${importFullPathSplit.join('/')}`)
+                    return `require('${requirePath}')`
+                }
             }
         }
         return matched[0]

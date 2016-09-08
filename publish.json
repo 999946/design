@@ -84,6 +84,11 @@
           "type": "component",
           "name": "gif",
           "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "gif",
+          "category": "common"
         }
       ]
     },
