@@ -131,26 +131,26 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
     // 将编译后的文件移到当前 lib 目录下, 这里只有 js 文件
     execSync(`mv built-components/${category.name}/${component.name}/* ${libPath}`)
 
-    // 拷贝除了 ts tsx lib/ demo/ test/ 到 lib 目录下
-    // 一定要放上一步 mv 后面, 不然 lib 目录非空了再 mv 会报错
-    execSync(`rsync -av --progress ${sourcePath}/* ${libPath} --exclude ${libPath} --exclude ${sourcePath}/demo --exclude ${sourcePath}/test --exclude package.json --exclude readme.md --exclude "*.ts" --exclude "*.tsx"`)
-
-    // 找出 lib 目录下的 js 文件
-    let jsFilePaths = getFilesBySuffix('js', libPath)
-
-    jsFilePaths.forEach(filePath=> {
-        htmlPathLoader(filePath, component, category)
-        parseBabel(filePath, component, category)
-    })
-
-    // 找出 lib 目录下 scss 文件
-    let scssFilePaths = getFilesBySuffix('scss', libPath)
-    scssFilePaths.forEach(filePath=> {
-        // 豁免 .mixin.scss
-        if (filePath.endsWith('.mixin.scss')) {
-            return
-        }
-        cssPathLoader(filePath, component, category)
-        parseSass(filePath, component, category)
-    })
+    // // 拷贝除了 ts tsx lib/ demo/ test/ 到 lib 目录下
+    // // 一定要放上一步 mv 后面, 不然 lib 目录非空了再 mv 会报错
+    // execSync(`rsync -av --progress ${sourcePath}/* ${libPath} --exclude ${libPath} --exclude ${sourcePath}/demo --exclude ${sourcePath}/test --exclude package.json --exclude readme.md --exclude "*.ts" --exclude "*.tsx"`)
+    //
+    // // 找出 lib 目录下的 js 文件
+    // let jsFilePaths = getFilesBySuffix('js', libPath)
+    //
+    // jsFilePaths.forEach(filePath=> {
+    //     htmlPathLoader(filePath, component, category)
+    //     parseBabel(filePath, component, category)
+    // })
+    //
+    // // 找出 lib 目录下 scss 文件
+    // let scssFilePaths = getFilesBySuffix('scss', libPath)
+    // scssFilePaths.forEach(filePath=> {
+    //     // 豁免 .mixin.scss
+    //     if (filePath.endsWith('.mixin.scss')) {
+    //         return
+    //     }
+    //     cssPathLoader(filePath, component, category)
+    //     parseSass(filePath, component, category)
+    // })
 }
