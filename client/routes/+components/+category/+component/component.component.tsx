@@ -106,7 +106,7 @@ export default class ComponentsCategoryComponent extends React.Component <typing
         }
 
         // npm install
-        const npmInstall = this.state.categoryInfo && this.state.categoryInfo.isPrivate ? `npm install ${config.privateGit}/${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}/repository/archive.tar.gz?ref=${this.state.componentFullInfo && this.state.componentFullInfo.packageJson && this.state.componentFullInfo.packageJson.version} --save` : `npm install ${this.state.categoryInfo.prefix}-${this.state.componentInfo.name} --save`
+        const npmInstall = this.state.categoryInfo && this.state.categoryInfo.isPrivate ? `npm install ${config.privateGit}/${this.state.categoryInfo.name}-${this.state.componentInfo.name}/repository/archive.tar.gz?ref=v${this.state.componentFullInfo && this.state.componentFullInfo.packageJson && this.state.componentFullInfo.packageJson.version} --save` : `npm install ${this.state.categoryInfo.prefix}-${this.state.componentInfo.name} --save`
 
         // 适用于 web
         let ForWeb: React.ReactElement<any> = null

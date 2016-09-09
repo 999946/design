@@ -34,9 +34,6 @@ var typings = require('./image.type');
 var index_1 = require('nt-gif');
 var index_2 = require('nt-transmit-transparently');
 var react_native_1 = require('react-native');
-var a = void 0;
-var gif_component_1 = require('nt-gif/lib/gif/gif.component');
-var ggg = gif_component_1.default;
 var WefanImage = function (_React$Component) {
     _inherits(WefanImage, _React$Component);
 

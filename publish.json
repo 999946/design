@@ -79,16 +79,6 @@
         {
           "type": "npm",
           "name": "react-native"
-        },
-        {
-          "type": "component",
-          "name": "gif",
-          "category": "common"
-        },
-        {
-          "type": "component",
-          "name": "gif",
-          "category": "common"
         }
       ]
     },
