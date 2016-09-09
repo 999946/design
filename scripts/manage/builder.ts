@@ -96,11 +96,11 @@ const parseSass = (filePath: string, component: Components.ComponentConfig, cate
  */
 const parseDts = (filePath: string, component: Components.ComponentConfig, category: Components.Category) => {
     let source = fs.readFileSync(filePath).toString()
-    const regex = /import\s+([a-zA-Z{},\s\*]*)(from)?\s?\'([^']+)\'/g
+    const regex = /import\s+([a-zA-Z{},\s\*]*)\s?\'([^']+)\'/g
 
     source = source.replace(regex, (...match: Array<string>)=> {
         // 引用的路径
-        const importPath = match[3] as string
+        const importPath = match[2] as string
         // 获得文件所在文件夹路径
         const filePathSplit = filePath.split('/')
         filePathSplit.pop()
