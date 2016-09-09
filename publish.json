@@ -4,25 +4,17 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "transmit-transparently",
-        "chinese": "透传",
+        "name": "image",
+        "chinese": "图片",
         "isWeb": true,
-        "isIos": true,
-        "isAndroid": true
+        "isIos": true
       },
       "category": {
-        "name": "common",
-        "chinese": "通用",
-        "prefix": "nt",
-        "isPrivate": false,
+        "name": "wefan",
+        "chinese": "微粉",
+        "prefix": "nt-wefan",
+        "isPrivate": true,
         "components": [
-          {
-            "name": "transmit-transparently",
-            "chinese": "透传",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
           {
             "name": "image",
             "chinese": "图片",
@@ -30,29 +22,40 @@
             "isIos": true
           },
           {
-            "name": "gif",
-            "chinese": "GIF",
+            "name": "resource-card",
+            "chinese": "资源卡片",
             "isWeb": true,
+            "isAndroid": true,
+            "isIos": true
+          },
+          {
+            "name": "navbar",
+            "chinese": "导航条",
+            "isWeb": true,
+            "isAndroid": true,
             "isIos": true
           }
         ]
       },
       "packageJson": {
-        "name": "nt-transmit-transparently",
-        "version": "0.0.4",
-        "description": "透传",
+        "name": "nt-wefan-image",
+        "version": "0.0.5",
+        "description": "图片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/common-transmit-transparently.git"
+          "url": "http://gitlab.baidu.com/tb-next-component/wefan-image.git"
         },
         "keywords": [
-          "transmit-transparently"
+          "image"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {},
+        "dependencies": {
+          "nt-gif": "^0.0.8",
+          "nt-transmit-transparently": "^0.0.4"
+        },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
           "react-native": "^0.29.0"
@@ -64,12 +67,22 @@
           "name": "react"
         },
         {
+          "type": "component",
+          "name": "gif",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "transmit-transparently",
+          "category": "common"
+        },
+        {
           "type": "npm",
           "name": "react-native"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.4"
+    "preVersion": "0.0.5"
   }
 ]
