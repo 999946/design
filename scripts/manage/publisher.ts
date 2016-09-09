@@ -366,7 +366,6 @@ const writeNowPublishToPackageJson = ()=> {
                     // 在发布队列找到了, 用其发布后的版本号
                     const moduleName = `${dependenceFullInfo.componentInfoWithDep.category.prefix}-${dependenceFullInfo.componentInfoWithDep.component.name}`
                     const version = semver.inc(dependenceFullInfo.componentInfoWithDep.packageJson.version, dependenceFullInfo.publishLevel)
-                    console.log('在发布队列找到了',moduleName,version)
                     if (dependenceFullInfo.componentInfoWithDep.category.isPrivate) {
                         // 如果这个组件是个私有组件，修正依赖路径，写死版本号
                         dependences[moduleName] = `${config.privateGit}/${dependenceFullInfo.componentInfoWithDep.category.name}/${dependenceFullInfo.componentInfoWithDep.component.name}/repository/archive.tar.gz?ref=v${version}`
@@ -378,7 +377,6 @@ const writeNowPublishToPackageJson = ()=> {
                     const dependenceInfo = allComponentsInfoWithDep.find(componentInfo=>componentInfo.category.name === dependence.category && componentInfo.component.name === dependence.name)
                     const moduleName = `${dependenceInfo.category.prefix}-${dependenceInfo.component.name}`
                     const version = dependenceInfo.packageJson.version
-                    console.log(moduleName,version)
 
                     if (dependenceInfo.category.isPrivate) {
                         // 如果这个组件是个私有组件，修正依赖路径，写死版本号
@@ -465,33 +463,33 @@ export default (publishFullPaths: Array<string>)=> {
             // 根据发布信息, 写入 package.json
             writeNowPublishToPackageJson()
 
-            // // 这时候已经有组件的 package.json 修改了, 根目录提交
-            // execSync(`git add -A`)
-            // execSync(`git commit -m "发布组件"`)
-            //
-            // // 再循环一遍, 这次从根目录已经提交了
-            // simulations.forEach(publishInfo=> {
-            //     const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
-            //
-            //     if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
-            //         // 打 tag
-            //         execSync(`cd ${publishPath}; git tag v${publishInfo.componentInfoWithDep.packageJson.version}`)
-            //
-            //         // push 分支
-            //         execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git v${publishInfo.componentInfoWithDep.packageJson.version}`)
-            //
-            //         // push 到 master
-            //         execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
-            //
-            //         // 因为这个 tag 也打到了根目录, 所以在根目录删除这个 tag
-            //         execSync(`git tag -d v${publishInfo.componentInfoWithDep.packageJson.version}`)
-            //     } else {
-            //         execSync(`cd ${publishPath}; npm publish`)
-            //     }
-            // })
-            //
-            // // 根目录提交
-            // execSync(`git push`)
+            // 这时候已经有组件的 package.json 修改了, 根目录提交
+            execSync(`git add -A`)
+            execSync(`git commit -m "发布组件"`)
+
+            // 再循环一遍, 这次从根目录已经提交了
+            simulations.forEach(publishInfo=> {
+                const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
+
+                if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
+                    // 打 tag
+                    execSync(`cd ${publishPath}; git tag v${publishInfo.componentInfoWithDep.packageJson.version}`)
+
+                    // push 分支
+                    execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git v${publishInfo.componentInfoWithDep.packageJson.version}`)
+
+                    // push 到 master
+                    execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
+
+                    // 因为这个 tag 也打到了根目录, 所以在根目录删除这个 tag
+                    execSync(`git tag -d v${publishInfo.componentInfoWithDep.packageJson.version}`)
+                } else {
+                    execSync(`cd ${publishPath}; npm publish`)
+                }
+            })
+
+            // 根目录提交
+            execSync(`git push`)
         }
     })
 }
