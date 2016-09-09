@@ -119,7 +119,7 @@ const parseDts = (filePath: string, component: Components.ComponentConfig, categ
         return match[0]
     })
 
-    fs.writeFileSync(cssPath, postResult)
+    fs.writeFileSync(filePath, source)
 }
 
 /**
