@@ -10,6 +10,170 @@
         "isIos": true
       },
       "category": {
+        "name": "common",
+        "chinese": "通用",
+        "prefix": "nt",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "transmit-transparently",
+            "chinese": "透传",
+            "isWeb": true,
+            "isIos": true,
+            "isAndroid": true
+          },
+          {
+            "name": "image",
+            "chinese": "图片",
+            "isWeb": true,
+            "isIos": true
+          },
+          {
+            "name": "gif",
+            "chinese": "GIF",
+            "isWeb": true,
+            "isIos": true
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "nt-image",
+        "version": "0.0.6",
+        "description": "图片",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/next-component/common-image.git"
+        },
+        "keywords": [
+          "image"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {
+          "nt-transmit-transparently": "^0.0.4"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-native": "^0.29.0"
+        }
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "react-native"
+        },
+        {
+          "type": "component",
+          "name": "transmit-transparently",
+          "category": "common"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "0.0.6"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "gif",
+        "chinese": "GIF",
+        "isWeb": true,
+        "isIos": true
+      },
+      "category": {
+        "name": "common",
+        "chinese": "通用",
+        "prefix": "nt",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "transmit-transparently",
+            "chinese": "透传",
+            "isWeb": true,
+            "isIos": true,
+            "isAndroid": true
+          },
+          {
+            "name": "image",
+            "chinese": "图片",
+            "isWeb": true,
+            "isIos": true
+          },
+          {
+            "name": "gif",
+            "chinese": "GIF",
+            "isWeb": true,
+            "isIos": true
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "nt-gif",
+        "version": "0.0.8",
+        "description": "GIF",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/next-component/common-gif.git"
+        },
+        "keywords": [
+          "gif"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {
+          "nt-image": "^0.0.6",
+          "nt-transmit-transparently": "^0.0.4"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-native": "^0.29.0"
+        }
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "component",
+          "name": "image",
+          "category": "common"
+        },
+        {
+          "type": "npm",
+          "name": "react-native"
+        },
+        {
+          "type": "component",
+          "name": "transmit-transparently",
+          "category": "common"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "0.0.8"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "image",
+        "chinese": "图片",
+        "isWeb": true,
+        "isIos": true
+      },
+      "category": {
         "name": "wefan",
         "chinese": "微粉",
         "prefix": "nt-wefan",
@@ -39,7 +203,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-image",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "description": "图片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -54,7 +218,7 @@
         "license": "ISC",
         "dependencies": {
           "nt-gif": "^0.0.8",
-          "nt-transmit-transparently": "^0.0.4"
+          "nt-transmit-transparently": "^0.0.5"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -83,6 +247,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.5"
+    "preVersion": "0.0.6"
   }
 ]
