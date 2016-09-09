@@ -1,27 +1,8 @@
-import * as React from 'react';
-import * as ReactNative from 'react-native';
-export interface PropsDefine extends ReactNative.ViewProperties {
-    source: {
-        uri: string;
-    } | string;
+import { ImagePropsDefine } from '../../image/index';
+export interface PropsDefine extends ImagePropsDefine {
     firstSource?: {
         uri: string;
     } | string;
-    fallbackSource?: {
-        uri: string;
-    } | string;
-    fallbackColor?: string;
-    fallbackHideImage?: boolean;
-    fallbackAddon?: () => React.ReactElement<any>;
-    pressToReload?: boolean;
-    onPress?: () => void;
-    onLayout?: (event: ReactNative.LayoutChangeEvent) => void;
-    onLoad?: () => void;
-    onLoadEnd?: () => void;
-    onLoadStart?: () => void;
-    resizeMode?: "cover" | "contain" | "stretch";
-    style?: ReactNative.ImageStyle;
-    testID?: string;
     others?: any;
 }
 export declare class PropsGaea {
