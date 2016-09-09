@@ -102,7 +102,11 @@ const parseDts = (filePath: string, component: Components.ComponentConfig, categ
     while ((match = regex.exec(source)) != null) {
         // 引用的路径
         const importPath = match[2] as string
-        console.log(importPath)
+        // 获得文件所在文件夹路径
+        const filePathSplit = filePath.split('/')
+        filePathSplit.pop()
+        const filePathDir = filePathSplit.join('/')
+        console.log(path.join(filePathDir, '../', importPath))
     }
 }
 
