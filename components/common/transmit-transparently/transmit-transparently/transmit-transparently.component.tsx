@@ -12,7 +12,7 @@ export default (...ignore: string[]) => (Target: any) => {
         }
 
         public render(): React.ReactElement<any> {
-            const newProps: any = _.cloneDeep(this.props)
+            const newProps: any = Object.assign({}, this.props)
             newProps.others = this.state.others
             return React.createElement(Target, newProps, this.props.children)
         }
