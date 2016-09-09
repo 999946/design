@@ -110,9 +110,13 @@ const parseDts = (filePath: string, component: Components.ComponentConfig, categ
             const importFullPath = path.join(filePathDir, '../', importPath)
             const importFullPathSplit = importFullPath.split('/')
 
+            // 找到依赖模块的信息
+            const depCategory = components.find(category=>category.name === importFullPathSplit[1])
+            const depComponent = depCategory.components.find(component=>component.name === importFullPathSplit[2])
+
             if (`${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== `${category.name}/${component.name}`) {
                 // 保证引用的模块不是自己
-                return `import ${match[1]} '${importFullPathSplit[1]}-${importFullPathSplit[2]}'`
+                return `import ${match[1]} '${depCategory.prefix}-${depComponent.name}'`
             }
         }
 
