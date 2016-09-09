@@ -107,6 +107,9 @@ declare namespace Components {
         userPublishLevel: Components.PublishLevel
         // 实际发布级别
         publishLevel: Components.PublishLevel
+        // 发布前的版本号
+        preVersion: string
+        // 是否是用户操作要发布的
         isUserOperate: boolean
     }
 
