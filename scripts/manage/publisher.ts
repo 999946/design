@@ -366,7 +366,7 @@ const writeNowPublishToPackageJson = ()=> {
                     // 在发布队列找到了, 用其发布后的版本号
                     const moduleName = `${dependenceFullInfo.componentInfoWithDep.category.prefix}-${dependenceFullInfo.componentInfoWithDep.component.name}`
                     const version = semver.inc(dependenceFullInfo.componentInfoWithDep.packageJson.version, dependenceFullInfo.publishLevel)
-
+                    console.log('在发布队列找到了',moduleName,version)
                     if (dependenceFullInfo.componentInfoWithDep.category.isPrivate) {
                         // 如果这个组件是个私有组件，修正依赖路径，写死版本号
                         dependences[moduleName] = `${config.privateGit}/${dependenceFullInfo.componentInfoWithDep.category.name}/${dependenceFullInfo.componentInfoWithDep.component.name}/repository/archive.tar.gz?ref=v${version}`
