@@ -39,7 +39,7 @@
       },
       "packageJson": {
         "name": "nt-transmit-transparently",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "description": "透传",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -69,7 +69,8 @@
         }
       ]
     },
-    "isUserOperate": true
+    "isUserOperate": true,
+    "preVersion": "0.0.3"
   },
   {
     "userPublishLevel": "patch",
@@ -110,7 +111,7 @@
       },
       "packageJson": {
         "name": "nt-image",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "description": "图片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -124,7 +125,7 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-transmit-transparently": "^0.0.2"
+          "nt-transmit-transparently": "^0.0.4"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -147,7 +148,8 @@
         }
       ]
     },
-    "isUserOperate": true
+    "isUserOperate": true,
+    "preVersion": "0.0.5"
   },
   {
     "userPublishLevel": "patch",
@@ -188,7 +190,7 @@
       },
       "packageJson": {
         "name": "nt-gif",
-        "version": "0.0.6",
+        "version": "0.0.7",
         "description": "GIF",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -202,8 +204,8 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-image": "^0.0.3",
-          "nt-transmit-transparently": "^0.0.2"
+          "nt-image": "^0.0.6",
+          "nt-transmit-transparently": "^0.0.4"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -231,7 +233,8 @@
         }
       ]
     },
-    "isUserOperate": true
+    "isUserOperate": true,
+    "preVersion": "0.0.7"
   },
   {
     "userPublishLevel": "patch",
@@ -273,7 +276,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-image",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "description": "图片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -287,8 +290,8 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-gif": "^0.0.5",
-          "nt-transmit-transparently": "^0.0.2"
+          "nt-gif": "^0.0.8",
+          "nt-transmit-transparently": "^0.0.4"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -316,6 +319,7 @@
         }
       ]
     },
-    "isUserOperate": true
+    "isUserOperate": true,
+    "preVersion": "0.0.4"
   }
 ]
