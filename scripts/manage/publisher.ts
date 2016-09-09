@@ -378,6 +378,7 @@ const writeNowPublishToPackageJson = ()=> {
                     const dependenceInfo = allComponentsInfoWithDep.find(componentInfo=>componentInfo.category.name === dependence.category && componentInfo.component.name === dependence.name)
                     const moduleName = `${dependenceInfo.category.prefix}-${dependenceInfo.component.name}`
                     const version = dependenceInfo.packageJson.version
+                    console.log(moduleName,version)
 
                     if (dependenceInfo.category.isPrivate) {
                         // 如果这个组件是个私有组件，修正依赖路径，写死版本号
