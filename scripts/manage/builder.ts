@@ -112,7 +112,7 @@ const parseDts = (filePath: string, component: Components.ComponentConfig, categ
 
             if (`${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== `${category.name}/${component.name}`) {
                 // 保证引用的模块不是自己
-                return `import ${match[1]} '${category.prefix}-${component.name}'`
+                return `import ${match[1]} '${importFullPathSplit[1]}-${importFullPathSplit[2]}'`
             }
         }
 
