@@ -95,19 +95,29 @@ const parseSass = (filePath: string, component: Components.ComponentConfig, cate
  * 编译 d.ts
  */
 const parseDts = (filePath: string, component: Components.ComponentConfig, category: Components.Category) => {
-    const source = fs.readFileSync(filePath).toString()
+    let source = fs.readFileSync(filePath).toString()
     const regex = /import\s+[a-zA-Z{},\s\*]*(from)?\s?\'([^']+)\'/g
 
-    let match: any
-    while ((match = regex.exec(source)) != null) {
+    source = source.replace(regex, (...match: Array<string>)=> {
         // 引用的路径
         const importPath = match[2] as string
         // 获得文件所在文件夹路径
         const filePathSplit = filePath.split('/')
         filePathSplit.pop()
         const filePathDir = filePathSplit.join('/')
-        console.log(path.join(filePathDir, '../', importPath))
-    }
+
+        if (importPath.startsWith('./') || importPath.startsWith('../')) {
+            const importFullPath = path.join(filePathDir, '../', importPath)
+            const importFullPathSplit = importFullPath.split('/')
+
+            if (`${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== `${category.name}/${component.name}`) {
+                // 保证引用的模块不是自己
+                console.log(match[0], match[2])
+            }
+        }
+
+        return match[0]
+    })
 }
 
 /**
