@@ -465,33 +465,33 @@ export default (publishFullPaths: Array<string>)=> {
             // 根据发布信息, 写入 package.json
             writeNowPublishToPackageJson()
 
-            // 这时候已经有组件的 package.json 修改了, 根目录提交
-            execSync(`git add -A`)
-            execSync(`git commit -m "发布组件"`)
-
-            // 再循环一遍, 这次从根目录已经提交了
-            simulations.forEach(publishInfo=> {
-                const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
-
-                if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
-                    // 打 tag
-                    execSync(`cd ${publishPath}; git tag v${publishInfo.componentInfoWithDep.packageJson.version}`)
-
-                    // push 分支
-                    execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git v${publishInfo.componentInfoWithDep.packageJson.version}`)
-
-                    // push 到 master
-                    execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
-
-                    // 因为这个 tag 也打到了根目录, 所以在根目录删除这个 tag
-                    execSync(`git tag -d v${publishInfo.componentInfoWithDep.packageJson.version}`)
-                } else {
-                    execSync(`cd ${publishPath}; npm publish`)
-                }
-            })
-
-            // 根目录提交
-            execSync(`git push`)
+            // // 这时候已经有组件的 package.json 修改了, 根目录提交
+            // execSync(`git add -A`)
+            // execSync(`git commit -m "发布组件"`)
+            //
+            // // 再循环一遍, 这次从根目录已经提交了
+            // simulations.forEach(publishInfo=> {
+            //     const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
+            //
+            //     if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
+            //         // 打 tag
+            //         execSync(`cd ${publishPath}; git tag v${publishInfo.componentInfoWithDep.packageJson.version}`)
+            //
+            //         // push 分支
+            //         execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git v${publishInfo.componentInfoWithDep.packageJson.version}`)
+            //
+            //         // push 到 master
+            //         execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
+            //
+            //         // 因为这个 tag 也打到了根目录, 所以在根目录删除这个 tag
+            //         execSync(`git tag -d v${publishInfo.componentInfoWithDep.packageJson.version}`)
+            //     } else {
+            //         execSync(`cd ${publishPath}; npm publish`)
+            //     }
+            // })
+            //
+            // // 根目录提交
+            // execSync(`git push`)
         }
     })
 }
