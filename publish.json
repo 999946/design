@@ -4,8 +4,8 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "gif",
-        "chinese": "GIF",
+        "name": "image",
+        "chinese": "图片",
         "isWeb": true,
         "isIos": true
       },
@@ -37,22 +37,21 @@
         ]
       },
       "packageJson": {
-        "name": "nt-gif",
-        "version": "0.0.5",
-        "description": "GIF",
+        "name": "nt-image",
+        "version": "0.0.3",
+        "description": "图片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/common-gif.git"
+          "url": "https://github.com/next-component/common-image.git"
         },
         "keywords": [
-          "gif"
+          "image"
         ],
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-image": "^0.0.4",
           "nt-transmit-transparently": "^0.0.3"
         },
         "peerDependencies": {
@@ -64,11 +63,6 @@
         {
           "type": "npm",
           "name": "react"
-        },
-        {
-          "type": "component",
-          "name": "image",
-          "category": "common"
         },
         {
           "type": "npm",
