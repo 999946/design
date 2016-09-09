@@ -44,3 +44,10 @@ table {
         }
     }
 }
+
+.document-link {
+    color: #369;
+    &:hover {
+        text-decoration: underline;
+    }
+}

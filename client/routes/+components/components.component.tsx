@@ -25,11 +25,20 @@ export default class Components extends React.Component <typings.PropsDefine, ty
             )
         })
 
+        const thirdComponentsClasses = classNames({
+            'navbar-title': true,
+            'active': this.props.routes[2].path === 'third-components'
+        })
+
         return (
             <div className="_namespace">
                 <div className="component-nav-bar">
                     <div className="left">
                         {navBarCategorys}
+                    </div>
+                    <div className="right">
+                        <Link className={thirdComponentsClasses}
+                              to="/components/third-components">第三方库</Link>
                     </div>
                 </div>
                 <div style={{height: `calc(100vh - ${this.props.application.headerHeight + 50}px)`}}>

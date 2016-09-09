@@ -1,5 +1,6 @@
 /// <reference path="custom-typings.d.ts" />
 /// <reference path="custom/index.d.ts" />
+/// <reference path="../auto-create/components.d.ts" />
 /// <reference path="globals/axios/index.d.ts" />
 /// <reference path="globals/babel-core/index.d.ts" />
 /// <reference path="globals/babel-template/index.d.ts" />

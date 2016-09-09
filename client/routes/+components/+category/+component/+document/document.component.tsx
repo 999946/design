@@ -2,8 +2,15 @@ import * as React from 'react'
 import * as typings from './document.type'
 import FullComponentInfo from '../full-component-info/full-component-info.component'
 import * as classNames from 'classnames'
+import {Link} from 'react-router'
 import {observer, inject} from 'mobx-react'
-import {getPropsDefineBySourceCode, parsePropsDefine, getPropsBySourceCode, parseProps} from './document-tools'
+import {
+    getPropsDefineBySourceCode,
+    parsePropsDefine,
+    getPropsBySourceCode,
+    parseProps,
+    parsePropsDefineExtends
+} from './document-tools'
 
 import './document.scss'
 
@@ -11,6 +18,12 @@ import './document.scss'
 export default class Document extends FullComponentInfo <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
+
+    componentDidMount() {
+        if (this.props.location.query['component']) {
+            // 指定了跳转到某一个组件实例 TODO:
+        }
+    }
 
     render() {
         if (!this.state.componentFullInfo) {
@@ -34,6 +47,9 @@ export default class Document extends FullComponentInfo <typings.PropsDefine, ty
 
             // propsValue 数组
             const propsValues = parseProps(propsSourceCode)
+
+            // 分析 PropsDefine 中继承关系
+            const allExtends = parsePropsDefineExtends(typeCode, document.typePath)
 
             propsInfos = propsInfos.map(propsInfo=> {
                 const propsValue = propsValues.find(propsValue=>propsValue.name === propsInfo.name)
@@ -79,6 +95,40 @@ export default class Document extends FullComponentInfo <typings.PropsDefine, ty
                 )
             })
 
+            // 如果有依赖的文档，添加在 tr 之上
+            if (allExtends.length > 0) {
+                allExtends.forEach(extend=> {
+                    let key: string
+                    let ExtendDep: React.ReactElement<any>
+                    let text: string
+                    let linkUrl: string
+
+                    switch (extend.type) {
+                        case 'component':
+                            key = `${extend.category.prefix}-${extend.component.name}`
+                            text = `本组件实例继承了 ${extend.category.prefix}-${extend.component.name} 中 {${extend.extendName}} 实例的所有属性`
+                            linkUrl = `/components/${extend.category.name}/${extend.component.name}/document?component=${extend.extendName}`
+                            break
+                        case 'npm':
+                            key = extend.moduleName
+                            text = `本组件实例继承了第三方库 ${extend.moduleName} 中 {${extend.extendName}} 的所有属性`
+                            linkUrl = `/components/third-components/${extend.moduleName}?component=${extend.extendName}`
+                            break
+                    }
+
+                    ExtendDep = (
+                        <tr key={key}>
+                            <td colSpan="4">
+                                <Link className="document-link"
+                                      to={linkUrl}>{text}</Link>
+                            </td>
+                        </tr>
+                    )
+
+                    tr.unshift(ExtendDep)
+                })
+            }
+
             const importString = `import {${document.componentName}} from '${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}'`
 
             return (
@@ -88,6 +138,7 @@ export default class Document extends FullComponentInfo <typings.PropsDefine, ty
                         <div className="title">{document.componentName}</div>
                         <div className="import-doc">{importString}</div>
                     </div>
+                    {tr.length > 0 &&
                     <table>
                         <thead>
                         <tr>
@@ -101,6 +152,7 @@ export default class Document extends FullComponentInfo <typings.PropsDefine, ty
                         {tr}
                         </tbody>
                     </table>
+                    }
                 </div>
             )
         })

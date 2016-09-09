@@ -1,5 +1,7 @@
 import * as _ from 'lodash'
 import * as trimString from '../../../../../../utils/trim-string'
+import * as path from 'path'
+import components from '../../../../../../components'
 
 /**
  * 根据源码找到 propsDefine 部分
@@ -406,4 +408,51 @@ export const parseProps = (props: string)=> {
     })
 
     return params
+}
+
+export const parsePropsDefineExtends = (sourceCode: string, typePath: string)=> {
+    // 找出继承的对象
+    const regex = /interface\s+PropsDefine\s+extends([^\{]*)/g
+
+    // 继承对象数组
+    const allExtends: Array<RouterComponentsModel.ExtendInfo> = []
+
+    let match: Array<string>
+    while ((match = regex.exec(sourceCode)) != null) {
+        const extendString = match[1]
+        const extendArray = extendString.split(',')
+        extendArray.forEach(extend=> {
+            extend = _.trim(extend)
+            // 找到 extend 的文件源
+            const findRegex = new RegExp(`import\\s\\{?[^}]*${extend}[^}]*\\}?\\s+from\\s+\\'([^\\']*)\\'`, 'g')
+            let sourceMatch: Array<string>
+            while ((sourceMatch = findRegex.exec(sourceCode)) != null) {
+                const importSource = sourceMatch[1]
+                const typePathSplit = typePath.split('/')
+                typePathSplit.pop()
+                const typePathDir = typePathSplit.join('/')
+                if (importSource.startsWith('./') || importSource.startsWith('../')) {
+                    const importFullPath = path.join(typePathDir, importSource)
+                    const importFullPathSplit = importFullPath.split('/')
+                    const category = components.find(category=>category.name === importFullPathSplit[1])
+                    const component = category.components.find(component=>component.name === importFullPathSplit[2])
+                    allExtends.push({
+                        type: 'component',
+                        category,
+                        component,
+                        extendName: trimString.trimStringEnd(_.trim(extendString), 'PropsDefine')
+                    })
+                } else {
+                    // npm 模块
+                    allExtends.push({
+                        type: 'npm',
+                        moduleName: _.trim(importSource),
+                        extendName: trimString.trimStringEnd(_.trim(extendString), 'PropsDefine')
+                    })
+                }
+            }
+        })
+    }
+
+    return allExtends
 }

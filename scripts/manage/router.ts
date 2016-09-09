@@ -1,9 +1,10 @@
 /**
- * 初始化路由信息
+ * 初始化组件所有路由信息，包括第三方组件
  */
 
 import * as config from '../../config'
 import components from '../../components'
+import thirdComponents from '../../third-components'
 import {execSync} from 'child_process'
 import * as _ from 'lodash'
 import * as fs from 'fs'
@@ -11,9 +12,43 @@ import * as path from 'path'
 import consoleLog from './utils/console-log'
 import * as trimString from '../../utils/trim-string'
 
+const autoCreate = 'auto-create'
+
+/**
+ * 生成第三方组件定义获取文件
+ */
+const generateThirdComponentTypingsGetFactory = ()=> {
+    let requireList = ``
+    thirdComponents.forEach(thirdComponent=> {
+        requireList += `
+            routerMap.set('${thirdComponent.name}', (callback: any) => {
+                const demoLists: any = []
+                const documents: any = []
+                
+                require.ensure([], function (require: any) {
+                    callback({
+                        typings: require('-!text!../../${thirdComponent.typingPath}')
+                    })
+                })
+            })
+        `
+    })
+
+    const fullInfo = `
+        declare var require: any
+
+        const routerMap = new Map<string, any>()
+        
+        ${requireList}
+    
+        export default routerMap
+    `
+    fs.writeFileSync(`${autoCreate}/third-component-typings.ts`, fullInfo)
+}
+
 export default ()=> {
     let setFullInfo = ''
-    const autoCreate = 'auto-create'
+    let setDts = ''
 
     if (!fs.existsSync(autoCreate)) {
         fs.mkdirSync(autoCreate)
@@ -21,8 +56,14 @@ export default ()=> {
 
     components.forEach(category=> {
         category.components.forEach(component=> {
-
             const componentAbsolutePath = `${config.componentsPath}/${category.name}/${component.name}`
+
+            // 组件入口文件
+            const mainSource = fs.readFileSync(`${componentAbsolutePath}/index.ts`).toString()
+
+            // 导出的那行代码
+            const exportString = _.trim(/export\s?\{([^}]+)\}/.exec(mainSource)[1])
+            let exportStringSplit = exportString.split(',')
 
             if (fs.existsSync(`${componentAbsolutePath}/demo`)) {
                 const demoLists: any = []
@@ -49,12 +90,6 @@ export default ()=> {
 
                 let documentsRequireList = ''
 
-                // 组件入口文件
-                const mainSource = fs.readFileSync(`${componentAbsolutePath}/index.ts`).toString()
-
-                // 导出的那行代码
-                const exportString = _.trim(/export\s?\{([^}]+)\}/.exec(mainSource)[1])
-                let exportStringSplit = exportString.split(',')
                 // 所有导出非定义的模块名
                 const exportModuleNameMap: Array<string> = []
 
@@ -78,7 +113,7 @@ export default ()=> {
                     // 找出定义对应的模块名, 只需要把结尾 propsDefine 去掉，名字相同即可，忽略大小写
                     const moduleName = exportModuleNameMap.find(moduleName=>_.toLower(moduleName) === _.toLower(trimString.trimStringEnd(exportName, 'PropsDefine')))
 
-                    if (!moduleName){
+                    if (!moduleName) {
                         return
                     }
 
@@ -87,7 +122,7 @@ export default ()=> {
                     // 引用资源的路径
                     const exportPath = pattern.exec(mainSource)[1]
                     // .type 文件完整路径
-                    const exportTypeAbsolutePath = path.join(`${componentAbsolutePath}`, exportPath)
+                    const exportTypeAbsolutePath = path.join(componentAbsolutePath, exportPath)
                     let typeExt = '.ts'
 
                     if (!fs.existsSync(exportTypeAbsolutePath + typeExt)) {
@@ -102,6 +137,7 @@ export default ()=> {
                         documents.push({
                             type: require('../${exportTypeAbsolutePath}'),
                             typeCode: require('-!text!../../${exportTypeAbsolutePath}${typeExt}'),
+                            typePath: '${exportTypeAbsolutePath}',
                             componentName: '${moduleName}'
                         })
                     `
@@ -131,6 +167,17 @@ export default ()=> {
                     })\n`
                 }
             }
+
+            // 塞入 d.ts
+            let exportItems = ``
+            exportStringSplit.forEach(exportString=> {
+                exportItems += `export interface ${_.trim(exportString)} {}\n`
+            })
+            setDts += `
+                declare module '${category.prefix}-${component.name}' {    
+                    ${exportItems}
+                }
+            `
         })
     })
 
@@ -144,6 +191,11 @@ export default ()=> {
         export default routerMap
     `
     fs.writeFileSync(`${autoCreate}/component-infos.ts`, fullInfo)
+
+    fs.writeFileSync(`${autoCreate}/components.d.ts`, setDts)
+
+    // 初始化第三方组件获取定义工厂
+    generateThirdComponentTypingsGetFactory()
 
     // 由于代码修改了 ts 文件, 需要执行 tsc
     execSync(`tsc`)

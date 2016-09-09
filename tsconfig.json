@@ -19,6 +19,8 @@
     "buildOnSave": true,
     "exclude": [
         "node_modules",
-        "built"
+        "built",
+        "built-components",
+        "built-production"
     ]
 }

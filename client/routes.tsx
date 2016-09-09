@@ -73,6 +73,12 @@ const getComponentsCategoryComponentDependence = (nextState: any, callback: any)
     })
 }
 
+const getComponentsCategoryThirdComponents = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+components/+category/+third-components/third-components.component').default)
+    })
+}
+
 export default (
     <Route path="/"
            component={Layout}>
@@ -84,6 +90,11 @@ export default (
         <Route path="components"
                getComponent={getComponents}>
             <IndexRoute getComponent={getComponentsHome}/>
+            <Route path="third-components"
+                   getComponent={getComponentsCategory}>
+                <Route path=":component"
+                       getComponent={getComponentsCategoryThirdComponents}/>
+            </Route>
             <Route path=":category"
                    getComponent={getComponentsCategory}>
                 <Route path=":component"

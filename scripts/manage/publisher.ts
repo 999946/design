@@ -227,7 +227,7 @@ const getInfoWithDependencies = (component: Components.ComponentConfig, category
         const source = fs.readFileSync(filePath).toString()
         const regex = /import\s+[a-zA-Z{},\s\*]*(from)?\s?\'([^']+)\'/g
 
-        let match: any
+        let match: Array<string>
         while ((match = regex.exec(source)) != null) {
             // 引用的路径
             const importPath = match[2] as string
@@ -436,61 +436,61 @@ export default (publishFullPaths: Array<string>)=> {
         }
     })
 
-    // // 添加未依赖的组件到模拟发布队列, 直到队列长度与发布组件长度相等
-    // while (simulations.length !== allPublishComponents.length) {
-    //     pushNoDepPublishComponents()
-    // }
-    //
-    // // 显示发布关系队列
-    // showPublishTable(simulations)
-    //
-    // // 把这次发布的信息写入 publish.json 中
-    // fs.writeFileSync('publish.json', formatJson.plain(simulations))
-    //
-    // // 询问用户是否继续
-    // prompt.start()
-    // prompt.get([{
-    //     name: 'publish',
-    //     description: '以上是最终发布信息, 确认发布吗? (true or false)',
-    //     message: '选择必须是 true or false 中的任意一个',
-    //     type: 'boolean',
-    //     required: true
-    // }], (err: Error, result: any) => {
-    //     if (err || !result) {
-    //         return
-    //     }
-    //
-    //     if (result.publish) {
-    //         // 根据发布信息, 写入 package.json
-    //         writeNowPublishToPackageJson()
-    //
-    //         // 这时候已经有组件的 package.json 修改了, 根目录提交
-    //         execSync(`git add -A`)
-    //         execSync(`git commit -m "发布组件"`)
-    //
-    //         // 再循环一遍, 这次从根目录已经提交了
-    //         simulations.forEach(publishInfo=> {
-    //             const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
-    //
-    //             if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
-    //                 // 打 tag
-    //                 execSync(`cd ${publishPath}; git tag v${publishInfo.componentInfoWithDep.packageJson.version}`)
-    //
-    //                 // push 分支
-    //                 execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git v${publishInfo.componentInfoWithDep.packageJson.version}`)
-    //
-    //                 // push 到 master
-    //                 execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
-    //
-    //                 // 因为这个 tag 也打到了根目录, 所以在根目录删除这个 tag
-    //                 execSync(`git tag -d v${publishInfo.componentInfoWithDep.packageJson.version}`)
-    //             } else {
-    //                 execSync(`cd ${publishPath}; npm publish`)
-    //             }
-    //         })
-    //
-    //         // 根目录提交
-    //         execSync(`git push`)
-    //     }
-    // })
+    // 添加未依赖的组件到模拟发布队列, 直到队列长度与发布组件长度相等
+    while (simulations.length !== allPublishComponents.length) {
+        pushNoDepPublishComponents()
+    }
+
+    // 显示发布关系队列
+    showPublishTable(simulations)
+
+    // 把这次发布的信息写入 publish.json 中
+    fs.writeFileSync('publish.json', formatJson.plain(simulations))
+
+    // 询问用户是否继续
+    prompt.start()
+    prompt.get([{
+        name: 'publish',
+        description: '以上是最终发布信息, 确认发布吗? (true or false)',
+        message: '选择必须是 true or false 中的任意一个',
+        type: 'boolean',
+        required: true
+    }], (err: Error, result: any) => {
+        if (err || !result) {
+            return
+        }
+
+        if (result.publish) {
+            // 根据发布信息, 写入 package.json
+            writeNowPublishToPackageJson()
+
+            // 这时候已经有组件的 package.json 修改了, 根目录提交
+            execSync(`git add -A`)
+            execSync(`git commit -m "发布组件"`)
+
+            // 再循环一遍, 这次从根目录已经提交了
+            simulations.forEach(publishInfo=> {
+                const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
+
+                if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
+                    // 打 tag
+                    execSync(`cd ${publishPath}; git tag v${publishInfo.componentInfoWithDep.packageJson.version}`)
+
+                    // push 分支
+                    execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git v${publishInfo.componentInfoWithDep.packageJson.version}`)
+
+                    // push 到 master
+                    execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
+
+                    // 因为这个 tag 也打到了根目录, 所以在根目录删除这个 tag
+                    execSync(`git tag -d v${publishInfo.componentInfoWithDep.packageJson.version}`)
+                } else {
+                    execSync(`cd ${publishPath}; npm publish`)
+                }
+            })
+
+            // 根目录提交
+            execSync(`git push`)
+        }
+    })
 }

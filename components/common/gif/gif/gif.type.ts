@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as ReactNative from 'react-native'
 import {ImagePropsDefine} from '../../image/index'
 
 export interface PropsDefine extends ImagePropsDefine {

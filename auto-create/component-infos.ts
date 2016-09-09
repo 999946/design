@@ -23,12 +23,14 @@
                         documents.push({
                             type: require('../components/web-common/button/button/button.type'),
                             typeCode: require('-!text!../../components/web-common/button/button/button.type.ts'),
+                            typePath: 'components/web-common/button/button/button.type',
                             componentName: 'Button'
                         })
                     
                         documents.push({
                             type: require('../components/web-common/button/button-group/button-group.type'),
                             typeCode: require('-!text!../../components/web-common/button/button-group/button-group.type.ts'),
+                            typePath: 'components/web-common/button/button-group/button-group.type',
                             componentName: 'ButtonGroup'
                         })
                     
@@ -56,13 +58,14 @@ routerMap.set('web-common/tree', (callback: any) => {
                         documents.push({
                             type: require('../components/web-common/tree/tree/tree.type'),
                             typeCode: require('-!text!../../components/web-common/tree/tree/tree.type.ts'),
+                            typePath: 'components/web-common/tree/tree/tree.type',
                             componentName: 'Tree'
                         })
                     
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/tree/package.json')),
                                 documents,
                                 main: require('../components/web-common/tree/index')
                             })
@@ -83,6 +86,7 @@ routerMap.set('web-common/tooltip', (callback: any) => {
                         documents.push({
                             type: require('../components/web-common/tooltip/tooltip/tooltip.type'),
                             typeCode: require('-!text!../../components/web-common/tooltip/tooltip/tooltip.type.tsx'),
+                            typePath: 'components/web-common/tooltip/tooltip/tooltip.type',
                             componentName: 'Tooltip'
                         })
                     
@@ -115,12 +119,14 @@ routerMap.set('common/transmit-transparently', (callback: any) => {
                         documents.push({
                             type: require('../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type'),
                             typeCode: require('-!text!../../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type.ts'),
+                            typePath: 'components/common/transmit-transparently/transmit-transparently/transmit-transparently.type',
                             componentName: 'TransmitTransparently'
                         })
                     
                         documents.push({
                             type: require('../components/common/transmit-transparently/others/others.type'),
                             typeCode: require('-!text!../../components/common/transmit-transparently/others/others.type.ts'),
+                            typePath: 'components/common/transmit-transparently/others/others.type',
                             componentName: 'others'
                         })
                     
@@ -168,6 +174,7 @@ routerMap.set('common/image', (callback: any) => {
                         documents.push({
                             type: require('../components/common/image/image/image.type'),
                             typeCode: require('-!text!../../components/common/image/image/image.type.ts'),
+                            typePath: 'components/common/image/image/image.type',
                             componentName: 'Image'
                         })
                     
@@ -200,6 +207,7 @@ routerMap.set('common/gif', (callback: any) => {
                         documents.push({
                             type: require('../components/common/gif/gif/gif.type'),
                             typeCode: require('-!text!../../components/common/gif/gif/gif.type.ts'),
+                            typePath: 'components/common/gif/gif/gif.type',
                             componentName: 'Gif'
                         })
                     
@@ -237,6 +245,7 @@ routerMap.set('wefan/image', (callback: any) => {
                         documents.push({
                             type: require('../components/wefan/image/image/image.type'),
                             typeCode: require('-!text!../../components/wefan/image/image/image.type.ts'),
+                            typePath: 'components/wefan/image/image/image.type',
                             componentName: 'Image'
                         })
                     
@@ -274,6 +283,7 @@ routerMap.set('wefan/resource-card', (callback: any) => {
                         documents.push({
                             type: require('../components/wefan/resource-card/resource-card/resource-card.type'),
                             typeCode: require('-!text!../../components/wefan/resource-card/resource-card/resource-card.type.ts'),
+                            typePath: 'components/wefan/resource-card/resource-card/resource-card.type',
                             componentName: 'ResourceCard'
                         })
                     
@@ -301,6 +311,7 @@ routerMap.set('wefan/navbar', (callback: any) => {
                         documents.push({
                             type: require('../components/wefan/navbar/navbar/navbar.type'),
                             typeCode: require('-!text!../../components/wefan/navbar/navbar/navbar.type.tsx'),
+                            typePath: 'components/wefan/navbar/navbar/navbar.type',
                             componentName: 'Navbar'
                         })
                     
