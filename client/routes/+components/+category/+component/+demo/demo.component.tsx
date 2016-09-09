@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as typings from './demo.type'
-import componentInfos from '../../../../../../auto-create/component-infos'
+import FullComponentInfo from '../full-component-info/full-component-info.component'
 import {observer, inject} from 'mobx-react'
 import Modal from 'fit-modal'
 import {Button, ButtonGroup} from '../../../../../../components/web-common/button'
@@ -11,7 +11,7 @@ const highlightJs = require('highlight.js')
 import './demo.scss'
 
 @observer
-export default class Demo extends React.Component <typings.PropsDefine, typings.StateDefine> {
+export default class Demo extends FullComponentInfo <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
 
@@ -40,12 +40,12 @@ export default class Demo extends React.Component <typings.PropsDefine, typings.
      */
     closeModal() {
         this.setState({
-            selectedDemo: null
+            selectedDemo: null as RouterComponentsModel.Demo
         })
     }
 
     render() {
-        const Demos = this.props.demos && this.props.demos.map((demo, index)=> {
+        const Demos = this.state.componentFullInfo && this.state.componentFullInfo.demos && this.state.componentFullInfo.demos.map((demo, index)=> {
                 return (
                     <div key={index}
                          className="demo-item">
@@ -67,7 +67,7 @@ export default class Demo extends React.Component <typings.PropsDefine, typings.
 
             // 把 import xxx from './index' 换成安装路径
             demoCode = demoCode.replace(/import\s+.*\s+from\s+\'[^\']*\'/g, (matched: string)=> {
-                return matched.replace(/\'..\/index\'/g, `\'${this.props.categoryInfo.prefix}-${this.props.componentInfo.name}\'`)
+                return matched.replace(/\'..\/index\'/g, `\'${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}\'`)
             })
 
             // 干掉这几段代码

@@ -52,18 +52,42 @@ export default ()=> {
                 // 组件入口文件
                 const mainSource = fs.readFileSync(`${componentAbsolutePath}/index.ts`).toString()
 
-                // 找到入口文件
+                // 导出的那行代码
                 const exportString = _.trim(/export\s?\{([^}]+)\}/.exec(mainSource)[1])
                 let exportStringSplit = exportString.split(',')
+                // 所有导出非定义的模块名
+                const exportModuleNameMap: Array<string> = []
+
                 exportStringSplit.forEach(exportName=> {
                     exportName = _.trim(exportName)
-                    const pattern = new RegExp(`import\\s+${exportName}\\s+from\\s+\\'([^']+)\\'`)
+                    // 如果文件名不是以 PropsDefine 结束，一定是个模块名
+                    if (!exportName.endsWith('PropsDefine')) {
+                        exportModuleNameMap.push(exportName)
+                    }
+                })
+
+                exportStringSplit.forEach(exportName=> {
+                    // 找出导出的定义文件
+                    exportName = _.trim(exportName)
+
+                    // 如果文件名不是以 PropsDefine 结束，舍弃
+                    if (!exportName.endsWith('PropsDefine')) {
+                        return
+                    }
+
+                    // 找出定义对应的模块名, 只需要把结尾 propsDefine 去掉，名字相同即可，忽略大小写
+                    const moduleName = exportModuleNameMap.find(moduleName=>_.toLower(moduleName) === _.toLower(trimString.trimStringEnd(exportName, 'PropsDefine')))
+
+                    if (!moduleName){
+                        return
+                    }
+
+                    // 找到导出入口，必须保证入口文件只有一个 export {}，可以有 export default, 不受干扰
+                    const pattern = new RegExp(`import\\s+.*${exportName}.*\\s+from\\s+\\'([^']+)\\'`)
                     // 引用资源的路径
                     const exportPath = pattern.exec(mainSource)[1]
-                    const exportPathNoComponent = trimString.trimStringEnd(exportPath, '.component')
-                    const exportTypePath = exportPathNoComponent + '.type'
                     // .type 文件完整路径
-                    const exportTypeAbsolutePath = path.join(`${componentAbsolutePath}`, exportTypePath)
+                    const exportTypeAbsolutePath = path.join(`${componentAbsolutePath}`, exportPath)
                     let typeExt = '.ts'
 
                     if (!fs.existsSync(exportTypeAbsolutePath + typeExt)) {
@@ -78,7 +102,7 @@ export default ()=> {
                         documents.push({
                             type: require('../${exportTypeAbsolutePath}'),
                             typeCode: require('-!text!../../${exportTypeAbsolutePath}${typeExt}'),
-                            componentName: '${exportName}'
+                            componentName: '${moduleName}'
                         })
                     `
                 })

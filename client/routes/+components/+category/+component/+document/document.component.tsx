@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as typings from './document.type'
+import FullComponentInfo from '../full-component-info/full-component-info.component'
 import * as classNames from 'classnames'
 import {observer, inject} from 'mobx-react'
 import {getPropsDefineBySourceCode, parsePropsDefine, getPropsBySourceCode, parseProps} from './document-tools'
@@ -7,16 +8,16 @@ import {getPropsDefineBySourceCode, parsePropsDefine, getPropsBySourceCode, pars
 import './document.scss'
 
 @observer
-export default class Document extends React.Component <typings.PropsDefine, typings.StateDefine> {
+export default class Document extends FullComponentInfo <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
 
     render() {
-        if (!this.props.documents) {
+        if (!this.state.componentFullInfo) {
             return null
         }
 
-        let Documents = this.props.documents.map((document, index)=> {
+        let Documents = this.state.componentFullInfo.documents.map((document, index)=> {
             // props 实例
             const props = new document.type['Props']()
             // type 源码
@@ -50,6 +51,11 @@ export default class Document extends React.Component <typings.PropsDefine, typi
                     requireName = '(必填)'
                 }
 
+                // 忽略 others, 这个是透传属性
+                if (props.name === 'others') {
+                    return null
+                }
+
                 return (
                     <tr key={trIndex}
                         className={trClasses}>
@@ -73,10 +79,11 @@ export default class Document extends React.Component <typings.PropsDefine, typi
                 )
             })
 
-            const importString = `import {${document.componentName}} from '${this.props.categoryInfo.prefix}-${this.props.componentInfo.name}'`
+            const importString = `import {${document.componentName}} from '${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}'`
 
             return (
-                <div key={index}>
+                <div key={index}
+                     className="document-item">
                     <div className="export-name">
                         <div className="title">{document.componentName}</div>
                         <div className="import-doc">{importString}</div>

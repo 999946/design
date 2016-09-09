@@ -36,11 +36,16 @@ export default ()=> {
             // 更新完后如果发现没东西, 或者目录下除了 readme.md 以外都是空的, 填上默认文件
             const filesPath = fs.readdirSync(componentRootPath)
             if (filesPath.length === 0 || filesPath.length === 1 && filesPath[0] === `readme.md`) {
-                fs.writeFileSync(`${componentRootPath}/index.ts`, `
-                    import ${_.capitalize(_.camelCase(component.name))} from './${component.name}/${component.name}.component'
+                // 驼峰大写的主组件名, 而且第一个字母也要大写
+                let camelComponentName = _.camelCase(component.name)
+                camelComponentName = camelComponentName.charAt(0).toUpperCase() + camelComponentName.slice(1)
 
-                    export {${_.capitalize(_.camelCase(component.name))}}
-                    export default ${_.capitalize(_.camelCase(component.name))}
+                fs.writeFileSync(`${componentRootPath}/index.ts`, `
+                    import ${camelComponentName} from './${component.name}/${component.name}.component'
+                    import {PropsDefine as ${camelComponentName}PropsDefine} from './gif/gif.type'
+
+                    export {${camelComponentName}, ${camelComponentName}PropsDefine}
+                    export default ${camelComponentName}
                 `)
                 fs.mkdirSync(`${componentRootPath}/demo`)
                 fs.mkdirSync(`${componentRootPath}/${component.name}`)
@@ -49,7 +54,7 @@ export default ()=> {
                     import * as React from 'react'
                     import * as typings from './${component.name}.type'
                     
-                    export default class ${_.capitalize(_.camelCase(component.name))} extends React.Component <typings.PropsDefine, typings.StateDefine> {
+                    export default class ${camelComponentName} extends React.Component <typings.PropsDefine, typings.StateDefine> {
                         static defaultProps: typings.PropsDefine = new typings.Props()
                         public state: typings.StateDefine = new typings.State()
                     
@@ -93,7 +98,7 @@ export default ()=> {
                 fs.writeFileSync(`${componentRootPath}/demo/basic.tsx`, `
                     import * as React from 'react'
                     import {observer} from 'mobx-react'
-                    import ${_.capitalize(_.camelCase(component.name))} from '../index'
+                    import ${camelComponentName} from '../index'
                     
                     @observer
                     export default class Demo extends React.Component <any, any> {
@@ -102,7 +107,7 @@ export default ()=> {
                     
                         render() {
                             return (
-                                <${_.capitalize(_.camelCase(component.name))} />
+                                <${camelComponentName} />
                             )
                         }
                     }

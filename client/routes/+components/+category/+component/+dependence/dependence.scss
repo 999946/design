@@ -12,10 +12,23 @@ table {
         height: 40px;
         border: 1px solid #edf1f2;
         font-weight: bold;
+        width: 50%;
     }
     tbody tr td {
         padding: 0 15px;
         height: 40px;
         border: 1px solid #edf1f2;
+        width: 50%;
+    }
+}
+
+.dependence {
+    margin-top: 10px;
+}
+
+.dependence-link {
+    color: #369;
+    &:hover{
+        text-decoration: underline;
     }
 }

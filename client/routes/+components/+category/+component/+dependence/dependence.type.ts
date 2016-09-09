@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as typings from './full-component-info/full-component-info.type'
+import * as typings from '../full-component-info/full-component-info.type'
 
 export interface PropsDefine extends typings.PropsDefine {
 

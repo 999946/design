@@ -55,21 +55,47 @@ const getComponentsCategoryComponent = (nextState: any, callback: any)=> {
     })
 }
 
+const getComponentsCategoryComponentDemo = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+components/+category/+component/+demo/demo.component').default)
+    })
+}
+
+const getComponentsCategoryComponentDocument = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+components/+category/+component/+document/document.component').default)
+    })
+}
+
+const getComponentsCategoryComponentDependence = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+components/+category/+component/+dependence/dependence.component').default)
+    })
+}
+
 export default (
     <Route path="/"
            component={Layout}>
         <IndexRoute getComponent={getHome}/>
-        <Route path="/design-space"
+        <Route path="design-space"
                getComponent={getDesignSpace}/>
-        <Route path="/designer"
+        <Route path="designer"
                getComponent={getDesigner}/>
-        <Route path="/components"
+        <Route path="components"
                getComponent={getComponents}>
             <IndexRoute getComponent={getComponentsHome}/>
             <Route path=":category"
                    getComponent={getComponentsCategory}>
                 <Route path=":component"
-                       getComponent={getComponentsCategoryComponent}/>
+                       getComponent={getComponentsCategoryComponent}>
+                    <IndexRoute getComponent={getComponentsCategoryComponentDemo}/>
+                    <Route path="demo"
+                           getComponent={getComponentsCategoryComponentDemo}/>
+                    <Route path="document"
+                           getComponent={getComponentsCategoryComponentDocument}/>
+                    <Route path="dependence"
+                           getComponent={getComponentsCategoryComponentDependence}/>
+                </Route>
             </Route>
         </Route>
     </Route>

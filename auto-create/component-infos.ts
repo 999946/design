@@ -41,6 +41,33 @@
                             })
                         })
                     })
+routerMap.set('web-common/tree', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/tree/demo/basic').default,
+                            code: require('-!text!../../components/web-common/tree/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/tree/tree/tree.type'),
+                            typeCode: require('-!text!../../components/web-common/tree/tree/tree.type.ts'),
+                            componentName: 'Tree'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/tree/index')
+                            })
+                        })
+                    })
 routerMap.set('web-common/tooltip', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

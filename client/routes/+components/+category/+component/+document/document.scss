@@ -26,18 +26,21 @@ table {
     }
 }
 
-.export-name {
-    padding: 15px;
-    border: 1px solid #edf1f2;
-    border-bottom: none;
-    background-color: #f6f8f8;
-    display: flex;
-    align-items: center;
-    .title {
-        font-size: 16px;
-        font-weight: bold;
-    }
-    .import-doc {
-        margin-left: 10px;
+.document-item {
+    margin-bottom: 10px;
+    .export-name {
+        padding: 15px;
+        border: 1px solid #edf1f2;
+        border-bottom: none;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .import-doc {
+            margin-left: 10px;
+        }
     }
 }

@@ -92,6 +92,21 @@ const parseSass = (filePath: string, component: Components.ComponentConfig, cate
 }
 
 /**
+ * 编译 d.ts
+ */
+const parseDts = (filePath: string, component: Components.ComponentConfig, category: Components.Category) => {
+    const source = fs.readFileSync(filePath).toString()
+    const regex = /import\s+[a-zA-Z{},\s\*]*(from)?\s?\'([^']+)\'/g
+
+    let match: any
+    while ((match = regex.exec(source)) != null) {
+        // 引用的路径
+        const importPath = match[2] as string
+        console.log(importPath)
+    }
+}
+
+/**
  * 根据后缀找文件
  */
 const getFilesBySuffix = (suffix: string, modulePath: string): Array<string>=> {
@@ -169,4 +184,8 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
     })
 
     // 找出 lib 目录下 d.ts 文件
+    let dtsFilePaths = getFilesBySuffix('d.ts', libPath)
+    dtsFilePaths.forEach(filePath=> {
+        parseDts(filePath, component, category)
+    })
 }
