@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as typings from './designer.type'
-import {observer} from 'mobx-react'
+import {observer, inject} from 'mobx-react'
 import Gaea from 'fit-gaea'
 import GaeaNativeComponents from 'fit-gaea-native-components'
 import GaeaWebComponents from 'fit-gaea-web-components'
@@ -14,7 +14,7 @@ import './designer.scss'
 
 const customComponents = [Navbar, ResourceCard]
 
-@observer
+@inject('application') @observer
 export default class Designer extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
@@ -22,6 +22,7 @@ export default class Designer extends React.Component <typings.PropsDefine, typi
     componentWillMount() {
         request.get('/rn/designer/get').end((err, res)=> {
             const body = res.body as CommonModel.Response<DesignerModel.SaveResponse>
+            this.props.application.event.emit(this.props.application.event.sceneLoaded)
             this.setState({
                 value: decodeURIComponent(body.data.content)
             })
@@ -35,7 +36,7 @@ export default class Designer extends React.Component <typings.PropsDefine, typi
         request.post('/rn/designer/set').type('form').send({
             content: encodeURIComponent(JSON.stringify(componentsInfo))
         } as DesignerModel.SaveRequest).end((err, res)=> {
-            if (res.body.errno === 0) {
+            if (res && res.body.errno === 0) {
                 Message.success('保存成功')
             }
         })
@@ -64,7 +65,7 @@ export default class Designer extends React.Component <typings.PropsDefine, typi
                 <Gaea customComponents={customComponents}
                       baseComponents={baseComponents}
                       onSave={this.handleSave.bind(this)}
-                      defaultValue={JSON.parse(this.state.value)}
+                      isReactNative={this.props.location.query['type']==='native'}
                       height={window.innerHeight-41}/>
             </div>
         )

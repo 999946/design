@@ -1,8 +1,9 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import * as classNames from 'classnames'
 import * as typings from './layout.type'
 import {observer, inject} from 'mobx-react'
 import {Link} from 'react-router'
+import {browserHistory} from '../main.browser'
 
 import './layout.scss'
 
@@ -11,7 +12,54 @@ export default class Layout extends React.Component <typings.PropsDefine, typing
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
 
+    private handleSceneChangeBind = this.handleSceneChange.bind(this)
+    private handleSceneLoadedBind = this.handleSceneLoaded.bind(this)
+
+    componentWillMount() {
+        this.props.application.event.on(this.props.application.event.sceneChange, this.handleSceneChangeBind)
+        this.props.application.event.on(this.props.application.event.sceneLoaded, this.handleSceneLoadedBind)
+
+        browserHistory.listenBefore(()=> {
+            this.props.application.event.emit(this.props.application.event.sceneChange)
+        })
+    }
+
+    componentWillUnmount() {
+        this.props.application.event.off(this.props.application.event.sceneChange, this.handleSceneChangeBind)
+        this.props.application.event.off(this.props.application.event.sceneLoaded, this.handleSceneLoadedBind)
+    }
+
+    /**
+     * 开始切换场景
+     */
+    handleSceneChange() {
+        this.setState({
+            loadingStatus: 'start'
+        })
+    }
+
+    /**
+     * 场景加载完毕
+     */
+    handleSceneLoaded() {
+        setTimeout(()=> {
+            this.setState({
+                loadingStatus: 'end'
+            })
+        }, 100)
+    }
+
     render() {
+        const loadingStyle = {
+            top: this.props.application.headerHeight
+        }
+
+        const loadingClasses = classNames({
+            'loading': true,
+            'loading-start': this.state.loadingStatus === 'start',
+            'loading-end': this.state.loadingStatus === 'end'
+        })
+
         return (
             <div className="_namespace">
                 <div className="nav-bar-container"
@@ -35,6 +83,9 @@ export default class Layout extends React.Component <typings.PropsDefine, typing
 
                     </div>
                 </div>
+
+                <div className={loadingClasses}
+                     style={loadingStyle}></div>
 
                 {this.props.children}
             </div>

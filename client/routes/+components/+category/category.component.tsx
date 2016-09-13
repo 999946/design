@@ -8,10 +8,18 @@ import {Link} from 'react-router'
 
 import './category.scss'
 
-@observer
+@inject('application') @observer
 export default class ComponentsCategory extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
+
+    componentWillMount() {
+        this.props.application.event.emit(this.props.application.event.sceneLoaded)
+    }
+
+    componentWillReceiveProps() {
+        this.props.application.event.emit(this.props.application.event.sceneLoaded)
+    }
 
     componentDidMount() {
         const body = document.getElementsByTagName('body')[0]

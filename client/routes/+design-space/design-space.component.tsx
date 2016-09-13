@@ -6,10 +6,14 @@ import {browserHistory} from '../../main.browser'
 import Button from '../../../components/web-common/button'
 import './design-space.scss'
 
-@observer
+@inject('application') @observer
 export default class DesignSpace extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
+
+    componentWillMount() {
+        this.props.application.event.emit(this.props.application.event.sceneLoaded)
+    }
 
     jumpToPath(path: string) {
         browserHistory.push(path)

@@ -12,7 +12,7 @@ import Routes from './routes'
 import './main.browser.scss'
 import 'font-awesome/css/font-awesome.min.css'
 
-import Application from './store/application'
+import Application from '../store/application'
 
 export const browserHistory = useRouterHistory(createHistory)({
     basename: config.routerBasename

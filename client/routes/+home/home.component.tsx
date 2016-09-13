@@ -2,14 +2,16 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import * as typings from './home.type'
 import {observer, inject} from 'mobx-react'
-import {Link} from 'react-router'
-
 import './home.scss'
 
-@observer
+@inject('application') @observer
 export default class Home extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
+
+    componentWillMount() {
+        this.props.application.event.emit(this.props.application.event.sceneLoaded)
+    }
 
     render() {
         return (

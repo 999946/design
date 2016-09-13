@@ -2,11 +2,12 @@ import * as React from 'react'
 import * as typings from './full-component-info.type'
 import componentInfos from '../../../../../../auto-create/component-infos'
 import components from '../../../../../../components'
+import {observer, inject} from 'mobx-react'
 
 /**
  * 获得当前路由下组件完整信息
  */
-export default class FullComponentInfo <P, S> extends React.Component <typings.PropsDefine | P, typings.StateDefine | S> {
+class FullComponentInfo <P, S> extends React.Component <typings.PropsDefine | P, typings.StateDefine | S> {
     componentWillMount() {
         this.asyncGetComponentInfo(this.props)
         this.getComponentInfo(this.props)
@@ -42,3 +43,5 @@ export default class FullComponentInfo <P, S> extends React.Component <typings.P
         })
     }
 }
+
+export default (inject('application')(FullComponentInfo) as any).wrappedComponent

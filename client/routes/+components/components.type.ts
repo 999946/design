@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {RouteComponentProps} from 'react-router'
-import Application from '../../store/application'
+import Application from '../../../store/application'
 
 export interface CategoryParams {
     category: string

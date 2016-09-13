@@ -11,7 +11,6 @@ import * as fs from 'fs'
 import * as path from 'path'
 import consoleLog from './utils/console-log'
 import * as trimString from '../../utils/trim-string'
-
 const autoCreate = 'auto-create'
 
 /**

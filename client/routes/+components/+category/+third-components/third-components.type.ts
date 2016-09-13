@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {RouteComponentProps} from 'react-router'
+import Application from '../../../../../store/application'
 
 export interface CategoryParams {
     category: string
@@ -7,7 +8,7 @@ export interface CategoryParams {
 }
 
 export interface PropsDefine extends RouteComponentProps<CategoryParams, {}> {
-
+    application?: Application
 }
 
 export class Props implements PropsDefine {
