@@ -1,23 +1,23 @@
 {
-  "name": "nt-button",
-  "version": "0.0.4",
-  "description": "按钮",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/next-component/common-button.git"
-  },
-  "keywords": [
-    "button"
-  ],
-  "author": "ascoders",
-  "license": "ISC",
-  "dependencies": {
-    "classnames": "^2.2.5"
-  },
-  "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0"
-  }
+    "name": "nt-button",
+    "version": "0.0.4",
+    "description": "按钮",
+    "main": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/next-component/common-button.git"
+    },
+    "keywords": [
+        "button"
+    ],
+    "author": "ascoders",
+    "license": "ISC",
+    "dependencies": {
+        "classnames": "^2.2.5"
+    },
+    "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0"
+    }
 }
