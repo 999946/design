@@ -56,5 +56,3 @@ npm run client-build-production
 ```bash
 npm run server-production
 ```
-
-就可以了
