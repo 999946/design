@@ -52,8 +52,8 @@
         ]
       },
       "packageJson": {
-        "name": "nt-image-viewer",
-        "version": "0.0.0",
+        "name": "react-native-image-zoom-viewer",
+        "version": "0.0.1",
         "description": "大图浏览",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -67,7 +67,10 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {},
-        "peerDependencies": {}
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-native": "^0.32.0"
+        }
       },
       "dependence": [
         {
@@ -81,7 +84,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.0"
+    "preVersion": "0.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -136,8 +139,8 @@
         ]
       },
       "packageJson": {
-        "name": "nt-image-zoom",
-        "version": "0.0.0",
+        "name": "react-native-image-pan-zoom",
+        "version": "0.0.1",
         "description": "图片手势操作",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -151,7 +154,10 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {},
-        "peerDependencies": {}
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-native": "^0.32.0"
+        }
       },
       "dependence": [
         {
@@ -165,6 +171,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.0"
+    "preVersion": "0.0.1"
   }
 ]
