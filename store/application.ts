@@ -8,4 +8,13 @@ export default class Application {
      * 头部栏高度
      */
     @observable headerHeight = 40
+
+    /**
+     * 上一次切换的 url path
+     */
+    lastUrlPath = ''
+
+    setLastUrlPath(path: string) {
+        this.lastUrlPath = path
+    }
 }

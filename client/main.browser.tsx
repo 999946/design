@@ -14,6 +14,8 @@ import 'font-awesome/css/font-awesome.min.css'
 
 import Application from '../store/application'
 
+export const application = new Application()
+
 export const browserHistory = useRouterHistory(createHistory)({
     basename: config.routerBasename
 })
@@ -25,7 +27,7 @@ const MainRouter = (
 )
 
 const MainProvider = (
-    <Provider application={new Application()}>
+    <Provider application={application}>
         {MainRouter}
     </Provider>
 )

@@ -2,12 +2,12 @@ import * as React from 'react'
 import * as typings from './full-component-info.type'
 import componentInfos from '../../../../../../auto-create/component-infos'
 import components from '../../../../../../components'
-import {observer, inject} from 'mobx-react'
+import {application} from '../../../../../main.browser'
 
 /**
  * 获得当前路由下组件完整信息
  */
-class FullComponentInfo <P, S> extends React.Component <typings.PropsDefine | P, typings.StateDefine | S> {
+export default class FullComponentInfo <P, S> extends React.Component <typings.PropsDefine | P, typings.StateDefine | S> {
     componentWillMount() {
         this.asyncGetComponentInfo(this.props)
         this.getComponentInfo(this.props)
@@ -24,6 +24,7 @@ class FullComponentInfo <P, S> extends React.Component <typings.PropsDefine | P,
     asyncGetComponentInfo(props: typings.PropsDefine) {
         const getComponentFullInfo = componentInfos.get(`${props.params.category}/${props.params.component}`)
         getComponentFullInfo && getComponentFullInfo((componentFullInfo: RouterComponentsModel.ComponentFullInfo)=> {
+            application.event.emit(application.event.sceneLoaded)
             this.setState({
                 componentFullInfo
             })
@@ -43,5 +44,3 @@ class FullComponentInfo <P, S> extends React.Component <typings.PropsDefine | P,
         })
     }
 }
-
-export default (inject('application')(FullComponentInfo) as any).wrappedComponent

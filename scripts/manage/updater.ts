@@ -11,7 +11,7 @@ import * as _ from 'lodash'
 import * as fs from 'fs'
 import hasChange from './utils/has-change'
 import consoleLog from './utils/console-log'
-import {component} from "react-router/lib/PropTypes";
+import * as componentHelper from './utils/component-helper'
 
 export default ()=> {
     // 判断是否有修改, 如果有修改, 终止更新
@@ -25,12 +25,14 @@ export default ()=> {
             // 组件根目录
             const componentRootPath = `${config.componentsPath}/${category.name}/${component.name}`
 
+            const gitSource = componentHelper.getGit(category.name, component.name)
+
             if (!fs.existsSync(componentRootPath)) {
                 // 如果组件不存在, 添加
-                execSync(`git subtree add -P ${componentRootPath} ${config.privateGit}/${category.name}-${component.name}.git master`)
+                execSync(`git subtree add -P ${componentRootPath} ${gitSource} master`)
             } else {
                 // 组件存在, 更新
-                execSync(`git subtree pull -P ${componentRootPath} ${config.privateGit}/${category.name}-${component.name}.git master`)
+                execSync(`git subtree pull -P ${componentRootPath} ${gitSource} master`)
             }
 
             // 更新完后如果发现没东西, 或者目录下除了 readme.md 以外都是空的, 填上默认文件

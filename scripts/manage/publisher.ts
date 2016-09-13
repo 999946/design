@@ -14,6 +14,7 @@ import * as semver from 'semver'
 import * as builder from './builder'
 import showPublishTable from './utils/publish-table'
 import * as formatJson from 'format-json'
+import * as componentHelper from './utils/component-helper'
 const prompt = require('prompt')
 
 // 所有组件以及依赖信息
@@ -192,7 +193,7 @@ const createPackageJsonIfNotExist = (component: Components.ComponentConfig, cate
             typings: `${config.componentBuildPath}/index.d.ts`,
             repository: {
                 type: 'git',
-                url: category.isPrivate ? `${config.privateGit}/${category.name}-${component.name}.git` : `${config.publicGit}/${category.name}-${component.name}.git`
+                url: componentHelper.getGit(category.name, component.name)
             },
             keywords: [component.name],
             author: config.author,
@@ -369,7 +370,7 @@ const writeNowPublishToPackageJson = ()=> {
                     const version = semver.inc(dependenceFullInfo.preVersion, dependenceFullInfo.publishLevel)
                     if (dependenceFullInfo.componentInfoWithDep.category.isPrivate) {
                         // 如果这个组件是个私有组件，修正依赖路径，写死版本号
-                        dependences[moduleName] = `${config.privateGit}/${dependenceFullInfo.componentInfoWithDep.category.name}/${dependenceFullInfo.componentInfoWithDep.component.name}/repository/archive.tar.gz?ref=v${version}`
+                        dependences[moduleName] = `${componentHelper.getGit(dependenceFullInfo.componentInfoWithDep.category.name, dependenceFullInfo.componentInfoWithDep.component.name)}/repository/archive.tar.gz?ref=v${version}`
                     } else {
                         dependences[moduleName] = `^${version}`
                     }
@@ -381,7 +382,7 @@ const writeNowPublishToPackageJson = ()=> {
 
                     if (dependenceInfo.category.isPrivate) {
                         // 如果这个组件是个私有组件，修正依赖路径，写死版本号
-                        dependences[moduleName] = `${config.privateGit}/${dependenceInfo.category.name}/${dependenceInfo.component.name}/repository/archive.tar.gz?ref=v${version}`
+                        dependences[moduleName] = `${componentHelper.getGit(dependenceInfo.category.name, dependenceInfo.component.name)}/repository/archive.tar.gz?ref=v${version}`
                     } else {
                         dependences[moduleName] = `^${version}`
                     }
@@ -472,15 +473,17 @@ export default (publishFullPaths: Array<string>)=> {
             simulations.forEach(publishInfo=> {
                 const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
 
+                const gitSource = componentHelper.getGit(publishInfo.componentInfoWithDep.category.name, publishInfo.componentInfoWithDep.component.name)
+
                 if (publishInfo.componentInfoWithDep.category.isPrivate) { // 私有发布
                     // 打 tag
                     execSync(`cd ${publishPath}; git tag v${publishInfo.componentInfoWithDep.packageJson.version}`)
 
                     // push 分支
-                    execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git v${publishInfo.componentInfoWithDep.packageJson.version}`)
+                    execSync(`git subtree push -P ${publishPath} ${gitSource} v${publishInfo.componentInfoWithDep.packageJson.version}`)
 
                     // push 到 master
-                    execSync(`git subtree push -P ${publishPath} ${config.privateGit}/${publishInfo.componentInfoWithDep.category.name}-${publishInfo.componentInfoWithDep.component.name}.git master`)
+                    execSync(`git subtree push -P ${publishPath} ${gitSource} master`)
 
                     // 因为这个 tag 也打到了根目录, 所以在根目录删除这个 tag
                     execSync(`git tag -d v${publishInfo.componentInfoWithDep.packageJson.version}`)

@@ -19,8 +19,17 @@ export default class Layout extends React.Component <typings.PropsDefine, typing
         this.props.application.event.on(this.props.application.event.sceneChange, this.handleSceneChangeBind)
         this.props.application.event.on(this.props.application.event.sceneLoaded, this.handleSceneLoadedBind)
 
-        browserHistory.listenBefore(()=> {
-            this.props.application.event.emit(this.props.application.event.sceneChange)
+        browserHistory.listen(location=> {
+            if (this.props.application.lastUrlPath === '') {
+                // 初始不会触发 change
+                this.props.application.setLastUrlPath(location.pathname)
+            } else {
+                if (location.pathname !== this.props.application.lastUrlPath) {
+                    // 只有 url path 改变才会触发 change
+                    this.props.application.setLastUrlPath(location.pathname)
+                    this.props.application.event.emit(this.props.application.event.sceneChange)
+                }
+            }
         })
     }
 

@@ -9,6 +9,7 @@ import hasChange from './utils/has-change'
 import * as path from 'path'
 import * as fs from 'fs'
 import consoleLog from './utils/console-log'
+import * as componentHelper from './utils/component-helper'
 
 export default (message: string)=> {
     if (!hasChange('./')) {
@@ -23,9 +24,11 @@ export default (message: string)=> {
             // 组件根目录
             const componentRootPath = `${config.componentsPath}/${category.name}/${component.name}`
 
+            const gitSource = componentHelper.getGit(category.name, component.name)
+
             // 如果组件存在, 提交
             if (fs.existsSync(componentRootPath)) {
-                execSync(`git subtree push -P ${componentRootPath} ${config.privateGit}/${category.name}-${component.name}.git master`)
+                execSync(`git subtree push -P ${componentRootPath} ${gitSource}.git master`)
             }
         })
     })

@@ -24,7 +24,7 @@ export default [{
     prefix: 'nt',
     isPrivate: false,
     components: [{
-        name:'transmit-transparently',
+        name: 'transmit-transparently',
         chinese: '透传',
         isWeb: true,
         isIos: true,
@@ -61,6 +61,18 @@ export default [{
         chinese: '导航条',
         isWeb: true,
         isAndroid: true,
+        isIos: true
+    }, {
+        name: 'image-zoom',
+        chinese: '图片手势操作',
+        git: 'https://github.com/ascoders/react-native-image-zoom.git',
+        npm: 'react-native-image-pan-zoom',
+        isIos: true
+    }, {
+        name: 'image-viewer',
+        chinese: '大图浏览',
+        git: 'https://github.com/ascoders/react-native-image-viewer.git',
+        npm: 'react-native-image-zoom-viewer',
         isIos: true
     }]
 }] as Array<Components.Category>

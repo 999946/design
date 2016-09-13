@@ -17,8 +17,10 @@ export default class ComponentsCategory extends React.Component <typings.PropsDe
         this.props.application.event.emit(this.props.application.event.sceneLoaded)
     }
 
-    componentWillReceiveProps() {
-        this.props.application.event.emit(this.props.application.event.sceneLoaded)
+    componentWillReceiveProps(nextProps: typings.PropsDefine) {
+        if (nextProps.params.category !== this.props.params.category) {
+            this.props.application.event.emit(this.props.application.event.sceneLoaded)
+        }
     }
 
     componentDidMount() {

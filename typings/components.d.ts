@@ -45,6 +45,14 @@ declare namespace Components {
          * 是否可用于 web
          */
         isWeb?: boolean
+        /**
+         * git 仓库地址，优先于默认设定
+         */
+        git?: string
+        /**
+         * npm 发布的模块名，优先于默认设定
+         */
+        npm?: string
     }
 
     export interface ComponentFullInfo {
