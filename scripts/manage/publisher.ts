@@ -185,8 +185,9 @@ const createPackageJsonIfNotExist = (component: Components.ComponentConfig, cate
     // 如果当前组件没有 package.json, 就创建一个
     if (!fs.existsSync(`${componentPath}/package.json`)) {
         consoleLog.warn(`${componentPath} 没有 package.json, 将自动生成`)
+
         const packageJson = {
-            name: `${category.prefix}-${component.name}`,
+            name: componentHelper.getPackageName(category.name, component.name),
             version: '0.0.0',
             description: component.chinese,
             main: `${config.componentBuildPath}/index.js`,
