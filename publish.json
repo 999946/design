@@ -62,10 +62,6 @@
         {
           "type": "npm",
           "name": "react"
-        },
-        {
-          "type": "npm",
-          "name": "react-native"
         }
       ]
     },

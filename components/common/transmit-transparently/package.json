@@ -1,6 +1,6 @@
 {
   "name": "nt-transmit-transparently",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "透传",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -15,7 +15,6 @@
   "license": "ISC",
   "dependencies": {},
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0",
-    "react-native": "^0.29.0"
+    "react": "^0.14.0 || ^15.0.0"
   }
 }
