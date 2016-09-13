@@ -28,7 +28,7 @@ export default (message: string)=> {
 
             // 如果组件存在, 提交
             if (fs.existsSync(componentRootPath)) {
-                execSync(`git subtree push -P ${componentRootPath} ${gitSource}.git master`)
+                execSync(`git subtree push -P ${componentRootPath} ${gitSource} master`)
             }
         })
     })
