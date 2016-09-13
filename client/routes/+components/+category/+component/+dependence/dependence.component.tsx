@@ -38,19 +38,21 @@ export default class Dependence extends FullComponentInfo <typings.PropsDefine, 
         const selfDependence = this.dependenceMap.get(dependence)
         if (selfDependence) {
             return (
-                <Link className="dependence-link" to={`/components/${selfDependence.category.name}/${selfDependence.component.name}/dependence`}>{dependence}</Link>
+                <Link className="dependence-link"
+                      to={`/components/${selfDependence.category.name}/${selfDependence.component.name}/dependence`}>{dependence}</Link>
             )
         } else {
             // 是个 npm 包
             return (
-                <a className="dependence-link" href={`https://www.npmjs.com/package/${dependence}`}
+                <a className="dependence-link"
+                   href={`https://www.npmjs.com/package/${dependence}`}
                    target="_blank">{dependence}</a>
             )
         }
     }
 
     render() {
-        if (!this.state.componentFullInfo) {
+        if (!this.state.componentFullInfo || !this.state.componentFullInfo.packageJson) {
             return null
         }
 

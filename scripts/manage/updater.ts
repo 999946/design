@@ -44,7 +44,7 @@ export default ()=> {
 
                 fs.writeFileSync(`${componentRootPath}/index.ts`, `
                     import ${camelComponentName} from './${component.name}/${component.name}.component'
-                    import {PropsDefine as ${camelComponentName}PropsDefine} from './gif/gif.type'
+                    import {PropsDefine as ${camelComponentName}PropsDefine} from './${component.name}/${component.name}.type'
 
                     export {${camelComponentName}, ${camelComponentName}PropsDefine}
                     export default ${camelComponentName}

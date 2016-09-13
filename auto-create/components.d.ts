@@ -39,6 +39,18 @@ export interface GifPropsDefine {}
 
                 }
             
+                declare module 'nt-image-zoom' {    
+                    export interface ImageZoom {}
+export interface ImageZoomPropsDefine {}
+
+                }
+            
+                declare module 'nt-image-viewer' {    
+                    export interface ImageViewer {}
+export interface ImageViewerPropsDefine {}
+
+                }
+            
                 declare module 'nt-wefan-image' {    
                     export interface Image {}
 export interface ImagePropsDefine {}

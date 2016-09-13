@@ -1,20 +1,20 @@
 {
-  "name": "nt-transmit-transparently",
-  "version": "1.0.0",
-  "description": "透传",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/next-component/common-transmit-transparently.git"
-  },
-  "keywords": [
-    "transmit-transparently"
-  ],
-  "author": "ascoders",
-  "license": "ISC",
-  "dependencies": {},
-  "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0"
-  }
+    "name": "nt-transmit-transparently",
+    "version": "1.0.0",
+    "description": "透传",
+    "main": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/next-component/common-transmit-transparently.git"
+    },
+    "keywords": [
+        "transmit-transparently"
+    ],
+    "author": "ascoders",
+    "license": "ISC",
+    "dependencies": {},
+    "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0"
+    }
 }

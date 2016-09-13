@@ -1,24 +1,24 @@
 {
-  "name": "nt-wefan-image",
-  "version": "0.1.0",
-  "description": "图片",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "http://gitlab.baidu.com/tb-next-component/wefan-image.git"
-  },
-  "keywords": [
-    "image"
-  ],
-  "author": "ascoders",
-  "license": "ISC",
-  "dependencies": {
-    "nt-gif": "^0.1.0",
-    "nt-transmit-transparently": "^1.0.0"
-  },
-  "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0",
-    "react-native": "^0.29.0"
-  }
+    "name": "nt-wefan-image",
+    "version": "0.1.0",
+    "description": "图片",
+    "main": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "http://gitlab.baidu.com/tb-next-component/wefan-image.git"
+    },
+    "keywords": [
+        "image"
+    ],
+    "author": "ascoders",
+    "license": "ISC",
+    "dependencies": {
+        "nt-gif": "^0.1.0",
+        "nt-transmit-transparently": "^1.0.0"
+    },
+    "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "react-native": "^0.29.0"
+    }
 }

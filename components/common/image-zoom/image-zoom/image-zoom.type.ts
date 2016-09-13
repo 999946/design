@@ -1,20 +1,18 @@
 import * as React from 'react'
+import * as ReactNative from 'react-native'
 
-export interface PropsDefine extends React.HTMLAttributes {
-    /**
-     * 是垂直显示
-     */
-    vertical?: boolean
+export interface PropsDefine extends ReactNative.ViewProperties {
+
 }
 
 export class PropsGaea {
-    gaeaName = '按钮组'
+    gaeaName = '图片手势操作'
     gaeaIcon = 'square-o'
-    gaeaUniqueKey = 'web-common-button-group'
+    gaeaUniqueKey = 'nt-image-zoom'
 }
 
 export class Props extends PropsGaea implements PropsDefine {
-    vertical = false
+
 }
 
 export interface StateDefine {
@@ -24,3 +22,4 @@ export interface StateDefine {
 export class State implements StateDefine {
 
 }
+                

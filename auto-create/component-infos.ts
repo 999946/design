@@ -220,6 +220,62 @@ routerMap.set('common/gif', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('common/image-zoom', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/image-zoom/demo/basic').default,
+                            code: require('-!text!../../components/common/image-zoom/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/image-zoom/image-zoom/image-zoom.type'),
+                            typeCode: require('-!text!../../components/common/image-zoom/image-zoom/image-zoom.type.ts'),
+                            typePath: 'components/common/image-zoom/image-zoom/image-zoom.type',
+                            componentName: 'ImageZoom'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/common/image-zoom/index')
+                            })
+                        })
+                    })
+routerMap.set('common/image-viewer', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/image-viewer/demo/basic').default,
+                            code: require('-!text!../../components/common/image-viewer/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/image-viewer/image-viewer/image-viewer.type'),
+                            typeCode: require('-!text!../../components/common/image-viewer/image-viewer/image-viewer.type.ts'),
+                            typePath: 'components/common/image-viewer/image-viewer/image-viewer.type',
+                            componentName: 'ImageViewer'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/common/image-viewer/index')
+                            })
+                        })
+                    })
 routerMap.set('wefan/image', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
