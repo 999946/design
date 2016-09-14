@@ -5,10 +5,7 @@ export default class Button extends React.Component<typings.PropsDefine, typings
     static defaultProps: typings.PropsDefine;
     state: typings.StateDefine;
     private selfDom;
-
     componentDidMount(): void;
-
     handleClick(event: React.MouseEvent): void;
-
     render(): JSX.Element;
 }
