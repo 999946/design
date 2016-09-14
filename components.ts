@@ -17,6 +17,10 @@ export default [{
         name: 'tooltip',
         chinese: '工具提示',
         isWeb: true
+    }, {
+        name: 'margin-padding-editor',
+        chinese: '内/外边距编辑器',
+        isWeb: true
     }]
 }, {
     name: 'common',
