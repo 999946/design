@@ -1,3 +1,4 @@
 import ResourceCard from './resource-card/resource-card.component';
-export {ResourceCard};
+import { PropsDefine as ResourceCardPropsDefine } from './resource-card/resource-card.type';
+export { ResourceCard, ResourceCardPropsDefine };
 export default ResourceCard;
