@@ -5,6 +5,7 @@ import {observer, inject} from 'mobx-react'
 import Modal from 'fit-modal'
 import {Button, ButtonGroup} from '../../../../../../components/web-common/button'
 import {ScrollListenBox, ScrollListenNail, ScrollListen, createStore} from 'fit-scroll-listen'
+import * as componentHelper from '../../../../../../scripts/manage/utils/component-helper'
 
 const highlightJs = require('highlight.js')
 
@@ -67,7 +68,7 @@ export default class Demo extends FullComponentInfo <typings.PropsDefine, typing
 
             // 把 import xxx from './index' 换成安装路径
             demoCode = demoCode.replace(/import\s+.*\s+from\s+\'[^\']*\'/g, (matched: string)=> {
-                return matched.replace(/\'..\/index\'/g, `\'${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}\'`)
+                return matched.replace(/\'..\/index\'/g, `\'${componentHelper.getPackageName(this.state.categoryInfo.name, this.state.componentInfo.name)}\'`)
             })
 
             // 干掉这几段代码

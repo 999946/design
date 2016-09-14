@@ -19,14 +19,6 @@ export interface TooltipPropsDefine {}
 
                 }
             
-                declare module 'nt-transmit-transparently' {    
-                    export interface TransmitTransparently {}
-export interface TransmitTransparentlyPropsDefine {}
-export interface others {}
-export interface OthersPropsDefine {}
-
-                }
-            
                 declare module 'nt-image' {    
                     export interface Image {}
 export interface ImagePropsDefine {}
@@ -48,6 +40,22 @@ export interface ImageZoomPropsDefine {}
                 declare module 'nt-image-viewer' {    
                     export interface ImageViewer {}
 export interface ImageViewerPropsDefine {}
+
+                }
+            
+                declare module 'nt-transmit-transparently' {    
+                    export interface TransmitTransparently {}
+export interface TransmitTransparentlyPropsDefine {}
+export interface others {}
+export interface OthersPropsDefine {}
+
+                }
+            
+                declare module 'nt-auto-bind' {    
+                    export interface AutoBindMethod {}
+export interface AutoBindMethodPropsDefine {}
+export interface AutoBindClass {}
+export interface AutoBindClassPropsDefine {}
 
                 }
             

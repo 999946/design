@@ -99,46 +99,6 @@ routerMap.set('web-common/tooltip', (callback: any) => {
                             })
                         })
                     })
-routerMap.set('common/transmit-transparently', (callback: any) => {
-                        const demoLists: any = []
-                        const documents: any = []
-                        
-                        require.ensure([], function (require: any) {
-                            
-                        demoLists.push({
-                            Class: require('../components/common/transmit-transparently/demo/basic').default,
-                            code: require('-!text!../../components/common/transmit-transparently/demo/basic.tsx')
-                        })
-                    
-                        demoLists.push({
-                            Class: require('../components/common/transmit-transparently/demo/ignore').default,
-                            code: require('-!text!../../components/common/transmit-transparently/demo/ignore.tsx')
-                        })
-                    
-                            
-                        documents.push({
-                            type: require('../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type'),
-                            typeCode: require('-!text!../../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type.ts'),
-                            typePath: 'components/common/transmit-transparently/transmit-transparently/transmit-transparently.type',
-                            componentName: 'TransmitTransparently'
-                        })
-                    
-                        documents.push({
-                            type: require('../components/common/transmit-transparently/others/others.type'),
-                            typeCode: require('-!text!../../components/common/transmit-transparently/others/others.type.ts'),
-                            typePath: 'components/common/transmit-transparently/others/others.type',
-                            componentName: 'others'
-                        })
-                    
-                            
-                            callback({
-                                demos: demoLists,
-                                packageJson: JSON.parse(require('-!text!../components/common/transmit-transparently/package.json')),
-                                documents,
-                                main: require('../components/common/transmit-transparently/index')
-                            })
-                        })
-                    })
 routerMap.set('common/image', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
@@ -273,6 +233,86 @@ routerMap.set('common/image-viewer', (callback: any) => {
                                 packageJson: JSON.parse(require('-!text!../components/common/image-viewer/package.json')),
                                 documents,
                                 main: require('../components/common/image-viewer/index')
+                            })
+                        })
+                    })
+routerMap.set('common/transmit-transparently', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/transmit-transparently/demo/basic').default,
+                            code: require('-!text!../../components/common/transmit-transparently/demo/basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/common/transmit-transparently/demo/ignore').default,
+                            code: require('-!text!../../components/common/transmit-transparently/demo/ignore.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type'),
+                            typeCode: require('-!text!../../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type.ts'),
+                            typePath: 'components/common/transmit-transparently/transmit-transparently/transmit-transparently.type',
+                            componentName: 'TransmitTransparently'
+                        })
+                    
+                        documents.push({
+                            type: require('../components/common/transmit-transparently/others/others.type'),
+                            typeCode: require('-!text!../../components/common/transmit-transparently/others/others.type.ts'),
+                            typePath: 'components/common/transmit-transparently/others/others.type',
+                            componentName: 'others'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/common/transmit-transparently/package.json')),
+                                documents,
+                                main: require('../components/common/transmit-transparently/index')
+                            })
+                        })
+                    })
+routerMap.set('common/auto-bind', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/auto-bind/demo/bind-class').default,
+                            code: require('-!text!../../components/common/auto-bind/demo/bind-class.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/common/auto-bind/demo/bind-method').default,
+                            code: require('-!text!../../components/common/auto-bind/demo/bind-method.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/auto-bind/auto-bind-method/auto-bind-method.type'),
+                            typeCode: require('-!text!../../components/common/auto-bind/auto-bind-method/auto-bind-method.type.ts'),
+                            typePath: 'components/common/auto-bind/auto-bind-method/auto-bind-method.type',
+                            componentName: 'AutoBindMethod'
+                        })
+                    
+                        documents.push({
+                            type: require('../components/common/auto-bind/auto-bind-class/auto-bind-class.type'),
+                            typeCode: require('-!text!../../components/common/auto-bind/auto-bind-class/auto-bind-class.type.ts'),
+                            typePath: 'components/common/auto-bind/auto-bind-class/auto-bind-class.type',
+                            componentName: 'AutoBindClass'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/common/auto-bind/index')
                             })
                         })
                     })
