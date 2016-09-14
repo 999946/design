@@ -1,43 +1,46 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    container      : {
-        flexDirection  : 'row',
-        alignItems     : 'center',
-        justifyContent : 'space-between',
+    container: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         backgroundColor: 'transparent',
-        height         : 65,
-        flex           : 1
+        height: 65,
+        flex: 1
     },
-    navBtn         : {
-        paddingRight   : 15,
-        marginLeft     : 10,
+    navBtn: {
+        paddingRight: 15,
+        marginLeft: 10,
         backgroundColor: 'transparent'
     },
-    navBtnRight    : {
-        paddingRight   : 15,
+    navBtnRight: {
+        paddingRight: 15,
         backgroundColor: 'transparent'
     },
-    titleText      : {
-        fontSize  : 17,
-        color     : '#333',
+    titleText: {
+        fontSize: 17,
+        color: '#333',
         fontWeight: 'bold'
     },
     centerContainer: {
-        flex           : 1,
-        justifyContent : 'center',
-        alignItems     : 'center',
+        flex: 1,
+        width: 0,
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: 'transparent'
     },
-    leftContainer  : {
+    leftContainer: {
         flexDirection: 'row',
-        flex         : 1
+        flex: 1,
+        width: 0
     },
-    rightContainer : {
-        flexDirection : 'row',
+    rightContainer: {
+        flexDirection: 'row',
         justifyContent: 'flex-end',
-        alignItems    : 'center',
-        flex          : 1
+        alignItems: 'center',
+        flex: 1,
+        width: 0
     }
 };

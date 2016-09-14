@@ -4,16 +4,10 @@ export default class Gif extends React.Component<typings.PropsDefine, typings.St
     static defaultProps: typings.PropsDefine;
     state: typings.StateDefine;
     loadSuccess: boolean;
-
     componentWillMount(): void;
-
     componentWillReceiveProps(nextProps: typings.PropsDefine): void;
-
     handlePress(): void;
-
     handleLoadError(): void;
-
     handleLoadSuccess(): void;
-
     render(): JSX.Element;
 }

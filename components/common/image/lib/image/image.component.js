@@ -1,87 +1,34 @@
 "use strict";
 
-var _extends = Object.assign || function (target) {
-        for (var i = 1; i < arguments.length; i++) {
-            var source = arguments[i];
-            for (var key in source) {
-                if (Object.prototype.hasOwnProperty.call(source, key)) {
-                    target[key] = source[key];
-                }
-            }
-        }
-        return target;
-    };
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _createClass = function () {
-    function defineProperties(target, props) {
-        for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i];
-            descriptor.enumerable = descriptor.enumerable || false;
-            descriptor.configurable = true;
-            if ("value" in descriptor) descriptor.writable = true;
-            Object.defineProperty(target, descriptor.key, descriptor);
-        }
-    }
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-    return function (Constructor, protoProps, staticProps) {
-        if (protoProps) defineProperties(Constructor.prototype, protoProps);
-        if (staticProps) defineProperties(Constructor, staticProps);
-        return Constructor;
-    };
-}();
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-    return typeof obj;
-} : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
-    }
-}
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _possibleConstructorReturn(self, call) {
-    if (!self) {
-        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    }
-    return call && (typeof call === "object" || typeof call === "function") ? call : self;
-}
-
-function _inherits(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) {
-        throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-    }
-    subClass.prototype = Object.create(superClass && superClass.prototype, {
-        constructor: {
-            value       : subClass,
-            enumerable  : false,
-            writable    : true,
-            configurable: true
-        }
-    });
-    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var __assign = undefined && undefined.__assign || Object.assign || function (t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) {
-                if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-            }
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) {
+            if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
         }
-        return t;
-    };
+    }
+    return t;
+};
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-        var c = arguments.length,
-            r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-            d;
-        if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc); else for (var i = decorators.length - 1; i >= 0; i--) {
-            if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        }
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    }return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 var React = require('react');
 var typings = require('./image.type');
 var react_native_1 = require('react-native');
@@ -106,22 +53,22 @@ var ImageComponent = function (_React$Component) {
     }
 
     _createClass(ImageComponent, [{
-        key  : "componentWillMount",
+        key: "componentWillMount",
         value: function componentWillMount() {
             this.setState({
                 source: this.props.source
             });
         }
     }, {
-        key  : "componentWillReceiveProps",
+        key: "componentWillReceiveProps",
         value: function componentWillReceiveProps(nextProps) {
             this.setState({
-                source          : nextProps.source,
+                source: nextProps.source,
                 loadImageSuccess: true
             });
         }
     }, {
-        key  : "handleLoadSuccess",
+        key: "handleLoadSuccess",
         value: function handleLoadSuccess() {
             this.fallbackLoadCounter = 0;
             if (this.state.source === this.props.source) {
@@ -131,7 +78,7 @@ var ImageComponent = function (_React$Component) {
             }
         }
     }, {
-        key  : "handleLoadError",
+        key: "handleLoadError",
         value: function handleLoadError() {
             this.props.onError();
             this.setState({
@@ -147,7 +94,7 @@ var ImageComponent = function (_React$Component) {
             }
         }
     }, {
-        key  : "handlePress",
+        key: "handlePress",
         value: function handlePress() {
             this.props.onPress();
             if (this.props.pressToReload && this.state.loadImageSuccess === false) {
@@ -159,19 +106,12 @@ var ImageComponent = function (_React$Component) {
             }
         }
     }, {
-        key  : "render",
+        key: "render",
         value: function render() {
             this.props.others.style = _extends({}, this.props.others.style, {
                 backgroundColor: this.state.loadImageSuccess ? 'transparent' : this.props.fallbackColor
             });
-            return React.createElement(react_native_1.TouchableOpacity, __assign({
-                activeOpacity: 1,
-                onPress      : this.handlePress.bind(this)
-            }, this.props.others), !(!this.state.loadImageSuccess && this.props.fallbackHideImage) && React.createElement(react_native_1.Image, __assign({
-                    onError: this.handleLoadError.bind(this),
-                    onLoad : this.handleLoadSuccess.bind(this),
-                    source : this.state.source
-                }, this.props.others)), !this.state.loadImageSuccess && this.props.fallbackAddon());
+            return React.createElement(react_native_1.TouchableOpacity, __assign({ activeOpacity: 1, onPress: this.handlePress.bind(this) }, this.props.others), !(!this.state.loadImageSuccess && this.props.fallbackHideImage) && React.createElement(react_native_1.Image, __assign({ onError: this.handleLoadError.bind(this), onLoad: this.handleLoadSuccess.bind(this), source: this.state.source }, this.props.others)), !this.state.loadImageSuccess && this.props.fallbackAddon());
         }
     }]);
 
@@ -179,5 +119,5 @@ var ImageComponent = function (_React$Component) {
 }(React.Component);
 ImageComponent.defaultProps = new typings.Props();
 ImageComponent = __decorate([index_1.TransmitTransparently('fallbackSource', 'fallbackColor', 'pressToReload', 'fallbackAddon', 'fallbackHideImage')], ImageComponent);
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = ImageComponent;
