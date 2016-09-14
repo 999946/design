@@ -483,14 +483,14 @@ export default (publishFullPaths: Array<string>)=> {
                     // push 分支
                     execSync(`git subtree push -P ${publishPath} ${gitSource} v${publishInfo.componentInfoWithDep.packageJson.version}`)
 
-                    // push 到 master
-                    execSync(`git subtree push -P ${publishPath} ${gitSource} master`)
-
                     // 因为这个 tag 也打到了根目录, 所以在根目录删除这个 tag
                     execSync(`git tag -d v${publishInfo.componentInfoWithDep.packageJson.version}`)
                 } else {
                     execSync(`cd ${publishPath}; npm publish`)
                 }
+
+                // push 到 master
+                execSync(`git subtree push -P ${publishPath} ${gitSource} master`)
             })
 
             // 根目录提交
