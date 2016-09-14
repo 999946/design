@@ -23,18 +23,21 @@ export default {
     },
     centerContainer: {
         flex: 1,
+        width: 0,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'transparent',
     } as React.ViewStyle,
     leftContainer: {
         flexDirection: 'row',
-        flex: 1
+        flex: 1,
+        width: 0
     } as React.ViewStyle,
     rightContainer: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        flex: 1
+        flex: 1,
+        width: 0
     } as React.ViewStyle
 }

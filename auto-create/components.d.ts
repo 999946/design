@@ -52,9 +52,9 @@ export interface OthersPropsDefine {}
                 }
             
                 declare module 'nt-auto-bind' {    
-                    export interface AutoBindMethod {}
+                    export interface autoBindMethod {}
 export interface AutoBindMethodPropsDefine {}
-export interface AutoBindClass {}
+export interface autoBindClass {}
 export interface AutoBindClassPropsDefine {}
 
                 }

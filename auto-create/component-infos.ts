@@ -297,20 +297,20 @@ routerMap.set('common/auto-bind', (callback: any) => {
                             type: require('../components/common/auto-bind/auto-bind-method/auto-bind-method.type'),
                             typeCode: require('-!text!../../components/common/auto-bind/auto-bind-method/auto-bind-method.type.ts'),
                             typePath: 'components/common/auto-bind/auto-bind-method/auto-bind-method.type',
-                            componentName: 'AutoBindMethod'
+                            componentName: 'autoBindMethod'
                         })
                     
                         documents.push({
                             type: require('../components/common/auto-bind/auto-bind-class/auto-bind-class.type'),
                             typeCode: require('-!text!../../components/common/auto-bind/auto-bind-class/auto-bind-class.type.ts'),
                             typePath: 'components/common/auto-bind/auto-bind-class/auto-bind-class.type',
-                            componentName: 'AutoBindClass'
+                            componentName: 'autoBindClass'
                         })
                     
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/common/auto-bind/package.json')),
                                 documents,
                                 main: require('../components/common/auto-bind/index')
                             })

@@ -30,7 +30,7 @@ export const customNpmPackage = [{
 }, {
     name: 'react-native',
     type: 'peerDependences',
-    version: '^0.32.0'
+    version: '^0.33.0'
 }, {
     name: 'react-dom',
     type: 'peerDependences',
