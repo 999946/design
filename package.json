@@ -19,7 +19,8 @@
     "gulp-production": "gulp production --gulpfile built/scripts/gulp/gulpfile.js --cwd ./",
     "clean-watch": "sh scripts/clean.sh",
     "manage": "node built/scripts/manage/index.js",
-    "production": "rm -rf built-production && npm run start-before-production && npm run gulp-production && npm run client-build-production"
+    "production": "rm -rf built-production && npm run start-before-production && npm run gulp-production && npm run client-build-production",
+    "clean": "pkill node; pkill gulp; pkill built/server/main.js; pkill built/scripts/webpack/webpack-server.js"
   },
   "repository": {
     "type": "git",
