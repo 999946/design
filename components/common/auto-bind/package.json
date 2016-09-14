@@ -1,6 +1,6 @@
 {
   "name": "nt-auto-bind",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "自动绑定",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -16,6 +16,6 @@
   "dependencies": {},
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
-    "react-native": "^0.32.0"
+    "react-native": "^0.33.0"
   }
 }
