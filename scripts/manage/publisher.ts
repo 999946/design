@@ -367,7 +367,7 @@ const writeNowPublishToPackageJson = ()=> {
                 const dependenceFullInfo = simulations.find(simulation=>simulation.componentInfoWithDep.category.name === dependence.category && simulation.componentInfoWithDep.component.name === dependence.name)
                 if (dependenceFullInfo) {
                     // 在发布队列找到了, 用其发布后的版本号
-                    const moduleName = `${dependenceFullInfo.componentInfoWithDep.category.prefix}-${dependenceFullInfo.componentInfoWithDep.component.name}`
+                    const moduleName = componentHelper.getPackageName(dependenceFullInfo.componentInfoWithDep.category.name, dependenceFullInfo.componentInfoWithDep.component.name)
                     const version = semver.inc(dependenceFullInfo.preVersion, dependenceFullInfo.publishLevel)
                     if (dependenceFullInfo.componentInfoWithDep.category.isPrivate) {
                         // 如果这个组件是个私有组件，修正依赖路径，写死版本号
@@ -378,7 +378,7 @@ const writeNowPublishToPackageJson = ()=> {
                 } else {
                     // 发布队列没找到, 从完整组件中寻找
                     const dependenceInfo = allComponentsInfoWithDep.find(componentInfo=>componentInfo.category.name === dependence.category && componentInfo.component.name === dependence.name)
-                    const moduleName = `${dependenceInfo.category.prefix}-${dependenceInfo.component.name}`
+                    const moduleName = componentHelper.getPackageName(dependenceInfo.category.name, dependenceInfo.component.name)
                     const version = dependenceInfo.packageJson.version
 
                     if (dependenceInfo.category.isPrivate) {
