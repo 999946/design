@@ -1,3 +1,4 @@
 import Tooltip from './tooltip/tooltip.component';
-export {Tooltip};
+import { PropsDefine as TooltipPropsDefine } from './tooltip/tooltip.type';
+export { Tooltip, TooltipPropsDefine };
 export default Tooltip;
