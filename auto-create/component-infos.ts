@@ -242,7 +242,7 @@ routerMap.set('common/image-zoom', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/common/image-zoom/package.json')),
                                 documents,
                                 main: require('../components/common/image-zoom/index')
                             })
@@ -270,7 +270,7 @@ routerMap.set('common/image-viewer', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/common/image-viewer/package.json')),
                                 documents,
                                 main: require('../components/common/image-viewer/index')
                             })

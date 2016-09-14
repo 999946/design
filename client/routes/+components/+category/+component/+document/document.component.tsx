@@ -4,6 +4,7 @@ import FullComponentInfo from '../full-component-info/full-component-info.compon
 import * as classNames from 'classnames'
 import {Link} from 'react-router'
 import {observer, inject} from 'mobx-react'
+import * as componentHelper from '../../../../../../scripts/manage/utils/component-helper'
 import {
     getPropsDefineBySourceCode,
     parsePropsDefine,
@@ -106,7 +107,7 @@ export default class Document extends FullComponentInfo <typings.PropsDefine, ty
                     switch (extend.type) {
                         case 'component':
                             key = `${extend.category.prefix}-${extend.component.name}`
-                            text = `本组件实例继承了 ${extend.category.prefix}-${extend.component.name} 中 {${extend.extendName}} 实例的所有属性`
+                            text = `本组件实例继承了 ${componentHelper.getPackageName(extend.category.name, extend.component.name)} 中 {${extend.extendName}} 实例的所有属性`
                             linkUrl = `/components/${extend.category.name}/${extend.component.name}/document?component=${extend.extendName}`
                             break
                         case 'npm':
@@ -129,7 +130,7 @@ export default class Document extends FullComponentInfo <typings.PropsDefine, ty
                 })
             }
 
-            const importString = `import {${document.componentName}} from '${this.state.categoryInfo.prefix}-${this.state.componentInfo.name}'`
+            const importString = `import {${document.componentName}} from '${componentHelper.getPackageName(this.state.categoryInfo.name, this.state.componentInfo.name)}'`
 
             return (
                 <div key={index}

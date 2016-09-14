@@ -371,7 +371,7 @@ const writeNowPublishToPackageJson = ()=> {
                     const version = semver.inc(dependenceFullInfo.preVersion, dependenceFullInfo.publishLevel)
                     if (dependenceFullInfo.componentInfoWithDep.category.isPrivate) {
                         // 如果这个组件是个私有组件，修正依赖路径，写死版本号
-                        dependences[moduleName] = `${componentHelper.getGit(dependenceFullInfo.componentInfoWithDep.category.name, dependenceFullInfo.componentInfoWithDep.component.name)}/repository/archive.tar.gz?ref=v${version}`
+                        dependences[moduleName] = `${componentHelper.getGit(dependenceFullInfo.componentInfoWithDep.category.name, dependenceFullInfo.componentInfoWithDep.component.name, true)}/repository/archive.tar.gz?ref=v${version}`
                     } else {
                         dependences[moduleName] = `^${version}`
                     }
@@ -383,7 +383,7 @@ const writeNowPublishToPackageJson = ()=> {
 
                     if (dependenceInfo.category.isPrivate) {
                         // 如果这个组件是个私有组件，修正依赖路径，写死版本号
-                        dependences[moduleName] = `${componentHelper.getGit(dependenceInfo.category.name, dependenceInfo.component.name)}/repository/archive.tar.gz?ref=v${version}`
+                        dependences[moduleName] = `${componentHelper.getGit(dependenceInfo.category.name, dependenceInfo.component.name, true)}/repository/archive.tar.gz?ref=v${version}`
                     } else {
                         dependences[moduleName] = `^${version}`
                     }

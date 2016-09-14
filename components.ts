@@ -24,12 +24,6 @@ export default [{
     prefix: 'nt',
     isPrivate: false,
     components: [{
-        name: 'transmit-transparently',
-        chinese: '透传',
-        isWeb: true,
-        isIos: true,
-        isAndroid: true
-    }, {
         name: 'image',
         chinese: '图片',
         isWeb: true,
@@ -51,6 +45,18 @@ export default [{
         git: 'https://github.com/ascoders/react-native-image-viewer.git',
         npm: 'react-native-image-zoom-viewer',
         isIos: true
+    }, {
+        name: 'transmit-transparently',
+        chinese: '透传',
+        isWeb: true,
+        isIos: true,
+        isAndroid: true
+    }, {
+        name: 'auto-bind',
+        chinese: '自动绑定',
+        isWeb: true,
+        isIos: true,
+        isAndroid: true
     }]
 }, {
     name: 'wefan',

@@ -7,6 +7,7 @@ import Message from 'fit-message'
 import * as config from '../../../../../config'
 import FullComponentInfo from './full-component-info/full-component-info.component'
 import {browserHistory} from '../../../../main.browser'
+import * as componentHelper from '../../../../../scripts/manage/utils/component-helper'
 
 import 'highlight.js/styles/github.css'
 import 'highlight.js/lib/languages/typescript.js'
@@ -35,7 +36,9 @@ export default class ComponentsCategoryComponent extends FullComponentInfo <typi
 
     render() {
         // npm install 语句
-        const npmInstall = this.state.categoryInfo && this.state.categoryInfo.isPrivate ? `npm install ${config.privateGit}/${this.state.categoryInfo.name}-${this.state.componentInfo.name}/repository/archive.tar.gz?ref=v${this.state.componentFullInfo && this.state.componentFullInfo.packageJson && this.state.componentFullInfo.packageJson.version} --save` : `npm install ${this.state.categoryInfo.prefix}-${this.state.componentInfo.name} --save`
+        const gitSource = this.state.categoryInfo && componentHelper.getGit(this.state.categoryInfo.name, this.state.componentInfo.name, true)
+        const npmSource = this.state.categoryInfo && componentHelper.getPackageName(this.state.categoryInfo.name, this.state.componentInfo.name)
+        const npmInstall = this.state.categoryInfo && this.state.categoryInfo.isPrivate ? `npm install ${gitSource}/repository/archive.tar.gz?ref=v${this.state.componentFullInfo && this.state.componentFullInfo.packageJson && this.state.componentFullInfo.packageJson.version} --save` : `npm install ${npmSource} --save`
 
         // 适用于 web
         let ForWeb: React.ReactElement<any> = null
