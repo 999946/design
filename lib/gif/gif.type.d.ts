@@ -1,4 +1,4 @@
-import {ImagePropsDefine} from  'nt-image';
+import { ImagePropsDefine } from  'nt-image';
 export interface PropsDefine extends ImagePropsDefine {
     firstSource?: {
         uri: string;

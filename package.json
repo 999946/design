@@ -1,24 +1,24 @@
 {
-    "name": "nt-gif",
-    "version": "0.1.0",
-    "description": "GIF",
-    "main": "lib/index.js",
-    "typings": "lib/index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/next-component/common-gif.git"
-    },
-    "keywords": [
-        "gif"
-    ],
-    "author": "ascoders",
-    "license": "ISC",
-    "dependencies": {
-        "nt-image": "^0.1.0",
-        "nt-transmit-transparently": "^1.0.0"
-    },
-    "peerDependencies": {
-        "react": "^0.14.0 || ^15.0.0",
-        "react-native": "^0.29.0"
-    }
+  "name": "nt-gif",
+  "version": "0.1.1",
+  "description": "GIF",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/next-component/common-gif.git"
+  },
+  "keywords": [
+    "gif"
+  ],
+  "author": "ascoders",
+  "license": "ISC",
+  "dependencies": {
+    "nt-image": "^0.1.1",
+    "nt-transmit-transparently": "^1.0.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-native": "^0.33.0"
+  }
 }
