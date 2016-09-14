@@ -8,6 +8,7 @@ import * as autoprefixer from 'autoprefixer'
 import * as postcss  from 'postcss'
 import htmlPathLoader from './utils/html-path-loader'
 import cssPathLoader from './utils/css-path-loader'
+import * as componentHelper from './utils/component-helper'
 import * as config from '../../config'
 
 /**
@@ -42,15 +43,16 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
                     importFullPathSplit.pop()
                 }
 
+                const packageName = componentHelper.getPackageName(depCategory.name, depComponent.name)
                 if (importFullPathSplit.length === 3) {
                     // 只引用到了模块本身
-                    return `require('${depCategory.prefix}-${depComponent.name}')`
+                    return `require('${packageName}')`
                 } else {
                     importFullPathSplit.shift()
                     importFullPathSplit.shift()
                     importFullPathSplit.shift()
                     // 补上入口路径
-                    const requirePath = path.join(`${depCategory.prefix}-${depComponent.name}/${config.componentBuildPath}/${importFullPathSplit.join('/')}`)
+                    const requirePath = path.join(`${packageName}/${config.componentBuildPath}/${importFullPathSplit.join('/')}`)
                     return `require('${requirePath}')`
                 }
             }
@@ -114,9 +116,11 @@ const parseDts = (filePath: string, component: Components.ComponentConfig, categ
             const depCategory = components.find(category=>category.name === importFullPathSplit[1])
             const depComponent = depCategory.components.find(component=>component.name === importFullPathSplit[2])
 
+            const packageName = componentHelper.getPackageName(depCategory.name, depComponent.name)
+
             if (`${importFullPathSplit[1]}/${importFullPathSplit[2]}` !== `${category.name}/${component.name}`) {
                 // 保证引用的模块不是自己
-                return `import ${match[1]} '${depCategory.prefix}-${depComponent.name}'`
+                return `import ${match[1]} '${packageName}'`
             }
         }
 
