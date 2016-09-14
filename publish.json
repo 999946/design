@@ -1,7 +1,7 @@
 [
   {
-    "userPublishLevel": "major",
-    "publishLevel": "major",
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
         "name": "image-zoom",
@@ -60,7 +60,7 @@
       },
       "packageJson": {
         "name": "react-native-image-pan-zoom",
-        "version": "0.0.2",
+        "version": "1.0.0",
         "description": "图片手势操作",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -73,10 +73,12 @@
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {},
+        "dependencies": {
+          "nt-auto-bind": "^1.0.0"
+        },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.32.0"
+          "react-native": "^0.33.0"
         }
       },
       "dependence": [
@@ -96,11 +98,11 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.2"
+    "preVersion": "1.0.0"
   },
   {
-    "userPublishLevel": "major",
-    "publishLevel": "major",
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
         "name": "image-viewer",
@@ -159,7 +161,7 @@
       },
       "packageJson": {
         "name": "react-native-image-zoom-viewer",
-        "version": "0.0.2",
+        "version": "1.0.0",
         "description": "大图浏览",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -172,10 +174,14 @@
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {},
+        "dependencies": {
+          "nt-auto-bind": "^1.0.0",
+          "nt-transmit-transparently": "^1.0.0",
+          "nt-image-zoom": "^1.0.0"
+        },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.32.0"
+          "react-native": "^0.33.0"
         }
       },
       "dependence": [
@@ -205,6 +211,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.2"
+    "preVersion": "1.0.0"
   }
 ]
