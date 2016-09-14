@@ -1,59 +1,14 @@
 "use strict";
 
-var _createClass = function () {
-    function defineProperties(target, props) {
-        for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i];
-            descriptor.enumerable = descriptor.enumerable || false;
-            descriptor.configurable = true;
-            if ("value" in descriptor) descriptor.writable = true;
-            Object.defineProperty(target, descriptor.key, descriptor);
-        }
-    }
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-    return function (Constructor, protoProps, staticProps) {
-        if (protoProps) defineProperties(Constructor.prototype, protoProps);
-        if (staticProps) defineProperties(Constructor, staticProps);
-        return Constructor;
-    };
-}();
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _defineProperty(obj, key, value) {
-    if (key in obj) {
-        Object.defineProperty(obj, key, {value: value, enumerable: true, configurable: true, writable: true});
-    } else {
-        obj[key] = value;
-    }
-    return obj;
-}
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
-    }
-}
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _possibleConstructorReturn(self, call) {
-    if (!self) {
-        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    }
-    return call && (typeof call === "object" || typeof call === "function") ? call : self;
-}
-
-function _inherits(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) {
-        throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-    }
-    subClass.prototype = Object.create(superClass && superClass.prototype, {
-        constructor: {
-            value       : subClass,
-            enumerable  : false,
-            writable    : true,
-            configurable: true
-        }
-    });
-    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var React = require('react');
 var classNames = require('classnames');
@@ -89,12 +44,12 @@ var Button = function (_React$Component) {
     }
 
     _createClass(Button, [{
-        key  : 'componentDidMount',
+        key: 'componentDidMount',
         value: function componentDidMount() {
             this.selfDom = ReactDOM.findDOMNode(this);
         }
     }, {
-        key  : 'handleClick',
+        key: 'handleClick',
         value: function handleClick(event) {
             if (this.props.disabled || this.props.loading) return;
             this.props.onClick(event);
@@ -121,7 +76,7 @@ var Button = function (_React$Component) {
             taint.style.left = x + 'px';
         }
     }, {
-        key  : 'render',
+        key: 'render',
         value: function render() {
             var _classNames2;
 
@@ -132,24 +87,21 @@ var Button = function (_React$Component) {
                 var addonClass = classNames((_classNames = {
                     'fa': true
                 }, _defineProperty(_classNames, 'fa-' + (this.props.addonLeft || this.props.addonRight), true), _defineProperty(_classNames, 'btn-addon-left', this.props.addonLeft), _defineProperty(_classNames, 'btn-addon-right', this.props.addonRight), _classNames));
-                addon = React.createElement("i", {className: addonClass});
+                addon = React.createElement("i", { className: addonClass });
             }
             var loadingComponent = null;
             if (this.props.loading === true) {
                 var loadingClass = classNames({
                     'loading-container': true,
-                    'show'             : true
+                    'show': true
                 });
-                loadingComponent = React.createElement("div", {className: loadingClass}, React.createElement("i", {className: "fit-button-loading animation-spin"}));
+                loadingComponent = React.createElement("div", { className: loadingClass }, React.createElement("i", { className: "fit-button-loading animation-spin" }));
             }
             var btnClass = classNames((_classNames2 = {
                 'nt-web-button-button': true,
-                'btn'                 : true
+                'btn': true
             }, _defineProperty(_classNames2, 'btn-' + this.props.type, true), _defineProperty(_classNames2, 'disabled', this.props.disabled || this.props.loading === true), _defineProperty(_classNames2, 'btn-addon', this.props.addonLeft || this.props.addonRight), _defineProperty(_classNames2, 'btn-rounded', this.props.rounded), _defineProperty(_classNames2, 'active', this.props.active), _defineProperty(_classNames2, this.props['className'], !!this.props['className']), _classNames2));
-            return React.createElement("button", {
-                onClick  : this.handleClick.bind(this),
-                className: btnClass
-            }, React.createElement("div", {className: "button-container"}, this.props.addonLeft ? addon : null, React.createElement("div", {className: "text-child"}, this.props.children), this.props.addonRight ? addon : null, this.props.loading ? loadingComponent : null));
+            return React.createElement("button", { onClick: this.handleClick.bind(this), className: btnClass }, React.createElement("div", { className: "button-container" }, this.props.addonLeft ? addon : null, React.createElement("div", { className: "text-child" }, this.props.children), this.props.addonRight ? addon : null, this.props.loading ? loadingComponent : null));
         }
     }]);
 
@@ -157,5 +109,5 @@ var Button = function (_React$Component) {
 }(React.Component);
 
 Button.defaultProps = new typings.Props();
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Button;

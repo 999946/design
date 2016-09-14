@@ -9,18 +9,11 @@ export default class ToolTip extends React.Component<typings.PropsDefine, typing
     private tooltipDom;
     private handleChildrenMouseOverBind;
     private handleChildrenMouseLeaveBind;
-
     componentDidMount(): void;
-
     componentWillUnmount(): void;
-
     handleChildrenMouseOver(event: MouseEvent): void;
-
     handleChildrenMouseLeave(event: MouseEvent): void;
-
     componentDidUpdate(): void;
-
     renderTooltip(): void;
-
     render(): React.ReactElement<any>;
 }

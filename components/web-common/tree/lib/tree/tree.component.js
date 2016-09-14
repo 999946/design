@@ -2,8 +2,6 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -11,43 +9,36 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var React = require('react');
-var classNames = require('classnames');
-var typings = require('./button-group.type');
-require('./button-group.css');
+var typings = require('./tree.type');
 
-var ButtonGroup = function (_React$Component) {
-    _inherits(ButtonGroup, _React$Component);
+var Tree = function (_React$Component) {
+    _inherits(Tree, _React$Component);
 
-    function ButtonGroup() {
+    function Tree() {
         var _ref;
 
-        _classCallCheck(this, ButtonGroup);
+        _classCallCheck(this, Tree);
 
         for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
             args[_key] = arguments[_key];
         }
 
-        var _this = _possibleConstructorReturn(this, (_ref = ButtonGroup.__proto__ || Object.getPrototypeOf(ButtonGroup)).call.apply(_ref, [this].concat(args)));
+        var _this = _possibleConstructorReturn(this, (_ref = Tree.__proto__ || Object.getPrototypeOf(Tree)).call.apply(_ref, [this].concat(args)));
 
         _this.state = new typings.State();
         return _this;
     }
 
-    _createClass(ButtonGroup, [{
+    _createClass(Tree, [{
         key: 'render',
         value: function render() {
-            var groupClass = classNames(_defineProperty({
-                'nt-web-button-button_group': true,
-                'btn-group': !this.props.vertical,
-                'btn-group-vertical': this.props.vertical
-            }, this.props.className, !!this.props.className));
-            return React.createElement("div", { className: groupClass }, this.props.children);
+            return React.createElement("div", null, "折叠树");
         }
     }]);
 
-    return ButtonGroup;
+    return Tree;
 }(React.Component);
 
-ButtonGroup.defaultProps = new typings.Props();
+Tree.defaultProps = new typings.Props();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ButtonGroup;
+exports.default = Tree;

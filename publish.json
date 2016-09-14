@@ -60,7 +60,7 @@
       },
       "packageJson": {
         "name": "nt-transmit-transparently",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "透传",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -86,7 +86,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -129,7 +129,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-navbar",
-        "version": "0.0.25",
+        "version": "0.0.26",
         "description": "导航条",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -145,7 +145,7 @@
         "dependencies": {},
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.29.0"
+          "react-native": "^0.33.0"
         }
       },
       "dependence": [
@@ -160,7 +160,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.25"
+    "preVersion": "0.0.26"
   },
   {
     "userPublishLevel": "patch",
@@ -203,7 +203,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-resource-card",
-        "version": "0.0.25",
+        "version": "0.0.26",
         "description": "资源卡片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -219,7 +219,7 @@
         "dependencies": {},
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.29.0"
+          "react-native": "^0.33.0"
         }
       },
       "dependence": [
@@ -234,7 +234,217 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.25"
+    "preVersion": "0.0.26"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "button",
+        "chinese": "按钮",
+        "isWeb": true
+      },
+      "category": {
+        "name": "web-common",
+        "chinese": "web通用",
+        "prefix": "nt-web",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "button",
+            "chinese": "按钮",
+            "isWeb": true
+          },
+          {
+            "name": "tree",
+            "chinese": "折叠树",
+            "isWeb": true
+          },
+          {
+            "name": "tooltip",
+            "chinese": "工具提示",
+            "isWeb": true
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "nt-button",
+        "version": "0.0.4",
+        "description": "按钮",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/next-component/common-button.git"
+        },
+        "keywords": [
+          "button"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {
+          "classnames": "^2.2.5"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-dom": "^0.14.0 || ^15.0.0"
+        }
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "classnames"
+        },
+        {
+          "type": "npm",
+          "name": "react-dom"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "0.0.4"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "tooltip",
+        "chinese": "工具提示",
+        "isWeb": true
+      },
+      "category": {
+        "name": "web-common",
+        "chinese": "web通用",
+        "prefix": "nt-web",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "button",
+            "chinese": "按钮",
+            "isWeb": true
+          },
+          {
+            "name": "tree",
+            "chinese": "折叠树",
+            "isWeb": true
+          },
+          {
+            "name": "tooltip",
+            "chinese": "工具提示",
+            "isWeb": true
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "nt-tooltip",
+        "version": "0.0.4",
+        "description": "工具提示",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/next-component/common-tooltip.git"
+        },
+        "keywords": [
+          "tooltip"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {
+          "classnames": "^2.2.5"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-dom": "^0.14.0 || ^15.0.0"
+        }
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "react-dom"
+        },
+        {
+          "type": "npm",
+          "name": "classnames"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "0.0.4"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "tree",
+        "chinese": "折叠树",
+        "isWeb": true
+      },
+      "category": {
+        "name": "web-common",
+        "chinese": "web通用",
+        "prefix": "nt-web",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "button",
+            "chinese": "按钮",
+            "isWeb": true
+          },
+          {
+            "name": "tree",
+            "chinese": "折叠树",
+            "isWeb": true
+          },
+          {
+            "name": "tooltip",
+            "chinese": "工具提示",
+            "isWeb": true
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "nt-web-tree",
+        "version": "0.0.0",
+        "description": "折叠树",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/next-component/web-common-tree.git"
+        },
+        "keywords": [
+          "tree"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {},
+        "peerDependencies": {}
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "react-native"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "0.0.0"
   },
   {
     "userPublishLevel": "patch",
@@ -296,7 +506,7 @@
       },
       "packageJson": {
         "name": "nt-image",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "description": "图片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -310,11 +520,11 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-transmit-transparently": "^1.0.0"
+          "nt-transmit-transparently": "^1.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.29.0"
+          "react-native": "^0.33.0"
         }
       },
       "dependence": [
@@ -334,7 +544,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.1.0"
+    "preVersion": "0.1.1"
   },
   {
     "userPublishLevel": "patch",
@@ -396,7 +606,7 @@
       },
       "packageJson": {
         "name": "nt-gif",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "description": "GIF",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -410,12 +620,12 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-image": "^0.1.0",
-          "nt-transmit-transparently": "^1.0.0"
+          "nt-image": "^0.1.1",
+          "nt-transmit-transparently": "^1.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.29.0"
+          "react-native": "^0.33.0"
         }
       },
       "dependence": [
@@ -440,7 +650,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.1.0"
+    "preVersion": "0.1.1"
   },
   {
     "userPublishLevel": "patch",
@@ -482,7 +692,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-image",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "description": "图片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -496,12 +706,12 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-gif": "^0.1.0",
-          "nt-transmit-transparently": "^1.0.0"
+          "nt-gif": "^0.1.1",
+          "nt-transmit-transparently": "^1.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.29.0"
+          "react-native": "^0.33.0"
         }
       },
       "dependence": [
@@ -526,6 +736,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.1.0"
+    "preVersion": "0.1.1"
   }
 ]
