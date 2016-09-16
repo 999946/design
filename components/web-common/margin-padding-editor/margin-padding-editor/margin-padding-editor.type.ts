@@ -2,7 +2,7 @@ import * as React from 'react'
 
 export type MarginPaddingField = 'paddingLeft' | 'paddingTop' | 'paddingRight' | 'paddingBottom' | 'marginLeft' | 'marginTop' | 'marginRight' | 'marginBottom' | ''
 
-export interface PropsDefine extends ReactNative.ViewProperties {
+export interface PropsDefine {
     /**
      * 当值修改的时候
      */
