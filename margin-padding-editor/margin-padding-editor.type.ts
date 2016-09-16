@@ -9,6 +9,12 @@ export interface PropsDefine {
     onChange?: (type?: MarginPaddingField, value?: number)=>void
 
     /**
+     * 忽略拖动的改动，这个方法会在修改完最终调用一次
+     * 在记录历史记录时，用这个会保证低频，而且不会遗漏每次修改，只会忽略拖动的中间过程
+     */
+    onFinalChange?: (type?: MarginPaddingField, value?: number)=>void
+
+    /**
      * 大小
      */
     size?: number
@@ -41,6 +47,8 @@ export class Props extends PropsGaea implements PropsDefine {
     size = 200
     onChange = ()=> {
     }
+    onFinalChange = ()=> {
+    }
     paddingLeft = 0
     paddingTop = 0
     paddingRight = 0
@@ -60,6 +68,7 @@ export interface StateDefine {
     marginTop?: number
     marginRight?: number
     marginBottom?: number
+    [x: string]: any
 }
 
 export class State implements StateDefine {
