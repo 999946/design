@@ -32,6 +32,7 @@ var Props = function (_PropsGaea) {
 
         _this.size = 200;
         _this.onChange = function () {};
+        _this.onFinalChange = function () {};
         _this.paddingLeft = 0;
         _this.paddingTop = 0;
         _this.paddingRight = 0;

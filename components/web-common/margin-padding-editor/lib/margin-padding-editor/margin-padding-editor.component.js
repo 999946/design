@@ -144,6 +144,7 @@ var MarginPaddingEditor = function (_React$Component) {
     }, {
         key: "handleMouseUp",
         value: function handleMouseUp() {
+            this.props.onFinalChange(this.currentHolding, this.state[this.currentHolding]);
             this.currentHolding = '';
         }
     }, {
@@ -151,6 +152,7 @@ var MarginPaddingEditor = function (_React$Component) {
         value: function handleChange(name, event) {
             this.setState(_defineProperty({}, name, Number(event.target.value)));
             this.props.onChange(name, Number(event.target.value));
+            this.props.onFinalChange(name, Number(event.target.value));
         }
     }, {
         key: "renderTriangle",
