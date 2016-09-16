@@ -1,85 +1,58 @@
 [
   {
-    "userPublishLevel": "patch",
-    "publishLevel": "patch",
+    "userPublishLevel": "major",
+    "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "image-zoom",
-        "chinese": "图片手势操作",
-        "git": "https://github.com/ascoders/react-native-image-zoom.git",
-        "npm": "react-native-image-pan-zoom",
-        "isIos": true
+        "name": "margin-padding-editor",
+        "chinese": "内/外边距编辑器",
+        "isWeb": true
       },
       "category": {
-        "name": "common",
-        "chinese": "通用",
-        "prefix": "nt",
+        "name": "web-common",
+        "chinese": "web通用",
+        "prefix": "nt-web",
         "isPrivate": false,
         "components": [
           {
-            "name": "image",
-            "chinese": "图片",
-            "isWeb": true,
-            "isIos": true
+            "name": "button",
+            "chinese": "按钮",
+            "isWeb": true
           },
           {
-            "name": "gif",
-            "chinese": "GIF",
-            "isWeb": true,
-            "isIos": true
+            "name": "tree",
+            "chinese": "折叠树",
+            "isWeb": true
           },
           {
-            "name": "image-zoom",
-            "chinese": "图片手势操作",
-            "git": "https://github.com/ascoders/react-native-image-zoom.git",
-            "npm": "react-native-image-pan-zoom",
-            "isIos": true
+            "name": "tooltip",
+            "chinese": "工具提示",
+            "isWeb": true
           },
           {
-            "name": "image-viewer",
-            "chinese": "大图浏览",
-            "git": "https://github.com/ascoders/react-native-image-viewer.git",
-            "npm": "react-native-image-zoom-viewer",
-            "isIos": true
-          },
-          {
-            "name": "transmit-transparently",
-            "chinese": "透传",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "auto-bind",
-            "chinese": "自动绑定",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
+            "name": "margin-padding-editor",
+            "chinese": "内/外边距编辑器",
+            "isWeb": true
           }
         ]
       },
       "packageJson": {
-        "name": "react-native-image-pan-zoom",
-        "version": "1.0.2",
-        "description": "图片手势操作",
+        "name": "nt-web-margin-padding-editor",
+        "version": "0.0.0",
+        "description": "内/外边距编辑器",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/ascoders/react-native-image-zoom.git"
+          "url": "https://github.com/next-component/web-common-margin-padding-editor.git"
         },
         "keywords": [
-          "image-zoom"
+          "margin-padding-editor"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {
-          "nt-auto-bind": "^1.0.1"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.33.0"
-        }
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "dependence": [
         {
@@ -88,110 +61,11 @@
         },
         {
           "type": "npm",
-          "name": "react-native"
-        },
-        {
-          "type": "component",
-          "name": "auto-bind",
-          "category": "common"
-        }
-      ]
-    },
-    "isUserOperate": true,
-    "preVersion": "1.0.2"
-  },
-  {
-    "userPublishLevel": "patch",
-    "publishLevel": "patch",
-    "componentInfoWithDep": {
-      "component": {
-        "name": "image-viewer",
-        "chinese": "大图浏览",
-        "git": "https://github.com/ascoders/react-native-image-viewer.git",
-        "npm": "react-native-image-zoom-viewer",
-        "isIos": true
-      },
-      "category": {
-        "name": "common",
-        "chinese": "通用",
-        "prefix": "nt",
-        "isPrivate": false,
-        "components": [
-          {
-            "name": "image",
-            "chinese": "图片",
-            "isWeb": true,
-            "isIos": true
-          },
-          {
-            "name": "gif",
-            "chinese": "GIF",
-            "isWeb": true,
-            "isIos": true
-          },
-          {
-            "name": "image-zoom",
-            "chinese": "图片手势操作",
-            "git": "https://github.com/ascoders/react-native-image-zoom.git",
-            "npm": "react-native-image-pan-zoom",
-            "isIos": true
-          },
-          {
-            "name": "image-viewer",
-            "chinese": "大图浏览",
-            "git": "https://github.com/ascoders/react-native-image-viewer.git",
-            "npm": "react-native-image-zoom-viewer",
-            "isIos": true
-          },
-          {
-            "name": "transmit-transparently",
-            "chinese": "透传",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "auto-bind",
-            "chinese": "自动绑定",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          }
-        ]
-      },
-      "packageJson": {
-        "name": "react-native-image-zoom-viewer",
-        "version": "1.1.1",
-        "description": "大图浏览",
-        "main": "lib/index.js",
-        "typings": "lib/index.d.ts",
-        "repository": {
-          "type": "git",
-          "url": "https://github.com/ascoders/react-native-image-viewer.git"
-        },
-        "keywords": [
-          "image-viewer"
-        ],
-        "author": "ascoders",
-        "license": "ISC",
-        "dependencies": {
-          "nt-auto-bind": "^1.0.1",
-          "nt-transmit-transparently": "^1.0.2",
-          "react-native-image-pan-zoom": "^1.0.2"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.33.0"
-        }
-      },
-      "dependence": [
-        {
-          "type": "npm",
-          "name": "react"
+          "name": "react-dom"
         },
         {
           "type": "npm",
-          "name": "react-native"
+          "name": "classnames"
         },
         {
           "type": "component",
@@ -199,18 +73,12 @@
           "category": "common"
         },
         {
-          "type": "component",
-          "name": "transmit-transparently",
-          "category": "common"
-        },
-        {
-          "type": "component",
-          "name": "image-zoom",
-          "category": "common"
+          "type": "npm",
+          "name": "react-native"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.1.1"
+    "preVersion": "0.0.0"
   }
 ]
