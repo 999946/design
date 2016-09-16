@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as ReactNative from 'react-native'
 
 export type MarginPaddingField = 'paddingLeft' | 'paddingTop' | 'paddingRight' | 'paddingBottom' | 'marginLeft' | 'marginTop' | 'marginRight' | 'marginBottom' | ''
 
