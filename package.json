@@ -1,6 +1,6 @@
 {
   "name": "nt-web-margin-padding-editor",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "内/外边距编辑器",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -13,6 +13,13 @@
   ],
   "author": "ascoders",
   "license": "ISC",
-  "dependencies": {},
-  "peerDependencies": {}
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "nt-auto-bind": "^1.0.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0",
+    "react-native": "^0.33.0"
+  }
 }
