@@ -1,6 +1,5 @@
-import * as ReactNative from 'react-native';
 export declare type MarginPaddingField = 'paddingLeft' | 'paddingTop' | 'paddingRight' | 'paddingBottom' | 'marginLeft' | 'marginTop' | 'marginRight' | 'marginBottom' | '';
-export interface PropsDefine extends ReactNative.ViewProperties {
+export interface PropsDefine {
     onChange?: (type?: MarginPaddingField, value?: number) => void;
     size?: number;
     paddingLeft?: number;
