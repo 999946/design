@@ -37,6 +37,8 @@ const header = [{
 }, {
     value: '发布版本号',
     color: 'green'
+}, {
+    value: '发布名称'
 }]
 
 /**
@@ -53,6 +55,7 @@ export default (allPublishComponents: Array<Components.PublishInfo>)=> {
         row.push(publishComponent.publishLevel)
         row.push(publishComponent.componentInfoWithDep.packageJson.version)
         row.push(semver.inc(publishComponent.componentInfoWithDep.packageJson.version, publishComponent.publishLevel))
+        row.push(publishComponent.componentInfoWithDep.packageJson.name)
 
         rows.push(row)
     })
