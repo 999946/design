@@ -99,6 +99,34 @@ routerMap.set('web-common/tooltip', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('web-common/margin-padding-editor', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/margin-padding-editor/demo/basic').default,
+                            code: require('-!text!../../components/web-common/margin-padding-editor/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/margin-padding-editor/margin-padding-editor/margin-padding-editor.type'),
+                            typeCode: require('-!text!../../components/web-common/margin-padding-editor/margin-padding-editor/margin-padding-editor.type.ts'),
+                            typePath: 'components/web-common/margin-padding-editor/margin-padding-editor/margin-padding-editor.type',
+                            componentName: 'MarginPaddingEditor'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/margin-padding-editor/package.json')),
+                                documents,
+                                main: require('../components/web-common/margin-padding-editor/index')
+                            })
+                        })
+                    })
 routerMap.set('common/image', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

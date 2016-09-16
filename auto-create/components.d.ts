@@ -19,6 +19,12 @@ export interface TooltipPropsDefine {}
 
                 }
             
+                declare module 'nt-web-margin-padding-editor' {    
+                    export interface MarginPaddingEditor {}
+export interface MarginPaddingEditorPropsDefine {}
+
+                }
+            
                 declare module 'nt-image' {    
                     export interface Image {}
 export interface ImagePropsDefine {}
