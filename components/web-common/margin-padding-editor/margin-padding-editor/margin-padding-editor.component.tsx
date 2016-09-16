@@ -114,6 +114,9 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
      */
     @autoBindMethod
     handleMouseUp() {
+        // 清空前，调用低频修改
+        this.props.onFinalChange(this.currentHolding, this.state[this.currentHolding])
+
         this.currentHolding = ''
     }
 
@@ -122,6 +125,7 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
             [name]: Number(event.target.value)
         })
         this.props.onChange(name, Number(event.target.value))
+        this.props.onFinalChange(name, Number(event.target.value))
     }
 
     renderTriangle(position: string, name: string, extendStyle: React.CSSProperties = {}) {
