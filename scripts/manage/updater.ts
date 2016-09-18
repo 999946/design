@@ -72,9 +72,8 @@ export default ()=> {
 
                 fs.writeFileSync(`${componentRootPath}/${component.name}/${component.name}.type.ts`, `
                     import * as React from 'react'
-                    import * as ReactNative from 'react-native'
 
-                    export interface PropsDefine extends ReactNative.ViewProperties {
+                    export interface PropsDefine {
 
                     }
                     
