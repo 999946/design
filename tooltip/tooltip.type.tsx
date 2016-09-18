@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-type Position = 'left' | 'top' | 'right' | 'bottom'
+export type Position = 'left' | 'top' | 'right' | 'bottom'
 
 export interface PropsDefine {
     /**
