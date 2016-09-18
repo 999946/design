@@ -14,6 +14,7 @@ export default class ToolTip extends React.Component<typings.PropsDefine, typing
     handleChildrenMouseOver(event: MouseEvent): void;
     handleChildrenMouseLeave(event: MouseEvent): void;
     componentDidUpdate(): void;
+    setPosition(toolTipStyle: React.CSSProperties, position: string): void;
     renderTooltip(): void;
     render(): React.ReactElement<any>;
 }
