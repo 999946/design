@@ -78,8 +78,23 @@ routerMap.set('web-common/tooltip', (callback: any) => {
                         require.ensure([], function (require: any) {
                             
                         demoLists.push({
+                            Class: require('../components/web-common/tooltip/demo/auto-position').default,
+                            code: require('-!text!../../components/web-common/tooltip/demo/auto-position.tsx')
+                        })
+                    
+                        demoLists.push({
                             Class: require('../components/web-common/tooltip/demo/basic').default,
                             code: require('-!text!../../components/web-common/tooltip/demo/basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/tooltip/demo/position').default,
+                            code: require('-!text!../../components/web-common/tooltip/demo/position.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/tooltip/demo/render').default,
+                            code: require('-!text!../../components/web-common/tooltip/demo/render.tsx')
                         })
                     
                             

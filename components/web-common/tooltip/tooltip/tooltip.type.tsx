@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+type Position = 'left' | 'top' | 'right' | 'bottom'
+
 export interface PropsDefine {
     /**
      * 文字内容
@@ -11,6 +13,12 @@ export interface PropsDefine {
      * 与 title 不同, 此项可以返回一个 reactElement 对象, 显示复杂内容
      */
     titleRender?: ()=>React.ReactElement<any>
+
+    /**
+     * 期望位置
+     * 但如果期望位置放不下了，将会自动找一个合适的位置替代
+     */
+    position?: Position
 
     /**
      * 纵向层级
@@ -32,6 +40,7 @@ export class Props extends PropsGaea implements PropsDefine {
         )
     }
     zIndex = 100
+    position = 'top' as Position
 }
 
 export interface StateDefine {

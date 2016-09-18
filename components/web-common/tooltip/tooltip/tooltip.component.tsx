@@ -67,18 +67,62 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
     }
 
     /**
+     * 根据位置计算 left top
+     */
+    setPosition(toolTipStyle: React.CSSProperties, position: string) {
+        switch (position) {
+            case 'left':
+                toolTipStyle.left = this.state.childrenLeft - this.state.tooltipWidth - 7
+                toolTipStyle.top = this.state.childrenTop - (this.state.tooltipHeight / 2 - this.state.childrenHeight / 2)
+                break
+            case'top':
+                toolTipStyle.left = this.state.childrenLeft + this.state.childrenWidth / 2 - this.state.tooltipWidth / 2
+                toolTipStyle.top = this.state.childrenTop - this.state.tooltipHeight - 7
+                break
+            case 'right':
+                toolTipStyle.left = this.state.childrenLeft + this.state.childrenWidth + 7
+                toolTipStyle.top = this.state.childrenTop - (this.state.tooltipHeight / 2 - this.state.childrenHeight / 2)
+                break
+            case 'bottom':
+                toolTipStyle.left = this.state.childrenLeft + this.state.childrenWidth / 2 - this.state.tooltipWidth / 2
+                toolTipStyle.top = this.state.childrenTop + this.state.tooltipHeight
+                break
+        }
+    }
+
+    /**
      * 渲染 tooltip 内部的内容
      */
     renderTooltip() {
-        const toolTipStyle = {
-            left: this.state.childrenLeft + this.state.childrenWidth / 2 - this.state.tooltipWidth / 2,
-            top: this.state.childrenTop - this.state.tooltipHeight - 7,
+        let toolTipStyle: React.CSSProperties = {
             zIndex: this.props.zIndex
         }
+        let position = this.props.position
+        this.setPosition(toolTipStyle, position)
+
+        // 如果位置有问题，换一个位置
+        if (toolTipStyle.left < 0) {
+            this.setPosition(toolTipStyle, 'right')
+            position = 'right'
+        }
+        if (toolTipStyle.right > window.outerWidth) {
+            this.setPosition(toolTipStyle, 'left')
+            position = 'left'
+        }
+        if (toolTipStyle.top < 0) {
+            this.setPosition(toolTipStyle, 'bottom')
+            position = 'bottom'
+        }
+        if (toolTipStyle.top > window.outerHeight) {
+            this.setPosition(toolTipStyle, 'top')
+            position = 'top'
+        }
+
         const toolTipProps = {
             className: classNames({
                 '_namespace': true,
-                'active': this.state.show
+                'active': this.state.show,
+                [position]: true
             }),
             style: toolTipStyle
         }
