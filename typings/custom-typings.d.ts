@@ -39,3 +39,12 @@ declare module 'fit-scroll-listen' {
     }
     export = api
 }
+
+declare module 'rc-animate'{
+    var exports:()=>any
+    export = exports
+}
+
+declare module 'css-animation'{
+    export const isCssAnimationSupported:boolean
+}

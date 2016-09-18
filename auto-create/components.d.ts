@@ -25,6 +25,12 @@ export interface MarginPaddingEditorPropsDefine {}
 
                 }
             
+                declare module 'nt-web-badge' {    
+                    export interface Badge {}
+export interface BadgePropsDefine {}
+
+                }
+            
                 declare module 'nt-image' {    
                     export interface Image {}
 export interface ImagePropsDefine {}

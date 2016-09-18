@@ -4,6 +4,8 @@ import * as ReactDOM from 'react-dom'
 import * as typings from './button.type'
 import './button.scss'
 
+import {TransmitTransparently} from '../../../common/transmit-transparently/index'
+
 const hasClass = (obj: HTMLElement, cls: string) => {
     return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'))
 }
@@ -15,6 +17,7 @@ const removeClass = (obj: HTMLElement, cls: string) => {
     }
 }
 
+@TransmitTransparently()
 export default class Button extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
@@ -92,12 +95,13 @@ export default class Button extends React.Component <typings.PropsDefine, typing
             'btn-addon': this.props.addonLeft || this.props.addonRight,
             'btn-rounded': this.props.rounded,
             'active': this.props.active,
-            [this.props['className']]: !!this.props['className']
+            [this.props.className]: !!this.props.className
         })
 
         return (
             <button onClick={this.handleClick.bind(this)}
-                    className={btnClass}>
+                    className={btnClass}
+                {...this.props.others}>
                 <div className="button-container">
                     {this.props.addonLeft ? addon : null}
                     <div className="text-child">{this.props.children}</div>

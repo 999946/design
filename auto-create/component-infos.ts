@@ -142,6 +142,59 @@ routerMap.set('web-common/margin-padding-editor', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('web-common/badge', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/badge/demo/animate').default,
+                            code: require('-!text!../../components/web-common/badge/demo/animate.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/badge/demo/basic').default,
+                            code: require('-!text!../../components/web-common/badge/demo/basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/badge/demo/custom-limit').default,
+                            code: require('-!text!../../components/web-common/badge/demo/custom-limit.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/badge/demo/dot').default,
+                            code: require('-!text!../../components/web-common/badge/demo/dot.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/badge/demo/limit').default,
+                            code: require('-!text!../../components/web-common/badge/demo/limit.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/badge/demo/stand-alone').default,
+                            code: require('-!text!../../components/web-common/badge/demo/stand-alone.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/badge/badge/badge.type'),
+                            typeCode: require('-!text!../../components/web-common/badge/badge/badge.type.ts'),
+                            typePath: 'components/web-common/badge/badge/badge.type',
+                            componentName: 'Badge'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/badge/index')
+                            })
+                        })
+                    })
 routerMap.set('common/image', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

@@ -1,16 +1,12 @@
 import * as gulp from 'gulp'
 import * as nodemon from 'gulp-nodemon'
 import * as cached from 'gulp-cached'
-import * as gulpTypescript from 'gulp-typescript'
-import * as typescript from 'typescript'
-import * as path from 'path'
-
-const tsServerProject = gulpTypescript.createProject(path.join(__dirname, '../../../tsconfig.json'), {typescript: typescript})
 
 const filePath = {
     clientNotTs: `client/**/!(*.ts|*.tsx)`,
     componentsNotTs: `components/**/!(*.ts|*.tsx)`,
-    server: `server/**/*.ts`
+    server: `server/**/*.ts`,
+    styles: `styles/**/*`
 }
 
 /**
@@ -42,9 +38,19 @@ gulp.task('move-components-others', ()=> {
         .pipe(gulp.dest('built/components'))
 })
 
-gulp.task('default', ['move-client-others', 'move-components-others', 'server-nodemon'], ()=> {
-    gulp.watch(filePath.clientNotTs, ['move-client-others'])
-    gulp.watch(filePath.componentsNotTs, ['move-components-others'])
+/**
+ * 移动 styles
+ */
+gulp.task('move-styles', ()=> {
+    return gulp.src(filePath.styles)
+        .pipe(cached(filePath.styles))
+        .pipe(gulp.dest('built/styles'))
 })
 
-gulp.task('production', ['move-client-others', 'move-components-others'])
+gulp.task('default', ['move-client-others', 'move-components-others', 'move-styles', 'server-nodemon'], ()=> {
+    gulp.watch(filePath.clientNotTs, ['move-client-others'])
+    gulp.watch(filePath.componentsNotTs, ['move-components-others'])
+    gulp.watch(filePath.styles, ['move-styles'])
+})
+
+gulp.task('production', ['move-client-others', 'move-components-others', 'move-styles'])

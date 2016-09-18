@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {HTMLAttributes} from 'react'
 
 export interface TypeInterface {
     Default: string
@@ -20,7 +21,7 @@ export const Type: TypeInterface = {
     Dark: 'dark'
 }
 
-export interface PropsDefine extends React.HTMLAttributes {
+export interface PropsDefine extends HTMLAttributes {
     /**
      * 按钮风格类型
      */
@@ -60,6 +61,8 @@ export interface PropsDefine extends React.HTMLAttributes {
      * 点击后的回调
      */
     onClick?: (event?: React.MouseEvent)=> void
+
+    others?: any
 }
 
 export class PropsGaea {
