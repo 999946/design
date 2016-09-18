@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {observer} from 'mobx-react'
 import {autoBindMethod} from '../index'
-import {Button} from '../../../web-common/button'
+import {Button} from '../../../web-common/button/index'
 
 @observer
 export default class Demo extends React.Component <any, any> {
