@@ -1,0 +1,18 @@
+{
+  "name": "nt-web-badge",
+  "version": "0.0.0",
+  "description": "徽标",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/next-component/web-common-badge.git"
+  },
+  "keywords": [
+    "badge"
+  ],
+  "author": "ascoders",
+  "license": "ISC",
+  "dependencies": {},
+  "peerDependencies": {}
+}
