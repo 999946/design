@@ -21,6 +21,10 @@ export default [{
         name: 'margin-padding-editor',
         chinese: '内/外边距编辑器',
         isWeb: true
+    }, {
+        name: 'badge',
+        chinese: '徽标',
+        isWeb: true
     }]
 }, {
     name: 'common',
