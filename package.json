@@ -1,6 +1,6 @@
 {
   "name": "nt-button",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "按钮",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -14,7 +14,8 @@
   "author": "ascoders",
   "license": "ISC",
   "dependencies": {
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "nt-transmit-transparently": "^1.0.2"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
