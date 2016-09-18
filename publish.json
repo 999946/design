@@ -1,11 +1,11 @@
 [
   {
-    "userPublishLevel": "patch",
-    "publishLevel": "patch",
+    "userPublishLevel": "major",
+    "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "margin-padding-editor",
-        "chinese": "内/外边距编辑器",
+        "name": "tooltip",
+        "chinese": "工具提示",
         "isWeb": true
       },
       "category": {
@@ -37,23 +37,22 @@
         ]
       },
       "packageJson": {
-        "name": "nt-web-margin-padding-editor",
-        "version": "1.1.0",
-        "description": "内/外边距编辑器",
+        "name": "nt-tooltip",
+        "version": "0.0.5",
+        "description": "工具提示",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/web-common-margin-padding-editor.git"
+          "url": "https://github.com/next-component/common-tooltip.git"
         },
         "keywords": [
-          "margin-padding-editor"
+          "tooltip"
         ],
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "classnames": "^2.2.5",
-          "nt-auto-bind": "^2.0.0"
+          "classnames": "^2.2.5"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -72,15 +71,10 @@
         {
           "type": "npm",
           "name": "classnames"
-        },
-        {
-          "type": "component",
-          "name": "auto-bind",
-          "category": "common"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.1.0"
+    "preVersion": "0.0.5"
   }
 ]

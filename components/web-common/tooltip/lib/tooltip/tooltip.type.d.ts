@@ -1,7 +1,9 @@
 import * as React from 'react';
+export declare type Position = 'left' | 'top' | 'right' | 'bottom';
 export interface PropsDefine {
     title?: string;
     titleRender?: () => React.ReactElement<any>;
+    position?: Position;
     zIndex?: number;
 }
 export declare class PropsGaea {
@@ -13,6 +15,7 @@ export declare class Props extends PropsGaea implements PropsDefine {
     title: string;
     titleRender: () => JSX.Element;
     zIndex: number;
+    position: "left" | "top" | "right" | "bottom";
 }
 export interface StateDefine {
     childrenTop?: number;

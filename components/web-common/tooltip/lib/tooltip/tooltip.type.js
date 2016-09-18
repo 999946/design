@@ -37,6 +37,7 @@ var Props = function (_PropsGaea) {
             return React.createElement("div", null, "tool tip!");
         };
         _this.zIndex = 100;
+        _this.position = 'top';
         return _this;
     }
 
