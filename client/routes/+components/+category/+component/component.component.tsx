@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as typings from './component.type'
 import {observer} from 'mobx-react'
-import {Button, ButtonGroup} from '../../../../../components/web-common/button'
+import {Button, ButtonGroup} from '../../../../../components/web-common/button/index'
 import * as ReactCopyToClipboard from 'react-copy-to-clipboard'
 import Message from 'fit-message'
 import * as config from '../../../../../config'
