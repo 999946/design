@@ -1,6 +1,8 @@
-import * as React from 'react';
-export interface PropsDefine extends React.HTMLAttributes {
-    vertical?: boolean;
+import { HTMLAttributes } from 'react';
+export interface PropsDefine extends HTMLAttributes {
+    count?: number;
+    dot?: boolean;
+    overflowCount?: number;
     others?: any;
 }
 export declare class PropsGaea {
@@ -9,7 +11,9 @@ export declare class PropsGaea {
     gaeaUniqueKey: string;
 }
 export declare class Props extends PropsGaea implements PropsDefine {
-    vertical: boolean;
+    count: number;
+    dot: boolean;
+    overflowCount: number;
 }
 export interface StateDefine {
 }

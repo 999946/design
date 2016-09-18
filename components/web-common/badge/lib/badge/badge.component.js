@@ -30,43 +30,50 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
     }return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var React = require('react');
+var typings = require('./badge.type');
 var classNames = require('classnames');
-var typings = require('./button-group.type');
-require('./button-group.css');
 var index_1 = require('nt-transmit-transparently');
-var ButtonGroup = function (_React$Component) {
-    _inherits(ButtonGroup, _React$Component);
+var Animate = require('rc-animate');
+var scroll_number_component_1 = require('../scroll-number/scroll-number.component');
+require('./badge.css');
+var Badge = function (_React$Component) {
+    _inherits(Badge, _React$Component);
 
-    function ButtonGroup() {
+    function Badge() {
         var _ref;
 
-        _classCallCheck(this, ButtonGroup);
+        _classCallCheck(this, Badge);
 
         for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
             args[_key] = arguments[_key];
         }
 
-        var _this = _possibleConstructorReturn(this, (_ref = ButtonGroup.__proto__ || Object.getPrototypeOf(ButtonGroup)).call.apply(_ref, [this].concat(args)));
+        var _this = _possibleConstructorReturn(this, (_ref = Badge.__proto__ || Object.getPrototypeOf(Badge)).call.apply(_ref, [this].concat(args)));
 
         _this.state = new typings.State();
         return _this;
     }
 
-    _createClass(ButtonGroup, [{
+    _createClass(Badge, [{
         key: "render",
         value: function render() {
-            var groupClass = classNames(_defineProperty({
-                'nt-web-button-button_group': true,
-                'btn-group': !this.props.vertical,
-                'btn-group-vertical': this.props.vertical
+            var countAfterCalculation = this.props.count > this.props.overflowCount ? this.props.overflowCount + "+" : this.props.count;
+            if (this.props.dot) {
+                countAfterCalculation = '';
+            }
+            var hidden = (!countAfterCalculation || countAfterCalculation === '0') && !this.props.dot;
+            var scrollNumberCls = this.props.dot ? 'dot' : 'count';
+            var classes = classNames(_defineProperty({
+                'nt-web-badge-badge': true,
+                'not-a-wrapper': !this.props.children
             }, this.props.className, !!this.props.className));
-            return React.createElement("div", __assign({ className: groupClass }, this.props.others), this.props.children);
+            return React.createElement("span", { className: classes, title: countAfterCalculation }, this.props.children, React.createElement(Animate, { showProp: "data-show", transitionName: "zoom", transitionAppear: true }, hidden ? null : React.createElement(scroll_number_component_1.default, __assign({ "data-show": !hidden, className: scrollNumberCls, count: countAfterCalculation }, this.props.others))));
         }
     }]);
 
-    return ButtonGroup;
+    return Badge;
 }(React.Component);
-ButtonGroup.defaultProps = new typings.Props();
-ButtonGroup = __decorate([index_1.TransmitTransparently()], ButtonGroup);
+Badge.defaultProps = new typings.Props();
+Badge = __decorate([index_1.TransmitTransparently()], Badge);
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ButtonGroup;
+exports.default = Badge;

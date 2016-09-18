@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { HTMLAttributes } from 'react';
 export interface TypeInterface {
     Default: string;
     Primary: string;
@@ -9,7 +10,7 @@ export interface TypeInterface {
     Dark: string;
 }
 export declare const Type: TypeInterface;
-export interface PropsDefine extends React.HTMLAttributes {
+export interface PropsDefine extends HTMLAttributes {
     type?: string;
     disabled?: boolean;
     active?: boolean;
@@ -18,6 +19,7 @@ export interface PropsDefine extends React.HTMLAttributes {
     addonLeft?: any;
     addonRight?: any;
     onClick?: (event?: React.MouseEvent) => void;
+    others?: any;
 }
 export declare class PropsGaea {
     gaeaName: string;

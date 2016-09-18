@@ -196,6 +196,9 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
         parseBabel(filePath, component, category)
     })
 
+    // 把 styles 拷贝到 components
+    execSync(`cp -r styles components/`)
+
     // 找出 lib 目录下 scss 文件
     let scssFilePaths = getFilesBySuffix('scss', libPath)
     scssFilePaths.forEach(filePath=> {
@@ -206,6 +209,9 @@ export const buildLib = (component: Components.ComponentConfig, category: Compon
         cssPathLoader(filePath, component, category)
         parseSass(filePath, component, category)
     })
+
+    // 删除 components 的 styles
+    execSync(`rm -rf components/styles`)
 
     // 找出 lib 目录下 d.ts 文件
     let dtsFilePaths = getFilesBySuffix('d.ts', libPath)
