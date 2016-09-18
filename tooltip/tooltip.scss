@@ -10,15 +10,44 @@
     opacity: 0;
     transition: opacity .3s;
     white-space: nowrap;
-    &::after {
+    &.left::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin-top: -5px;
+        margin-right: -10px;
+        border: 5px solid transparent;
+        border-left-color: black;
+    }
+    &.top::after {
         content: " ";
         position: absolute;
         top: 100%;
         left: 50%;
         margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: black transparent transparent transparent;
+        border: 5px solid transparent;
+        border-top-color: black;
+    }
+    &.right::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -5px;
+        margin-left: -10px;
+        border: 5px solid transparent;
+        border-right-color: black;
+    }
+    &.bottom::after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -5px;
+        margin-top: -10px;
+        border: 5px solid transparent;
+        border-bottom-color: black;
     }
     &.active {
         opacity: 1;
