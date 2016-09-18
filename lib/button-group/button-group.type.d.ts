@@ -1,6 +1,7 @@
 import * as React from 'react';
 export interface PropsDefine extends React.HTMLAttributes {
     vertical?: boolean;
+    others?: any;
 }
 export declare class PropsGaea {
     gaeaName: string;
