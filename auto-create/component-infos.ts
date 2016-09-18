@@ -189,7 +189,7 @@ routerMap.set('web-common/badge', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/badge/package.json')),
                                 documents,
                                 main: require('../components/web-common/badge/index')
                             })
