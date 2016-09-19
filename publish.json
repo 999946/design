@@ -4,8 +4,8 @@
     "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "switch",
-        "chinese": "开关",
+        "name": "radio",
+        "chinese": "单选框",
         "isWeb": true
       },
       "category": {
@@ -27,6 +27,21 @@
           {
             "name": "switch",
             "chinese": "开关",
+            "isWeb": true
+          },
+          {
+            "name": "radio",
+            "chinese": "单选框",
+            "isWeb": true
+          },
+          {
+            "name": "checkbox",
+            "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "collapse",
+            "chinese": "手风琴",
             "isWeb": true
           },
           {
@@ -67,17 +82,17 @@
         ]
       },
       "packageJson": {
-        "name": "nt-web-switch",
+        "name": "nt-web-radio",
         "version": "0.0.0",
-        "description": "开关",
+        "description": "单选框",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/web-common-switch.git"
+          "url": "https://github.com/next-component/web-common-radio.git"
         },
         "keywords": [
-          "switch"
+          "radio"
         ],
         "author": "ascoders",
         "license": "ISC",
@@ -97,6 +112,11 @@
           "type": "component",
           "name": "transmit-transparently",
           "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "button",
+          "category": "web-common"
         }
       ]
     },
