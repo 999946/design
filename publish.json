@@ -4,8 +4,8 @@
     "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "timeago",
-        "chinese": "友好时间",
+        "name": "input",
+        "chinese": "输入框",
         "isWeb": true
       },
       "category": {
@@ -17,6 +17,11 @@
           {
             "name": "button",
             "chinese": "按钮",
+            "isWeb": true
+          },
+          {
+            "name": "input",
+            "chinese": "输入框",
             "isWeb": true
           },
           {
@@ -57,17 +62,17 @@
         ]
       },
       "packageJson": {
-        "name": "nt-web-timeago",
+        "name": "nt-web-input",
         "version": "0.0.0",
-        "description": "友好时间",
+        "description": "输入框",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/web-common-timeago.git"
+          "url": "https://github.com/next-component/web-common-input.git"
         },
         "keywords": [
-          "timeago"
+          "input"
         ],
         "author": "ascoders",
         "license": "ISC",
@@ -81,12 +86,16 @@
         },
         {
           "type": "npm",
-          "name": "moment"
+          "name": "classnames"
         },
         {
           "type": "component",
           "name": "transmit-transparently",
           "category": "common"
+        },
+        {
+          "type": "npm",
+          "name": "validator"
         }
       ]
     },

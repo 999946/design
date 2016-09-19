@@ -1,0 +1,24 @@
+{
+  "name": "nt-web-input",
+  "version": "1.0.0",
+  "description": "输入框",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/next-component/web-common-input.git"
+  },
+  "keywords": [
+    "input"
+  ],
+  "author": "ascoders",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "nt-transmit-transparently": "^1.0.2",
+    "validator": "^5.7.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0"
+  }
+}
