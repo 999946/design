@@ -10,25 +10,25 @@ export default class Timeago extends React.Component <typings.PropsDefine, typin
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
 
-    private _isMounted:boolean
-    private timeoutId:any
+    private _isMounted: boolean
+    private timeoutId: any
 
-    constructor(props:any) {
+    constructor(props: any) {
         super(props)
     }
 
-    protected componentWillMount():void {
+    protected componentWillMount(): void {
         this._isMounted = true
         this.timeoutId = 0
     }
 
-    protected componentDidMount():void {
+    protected componentDidMount(): void {
         if (this.props.live) {
             this.tick(true)
         }
     }
 
-    protected componentDidUpdate(nextProps:typings.PropsDefine):void {
+    protected componentDidUpdate(nextProps: typings.PropsDefine): void {
         if (this.props.live !== nextProps.live || this.props.date !== nextProps.date) {
             if (!this.props.live && this.timeoutId) {
                 clearTimeout(this.timeoutId)
@@ -38,7 +38,7 @@ export default class Timeago extends React.Component <typings.PropsDefine, typin
         }
     }
 
-    protected componentWillUnmount():void {
+    protected componentWillUnmount(): void {
         this._isMounted = false
         if (this.timeoutId) {
             clearTimeout(this.timeoutId)
@@ -46,7 +46,7 @@ export default class Timeago extends React.Component <typings.PropsDefine, typin
         }
     }
 
-    protected tick(refresh?:boolean):void {
+    protected tick(refresh?: boolean): void {
         if (!this._isMounted || !this.props.live) {
             return
         }
@@ -93,7 +93,7 @@ export default class Timeago extends React.Component <typings.PropsDefine, typin
         } else {
             let seconds = Math.round(Math.abs(now - then) / 1000)
             let suffix = then < now ? this.props.customLabel.ago : this.props.customLabel.fromNow
-            let value:number, unit:string
+            let value: number, unit: string
 
             if (seconds < 60) {
                 value = Math.round(seconds)

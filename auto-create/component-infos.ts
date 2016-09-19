@@ -148,9 +148,152 @@ routerMap.set('web-common/switch', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/switch/package.json')),
                                 documents,
                                 main: require('../components/web-common/switch/index')
+                            })
+                        })
+                    })
+routerMap.set('web-common/radio', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/radio/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/radio/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/radio/demo/2.group').default,
+                            code: require('-!text!../../components/web-common/radio/demo/2.group.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/radio/demo/3.button').default,
+                            code: require('-!text!../../components/web-common/radio/demo/3.button.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/radio/demo/4.control').default,
+                            code: require('-!text!../../components/web-common/radio/demo/4.control.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/radio/demo/5.disabled').default,
+                            code: require('-!text!../../components/web-common/radio/demo/5.disabled.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/radio/demo/6.size').default,
+                            code: require('-!text!../../components/web-common/radio/demo/6.size.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/radio/radio/radio.type'),
+                            typeCode: require('-!text!../../components/web-common/radio/radio/radio.type.ts'),
+                            typePath: 'components/web-common/radio/radio/radio.type',
+                            componentName: 'Radio'
+                        })
+                    
+                        documents.push({
+                            type: require('../components/web-common/radio/radio-group/radio-group.type'),
+                            typeCode: require('-!text!../../components/web-common/radio/radio-group/radio-group.type.ts'),
+                            typePath: 'components/web-common/radio/radio-group/radio-group.type',
+                            componentName: 'RadioGroup'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/radio/index')
+                            })
+                        })
+                    })
+routerMap.set('web-common/checkbox', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/checkbox/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/checkbox/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/checkbox/demo/2.disabled').default,
+                            code: require('-!text!../../components/web-common/checkbox/demo/2.disabled.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/checkbox/demo/3.size').default,
+                            code: require('-!text!../../components/web-common/checkbox/demo/3.size.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/checkbox/demo/4.control').default,
+                            code: require('-!text!../../components/web-common/checkbox/demo/4.control.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/checkbox/checkbox/checkbox.type'),
+                            typeCode: require('-!text!../../components/web-common/checkbox/checkbox/checkbox.type.ts'),
+                            typePath: 'components/web-common/checkbox/checkbox/checkbox.type',
+                            componentName: 'Checkbox'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/checkbox/index')
+                            })
+                        })
+                    })
+routerMap.set('web-common/collapse', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/collapse/demo/accordion').default,
+                            code: require('-!text!../../components/web-common/collapse/demo/accordion.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/collapse/demo/basic').default,
+                            code: require('-!text!../../components/web-common/collapse/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/collapse/collapse/collapse.type'),
+                            typeCode: require('-!text!../../components/web-common/collapse/collapse/collapse.type.ts'),
+                            typePath: 'components/web-common/collapse/collapse/collapse.type',
+                            componentName: 'Collapse'
+                        })
+                    
+                        documents.push({
+                            type: require('../components/web-common/collapse/coll-panel/coll-panel.type'),
+                            typeCode: require('-!text!../../components/web-common/collapse/coll-panel/coll-panel.type.ts'),
+                            typePath: 'components/web-common/collapse/coll-panel/coll-panel.type',
+                            componentName: 'CollPanel'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/collapse/index')
                             })
                         })
                     })

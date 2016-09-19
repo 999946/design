@@ -24,7 +24,7 @@ const testValidator = (value: string, validator: ExtendValidatorStatic): any => 
         }
     }
 
-    return { ok: true }
+    return {ok: true}
 }
 
 @observer

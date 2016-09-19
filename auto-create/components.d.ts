@@ -19,6 +19,28 @@ export interface SwitchPropsDefine {}
 
                 }
             
+                declare module 'nt-web-radio' {    
+                    export interface Radio {}
+export interface RadioPropsDefine {}
+export interface RadioGroup {}
+export interface RadioGroupPropsDefine {}
+
+                }
+            
+                declare module 'nt-web-checkbox' {    
+                    export interface Checkbox {}
+export interface CheckboxPropsDefine {}
+
+                }
+            
+                declare module 'nt-web-collapse' {    
+                    export interface Collapse {}
+export interface CollapsePropsDefine {}
+export interface CollPanel {}
+export interface CollPanelPropsDefine {}
+
+                }
+            
                 declare module 'nt-web-tree' {    
                     export interface Tree {}
 export interface TreePropsDefine {}

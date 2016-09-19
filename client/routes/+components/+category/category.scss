@@ -9,6 +9,8 @@
     height: 100%;
     background: white;
     border-right: 1px solid rgba(43, 50, 57, 0.15);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .right-component {

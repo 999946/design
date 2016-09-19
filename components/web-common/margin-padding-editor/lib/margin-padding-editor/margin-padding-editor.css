@@ -1,71 +1,99 @@
 .nt-web-margin-padding-editor-margin_padding_editor {
-  position: relative; }
-  .nt-web-margin-padding-editor-margin_padding_editor .button-container {
-    overflow: hidden; }
-  .nt-web-margin-padding-editor-margin_padding_editor .button {
+    position: relative;
+}
+
+.nt-web-margin-padding-editor-margin_padding_editor .button-container {
+    overflow: hidden;
+}
+
+.nt-web-margin-padding-editor-margin_padding_editor .button {
     -webkit-transition: all .2s;
     transition: all .2s;
     -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none; }
-  .nt-web-margin-padding-editor-margin_padding_editor .button-left {
-    border-right-color: #666; }
-    .nt-web-margin-padding-editor-margin_padding_editor .button-left:hover {
-      border-right-color: black; }
-  .nt-web-margin-padding-editor-margin_padding_editor .button-top {
-    border-bottom-color: #666; }
-    .nt-web-margin-padding-editor-margin_padding_editor .button-top:hover {
-      border-bottom-color: black; }
-  .nt-web-margin-padding-editor-margin_padding_editor .button-right {
-    border-left-color: #666; }
-    .nt-web-margin-padding-editor-margin_padding_editor .button-right:hover {
-      border-left-color: black; }
-  .nt-web-margin-padding-editor-margin_padding_editor .button-bottom {
-    border-top-color: #666; }
-    .nt-web-margin-padding-editor-margin_padding_editor .button-bottom:hover {
-      border-top-color: black; }
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.nt-web-margin-padding-editor-margin_padding_editor .button-left {
+    border-right-color: #666;
+}
+
+.nt-web-margin-padding-editor-margin_padding_editor .button-left:hover {
+    border-right-color: black;
+}
+
+.nt-web-margin-padding-editor-margin_padding_editor .button-top {
+    border-bottom-color: #666;
+}
+
+.nt-web-margin-padding-editor-margin_padding_editor .button-top:hover {
+    border-bottom-color: black;
+}
+
+.nt-web-margin-padding-editor-margin_padding_editor .button-right {
+    border-left-color: #666;
+}
+
+.nt-web-margin-padding-editor-margin_padding_editor .button-right:hover {
+    border-left-color: black;
+}
+
+.nt-web-margin-padding-editor-margin_padding_editor .button-bottom {
+    border-top-color: #666;
+}
+
+.nt-web-margin-padding-editor-margin_padding_editor .button-bottom:hover {
+    border-top-color: black;
+}
 
 .nt-web-margin-padding-editor-margin_padding_editor .left, .nt-web-margin-padding-editor-margin_padding_editor .top, .nt-web-margin-padding-editor-margin_padding_editor .right, .nt-web-margin-padding-editor-margin_padding_editor .bottom {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute; }
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+}
 
 .nt-web-margin-padding-editor-margin_padding_editor .left, .nt-web-margin-padding-editor-margin_padding_editor .right {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  cursor: ew-resize; }
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    cursor: ew-resize;
+}
 
 .nt-web-margin-padding-editor-margin_padding_editor .top, .nt-web-margin-padding-editor-margin_padding_editor .bottom {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  cursor: ns-resize; }
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    cursor: ns-resize;
+}
 
 .nt-web-margin-padding-editor-margin_padding_editor .number {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
 .nt-web-margin-padding-editor-margin_padding_editor .input {
-  width: calc(100% - 5px);
-  height: calc(100% - 8px);
-  text-align: center;
-  border: none; }
-  .nt-web-margin-padding-editor-margin_padding_editor .input:hover {
-    border: 1px solid #ccc; }
+    width: calc(100% - 5px);
+    height: calc(100% - 8px);
+    text-align: center;
+    border: none;
+}
+
+.nt-web-margin-padding-editor-margin_padding_editor .input:hover {
+    border: 1px solid #ccc;
+}

@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import {HTMLAttributes} from 'react';
 export interface PropsDefine extends HTMLAttributes {
     date: Date;
     live?: boolean;
