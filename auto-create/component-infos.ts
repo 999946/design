@@ -217,7 +217,7 @@ routerMap.set('web-common/image-preload', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/image-preload/package.json')),
                                 documents,
                                 main: require('../components/web-common/image-preload/index')
                             })

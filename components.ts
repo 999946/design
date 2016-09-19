@@ -26,6 +26,10 @@ export default [{
         chinese: '徽标',
         isWeb: true
     }, {
+        name: 'loading',
+        chinese: '进度条',
+        isWeb: true
+    }, {
         name: 'image-preload',
         chinese: '图片预加载',
         isWeb: true
