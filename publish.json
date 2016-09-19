@@ -4,8 +4,8 @@
     "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "button",
-        "chinese": "按钮",
+        "name": "image-preload",
+        "chinese": "图片预加载",
         "isWeb": true
       },
       "category": {
@@ -38,54 +38,40 @@
             "name": "badge",
             "chinese": "徽标",
             "isWeb": true
+          },
+          {
+            "name": "image-preload",
+            "chinese": "图片预加载",
+            "isWeb": true
           }
         ]
       },
       "packageJson": {
-        "name": "nt-button",
-        "version": "0.0.7",
-        "description": "按钮",
+        "name": "nt-web-image-preload",
+        "version": "0.0.0",
+        "description": "图片预加载",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/common-button.git"
+          "url": "https://github.com/next-component/web-common-image-preload.git"
         },
         "keywords": [
-          "button"
+          "image-preload"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {
-          "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.2"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-dom": "^0.14.0 || ^15.0.0"
-        }
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "dependence": [
         {
           "type": "npm",
           "name": "react"
-        },
-        {
-          "type": "npm",
-          "name": "classnames"
-        },
-        {
-          "type": "npm",
-          "name": "react-dom"
-        },
-        {
-          "type": "component",
-          "name": "transmit-transparently",
-          "category": "common"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.7"
+    "preVersion": "0.0.0"
   }
 ]
