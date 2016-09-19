@@ -4,8 +4,8 @@
     "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "input",
-        "chinese": "输入框",
+        "name": "switch",
+        "chinese": "开关",
         "isWeb": true
       },
       "category": {
@@ -22,6 +22,11 @@
           {
             "name": "input",
             "chinese": "输入框",
+            "isWeb": true
+          },
+          {
+            "name": "switch",
+            "chinese": "开关",
             "isWeb": true
           },
           {
@@ -62,17 +67,17 @@
         ]
       },
       "packageJson": {
-        "name": "nt-web-input",
+        "name": "nt-web-switch",
         "version": "0.0.0",
-        "description": "输入框",
+        "description": "开关",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/web-common-input.git"
+          "url": "https://github.com/next-component/web-common-switch.git"
         },
         "keywords": [
-          "input"
+          "switch"
         ],
         "author": "ascoders",
         "license": "ISC",
@@ -92,10 +97,6 @@
           "type": "component",
           "name": "transmit-transparently",
           "category": "common"
-        },
-        {
-          "type": "npm",
-          "name": "validator"
         }
       ]
     },
