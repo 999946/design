@@ -18,6 +18,18 @@ export default [{
         chinese: '开关',
         isWeb: true
     }, {
+        name: 'radio',
+        chinese: '单选框',
+        isWeb: true
+    }, {
+        name: 'checkbox',
+        chinese: '多选框',
+        isWeb: true
+    }, {
+        name: 'collapse',
+        chinese: '手风琴',
+        isWeb: true
+    }, {
         name: 'tree',
         chinese: '折叠树',
         isWeb: true
