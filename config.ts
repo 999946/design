@@ -42,7 +42,7 @@ export const customNpmPackage = [{
 }]
 
 // 路由统一前缀
-export const routerBasenameProduction = '/n/next-design'
+export const routerBasenameProduction = '/'
 export const routerBasename = process.env['NODE_ENV'] === 'production' ? routerBasenameProduction : ''
 
 // 发布静态资源路径前缀

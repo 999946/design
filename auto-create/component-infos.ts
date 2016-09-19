@@ -100,7 +100,7 @@ routerMap.set('web-common/input', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/input/package.json')),
                                 documents,
                                 main: require('../components/web-common/input/index')
                             })
