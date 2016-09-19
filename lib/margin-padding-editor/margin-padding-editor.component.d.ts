@@ -7,15 +7,26 @@ export default class MarginPaddingEditor extends React.Component<typings.PropsDe
     private lastX;
     private lastY;
     private currentHolding;
+
     componentWillMount(): void;
+
     componentDidMount(): void;
+
     componentWillUnmount(): void;
+
     handleMouseDown(name: typings.MarginPaddingField, event: MouseEvent): void;
+
     handleMouseMove(event: MouseEvent): void;
+
     handleMouseUp(): void;
+
     handleChange(name: typings.MarginPaddingField, event: any): void;
+
     renderTriangle(position: string, name: string, extendStyle?: React.CSSProperties): JSX.Element;
+
     handleInputLeave(name: typings.MarginPaddingField): void;
+
     handleInputEnter(name: typings.MarginPaddingField): void;
+
     render(): JSX.Element;
 }
