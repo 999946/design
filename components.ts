@@ -30,6 +30,10 @@ export default [{
         chinese: '进度条',
         isWeb: true
     }, {
+        name: 'timeago',
+        chinese: '友好时间',
+        isWeb: true
+    }, {
         name: 'image-preload',
         chinese: '图片预加载',
         isWeb: true
