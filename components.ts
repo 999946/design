@@ -25,6 +25,10 @@ export default [{
         name: 'badge',
         chinese: '徽标',
         isWeb: true
+    }, {
+        name: 'image-preload',
+        chinese: '图片预加载',
+        isWeb: true
     }]
 }, {
     name: 'common',
