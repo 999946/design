@@ -140,19 +140,21 @@ export default class Document extends FullComponentInfo <typings.PropsDefine, ty
                         <div className="import-doc">{importString}</div>
                     </div>
                     {tr.length > 0 &&
-                    <table>
-                        <thead>
-                        <tr>
-                            <td>参数</td>
-                            <td>类型</td>
-                            <td>说明</td>
-                            <td>默认值</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {tr}
-                        </tbody>
-                    </table>
+                    <div className="table-container">
+                        <table>
+                            <thead>
+                            <tr>
+                                <td>参数</td>
+                                <td>类型</td>
+                                <td>说明</td>
+                                <td>默认值</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {tr}
+                            </tbody>
+                        </table>
+                    </div>
                     }
                 </div>
             )

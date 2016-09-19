@@ -78,23 +78,23 @@ routerMap.set('web-common/tooltip', (callback: any) => {
                         require.ensure([], function (require: any) {
                             
                         demoLists.push({
-                            Class: require('../components/web-common/tooltip/demo/auto-position').default,
-                            code: require('-!text!../../components/web-common/tooltip/demo/auto-position.tsx')
+                            Class: require('../components/web-common/tooltip/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/tooltip/demo/1.basic.tsx')
                         })
                     
                         demoLists.push({
-                            Class: require('../components/web-common/tooltip/demo/basic').default,
-                            code: require('-!text!../../components/web-common/tooltip/demo/basic.tsx')
+                            Class: require('../components/web-common/tooltip/demo/2.render').default,
+                            code: require('-!text!../../components/web-common/tooltip/demo/2.render.tsx')
                         })
                     
                         demoLists.push({
-                            Class: require('../components/web-common/tooltip/demo/position').default,
-                            code: require('-!text!../../components/web-common/tooltip/demo/position.tsx')
+                            Class: require('../components/web-common/tooltip/demo/3.position').default,
+                            code: require('-!text!../../components/web-common/tooltip/demo/3.position.tsx')
                         })
                     
                         demoLists.push({
-                            Class: require('../components/web-common/tooltip/demo/render').default,
-                            code: require('-!text!../../components/web-common/tooltip/demo/render.tsx')
+                            Class: require('../components/web-common/tooltip/demo/4.auto-position').default,
+                            code: require('-!text!../../components/web-common/tooltip/demo/4.auto-position.tsx')
                         })
                     
                             
@@ -260,7 +260,7 @@ routerMap.set('web-common/timeago', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/timeago/package.json')),
                                 documents,
                                 main: require('../components/web-common/timeago/index')
                             })

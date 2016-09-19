@@ -10,6 +10,10 @@ export default [{
         chinese: '按钮',
         isWeb: true
     }, {
+        name: 'input',
+        chinese: '输入框',
+        isWeb: true
+    }, {
         name: 'tree',
         chinese: '折叠树',
         isWeb: true
