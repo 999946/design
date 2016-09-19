@@ -195,6 +195,39 @@ routerMap.set('web-common/badge', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('web-common/loading', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/loading/demo/basic').default,
+                            code: require('-!text!../../components/web-common/loading/demo/basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/loading/demo/size').default,
+                            code: require('-!text!../../components/web-common/loading/demo/size.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/loading/loading/loading.type'),
+                            typeCode: require('-!text!../../components/web-common/loading/loading/loading.type.ts'),
+                            typePath: 'components/web-common/loading/loading/loading.type',
+                            componentName: 'Loading'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/loading/index')
+                            })
+                        })
+                    })
 routerMap.set('web-common/image-preload', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
