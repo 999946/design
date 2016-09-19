@@ -410,6 +410,7 @@ export const parseProps = (props: string)=> {
     return params
 }
 
+// TODO 将所有泛型单独抽出来展示
 export const parsePropsDefineExtends = (sourceCode: string, typePath: string)=> {
     // 找出继承的对象
     const regex = /interface\s+PropsDefine\s+extends([^\{]*)/g
@@ -423,32 +424,68 @@ export const parsePropsDefineExtends = (sourceCode: string, typePath: string)=> 
         const extendArray = extendString.split(',')
         extendArray.forEach(extend=> {
             extend = _.trim(extend)
-            // 找到 extend 的文件源
-            const findRegex = new RegExp(`import\\s\\{?[^}]*${extend}[^}]*\\}?\\s+from\\s+\\'([^\\']*)\\'`, 'g')
-            let sourceMatch: Array<string>
-            while ((sourceMatch = findRegex.exec(sourceCode)) != null) {
-                const importSource = sourceMatch[1]
-                const typePathSplit = typePath.split('/')
-                typePathSplit.pop()
-                const typePathDir = typePathSplit.join('/')
-                if (importSource.startsWith('./') || importSource.startsWith('../')) {
-                    const importFullPath = path.join(typePathDir, importSource)
-                    const importFullPathSplit = importFullPath.split('/')
-                    const category = components.find(category=>category.name === importFullPathSplit[1])
-                    const component = category.components.find(component=>component.name === importFullPathSplit[2])
-                    allExtends.push({
-                        type: 'component',
-                        category,
-                        component,
-                        extendName: trimString.trimStringEnd(_.trim(extendString), 'PropsDefine')
-                    })
-                } else {
-                    // npm 模块
-                    allExtends.push({
-                        type: 'npm',
-                        moduleName: _.trim(importSource),
-                        extendName: trimString.trimStringEnd(_.trim(extendString), 'PropsDefine')
-                    })
+
+            // 如果包含 < ，说明继承的属性含有泛型
+            if (extend.indexOf('<') > -1) {
+                // 找到外层，和所有内层
+                const outerInterface = _.trim(extend.slice(0, extend.indexOf('<')))
+                // const innerInterfaces = _.trim(extend.slice(extend.indexOf('<') + 1, extend.length - 1))
+                // const innerInterfacesSplit = innerInterfaces.split(',')
+                const outerFindRegex = new RegExp(`import\\s\\{?[^}]*${outerInterface}[^}]*\\}?\\s+from\\s+\\'([^\\']*)\\'`, 'g')
+                let outerSourceMatch: Array<string>
+                while ((outerSourceMatch = outerFindRegex.exec(sourceCode)) != null) {
+                    const importSource = outerSourceMatch[1]
+                    const typePathSplit = typePath.split('/')
+                    typePathSplit.pop()
+                    const typePathDir = typePathSplit.join('/')
+                    if (importSource.startsWith('./') || importSource.startsWith('../')) {
+                        const importFullPath = path.join(typePathDir, importSource)
+                        const importFullPathSplit = importFullPath.split('/')
+                        const category = components.find(category=>category.name === importFullPathSplit[1])
+                        const component = category.components.find(component=>component.name === importFullPathSplit[2])
+                        allExtends.push({
+                            type: 'component',
+                            category,
+                            component,
+                            extendName: extend
+                        })
+                    } else {
+                        // npm 模块
+                        allExtends.push({
+                            type: 'npm',
+                            moduleName: _.trim(importSource),
+                            extendName: extend
+                        })
+                    }
+                }
+            } else {
+                // 找到 extend 的文件源
+                const findRegex = new RegExp(`import\\s\\{?[^}]*${extend}[^}]*\\}?\\s+from\\s+\\'([^\\']*)\\'`, 'g')
+                let sourceMatch: Array<string>
+                while ((sourceMatch = findRegex.exec(sourceCode)) != null) {
+                    const importSource = sourceMatch[1]
+                    const typePathSplit = typePath.split('/')
+                    typePathSplit.pop()
+                    const typePathDir = typePathSplit.join('/')
+                    if (importSource.startsWith('./') || importSource.startsWith('../')) {
+                        const importFullPath = path.join(typePathDir, importSource)
+                        const importFullPathSplit = importFullPath.split('/')
+                        const category = components.find(category=>category.name === importFullPathSplit[1])
+                        const component = category.components.find(component=>component.name === importFullPathSplit[2])
+                        allExtends.push({
+                            type: 'component',
+                            category,
+                            component,
+                            extendName: extend
+                        })
+                    } else {
+                        // npm 模块
+                        allExtends.push({
+                            type: 'npm',
+                            moduleName: _.trim(importSource),
+                            extendName: extend
+                        })
+                    }
                 }
             }
         })

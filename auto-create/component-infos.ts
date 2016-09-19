@@ -43,6 +43,69 @@
                             })
                         })
                     })
+routerMap.set('web-common/input', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/input/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/input/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/input/demo/2.callback').default,
+                            code: require('-!text!../../components/web-common/input/demo/2.callback.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/input/demo/3.center').default,
+                            code: require('-!text!../../components/web-common/input/demo/3.center.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/input/demo/4.default').default,
+                            code: require('-!text!../../components/web-common/input/demo/4.default.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/input/demo/5.disabled').default,
+                            code: require('-!text!../../components/web-common/input/demo/5.disabled.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/input/demo/6.highlight').default,
+                            code: require('-!text!../../components/web-common/input/demo/6.highlight.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/input/demo/7.no-label').default,
+                            code: require('-!text!../../components/web-common/input/demo/7.no-label.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/input/demo/8.validate').default,
+                            code: require('-!text!../../components/web-common/input/demo/8.validate.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/input/input/input.type'),
+                            typeCode: require('-!text!../../components/web-common/input/input/input.type.ts'),
+                            typePath: 'components/web-common/input/input/input.type',
+                            componentName: 'Input'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/input/index')
+                            })
+                        })
+                    })
 routerMap.set('web-common/tree', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

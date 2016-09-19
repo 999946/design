@@ -7,6 +7,12 @@ export interface ButtonGroupPropsDefine {}
 
                 }
             
+                declare module 'nt-web-input' {    
+                    export interface Input {}
+export interface InputPropsDefine {}
+
+                }
+            
                 declare module 'nt-web-tree' {    
                     export interface Tree {}
 export interface TreePropsDefine {}

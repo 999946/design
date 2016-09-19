@@ -1,0 +1,174 @@
+@import "../../../../styles/reset";
+@import "../../../../styles/color";
+@import "../../../../styles/placeholder";
+
+& {
+    position: relative;
+    margin-top: 20px;
+    background: white;
+}
+
+.input {
+    font-size: 14px;
+    padding: 10px 10px 5px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    color: #333;
+    // 防止火狐给 invalid 元素增加 box-shadow 样式
+    box-shadow: none !important;
+    &.center {
+        text-align: center;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:disabled {
+        border-bottom: 1px dotted #ccc;
+        color: #ccc;
+    }
+    @include placeholder('&:not(:focus)') {
+        transition: opacify .3s;
+        opacity: 0;
+    }
+    @include placeholder('&:not(:focus).no-label') {
+        opacity: 1;
+    }
+}
+
+.label {
+    color: #999;
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    &.center {
+        width: 100%;
+        text-align: center;
+    }
+    .label-error {
+        color: $error-color;
+        margin-left: 10px;
+    }
+    &.disabled {
+        color: #ccc;
+    }
+    &.valid-disabled {
+        top: -10px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #ccc;
+    }
+}
+
+.input:focus ~ .label, .input:valid ~ .label {
+    top: -10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: $primary-color;
+    &.disabled {
+        color: #ccc;
+    }
+}
+
+// 内容合法,但没聚焦,label用淡黑色
+.input:valid:not(:focus) ~ .label {
+    color: #999;
+}
+
+.bottom-bar {
+    position: relative;
+    display: block;
+    width: 100%;
+    &:before, &:after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 0;
+        position: absolute;
+        background: $primary-color;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+    &:before {
+        left: 50%;
+    }
+    &:after {
+        right: 50%;
+    }
+    &.bottom-bar-error {
+        &:before, &:after {
+            width: 50%;
+            background: $error-color;
+        }
+    }
+}
+
+.input:focus ~ .bottom-bar:before, .input:focus ~ .bottom-bar:after {
+    width: 50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+// 右侧可以添加内容
+.right-addon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
