@@ -4,8 +4,8 @@
     "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "image-preload",
-        "chinese": "图片预加载",
+        "name": "loading",
+        "chinese": "进度条",
         "isWeb": true
       },
       "category": {
@@ -40,6 +40,11 @@
             "isWeb": true
           },
           {
+            "name": "loading",
+            "chinese": "进度条",
+            "isWeb": true
+          },
+          {
             "name": "image-preload",
             "chinese": "图片预加载",
             "isWeb": true
@@ -47,17 +52,17 @@
         ]
       },
       "packageJson": {
-        "name": "nt-web-image-preload",
+        "name": "nt-web-loading",
         "version": "0.0.0",
-        "description": "图片预加载",
+        "description": "进度条",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/web-common-image-preload.git"
+          "url": "https://github.com/next-component/web-common-loading.git"
         },
         "keywords": [
-          "image-preload"
+          "loading"
         ],
         "author": "ascoders",
         "license": "ISC",
@@ -68,6 +73,15 @@
         {
           "type": "npm",
           "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "classnames"
+        },
+        {
+          "type": "component",
+          "name": "transmit-transparently",
+          "category": "common"
         }
       ]
     },
