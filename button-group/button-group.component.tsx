@@ -5,7 +5,7 @@ import './button-group.scss'
 
 import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 
-@TransmitTransparently()
+@TransmitTransparently('className')
 export default class ButtonGroup extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
@@ -19,7 +19,7 @@ export default class ButtonGroup extends React.Component <typings.PropsDefine, t
         })
 
         return (
-            <div className={groupClass} {...this.props.others}>
+            <div {...this.props.others} className={groupClass}>
                 {this.props.children}
             </div>
         )

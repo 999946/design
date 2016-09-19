@@ -99,9 +99,9 @@ export default class Button extends React.Component <typings.PropsDefine, typing
         })
 
         return (
-            <button onClick={this.handleClick.bind(this)}
-                    className={btnClass}
-                {...this.props.others}>
+            <button {...this.props.others}
+                onClick={this.handleClick.bind(this)}
+                className={btnClass}>
                 <div className="button-container">
                     {this.props.addonLeft ? addon : null}
                     <div className="text-child">{this.props.children}</div>
