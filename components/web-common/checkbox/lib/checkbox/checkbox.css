@@ -1,0 +1,81 @@
+.nt-web-checkbox-checkbox.disabled span {
+  color: #bbb; }
+
+.nt-web-checkbox-checkbox.i-checks {
+  display: inline-block;
+  padding-left: 10px;
+  cursor: pointer; }
+  .nt-web-checkbox-checkbox.i-checks input {
+    opacity: 0;
+    position: absolute;
+    margin-left: -20px; }
+    .nt-web-checkbox-checkbox.i-checks input:checked + i {
+      border-color: #5bc0de; }
+      .nt-web-checkbox-checkbox.i-checks input:checked + i:before {
+        left: 5px;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        background-color: #5bc0de; }
+    .nt-web-checkbox-checkbox.i-checks input:checked + span .active {
+      display: inherit; }
+    .nt-web-checkbox-checkbox.i-checks input[type="radio"] + i, .nt-web-checkbox-checkbox.i-checks input[type="radio"] + i:before {
+      border-radius: 50%; }
+    .nt-web-checkbox-checkbox.i-checks input[disabled] + i,
+    fieldset[disabled] .nt-web-checkbox-checkbox.i-checks input + i {
+      border-color: #d9d9d9;
+      background-color: #F9F9F9; }
+      .nt-web-checkbox-checkbox.i-checks input[disabled] + i:before,
+      fieldset[disabled] .nt-web-checkbox-checkbox.i-checks input + i:before {
+        background-color: #d9d9d9; }
+  .nt-web-checkbox-checkbox.i-checks > i {
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-left: -20px;
+    margin-top: -2px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 4px;
+    position: relative; }
+    .nt-web-checkbox-checkbox.i-checks > i:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      background-color: transparent;
+      -webkit-transition: all 0.2s;
+      transition: all 0.2s; }
+  .nt-web-checkbox-checkbox.i-checks > span {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+    .nt-web-checkbox-checkbox.i-checks > span .active {
+      display: none; }
+
+.nt-web-checkbox-checkbox.i-checks-sm input:checked + i:before {
+  left: 4px;
+  top: 4px;
+  width: 8px;
+  height: 8px; }
+
+.nt-web-checkbox-checkbox.i-checks-sm > i {
+  width: 16px;
+  height: 16px;
+  margin-left: -18px;
+  margin-right: 6px; }
+
+.nt-web-checkbox-checkbox.i-checks-lg input:checked + i:before {
+  left: 8px;
+  top: 8px;
+  width: 15px;
+  height: 15px; }
+
+.nt-web-checkbox-checkbox.i-checks-lg > i {
+  width: 30px;
+  height: 30px; }

@@ -4,8 +4,8 @@
     "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "collapse",
-        "chinese": "手风琴",
+        "name": "checkbox",
+        "chinese": "多选框",
         "isWeb": true
       },
       "category": {
@@ -82,17 +82,17 @@
         ]
       },
       "packageJson": {
-        "name": "nt-web-collapse",
+        "name": "nt-web-checkbox",
         "version": "0.0.0",
-        "description": "手风琴",
+        "description": "多选框",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/web-common-collapse.git"
+          "url": "https://github.com/next-component/web-common-checkbox.git"
         },
         "keywords": [
-          "collapse"
+          "checkbox"
         ],
         "author": "ascoders",
         "license": "ISC",
@@ -103,10 +103,6 @@
         {
           "type": "npm",
           "name": "react"
-        },
-        {
-          "type": "npm",
-          "name": "react-dom"
         },
         {
           "type": "npm",
