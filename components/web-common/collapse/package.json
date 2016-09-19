@@ -1,6 +1,6 @@
 {
   "name": "nt-web-collapse",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "手风琴",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -13,6 +13,12 @@
   ],
   "author": "ascoders",
   "license": "ISC",
-  "dependencies": {},
-  "peerDependencies": {}
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "nt-transmit-transparently": "^1.0.2"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
+  }
 }
