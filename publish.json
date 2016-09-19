@@ -4,8 +4,8 @@
     "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "loading",
-        "chinese": "进度条",
+        "name": "timeago",
+        "chinese": "友好时间",
         "isWeb": true
       },
       "category": {
@@ -45,6 +45,11 @@
             "isWeb": true
           },
           {
+            "name": "timeago",
+            "chinese": "友好时间",
+            "isWeb": true
+          },
+          {
             "name": "image-preload",
             "chinese": "图片预加载",
             "isWeb": true
@@ -52,17 +57,17 @@
         ]
       },
       "packageJson": {
-        "name": "nt-web-loading",
+        "name": "nt-web-timeago",
         "version": "0.0.0",
-        "description": "进度条",
+        "description": "友好时间",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/web-common-loading.git"
+          "url": "https://github.com/next-component/web-common-timeago.git"
         },
         "keywords": [
-          "loading"
+          "timeago"
         ],
         "author": "ascoders",
         "license": "ISC",
@@ -76,7 +81,7 @@
         },
         {
           "type": "npm",
-          "name": "classnames"
+          "name": "moment"
         },
         {
           "type": "component",
