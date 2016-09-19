@@ -1,6 +1,6 @@
 import {HTMLAttributes} from 'react'
 
-export interface PropsDefine extends HTMLAttributes{
+export interface PropsDefine extends HTMLAttributes {
     /**
      * 总数量
      */
