@@ -6,7 +6,7 @@ export interface PropsDefine {
     /**
      * 当值修改的时候
      */
-    onChange?: (type?: MarginPaddingField, value?: number)=>void
+    onChange?: (type: MarginPaddingField, value: number)=>void
 
     /**
      * 忽略拖动的改动，这个方法会在修改完最终调用一次
@@ -35,6 +35,9 @@ export interface PropsDefine {
     marginRight?: number
     // marginBottom 初始值
     marginBottom?: number
+
+    others?: any
+    classNames?: string
 }
 
 export class PropsGaea {

@@ -5,6 +5,9 @@ import * as classNames from 'classnames'
 import {autoBindMethod} from '../../../common/auto-bind/index'
 import './margin-padding-editor.scss'
 
+import {TransmitTransparently} from '../../../common/transmit-transparently/index'
+
+@TransmitTransparently()
 export default class MarginPaddingEditor extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
@@ -323,8 +326,9 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
         }
 
         return (
-            <div className="_namespace"
-                 style={containerStyle}>
+            <div {...this.props.others}
+                className="_namespace"
+                style={containerStyle}>
                 <div className="left"
                      style={leftStyle}>
                     {this.renderTriangle('left', 'marginLeft')}
