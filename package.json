@@ -1,0 +1,23 @@
+{
+  "name": "nt-web-timeago",
+  "version": "1.0.0",
+  "description": "友好时间",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/next-component/web-common-timeago.git"
+  },
+  "keywords": [
+    "timeago"
+  ],
+  "author": "ascoders",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.15.0",
+    "nt-transmit-transparently": "^1.0.2"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0"
+  }
+}
