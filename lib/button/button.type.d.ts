@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HTMLAttributes } from 'react';
+import {HTMLAttributes} from 'react';
 export interface TypeInterface {
     Default: string;
     Primary: string;
