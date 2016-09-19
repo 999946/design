@@ -195,6 +195,34 @@ routerMap.set('web-common/badge', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('web-common/image-preload', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/image-preload/demo/basic').default,
+                            code: require('-!text!../../components/web-common/image-preload/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/image-preload/image-preload/image-preload.type'),
+                            typeCode: require('-!text!../../components/web-common/image-preload/image-preload/image-preload.type.ts'),
+                            typePath: 'components/web-common/image-preload/image-preload/image-preload.type',
+                            componentName: 'ImagePreload'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/image-preload/index')
+                            })
+                        })
+                    })
 routerMap.set('common/image', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

@@ -31,6 +31,12 @@ export interface BadgePropsDefine {}
 
                 }
             
+                declare module 'nt-web-image-preload' {    
+                    export interface ImagePreload {}
+export interface ImagePreloadPropsDefine {}
+
+                }
+            
                 declare module 'nt-image' {    
                     export interface Image {}
 export interface ImagePropsDefine {}
