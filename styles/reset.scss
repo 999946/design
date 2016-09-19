@@ -81,6 +81,10 @@ body, textarea, input, button, select, keygen, legend {
     outline: 0;
 }
 
+pre, code {
+    font-family: $font-family-code;
+}
+
 body {
     background: #fff;
 }

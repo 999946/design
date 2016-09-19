@@ -13,6 +13,12 @@ export interface InputPropsDefine {}
 
                 }
             
+                declare module 'nt-web-switch' {    
+                    export interface Switch {}
+export interface SwitchPropsDefine {}
+
+                }
+            
                 declare module 'nt-web-tree' {    
                     export interface Tree {}
 export interface TreePropsDefine {}

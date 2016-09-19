@@ -106,6 +106,54 @@ routerMap.set('web-common/input', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('web-common/switch', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/switch/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/switch/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/switch/demo/2.control').default,
+                            code: require('-!text!../../components/web-common/switch/demo/2.control.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/switch/demo/3.size').default,
+                            code: require('-!text!../../components/web-common/switch/demo/3.size.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/switch/demo/4.type').default,
+                            code: require('-!text!../../components/web-common/switch/demo/4.type.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/switch/demo/5.disabled').default,
+                            code: require('-!text!../../components/web-common/switch/demo/5.disabled.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/switch/switch/switch.type'),
+                            typeCode: require('-!text!../../components/web-common/switch/switch/switch.type.ts'),
+                            typePath: 'components/web-common/switch/switch/switch.type',
+                            componentName: 'Switch'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/switch/index')
+                            })
+                        })
+                    })
 routerMap.set('web-common/tree', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
