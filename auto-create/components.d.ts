@@ -37,6 +37,12 @@ export interface LoadingPropsDefine {}
 
                 }
             
+                declare module 'nt-web-timeago' {    
+                    export interface Timeago {}
+export interface TimeagoPropsDefine {}
+
+                }
+            
                 declare module 'nt-web-image-preload' {    
                     export interface ImagePreload {}
 export interface ImagePreloadPropsDefine {}

@@ -222,9 +222,47 @@ routerMap.set('web-common/loading', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/loading/package.json')),
                                 documents,
                                 main: require('../components/web-common/loading/index')
+                            })
+                        })
+                    })
+routerMap.set('web-common/timeago', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/timeago/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/timeago/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/timeago/demo/2.chinese').default,
+                            code: require('-!text!../../components/web-common/timeago/demo/2.chinese.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/timeago/demo/3.lose').default,
+                            code: require('-!text!../../components/web-common/timeago/demo/3.lose.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/timeago/timeago/timeago.type'),
+                            typeCode: require('-!text!../../components/web-common/timeago/timeago/timeago.type.ts'),
+                            typePath: 'components/web-common/timeago/timeago/timeago.type',
+                            componentName: 'Timeago'
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/timeago/index')
                             })
                         })
                     })
