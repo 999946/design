@@ -208,7 +208,7 @@ routerMap.set('web-common/radio', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/radio/package.json')),
                                 documents,
                                 main: require('../components/web-common/radio/index')
                             })
@@ -251,7 +251,7 @@ routerMap.set('web-common/checkbox', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/checkbox/package.json')),
                                 documents,
                                 main: require('../components/web-common/checkbox/index')
                             })
@@ -291,7 +291,7 @@ routerMap.set('web-common/collapse', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/collapse/package.json')),
                                 documents,
                                 main: require('../components/web-common/collapse/index')
                             })
