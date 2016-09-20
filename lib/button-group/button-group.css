@@ -1,108 +1,84 @@
 .nt-web-button-button_group.btn-group, .nt-web-button-button_group.btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; }
+  .nt-web-button-button_group.btn-group > .btn, .nt-web-button-button_group.btn-group-vertical > .btn {
     position: relative;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.nt-web-button-button_group.btn-group > .btn, .nt-web-button-button_group.btn-group-vertical > .btn {
-    position: relative;
-    float: left;
-}
-
-.nt-web-button-button_group.btn-group > .btn:hover, .nt-web-button-button_group.btn-group > .btn:focus, .nt-web-button-button_group.btn-group > .btn:active, .nt-web-button-button_group.btn-group > .btn.active, .nt-web-button-button_group.btn-group-vertical > .btn:hover, .nt-web-button-button_group.btn-group-vertical > .btn:focus, .nt-web-button-button_group.btn-group-vertical > .btn:active, .nt-web-button-button_group.btn-group-vertical > .btn.active {
-    z-index: 2;
-}
+    float: left; }
+    .nt-web-button-button_group.btn-group > .btn:hover, .nt-web-button-button_group.btn-group > .btn:focus, .nt-web-button-button_group.btn-group > .btn:active, .nt-web-button-button_group.btn-group > .btn.active, .nt-web-button-button_group.btn-group-vertical > .btn:hover, .nt-web-button-button_group.btn-group-vertical > .btn:focus, .nt-web-button-button_group.btn-group-vertical > .btn:active, .nt-web-button-button_group.btn-group-vertical > .btn.active {
+      z-index: 2; }
 
 .nt-web-button-button_group.btn-group .btn + .btn,
 .nt-web-button-button_group.btn-group .btn + .btn-group,
 .nt-web-button-button_group.btn-group .btn-group + .btn,
 .nt-web-button-button_group.btn-group .btn-group + .btn-group {
-    margin-left: -1px;
-}
+  margin-left: -1px; }
 
 .nt-web-button-button_group.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
-    border-radius: 0;
-}
+  border-radius: 0; }
 
 .nt-web-button-button_group.btn-group > .btn:first-child {
-    margin-left: 0;
-}
-
-.nt-web-button-button_group.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  margin-left: 0; }
+  .nt-web-button-button_group.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
     border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-}
+    border-top-right-radius: 0; }
 
 .nt-web-button-button_group.btn-group > .btn:last-child:not(:first-child),
 .nt-web-button-button_group.btn-group > .dropdown-toggle:not(:first-child) {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-}
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0; }
 
 .nt-web-button-button_group.btn-group > .btn-group {
-    float: left;
-}
+  float: left; }
 
 .nt-web-button-button_group.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
-    border-radius: 0;
-}
+  border-radius: 0; }
 
 .nt-web-button-button_group.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child,
 .nt-web-button-button_group.btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-}
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0; }
 
 .nt-web-button-button_group.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-}
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0; }
 
 .nt-web-button-button_group.btn-group .dropdown-toggle:active,
 .nt-web-button-button_group.btn-group.open .dropdown-toggle {
-    outline: 0;
-}
+  outline: 0; }
 
 .nt-web-button-button_group.btn-group-vertical > .btn,
 .nt-web-button-button_group.btn-group-vertical > .btn-group,
 .nt-web-button-button_group.btn-group-vertical > .btn-group > .btn {
-    display: block;
-    float: none;
-    width: 100%;
-    max-width: 100%;
-}
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%; }
 
 .nt-web-button-button_group.btn-group-vertical > .btn + .btn,
 .nt-web-button-button_group.btn-group-vertical > .btn + .btn-group,
 .nt-web-button-button_group.btn-group-vertical > .btn-group + .btn,
 .nt-web-button-button_group.btn-group-vertical > .btn-group + .btn-group {
-    margin-top: -1px;
-    margin-left: 0;
-}
+  margin-top: -1px;
+  margin-left: 0; }
 
 .nt-web-button-button_group.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
-    border-radius: 0;
-}
+  border-radius: 0; }
 
 .nt-web-button-button_group.btn-group-vertical > .btn:first-child:not(:last-child) {
-    border-radius: 4px 4px 0 0;
-}
+  border-radius: 4px 4px 0 0; }
 
 .nt-web-button-button_group.btn-group-vertical > .btn:last-child:not(:first-child) {
-    border-radius: 0 0 4px 4px;
-}
+  border-radius: 0 0 4px 4px; }
 
 .nt-web-button-button_group.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
-    border-radius: 0;
-}
+  border-radius: 0; }
 
 .nt-web-button-button_group.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child,
 .nt-web-button-button_group.btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; }
 
 .nt-web-button-button_group.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
