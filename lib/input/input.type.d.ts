@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {HTMLProps} from 'react';
-import {ExtendValidatorStatic} from './validate';
+import { HTMLProps } from 'react';
+import { ExtendValidatorStatic } from './validate';
 export interface PropsDefine extends HTMLProps<HTMLInputElement> {
     label?: string;
     highlight?: boolean;
