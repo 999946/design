@@ -275,20 +275,6 @@ const getInfoWithDependencies = (component: Components.ComponentConfig, category
  * 根据传进来的参数, 获取组件信息
  */
 const getComponentInfoByFullPath = (publishFullPath: string)=> {
-    if (publishFullPath.indexOf('#') === -1) {
-        consoleLog.error('发布级别必填, eg: [your path]#major 可选项: major | minor | patch')
-    }
-
-    if (publishFullPath.endsWith('/')) {
-        consoleLog.error('路径不能以 / 结尾')
-    }
-    // 如果 publishFullPath 是有三级目录，去掉第一级
-    const publishFullPathSplitWithPath = publishFullPath.split('/')
-    if (publishFullPathSplitWithPath.length >= 3) {
-        publishFullPathSplitWithPath.shift()
-        publishFullPath = publishFullPathSplitWithPath.join('/')
-    }
-
     const publishFullPathSplit = publishFullPath.split('#')
     // 发布目录
     const publishSecondPath = publishFullPathSplit[0]
@@ -413,8 +399,37 @@ export default (publishFullPaths: Array<string>)=> {
     // 生成 ts 编译和定义文件
     builder.buildDTs()
 
-    // 统计出所有要发布的组件（可能因为依赖而连带发布的）
+    // 实际发布路径
+    const realPublishFullPaths: Array<string> = []
+
+    // 如果提交路径只有 components 或 components/[category] 就发布所有组件 或者 整个分类
     publishFullPaths.forEach(publishFullPath=> {
+        if (publishFullPath.indexOf('#') === -1) {
+            consoleLog.error('发布级别必填, eg: [your path]#major 可选项: major | minor | patch')
+        }
+
+        if (publishFullPath.endsWith('/')) {
+            consoleLog.error('路径不能以 / 结尾')
+        }
+
+        // 如果 publishFullPath 是有三级目录，去掉第一级
+        const publishFullPathSplitWithPath = publishFullPath.split('/')
+        if (publishFullPathSplitWithPath.length >= 3) {
+            publishFullPathSplitWithPath.shift()
+            publishFullPath = publishFullPathSplitWithPath.join('/')
+        }
+
+        const publishFullPathSplit = publishFullPath.split('#')
+
+        // 纯路径部分 split
+        const publishFullComponentPathSplit = publishFullPathSplit[0].split('/')
+
+        console.log(publishFullComponentPathSplit)
+        realPublishFullPaths.push(publishFullPath)
+    })
+
+    // 统计出所有要发布的组件（可能因为依赖而连带发布的）
+    realPublishFullPaths.forEach(publishFullPath=> {
         let componentInfo = getComponentInfoByFullPath(publishFullPath)
 
         // 编译 lib 目录
