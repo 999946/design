@@ -437,7 +437,7 @@ routerMap.set('web-common/modal', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/modal/package.json')),
                                 documents,
                                 main: require('../components/web-common/modal/index')
                             })
@@ -479,7 +479,7 @@ routerMap.set('web-common/tabs', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/tabs/package.json')),
                                 documents,
                                 main: require('../components/web-common/tabs/index')
                             })
@@ -492,8 +492,18 @@ routerMap.set('web-common/tree', (callback: any) => {
                         require.ensure([], function (require: any) {
                             
                         demoLists.push({
-                            Class: require('../components/web-common/tree/demo/basic').default,
-                            code: require('-!text!../../components/web-common/tree/demo/basic.tsx')
+                            Class: require('../components/web-common/tree/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/tree/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/tree/demo/2.expend-all').default,
+                            code: require('-!text!../../components/web-common/tree/demo/2.expend-all.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/tree/demo/3.toggle-by-arrow').default,
+                            code: require('-!text!../../components/web-common/tree/demo/3.toggle-by-arrow.tsx')
                         })
                     
                             
@@ -503,6 +513,14 @@ routerMap.set('web-common/tree', (callback: any) => {
                             typePath: 'components/web-common/tree/tree/tree.type',
                             componentName: 'Tree',
                             sourceCode: require('-!text!../../components/web-common/tree/tree/tree.component.tsx')
+                        })
+                    
+                        documents.push({
+                            type: require('../components/web-common/tree/tree-node/tree-node.type'),
+                            typeCode: require('-!text!../../components/web-common/tree/tree-node/tree-node.type.ts'),
+                            typePath: 'components/web-common/tree/tree-node/tree-node.type',
+                            componentName: 'TreeNode',
+                            sourceCode: require('-!text!../../components/web-common/tree/tree-node/tree-node.component.tsx')
                         })
                     
                             
@@ -521,8 +539,13 @@ routerMap.set('web-common/json-tree', (callback: any) => {
                         require.ensure([], function (require: any) {
                             
                         demoLists.push({
-                            Class: require('../components/web-common/json-tree/demo/basic').default,
-                            code: require('-!text!../../components/web-common/json-tree/demo/basic.tsx')
+                            Class: require('../components/web-common/json-tree/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/json-tree/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/json-tree/demo/2.root').default,
+                            code: require('-!text!../../components/web-common/json-tree/demo/2.root.tsx')
                         })
                     
                             
@@ -537,7 +560,7 @@ routerMap.set('web-common/json-tree', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/json-tree/package.json')),
                                 documents,
                                 main: require('../components/web-common/json-tree/index')
                             })

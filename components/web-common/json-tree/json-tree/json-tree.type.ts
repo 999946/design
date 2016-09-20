@@ -1,7 +1,16 @@
 import * as React from 'react'
+import {TreePropsDefine} from '../../tree/index'
 
-export interface PropsDefine {
+export interface PropsDefine extends TreePropsDefine, CommonModel.TransmitTransparentlyProps {
+    /**
+     * 期望展示的对象
+     */
+    json: Object
 
+    /**
+     * 是否有默认root级
+     */
+    root?: boolean
 }
 
 export class PropsGaea {
@@ -11,7 +20,8 @@ export class PropsGaea {
 }
 
 export class Props extends PropsGaea implements PropsDefine {
-
+    json = {}
+    root = false
 }
 
 export interface StateDefine {

@@ -70,6 +70,8 @@ export interface TabPanelPropsDefine {}
                 declare module 'nt-web-tree' {    
                     export interface Tree {}
 export interface TreePropsDefine {}
+export interface TreeNode {}
+export interface TreeNodePropsDefine {}
 
                 }
             

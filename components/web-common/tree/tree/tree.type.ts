@@ -1,8 +1,17 @@
 import * as React from 'react'
-import * as ReactNative from 'react-native'
 
-export interface PropsDefine extends ReactNative.ViewProperties {
+export interface PropsDefine extends CommonModel.TransmitTransparentlyProps {
+    /**
+     * 默认是否展开全部
+     */
+    defaultExpendAll?: boolean
 
+    /**
+     * 点击箭头才会展开
+     */
+    toggleByArrow?: boolean
+
+    others?: any
 }
 
 export class PropsGaea {
@@ -12,7 +21,8 @@ export class PropsGaea {
 }
 
 export class Props extends PropsGaea implements PropsDefine {
-
+    defaultExpendAll = false
+    toggleByArrow = false
 }
 
 export interface StateDefine {
