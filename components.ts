@@ -30,16 +30,28 @@ export default [{
         chinese: '手风琴',
         isWeb: true
     }, {
-        name: 'tree',
-        chinese: '折叠树',
-        isWeb: true
-    }, {
         name: 'tooltip',
         chinese: '工具提示',
         isWeb: true
     }, {
         name: 'message',
         chinese: '全局消息',
+        isWeb: true
+    }, {
+        name: 'modal',
+        chinese: '模态框',
+        isWeb: true
+    }, {
+        name: 'tabs',
+        chinese: '标签页',
+        isWeb: true
+    }, {
+        name: 'tree',
+        chinese: '树',
+        isWeb: true
+    }, {
+        name: 'json-tree',
+        chinese: 'json 树',
         isWeb: true
     }, {
         name: 'margin-padding-editor',
