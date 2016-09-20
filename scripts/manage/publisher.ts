@@ -424,8 +424,33 @@ export default (publishFullPaths: Array<string>)=> {
         // 纯路径部分 split
         const publishFullComponentPathSplit = publishFullPathSplit[0].split('/')
 
-        console.log(publishFullComponentPathSplit)
-        realPublishFullPaths.push(publishFullPath)
+        if (publishFullComponentPathSplit.length === 1 && publishFullComponentPathSplit[0] === 'components') {
+            // 发布全部组件
+            components.forEach(category=> {
+                category.components.forEach(component=> {
+                    const publishPath = `${category.name}/${component.name}#${publishFullPathSplit[1]}`
+                    if (realPublishFullPaths.findIndex(real=>real === publishPath) === -1) {
+                        realPublishFullPaths.push(publishPath)
+                    }
+                })
+            })
+        } else if (publishFullComponentPathSplit.length === 2 && publishFullComponentPathSplit[0] === 'components') {
+            // 发布整个分类
+            components.forEach(category=> {
+                if (category.name === publishFullComponentPathSplit[1]) {
+                    category.components.forEach(component=> {
+                        const publishPath = `${category.name}/${component.name}#${publishFullPathSplit[1]}`
+                        if (realPublishFullPaths.findIndex(real=>real === publishPath) === -1) {
+                            realPublishFullPaths.push(publishPath)
+                        }
+                    })
+                }
+            })
+        } else {
+            if (realPublishFullPaths.findIndex(real=>real === publishFullPath) === -1) {
+                realPublishFullPaths.push(publishFullPath)
+            }
+        }
     })
 
     // 统计出所有要发布的组件（可能因为依赖而连带发布的）
