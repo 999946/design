@@ -306,35 +306,6 @@ routerMap.set('web-common/collapse', (callback: any) => {
                             })
                         })
                     })
-routerMap.set('web-common/tree', (callback: any) => {
-                        const demoLists: any = []
-                        const documents: any = []
-                        
-                        require.ensure([], function (require: any) {
-                            
-                        demoLists.push({
-                            Class: require('../components/web-common/tree/demo/basic').default,
-                            code: require('-!text!../../components/web-common/tree/demo/basic.tsx')
-                        })
-                    
-                            
-                        documents.push({
-                            type: require('../components/web-common/tree/tree/tree.type'),
-                            typeCode: require('-!text!../../components/web-common/tree/tree/tree.type.ts'),
-                            typePath: 'components/web-common/tree/tree/tree.type',
-                            componentName: 'Tree',
-                            sourceCode: require('-!text!../../components/web-common/tree/tree/tree.component.tsx')
-                        })
-                    
-                            
-                            callback({
-                                demos: demoLists,
-                                packageJson: JSON.parse(require('-!text!../components/web-common/tree/package.json')),
-                                documents,
-                                main: require('../components/web-common/tree/index')
-                            })
-                        })
-                    })
 routerMap.set('web-common/tooltip', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
@@ -417,9 +388,158 @@ routerMap.set('web-common/message', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/message/package.json')),
                                 documents,
                                 main: require('../components/web-common/message/index')
+                            })
+                        })
+                    })
+routerMap.set('web-common/modal', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/modal/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/modal/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/modal/demo/2.custom').default,
+                            code: require('-!text!../../components/web-common/modal/demo/2.custom.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/modal/demo/3.custom-button').default,
+                            code: require('-!text!../../components/web-common/modal/demo/3.custom-button.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/modal/demo/4.size').default,
+                            code: require('-!text!../../components/web-common/modal/demo/4.size.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/modal/demo/5.backdrop').default,
+                            code: require('-!text!../../components/web-common/modal/demo/5.backdrop.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/modal/modal/modal.type'),
+                            typeCode: require('-!text!../../components/web-common/modal/modal/modal.type.ts'),
+                            typePath: 'components/web-common/modal/modal/modal.type',
+                            componentName: 'Modal',
+                            sourceCode: require('-!text!../../components/web-common/modal/modal/modal.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/modal/index')
+                            })
+                        })
+                    })
+routerMap.set('web-common/tabs', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/tabs/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/tabs/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/tabs/demo/2.old-style').default,
+                            code: require('-!text!../../components/web-common/tabs/demo/2.old-style.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/tabs/tabs/tabs.type'),
+                            typeCode: require('-!text!../../components/web-common/tabs/tabs/tabs.type.ts'),
+                            typePath: 'components/web-common/tabs/tabs/tabs.type',
+                            componentName: 'Tabs',
+                            sourceCode: require('-!text!../../components/web-common/tabs/tabs/tabs.component.tsx')
+                        })
+                    
+                        documents.push({
+                            type: require('../components/web-common/tabs/tab-panel/tab-panel.type'),
+                            typeCode: require('-!text!../../components/web-common/tabs/tab-panel/tab-panel.type.ts'),
+                            typePath: 'components/web-common/tabs/tab-panel/tab-panel.type',
+                            componentName: 'TabPanel',
+                            sourceCode: require('-!text!../../components/web-common/tabs/tab-panel/tab-panel.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/tabs/index')
+                            })
+                        })
+                    })
+routerMap.set('web-common/tree', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/tree/demo/basic').default,
+                            code: require('-!text!../../components/web-common/tree/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/tree/tree/tree.type'),
+                            typeCode: require('-!text!../../components/web-common/tree/tree/tree.type.ts'),
+                            typePath: 'components/web-common/tree/tree/tree.type',
+                            componentName: 'Tree',
+                            sourceCode: require('-!text!../../components/web-common/tree/tree/tree.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/tree/package.json')),
+                                documents,
+                                main: require('../components/web-common/tree/index')
+                            })
+                        })
+                    })
+routerMap.set('web-common/json-tree', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/json-tree/demo/basic').default,
+                            code: require('-!text!../../components/web-common/json-tree/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/json-tree/json-tree/json-tree.type'),
+                            typeCode: require('-!text!../../components/web-common/json-tree/json-tree/json-tree.type.ts'),
+                            typePath: 'components/web-common/json-tree/json-tree/json-tree.type',
+                            componentName: 'JsonTree',
+                            sourceCode: require('-!text!../../components/web-common/json-tree/json-tree/json-tree.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/json-tree/index')
                             })
                         })
                     })

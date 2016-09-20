@@ -64,7 +64,7 @@ export default ()=> {
                         render() {
                             const classes = classNames({
                                 '_namespace': true,
-                                [this.props.classNames]: !!this.props.classNames
+                                [this.props.className]: !!this.props.className
                             })
                         
                             return (

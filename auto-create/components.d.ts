@@ -41,12 +41,6 @@ export interface CollPanelPropsDefine {}
 
                 }
             
-                declare module 'nt-web-tree' {    
-                    export interface Tree {}
-export interface TreePropsDefine {}
-
-                }
-            
                 declare module 'nt-web-tooltip' {    
                     export interface Tooltip {}
 export interface TooltipPropsDefine {}
@@ -56,6 +50,32 @@ export interface TooltipPropsDefine {}
                 declare module 'nt-web-message' {    
                     export interface Message {}
 export interface MessagePropsDefine {}
+
+                }
+            
+                declare module 'nt-web-modal' {    
+                    export interface Modal {}
+export interface ModalPropsDefine {}
+
+                }
+            
+                declare module 'nt-web-tabs' {    
+                    export interface Tabs {}
+export interface TabsPropsDefine {}
+export interface TabPanel {}
+export interface TabPanelPropsDefine {}
+
+                }
+            
+                declare module 'nt-web-tree' {    
+                    export interface Tree {}
+export interface TreePropsDefine {}
+
+                }
+            
+                declare module 'nt-web-json-tree' {    
+                    export interface JsonTree {}
+export interface JsonTreePropsDefine {}
 
                 }
             
