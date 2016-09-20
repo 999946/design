@@ -1,69 +1,24 @@
 "use strict";
 
-var _createClass = function () {
-    function defineProperties(target, props) {
-        for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i];
-            descriptor.enumerable = descriptor.enumerable || false;
-            descriptor.configurable = true;
-            if ("value" in descriptor) descriptor.writable = true;
-            Object.defineProperty(target, descriptor.key, descriptor);
-        }
-    }
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-    return function (Constructor, protoProps, staticProps) {
-        if (protoProps) defineProperties(Constructor.prototype, protoProps);
-        if (staticProps) defineProperties(Constructor, staticProps);
-        return Constructor;
-    };
-}();
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _defineProperty(obj, key, value) {
-    if (key in obj) {
-        Object.defineProperty(obj, key, {value: value, enumerable: true, configurable: true, writable: true});
-    } else {
-        obj[key] = value;
-    }
-    return obj;
-}
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
-    }
-}
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _possibleConstructorReturn(self, call) {
-    if (!self) {
-        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    }
-    return call && (typeof call === "object" || typeof call === "function") ? call : self;
-}
-
-function _inherits(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) {
-        throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-    }
-    subClass.prototype = Object.create(superClass && superClass.prototype, {
-        constructor: {
-            value       : subClass,
-            enumerable  : false,
-            writable    : true,
-            configurable: true
-        }
-    });
-    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var __assign = undefined && undefined.__assign || Object.assign || function (t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) {
-                if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-            }
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) {
+            if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
         }
-        return t;
-    };
+    }
+    return t;
+};
 var React = require('react');
 var typings = require('./collapse.type');
 var classNames = require('classnames');
@@ -87,7 +42,7 @@ var Collapse = function (_React$Component) {
     }
 
     _createClass(Collapse, [{
-        key  : 'componentWillMount',
+        key: 'componentWillMount',
         value: function componentWillMount() {
             var activeKey = this.props.value || this.props.defaultValue;
             if (!this.props.accordion && !_.isArray(activeKey)) {
@@ -98,7 +53,7 @@ var Collapse = function (_React$Component) {
             });
         }
     }, {
-        key  : 'componentWillReceiveProps',
+        key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(nextProps) {
             if ('value' in nextProps) {
                 var activeKey = nextProps.value || nextProps.defaultValue;
@@ -111,7 +66,7 @@ var Collapse = function (_React$Component) {
             }
         }
     }, {
-        key  : 'handleChange',
+        key: 'handleChange',
         value: function handleChange(key) {
             var _this2 = this;
 
@@ -140,7 +95,7 @@ var Collapse = function (_React$Component) {
             });
         }
     }, {
-        key  : 'render',
+        key: 'render',
         value: function render() {
             var _this3 = this;
 
@@ -149,13 +104,13 @@ var Collapse = function (_React$Component) {
             }, this.props.className, !!this.props.className));
             var Children = React.Children.map(this.props.children, function (item) {
                 return React.cloneElement(item, {
-                    active   : arrayOrStrEqual(item.key, _this3.state.value),
-                    onChange : _this3.handleChange.bind(_this3),
-                    key      : item.key,
+                    active: arrayOrStrEqual(item.key, _this3.state.value),
+                    onChange: _this3.handleChange.bind(_this3),
+                    key: item.key,
                     activeKey: item.key
                 });
             });
-            return React.createElement("div", __assign({}, this.props.others, {className: classes}), Children);
+            return React.createElement("div", __assign({}, this.props.others, { className: classes }), Children);
         }
     }]);
 
@@ -163,5 +118,5 @@ var Collapse = function (_React$Component) {
 }(React.Component);
 
 Collapse.defaultProps = new typings.Props();
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Collapse;

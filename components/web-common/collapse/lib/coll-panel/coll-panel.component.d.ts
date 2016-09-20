@@ -7,14 +7,9 @@ export default class Collapse extends React.Component<typings.PropsDefine, typin
     private toggleTimeout;
     private $dom;
     private height;
-
     constructor(props: any);
-
     componentDidMount(): void;
-
     componentWillReceiveProps(): void;
-
     handleClick(): void;
-
     render(): JSX.Element;
 }
