@@ -1,6 +1,6 @@
 {
   "name": "nt-web-json-tree",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "json 树",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -13,6 +13,12 @@
   ],
   "author": "ascoders",
   "license": "ISC",
-  "dependencies": {},
-  "peerDependencies": {}
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "nt-web-tree": "^1.0.0",
+    "nt-transmit-transparently": "^1.0.2"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0"
+  }
 }
