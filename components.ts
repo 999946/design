@@ -143,11 +143,11 @@ export default [{
     prefix: 'nt-editor',
     isPrivate: true,
     components: [{
-        name: 'gaea',
-        chinese: '盖亚',
+        name: 'gaea-editor',
+        chinese: '盖亚-编辑器',
         isWeb: true,
-        git: 'https://github.com/ascoders/gaea.git',
-        npm: 'gaea'
+        git: 'https://github.com/ascoders/gaea-editor.git',
+        npm: 'gaea-editor'
     }, {
         name: 'gaea-preview',
         chinese: '盖亚-查看器',
