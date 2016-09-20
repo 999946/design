@@ -143,13 +143,13 @@ export default [{
     prefix: 'nt-editor',
     isPrivate: true,
     components: [{
-        name: 'image',
+        name: 'gaea',
         chinese: '盖亚',
         isWeb: true,
         git: 'https://github.com/ascoders/gaea.git',
         npm: 'gaea'
     }, {
-        name: 'resource-card',
+        name: 'gaea-preview',
         chinese: '盖亚-查看器',
         isWeb: true,
         isAndroid: true,
@@ -157,13 +157,13 @@ export default [{
         git: 'https://github.com/ascoders/gaea-preview.git',
         npm: 'gaea-preview'
     }, {
-        name: 'navbar',
+        name: 'gaea-web-components',
         chinese: '盖亚-网页组件',
         isWeb: true,
         git: 'https://github.com/ascoders/gaea-web-components.git',
         npm: 'gaea-web-components'
     }, {
-        name: 'navbar',
+        name: 'gaea-web-components',
         chinese: '盖亚-原生组件',
         isWeb: true,
         isAndroid: true,
