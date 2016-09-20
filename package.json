@@ -1,0 +1,23 @@
+{
+  "name": "nt-web-message",
+  "version": "1.0.0",
+  "description": "全局消息",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/next-component/web-common-message.git"
+  },
+  "keywords": [
+    "message"
+  ],
+  "author": "ascoders",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.5"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
+  }
+}
