@@ -11,6 +11,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import consoleLog from './utils/console-log'
 import * as trimString from '../../utils/trim-string'
+import * as ts from 'typescript'
 const autoCreate = 'auto-create'
 
 /**
@@ -128,7 +129,24 @@ export default ()=> {
                         // 试试 .tsx
                         typeExt = '.tsx'
                         if (!fs.existsSync(exportTypeAbsolutePath + typeExt)) {
-                            consoleLog.error(`${exportTypeAbsolutePath} 文件不存在`)
+                            consoleLog.error(`${exportTypeAbsolutePath + typeExt} 文件不存在`)
+                        }
+                    }
+
+                    // 找到源代码路径
+                    // 找到导出入口，必须保证入口文件只有一个 export {}，可以有 export default, 不受干扰
+                    const sourcePattern = new RegExp(`import\\s+.*${trimString.trimStringEnd(exportName, 'PropsDefine')}.*\\s+from\\s+\\'([^']+)\\'`)
+                    // 引用资源的路径
+                    const sourceExportPath = sourcePattern.exec(mainSource)[1]
+                    // 源码文件完整路径
+                    const sourceExportAbsolutePath = path.join(componentAbsolutePath, sourceExportPath)
+                    let sourceExt = '.tsx'
+
+                    if (!fs.existsSync(sourceExportAbsolutePath + sourceExt)) {
+                        // 试试 .tsx
+                        sourceExt = '.ts'
+                        if (!fs.existsSync(sourceExportAbsolutePath + sourceExt)) {
+                            consoleLog.error(`${sourceExportAbsolutePath + sourceExt} 文件不存在`)
                         }
                     }
 
@@ -137,7 +155,8 @@ export default ()=> {
                             type: require('../${exportTypeAbsolutePath}'),
                             typeCode: require('-!text!../../${exportTypeAbsolutePath}${typeExt}'),
                             typePath: '${exportTypeAbsolutePath}',
-                            componentName: '${moduleName}'
+                            componentName: '${moduleName}',
+                            sourceCode: require('-!text!../../${sourceExportAbsolutePath}${sourceExt}')
                         })
                     `
                 })

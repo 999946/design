@@ -53,6 +53,12 @@ export interface TooltipPropsDefine {}
 
                 }
             
+                declare module 'nt-web-message' {    
+                    export interface Message {}
+export interface MessagePropsDefine {}
+
+                }
+            
                 declare module 'nt-web-margin-padding-editor' {    
                     export interface MarginPaddingEditor {}
 export interface MarginPaddingEditorPropsDefine {}

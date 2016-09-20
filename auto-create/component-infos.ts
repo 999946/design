@@ -24,14 +24,16 @@
                             type: require('../components/web-common/button/button/button.type'),
                             typeCode: require('-!text!../../components/web-common/button/button/button.type.ts'),
                             typePath: 'components/web-common/button/button/button.type',
-                            componentName: 'Button'
+                            componentName: 'Button',
+                            sourceCode: require('-!text!../../components/web-common/button/button/button.component.tsx')
                         })
                     
                         documents.push({
                             type: require('../components/web-common/button/button-group/button-group.type'),
                             typeCode: require('-!text!../../components/web-common/button/button-group/button-group.type.ts'),
                             typePath: 'components/web-common/button/button-group/button-group.type',
-                            componentName: 'ButtonGroup'
+                            componentName: 'ButtonGroup',
+                            sourceCode: require('-!text!../../components/web-common/button/button-group/button-group.component.tsx')
                         })
                     
                             
@@ -94,7 +96,8 @@ routerMap.set('web-common/input', (callback: any) => {
                             type: require('../components/web-common/input/input/input.type'),
                             typeCode: require('-!text!../../components/web-common/input/input/input.type.ts'),
                             typePath: 'components/web-common/input/input/input.type',
-                            componentName: 'Input'
+                            componentName: 'Input',
+                            sourceCode: require('-!text!../../components/web-common/input/input/input.component.tsx')
                         })
                     
                             
@@ -142,7 +145,8 @@ routerMap.set('web-common/switch', (callback: any) => {
                             type: require('../components/web-common/switch/switch/switch.type'),
                             typeCode: require('-!text!../../components/web-common/switch/switch/switch.type.ts'),
                             typePath: 'components/web-common/switch/switch/switch.type',
-                            componentName: 'Switch'
+                            componentName: 'Switch',
+                            sourceCode: require('-!text!../../components/web-common/switch/switch/switch.component.tsx')
                         })
                     
                             
@@ -195,14 +199,16 @@ routerMap.set('web-common/radio', (callback: any) => {
                             type: require('../components/web-common/radio/radio/radio.type'),
                             typeCode: require('-!text!../../components/web-common/radio/radio/radio.type.ts'),
                             typePath: 'components/web-common/radio/radio/radio.type',
-                            componentName: 'Radio'
+                            componentName: 'Radio',
+                            sourceCode: require('-!text!../../components/web-common/radio/radio/radio.component.tsx')
                         })
                     
                         documents.push({
                             type: require('../components/web-common/radio/radio-group/radio-group.type'),
                             typeCode: require('-!text!../../components/web-common/radio/radio-group/radio-group.type.ts'),
                             typePath: 'components/web-common/radio/radio-group/radio-group.type',
-                            componentName: 'RadioGroup'
+                            componentName: 'RadioGroup',
+                            sourceCode: require('-!text!../../components/web-common/radio/radio-group/radio-group.component.tsx')
                         })
                     
                             
@@ -245,7 +251,8 @@ routerMap.set('web-common/checkbox', (callback: any) => {
                             type: require('../components/web-common/checkbox/checkbox/checkbox.type'),
                             typeCode: require('-!text!../../components/web-common/checkbox/checkbox/checkbox.type.ts'),
                             typePath: 'components/web-common/checkbox/checkbox/checkbox.type',
-                            componentName: 'Checkbox'
+                            componentName: 'Checkbox',
+                            sourceCode: require('-!text!../../components/web-common/checkbox/checkbox/checkbox.component.tsx')
                         })
                     
                             
@@ -278,14 +285,16 @@ routerMap.set('web-common/collapse', (callback: any) => {
                             type: require('../components/web-common/collapse/collapse/collapse.type'),
                             typeCode: require('-!text!../../components/web-common/collapse/collapse/collapse.type.ts'),
                             typePath: 'components/web-common/collapse/collapse/collapse.type',
-                            componentName: 'Collapse'
+                            componentName: 'Collapse',
+                            sourceCode: require('-!text!../../components/web-common/collapse/collapse/collapse.component.tsx')
                         })
                     
                         documents.push({
                             type: require('../components/web-common/collapse/coll-panel/coll-panel.type'),
                             typeCode: require('-!text!../../components/web-common/collapse/coll-panel/coll-panel.type.ts'),
                             typePath: 'components/web-common/collapse/coll-panel/coll-panel.type',
-                            componentName: 'CollPanel'
+                            componentName: 'CollPanel',
+                            sourceCode: require('-!text!../../components/web-common/collapse/coll-panel/coll-panel.component.tsx')
                         })
                     
                             
@@ -313,7 +322,8 @@ routerMap.set('web-common/tree', (callback: any) => {
                             type: require('../components/web-common/tree/tree/tree.type'),
                             typeCode: require('-!text!../../components/web-common/tree/tree/tree.type.ts'),
                             typePath: 'components/web-common/tree/tree/tree.type',
-                            componentName: 'Tree'
+                            componentName: 'Tree',
+                            sourceCode: require('-!text!../../components/web-common/tree/tree/tree.component.tsx')
                         })
                     
                             
@@ -356,7 +366,8 @@ routerMap.set('web-common/tooltip', (callback: any) => {
                             type: require('../components/web-common/tooltip/tooltip/tooltip.type'),
                             typeCode: require('-!text!../../components/web-common/tooltip/tooltip/tooltip.type.tsx'),
                             typePath: 'components/web-common/tooltip/tooltip/tooltip.type',
-                            componentName: 'Tooltip'
+                            componentName: 'Tooltip',
+                            sourceCode: require('-!text!../../components/web-common/tooltip/tooltip/tooltip.component.tsx')
                         })
                     
                             
@@ -365,6 +376,50 @@ routerMap.set('web-common/tooltip', (callback: any) => {
                                 packageJson: JSON.parse(require('-!text!../components/web-common/tooltip/package.json')),
                                 documents,
                                 main: require('../components/web-common/tooltip/index')
+                            })
+                        })
+                    })
+routerMap.set('web-common/message', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/message/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/message/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/message/demo/2.callback').default,
+                            code: require('-!text!../../components/web-common/message/demo/2.callback.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/message/demo/3.duration').default,
+                            code: require('-!text!../../components/web-common/message/demo/3.duration.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/message/demo/4.type').default,
+                            code: require('-!text!../../components/web-common/message/demo/4.type.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/message/message/message.type'),
+                            typeCode: require('-!text!../../components/web-common/message/message/message.type.ts'),
+                            typePath: 'components/web-common/message/message/message.type',
+                            componentName: 'Message',
+                            sourceCode: require('-!text!../../components/web-common/message/message/message.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/message/index')
                             })
                         })
                     })
@@ -384,7 +439,8 @@ routerMap.set('web-common/margin-padding-editor', (callback: any) => {
                             type: require('../components/web-common/margin-padding-editor/margin-padding-editor/margin-padding-editor.type'),
                             typeCode: require('-!text!../../components/web-common/margin-padding-editor/margin-padding-editor/margin-padding-editor.type.ts'),
                             typePath: 'components/web-common/margin-padding-editor/margin-padding-editor/margin-padding-editor.type',
-                            componentName: 'MarginPaddingEditor'
+                            componentName: 'MarginPaddingEditor',
+                            sourceCode: require('-!text!../../components/web-common/margin-padding-editor/margin-padding-editor/margin-padding-editor.component.tsx')
                         })
                     
                             
@@ -437,7 +493,8 @@ routerMap.set('web-common/badge', (callback: any) => {
                             type: require('../components/web-common/badge/badge/badge.type'),
                             typeCode: require('-!text!../../components/web-common/badge/badge/badge.type.ts'),
                             typePath: 'components/web-common/badge/badge/badge.type',
-                            componentName: 'Badge'
+                            componentName: 'Badge',
+                            sourceCode: require('-!text!../../components/web-common/badge/badge/badge.component.tsx')
                         })
                     
                             
@@ -470,7 +527,8 @@ routerMap.set('web-common/loading', (callback: any) => {
                             type: require('../components/web-common/loading/loading/loading.type'),
                             typeCode: require('-!text!../../components/web-common/loading/loading/loading.type.ts'),
                             typePath: 'components/web-common/loading/loading/loading.type',
-                            componentName: 'Loading'
+                            componentName: 'Loading',
+                            sourceCode: require('-!text!../../components/web-common/loading/loading/loading.component.tsx')
                         })
                     
                             
@@ -508,7 +566,8 @@ routerMap.set('web-common/timeago', (callback: any) => {
                             type: require('../components/web-common/timeago/timeago/timeago.type'),
                             typeCode: require('-!text!../../components/web-common/timeago/timeago/timeago.type.ts'),
                             typePath: 'components/web-common/timeago/timeago/timeago.type',
-                            componentName: 'Timeago'
+                            componentName: 'Timeago',
+                            sourceCode: require('-!text!../../components/web-common/timeago/timeago/timeago.component.tsx')
                         })
                     
                             
@@ -536,7 +595,8 @@ routerMap.set('web-common/image-preload', (callback: any) => {
                             type: require('../components/web-common/image-preload/image-preload/image-preload.type'),
                             typeCode: require('-!text!../../components/web-common/image-preload/image-preload/image-preload.type.ts'),
                             typePath: 'components/web-common/image-preload/image-preload/image-preload.type',
-                            componentName: 'ImagePreload'
+                            componentName: 'ImagePreload',
+                            sourceCode: require('-!text!../../components/web-common/image-preload/image-preload/image-preload.component.tsx')
                         })
                     
                             
@@ -584,7 +644,8 @@ routerMap.set('common/image', (callback: any) => {
                             type: require('../components/common/image/image/image.type'),
                             typeCode: require('-!text!../../components/common/image/image/image.type.ts'),
                             typePath: 'components/common/image/image/image.type',
-                            componentName: 'Image'
+                            componentName: 'Image',
+                            sourceCode: require('-!text!../../components/common/image/image/image.component.tsx')
                         })
                     
                             
@@ -617,7 +678,8 @@ routerMap.set('common/gif', (callback: any) => {
                             type: require('../components/common/gif/gif/gif.type'),
                             typeCode: require('-!text!../../components/common/gif/gif/gif.type.ts'),
                             typePath: 'components/common/gif/gif/gif.type',
-                            componentName: 'Gif'
+                            componentName: 'Gif',
+                            sourceCode: require('-!text!../../components/common/gif/gif/gif.component.tsx')
                         })
                     
                             
@@ -645,7 +707,8 @@ routerMap.set('common/image-zoom', (callback: any) => {
                             type: require('../components/common/image-zoom/image-zoom/image-zoom.type'),
                             typeCode: require('-!text!../../components/common/image-zoom/image-zoom/image-zoom.type.ts'),
                             typePath: 'components/common/image-zoom/image-zoom/image-zoom.type',
-                            componentName: 'ImageZoom'
+                            componentName: 'ImageZoom',
+                            sourceCode: require('-!text!../../components/common/image-zoom/image-zoom/image-zoom.component.tsx')
                         })
                     
                             
@@ -673,7 +736,8 @@ routerMap.set('common/image-viewer', (callback: any) => {
                             type: require('../components/common/image-viewer/image-viewer/image-viewer.type'),
                             typeCode: require('-!text!../../components/common/image-viewer/image-viewer/image-viewer.type.ts'),
                             typePath: 'components/common/image-viewer/image-viewer/image-viewer.type',
-                            componentName: 'ImageViewer'
+                            componentName: 'ImageViewer',
+                            sourceCode: require('-!text!../../components/common/image-viewer/image-viewer/image-viewer.component.tsx')
                         })
                     
                             
@@ -706,14 +770,16 @@ routerMap.set('common/transmit-transparently', (callback: any) => {
                             type: require('../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type'),
                             typeCode: require('-!text!../../components/common/transmit-transparently/transmit-transparently/transmit-transparently.type.ts'),
                             typePath: 'components/common/transmit-transparently/transmit-transparently/transmit-transparently.type',
-                            componentName: 'TransmitTransparently'
+                            componentName: 'TransmitTransparently',
+                            sourceCode: require('-!text!../../components/common/transmit-transparently/transmit-transparently/transmit-transparently.component.tsx')
                         })
                     
                         documents.push({
                             type: require('../components/common/transmit-transparently/others/others.type'),
                             typeCode: require('-!text!../../components/common/transmit-transparently/others/others.type.ts'),
                             typePath: 'components/common/transmit-transparently/others/others.type',
-                            componentName: 'others'
+                            componentName: 'others',
+                            sourceCode: require('-!text!../../components/common/transmit-transparently/others/others.type.ts')
                         })
                     
                             
@@ -746,14 +812,16 @@ routerMap.set('common/auto-bind', (callback: any) => {
                             type: require('../components/common/auto-bind/auto-bind-method/auto-bind-method.type'),
                             typeCode: require('-!text!../../components/common/auto-bind/auto-bind-method/auto-bind-method.type.ts'),
                             typePath: 'components/common/auto-bind/auto-bind-method/auto-bind-method.type',
-                            componentName: 'autoBindMethod'
+                            componentName: 'autoBindMethod',
+                            sourceCode: require('-!text!../../components/common/auto-bind/auto-bind-method/auto-bind-method.type.ts')
                         })
                     
                         documents.push({
                             type: require('../components/common/auto-bind/auto-bind-class/auto-bind-class.type'),
                             typeCode: require('-!text!../../components/common/auto-bind/auto-bind-class/auto-bind-class.type.ts'),
                             typePath: 'components/common/auto-bind/auto-bind-class/auto-bind-class.type',
-                            componentName: 'autoBindClass'
+                            componentName: 'autoBindClass',
+                            sourceCode: require('-!text!../../components/common/auto-bind/auto-bind-class/auto-bind-class.type.ts')
                         })
                     
                             
@@ -791,7 +859,8 @@ routerMap.set('wefan/image', (callback: any) => {
                             type: require('../components/wefan/image/image/image.type'),
                             typeCode: require('-!text!../../components/wefan/image/image/image.type.ts'),
                             typePath: 'components/wefan/image/image/image.type',
-                            componentName: 'Image'
+                            componentName: 'Image',
+                            sourceCode: require('-!text!../../components/wefan/image/image/image.component.tsx')
                         })
                     
                             
@@ -829,7 +898,8 @@ routerMap.set('wefan/resource-card', (callback: any) => {
                             type: require('../components/wefan/resource-card/resource-card/resource-card.type'),
                             typeCode: require('-!text!../../components/wefan/resource-card/resource-card/resource-card.type.ts'),
                             typePath: 'components/wefan/resource-card/resource-card/resource-card.type',
-                            componentName: 'ResourceCard'
+                            componentName: 'ResourceCard',
+                            sourceCode: require('-!text!../../components/wefan/resource-card/resource-card/resource-card.component.tsx')
                         })
                     
                             
@@ -857,7 +927,8 @@ routerMap.set('wefan/navbar', (callback: any) => {
                             type: require('../components/wefan/navbar/navbar/navbar.type'),
                             typeCode: require('-!text!../../components/wefan/navbar/navbar/navbar.type.tsx'),
                             typePath: 'components/wefan/navbar/navbar/navbar.type',
-                            componentName: 'Navbar'
+                            componentName: 'Navbar',
+                            sourceCode: require('-!text!../../components/wefan/navbar/navbar/navbar.component.tsx')
                         })
                     
                             
