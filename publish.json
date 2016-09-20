@@ -52,7 +52,7 @@
       },
       "packageJson": {
         "name": "gaea",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "description": "盖亚",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -84,7 +84,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.1"
+    "preVersion": "0.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -141,7 +141,7 @@
       },
       "packageJson": {
         "name": "gaea-preview",
-        "version": "0.0.0",
+        "version": "0.0.1",
         "description": "盖亚-查看器",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -154,8 +154,12 @@
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {},
-        "peerDependencies": {}
+        "dependencies": {
+          "classnames": "^2.2.5"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0"
+        }
       },
       "dependence": [
         {
@@ -169,7 +173,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.0"
+    "preVersion": "0.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -224,7 +228,7 @@
       },
       "packageJson": {
         "name": "gaea-web-components",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "description": "盖亚-网页组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -256,7 +260,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.1"
+    "preVersion": "0.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -313,7 +317,7 @@
       },
       "packageJson": {
         "name": "gaea-native-components",
-        "version": "0.0.0",
+        "version": "0.0.1",
         "description": "盖亚-原生组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -326,8 +330,12 @@
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {},
-        "peerDependencies": {}
+        "dependencies": {
+          "classnames": "^2.2.5"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0"
+        }
       },
       "dependence": [
         {
@@ -341,6 +349,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.0"
+    "preVersion": "0.0.1"
   }
 ]
