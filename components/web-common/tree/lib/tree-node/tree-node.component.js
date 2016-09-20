@@ -31,9 +31,9 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
 };
 var React = require('react');
 var classNames = require('classnames');
-var typings = require('./tree.type');
+var typings = require('./tree-node.type');
 var index_1 = require('nt-transmit-transparently');
-require('../font/index.css');
+require('./tree-node.css');
 var Tree = function (_React$Component) {
     _inherits(Tree, _React$Component);
 
@@ -53,20 +53,55 @@ var Tree = function (_React$Component) {
     }
 
     _createClass(Tree, [{
+        key: "componentWillMount",
+        value: function componentWillMount() {
+            this.setState({
+                showChildren: this.props.defaultExpendAll || this.props.showChildren
+            });
+        }
+    }, {
+        key: "handleContainerClick",
+        value: function handleContainerClick(event) {
+            this.props.onClick(event);
+            if (!this.props.toggleByArrow) {
+                this.setState({
+                    showChildren: !this.state.showChildren
+                });
+                this.props.onToggleShow(event);
+            }
+        }
+    }, {
+        key: "handleArrowClick",
+        value: function handleArrowClick(event) {
+            this.setState({
+                showChildren: !this.state.showChildren
+            });
+            this.props.onToggleShow(event);
+        }
+    }, {
         key: "render",
         value: function render() {
             var _this2 = this;
 
             var classes = classNames(_defineProperty({
-                'nt-web-tree-tree': true
+                'nt-web-tree-tree_node': true
             }, this.props.className, !!this.props.className));
-            var Children = React.Children.map(this.props.children, function (item) {
-                return React.cloneElement(item, {
-                    defaultExpendAll: _this2.props.defaultExpendAll,
-                    toggleByArrow: _this2.props.toggleByArrow
-                });
+            var childrenStyle = {
+                'display': this.state.showChildren ? 'block' : null
+            };
+            var titleCaretClass = classNames({
+                'fit-tree-right': true,
+                'down': this.state.showChildren
             });
-            return React.createElement("div", __assign({}, this.props.others, { className: classes }), Children);
+            var Children = React.Children.map(this.props.children, function (item) {
+                if (item) {
+                    return React.cloneElement(item, {
+                        defaultExpendAll: _this2.props.defaultExpendAll,
+                        toggleByArrow: _this2.props.toggleByArrow
+                    });
+                }
+            });
+            return React.createElement("div", __assign({}, this.props.others, { className: classes }), React.createElement("div", { onClick: this.handleContainerClick.bind(this), className: "title" }, React.Children.count(this.props.children) > 0 ? React.createElement("div", { className: "title-caret", onClick: this.handleArrowClick.bind(this) }, React.createElement("i", { className: titleCaretClass })) : React.createElement("div", { className: "empty-caret" }), this.props.title || this.props.render()), React.createElement("div", { style: childrenStyle, className: "children" }, Children ? Children : null));
         }
     }]);
 

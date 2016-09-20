@@ -30,49 +30,83 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
     }return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var React = require('react');
+var typings = require('./json-tree.type');
 var classNames = require('classnames');
-var typings = require('./tree.type');
-var index_1 = require('nt-transmit-transparently');
-require('../font/index.css');
-var Tree = function (_React$Component) {
-    _inherits(Tree, _React$Component);
+var index_1 = require('nt-web-tree');
+var index_2 = require('nt-transmit-transparently');
+require('./json-tree.css');
+var stringRender = function stringRender(obj, key) {
+    return React.createElement("div", null, React.createElement("span", { className: "key" }, key), ":", React.createElement("span", { className: "string" }, " \"", obj[key], "\""));
+};
+var numberRender = function numberRender(obj, key) {
+    return React.createElement("div", null, React.createElement("span", { className: "key" }, key), ":", React.createElement("span", { className: "number" }, " ", obj[key]));
+};
+var boolRender = function boolRender(obj, key) {
+    return React.createElement("div", null, React.createElement("span", { className: "key" }, key), ":", React.createElement("span", { className: "bool" }, " ", obj[key] ? "true" : "false"));
+};
+var arrayRender = function arrayRender(obj, key) {
+    return React.createElement("div", null, React.createElement("span", { className: "key" }, key), ":", React.createElement("span", { className: "array" }, " Array[", obj[key].length, "]"));
+};
+var objectRender = function objectRender(obj, key) {
+    return React.createElement("div", null, React.createElement("span", { className: "key" }, key), ":", React.createElement("span", { className: "object" }, " Object"));
+};
+var parseJson = function parseJson(obj) {
+    return Object.keys(obj).map(function (key, index) {
+        switch (obj[key].constructor.name) {
+            case 'String':
+                return React.createElement(index_1.TreeNode, { render: stringRender.bind(undefined, obj, key), key: index });
+            case 'Number':
+                return React.createElement(index_1.TreeNode, { render: numberRender.bind(undefined, obj, key), key: index });
+            case 'Boolean':
+                return React.createElement(index_1.TreeNode, { render: boolRender.bind(undefined, obj, key), key: index });
+            case 'Array':
+                var arrayChilds = parseJson(obj[key]);
+                return React.createElement(index_1.TreeNode, { render: arrayRender.bind(undefined, obj, key), key: index }, arrayChilds);
+            case 'Object':
+                var objChilds = parseJson(obj[key]);
+                return React.createElement(index_1.TreeNode, { render: objectRender.bind(undefined, obj, key), key: index }, objChilds);
+        }
+    });
+};
+var JsonTree = function (_React$Component) {
+    _inherits(JsonTree, _React$Component);
 
-    function Tree() {
+    function JsonTree() {
         var _ref;
 
-        _classCallCheck(this, Tree);
+        _classCallCheck(this, JsonTree);
 
         for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
             args[_key] = arguments[_key];
         }
 
-        var _this = _possibleConstructorReturn(this, (_ref = Tree.__proto__ || Object.getPrototypeOf(Tree)).call.apply(_ref, [this].concat(args)));
+        var _this = _possibleConstructorReturn(this, (_ref = JsonTree.__proto__ || Object.getPrototypeOf(JsonTree)).call.apply(_ref, [this].concat(args)));
 
         _this.state = new typings.State();
         return _this;
     }
 
-    _createClass(Tree, [{
+    _createClass(JsonTree, [{
         key: "render",
         value: function render() {
-            var _this2 = this;
-
             var classes = classNames(_defineProperty({
-                'nt-web-tree-tree': true
+                'nt-web-json-tree-json_tree': true
             }, this.props.className, !!this.props.className));
-            var Children = React.Children.map(this.props.children, function (item) {
-                return React.cloneElement(item, {
-                    defaultExpendAll: _this2.props.defaultExpendAll,
-                    toggleByArrow: _this2.props.toggleByArrow
+            var TreeContent = void 0;
+            if (this.props.root) {
+                TreeContent = parseJson({
+                    root: this.props.json
                 });
-            });
-            return React.createElement("div", __assign({}, this.props.others, { className: classes }), Children);
+            } else {
+                TreeContent = parseJson(this.props.json);
+            }
+            return React.createElement(index_1.Tree, __assign({ className: classes }, this.props.others), TreeContent);
         }
     }]);
 
-    return Tree;
+    return JsonTree;
 }(React.Component);
-Tree.defaultProps = new typings.Props();
-Tree = __decorate([index_1.TransmitTransparently()], Tree);
+JsonTree.defaultProps = new typings.Props();
+JsonTree = __decorate([index_2.TransmitTransparently()], JsonTree);
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = Tree;
+exports.default = JsonTree;

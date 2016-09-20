@@ -1,7 +1,7 @@
-export interface PropsDefine extends CommonModel.TransmitTransparentlyProps {
-    defaultExpendAll?: boolean;
-    toggleByArrow?: boolean;
-    others?: any;
+import { TreePropsDefine } from  'nt-web-tree';
+export interface PropsDefine extends TreePropsDefine, CommonModel.TransmitTransparentlyProps {
+    json: Object;
+    root?: boolean;
 }
 export declare class PropsGaea {
     gaeaName: string;
@@ -9,8 +9,8 @@ export declare class PropsGaea {
     gaeaUniqueKey: string;
 }
 export declare class Props extends PropsGaea implements PropsDefine {
-    defaultExpendAll: boolean;
-    toggleByArrow: boolean;
+    json: {};
+    root: boolean;
 }
 export interface StateDefine {
 }

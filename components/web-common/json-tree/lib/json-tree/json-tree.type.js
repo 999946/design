@@ -9,9 +9,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var PropsGaea = function PropsGaea() {
     _classCallCheck(this, PropsGaea);
 
-    this.gaeaName = '折叠树';
+    this.gaeaName = 'json 树';
     this.gaeaIcon = 'square-o';
-    this.gaeaUniqueKey = 'nt-web-tree';
+    this.gaeaUniqueKey = 'nt-web-json-tree';
 };
 
 exports.PropsGaea = PropsGaea;
@@ -30,8 +30,8 @@ var Props = function (_PropsGaea) {
 
         var _this = _possibleConstructorReturn(this, (_ref = Props.__proto__ || Object.getPrototypeOf(Props)).call.apply(_ref, [this].concat(args)));
 
-        _this.defaultExpendAll = false;
-        _this.toggleByArrow = false;
+        _this.json = {};
+        _this.root = false;
         return _this;
     }
 

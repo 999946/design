@@ -1,83 +1,122 @@
 [
   {
-    "userPublishLevel": "patch",
-    "publishLevel": "patch",
+    "userPublishLevel": "major",
+    "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "image-viewer",
-        "chinese": "大图浏览",
-        "git": "https://github.com/ascoders/react-native-image-viewer.git",
-        "npm": "react-native-image-zoom-viewer",
-        "isIos": true
+        "name": "tree",
+        "chinese": "树",
+        "isWeb": true
       },
       "category": {
-        "name": "common",
-        "chinese": "通用",
-        "prefix": "nt",
+        "name": "web-common",
+        "chinese": "web通用",
+        "prefix": "nt-web",
         "isPrivate": false,
         "components": [
           {
-            "name": "image",
-            "chinese": "图片",
-            "isWeb": true,
-            "isIos": true
+            "name": "button",
+            "chinese": "按钮",
+            "isWeb": true
           },
           {
-            "name": "gif",
-            "chinese": "GIF",
-            "isWeb": true,
-            "isIos": true
+            "name": "input",
+            "chinese": "输入框",
+            "isWeb": true
           },
           {
-            "name": "image-zoom",
-            "chinese": "图片手势操作",
-            "git": "https://github.com/ascoders/react-native-image-zoom.git",
-            "npm": "react-native-image-pan-zoom",
-            "isIos": true
+            "name": "switch",
+            "chinese": "开关",
+            "isWeb": true
           },
           {
-            "name": "image-viewer",
-            "chinese": "大图浏览",
-            "git": "https://github.com/ascoders/react-native-image-viewer.git",
-            "npm": "react-native-image-zoom-viewer",
-            "isIos": true
+            "name": "radio",
+            "chinese": "单选框",
+            "isWeb": true
           },
           {
-            "name": "transmit-transparently",
-            "chinese": "透传",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
+            "name": "checkbox",
+            "chinese": "多选框",
+            "isWeb": true
           },
           {
-            "name": "auto-bind",
-            "chinese": "自动绑定",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
+            "name": "collapse",
+            "chinese": "手风琴",
+            "isWeb": true
+          },
+          {
+            "name": "tooltip",
+            "chinese": "工具提示",
+            "isWeb": true
+          },
+          {
+            "name": "message",
+            "chinese": "全局消息",
+            "isWeb": true
+          },
+          {
+            "name": "modal",
+            "chinese": "模态框",
+            "isWeb": true
+          },
+          {
+            "name": "tabs",
+            "chinese": "标签页",
+            "isWeb": true
+          },
+          {
+            "name": "tree",
+            "chinese": "树",
+            "isWeb": true
+          },
+          {
+            "name": "json-tree",
+            "chinese": "json 树",
+            "isWeb": true
+          },
+          {
+            "name": "margin-padding-editor",
+            "chinese": "内/外边距编辑器",
+            "isWeb": true
+          },
+          {
+            "name": "badge",
+            "chinese": "徽标",
+            "isWeb": true
+          },
+          {
+            "name": "loading",
+            "chinese": "进度条",
+            "isWeb": true
+          },
+          {
+            "name": "timeago",
+            "chinese": "友好时间",
+            "isWeb": true
+          },
+          {
+            "name": "image-preload",
+            "chinese": "图片预加载",
+            "isWeb": true
           }
         ]
       },
       "packageJson": {
-        "name": "react-native-image-zoom-viewer",
-        "version": "1.2.2",
-        "description": "大图浏览",
+        "name": "nt-web-tree",
+        "version": "0.0.1",
+        "description": "折叠树",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/ascoders/react-native-image-viewer.git"
+          "url": "https://github.com/next-component/web-common-tree.git"
         },
         "keywords": [
-          "image-viewer"
+          "tree"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {
-          "nt-auto-bind": "^2.0.0",
-          "nt-transmit-transparently": "^1.0.2",
-          "react-native-image-pan-zoom": "^1.1.1"
-        },
+        "dependencies": {},
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
           "react-native": "^0.33.0"
@@ -90,26 +129,160 @@
         },
         {
           "type": "npm",
-          "name": "react-native"
-        },
-        {
-          "type": "component",
-          "name": "auto-bind",
-          "category": "common"
+          "name": "classnames"
         },
         {
           "type": "component",
           "name": "transmit-transparently",
           "category": "common"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "0.0.1"
+  },
+  {
+    "userPublishLevel": "major",
+    "publishLevel": "major",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "json-tree",
+        "chinese": "json 树",
+        "isWeb": true
+      },
+      "category": {
+        "name": "web-common",
+        "chinese": "web通用",
+        "prefix": "nt-web",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "button",
+            "chinese": "按钮",
+            "isWeb": true
+          },
+          {
+            "name": "input",
+            "chinese": "输入框",
+            "isWeb": true
+          },
+          {
+            "name": "switch",
+            "chinese": "开关",
+            "isWeb": true
+          },
+          {
+            "name": "radio",
+            "chinese": "单选框",
+            "isWeb": true
+          },
+          {
+            "name": "checkbox",
+            "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "collapse",
+            "chinese": "手风琴",
+            "isWeb": true
+          },
+          {
+            "name": "tooltip",
+            "chinese": "工具提示",
+            "isWeb": true
+          },
+          {
+            "name": "message",
+            "chinese": "全局消息",
+            "isWeb": true
+          },
+          {
+            "name": "modal",
+            "chinese": "模态框",
+            "isWeb": true
+          },
+          {
+            "name": "tabs",
+            "chinese": "标签页",
+            "isWeb": true
+          },
+          {
+            "name": "tree",
+            "chinese": "树",
+            "isWeb": true
+          },
+          {
+            "name": "json-tree",
+            "chinese": "json 树",
+            "isWeb": true
+          },
+          {
+            "name": "margin-padding-editor",
+            "chinese": "内/外边距编辑器",
+            "isWeb": true
+          },
+          {
+            "name": "badge",
+            "chinese": "徽标",
+            "isWeb": true
+          },
+          {
+            "name": "loading",
+            "chinese": "进度条",
+            "isWeb": true
+          },
+          {
+            "name": "timeago",
+            "chinese": "友好时间",
+            "isWeb": true
+          },
+          {
+            "name": "image-preload",
+            "chinese": "图片预加载",
+            "isWeb": true
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "nt-web-json-tree",
+        "version": "0.0.0",
+        "description": "json 树",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/next-component/web-common-json-tree.git"
+        },
+        "keywords": [
+          "json-tree"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {},
+        "peerDependencies": {}
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "classnames"
         },
         {
           "type": "component",
-          "name": "image-zoom",
+          "name": "tree",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "transmit-transparently",
           "category": "common"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.2.2"
+    "preVersion": "0.0.0"
   }
 ]

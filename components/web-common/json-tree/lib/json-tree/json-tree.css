@@ -1,0 +1,11 @@
+.nt-web-json-tree-json_tree .key {
+  color: #881280; }
+
+.nt-web-json-tree-json_tree .string {
+  color: #C41A16; }
+
+.nt-web-json-tree-json_tree .bool, .nt-web-json-tree-json_tree .number {
+  color: #1C00CF; }
+
+.nt-web-json-tree-json_tree .object, .nt-web-json-tree-json_tree .array {
+  color: #333; }
