@@ -434,6 +434,16 @@ export default (publishFullPaths: Array<string>)=> {
                     }
                 })
             })
+        } else if (publishFullComponentPathSplit.length === 1 && publishFullComponentPathSplit[0] !== 'components') {
+            // 发布整个分类
+            components.forEach(category=> {
+                category.components.forEach(component=> {
+                    const publishPath = `${category.name}/${component.name}#${publishFullPathSplit[0]}`
+                    if (realPublishFullPaths.findIndex(real=>real === publishPath) === -1) {
+                        realPublishFullPaths.push(publishPath)
+                    }
+                })
+            })
         } else if (publishFullComponentPathSplit.length === 2 && publishFullComponentPathSplit[0] === 'components') {
             // 发布整个分类
             components.forEach(category=> {
