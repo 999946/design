@@ -141,7 +141,7 @@ export default [{
     name: 'editor',
     chinese: '编辑器',
     prefix: 'nt-editor',
-    isPrivate: true,
+    isPrivate: false,
     components: [{
         name: 'gaea-editor',
         chinese: '盖亚-编辑器',
