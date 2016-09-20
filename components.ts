@@ -168,7 +168,7 @@ export default [{
         isWeb: true,
         isAndroid: true,
         isIos: true,
-        git: 'https://github.com/ascoders/gaea-web-components.git',
-        npm: 'gaea-web-components'
+        git: 'https://github.com/ascoders/gaea-native-components.git',
+        npm: 'gaea-native-components'
     }]
 }] as Array<Components.Category>
