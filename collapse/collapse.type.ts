@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export interface PropsDefine extends CommonModel.TransmitTransparentlyProps{
+export interface PropsDefine extends CommonModel.TransmitTransparentlyProps {
     /**
      * 是否是手风琴模式
      */
