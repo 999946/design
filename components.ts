@@ -163,7 +163,7 @@ export default [{
         git: 'https://github.com/ascoders/gaea-web-components.git',
         npm: 'gaea-web-components'
     }, {
-        name: 'gaea-web-components',
+        name: 'gaea-native-components',
         chinese: '盖亚-原生组件',
         isWeb: true,
         isAndroid: true,
