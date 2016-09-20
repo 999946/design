@@ -1,11 +1,11 @@
 [
   {
-    "userPublishLevel": "patch",
-    "publishLevel": "patch",
+    "userPublishLevel": "major",
+    "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "collapse",
-        "chinese": "手风琴",
+        "name": "message",
+        "chinese": "全局消息",
         "isWeb": true
       },
       "category": {
@@ -55,6 +55,11 @@
             "isWeb": true
           },
           {
+            "name": "message",
+            "chinese": "全局消息",
+            "isWeb": true
+          },
+          {
             "name": "margin-padding-editor",
             "chinese": "内/外边距编辑器",
             "isWeb": true
@@ -82,28 +87,22 @@
         ]
       },
       "packageJson": {
-        "name": "nt-web-collapse",
-        "version": "1.0.0",
-        "description": "手风琴",
+        "name": "nt-web-message",
+        "version": "0.0.0",
+        "description": "全局消息",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/web-common-collapse.git"
+          "url": "https://github.com/next-component/web-common-message.git"
         },
         "keywords": [
-          "collapse"
+          "message"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {
-          "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.2"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-dom": "^0.14.0 || ^15.0.0"
-        }
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "dependence": [
         {
@@ -116,20 +115,11 @@
         },
         {
           "type": "npm",
-          "name": "jquery"
-        },
-        {
-          "type": "npm",
           "name": "classnames"
-        },
-        {
-          "type": "component",
-          "name": "transmit-transparently",
-          "category": "common"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "0.0.0"
   }
 ]

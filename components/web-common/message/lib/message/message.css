@@ -1,0 +1,116 @@
+@charset "UTF-8";
+.nt-web-message-message {
+  /* 显示 */ }
+  .nt-web-message-message {
+    position: absolute;
+    top: 20px; }
+  .nt-web-message-message .m-layer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1051; }
+    .nt-web-message-message .m-layer table {
+      pointer-events: none; }
+      .nt-web-message-message .m-layer table tbody {
+        pointer-events: none; }
+        .nt-web-message-message .m-layer table tbody tr {
+          pointer-events: none; }
+          .nt-web-message-message .m-layer table tbody tr td {
+            pointer-events: none; }
+  .nt-web-message-message .m-layer > table {
+    table-layout: fixed;
+    width: 100%;
+    height: 100%; }
+  .nt-web-message-message .m-layer > table > tbody > tr > td {
+    vertical-align: middle; }
+  .nt-web-message-message .m-layer .lywrap {
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    -webkit-transition-timing-function: cubic-bezier(0, 1.2, 0.8, 1);
+            transition-timing-function: cubic-bezier(0, 1.2, 0.8, 1);
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+    .nt-web-message-message .m-layer .lywrap.enter {
+      -webkit-transform: scale(1);
+              transform: scale(1); }
+    .nt-web-message-message .m-layer .lywrap.leave {
+      -webkit-transform: scale(0);
+              transform: scale(0); }
+  .nt-web-message-message .m-layer .lytt {
+    position: relative;
+    padding: 10px;
+    height: 20px;
+    margin: 0 0 -1px;
+    line-height: 20px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px 5px 0 0;
+    background: #fafafa; }
+  .nt-web-message-message .m-layer .lytt h2 {
+    float: left;
+    font-size: 16px; }
+  .nt-web-message-message .m-layer .lyclose {
+    float: right;
+    font-weight: bold;
+    font-family: arial;
+    font-size: 24px;
+    color: #ccc;
+    text-shadow: 0 1px #fff;
+    cursor: pointer; }
+  .nt-web-message-message .m-layer .lyclose:hover {
+    color: #aaa; }
+  .nt-web-message-message .m-layer .lyct:last-child, .nt-web-message-message .m-layer .lybt {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px; }
+  .nt-web-message-message .m-layer .lyct:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; }
+  .nt-web-message-message .m-layer .lyct {
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: white;
+    font-size: 16px;
+    font-weight: bold; }
+    .nt-web-message-message .m-layer .lyct.info {
+      background: #23b7e5; }
+    .nt-web-message-message .m-layer .lyct.success {
+      background: #27c24c; }
+    .nt-web-message-message .m-layer .lyct.warning {
+      background: #e2ba00; }
+    .nt-web-message-message .m-layer .lyct.error {
+      background: #f05050; }
+    .nt-web-message-message .m-layer .lyct.loading {
+      background: #23b7e5; }
+  .nt-web-message-message .m-layer .lybt {
+    height: 30px;
+    line-height: 30px;
+    padding: 10px;
+    margin: -1px 0 0;
+    border-top: 1px solid #ddd;
+    background: #f7f7f7; }
+  .nt-web-message-message .m-layer .lyother {
+    float: left;
+    color: #999; }
+  .nt-web-message-message .m-layer .lybtns {
+    float: right; }
+  .nt-web-message-message .m-layer .lybtns button {
+    float: left;
+    margin-left: 10px; }
+  .nt-web-message-message .m-layer.z-show {
+    display: block; }
