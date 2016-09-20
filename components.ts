@@ -137,4 +137,38 @@ export default [{
         isAndroid: true,
         isIos: true
     }]
+}, {
+    name: 'editor',
+    chinese: '编辑器',
+    prefix: 'nt-editor',
+    isPrivate: true,
+    components: [{
+        name: 'image',
+        chinese: '盖亚',
+        isWeb: true,
+        git: 'https://github.com/ascoders/gaea.git',
+        npm: 'gaea'
+    }, {
+        name: 'resource-card',
+        chinese: '盖亚-查看器',
+        isWeb: true,
+        isAndroid: true,
+        isIos: true,
+        git: 'https://github.com/ascoders/gaea-preview.git',
+        npm: 'gaea-preview'
+    }, {
+        name: 'navbar',
+        chinese: '盖亚-网页组件',
+        isWeb: true,
+        git: 'https://github.com/ascoders/gaea-web-components.git',
+        npm: 'gaea-web-components'
+    }, {
+        name: 'navbar',
+        chinese: '盖亚-原生组件',
+        isWeb: true,
+        isAndroid: true,
+        isIos: true,
+        git: 'https://github.com/ascoders/gaea-web-components.git',
+        npm: 'gaea-web-components'
+    }]
 }] as Array<Components.Category>
