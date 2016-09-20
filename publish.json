@@ -1,123 +1,85 @@
 [
   {
-    "userPublishLevel": "major",
-    "publishLevel": "major",
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "tabs",
-        "chinese": "标签页",
-        "isWeb": true
+        "name": "image-zoom",
+        "chinese": "图片手势操作",
+        "git": "https://github.com/ascoders/react-native-image-zoom.git",
+        "npm": "react-native-image-pan-zoom",
+        "isIos": true
       },
       "category": {
-        "name": "web-common",
-        "chinese": "web通用",
-        "prefix": "nt-web",
+        "name": "common",
+        "chinese": "通用",
+        "prefix": "nt",
         "isPrivate": false,
         "components": [
           {
-            "name": "button",
-            "chinese": "按钮",
-            "isWeb": true
+            "name": "image",
+            "chinese": "图片",
+            "isWeb": true,
+            "isIos": true
           },
           {
-            "name": "input",
-            "chinese": "输入框",
-            "isWeb": true
+            "name": "gif",
+            "chinese": "GIF",
+            "isWeb": true,
+            "isIos": true
           },
           {
-            "name": "switch",
-            "chinese": "开关",
-            "isWeb": true
+            "name": "image-zoom",
+            "chinese": "图片手势操作",
+            "git": "https://github.com/ascoders/react-native-image-zoom.git",
+            "npm": "react-native-image-pan-zoom",
+            "isIos": true
           },
           {
-            "name": "radio",
-            "chinese": "单选框",
-            "isWeb": true
+            "name": "image-viewer",
+            "chinese": "大图浏览",
+            "git": "https://github.com/ascoders/react-native-image-viewer.git",
+            "npm": "react-native-image-zoom-viewer",
+            "isIos": true
           },
           {
-            "name": "checkbox",
-            "chinese": "多选框",
-            "isWeb": true
+            "name": "transmit-transparently",
+            "chinese": "透传",
+            "isWeb": true,
+            "isIos": true,
+            "isAndroid": true
           },
           {
-            "name": "collapse",
-            "chinese": "手风琴",
-            "isWeb": true
-          },
-          {
-            "name": "tooltip",
-            "chinese": "工具提示",
-            "isWeb": true
-          },
-          {
-            "name": "message",
-            "chinese": "全局消息",
-            "isWeb": true
-          },
-          {
-            "name": "modal",
-            "chinese": "模态框",
-            "isWeb": true
-          },
-          {
-            "name": "tabs",
-            "chinese": "标签页",
-            "isWeb": true
-          },
-          {
-            "name": "tree",
-            "chinese": "树",
-            "isWeb": true
-          },
-          {
-            "name": "json-tree",
-            "chinese": "json 树",
-            "isWeb": true
-          },
-          {
-            "name": "margin-padding-editor",
-            "chinese": "内/外边距编辑器",
-            "isWeb": true
-          },
-          {
-            "name": "badge",
-            "chinese": "徽标",
-            "isWeb": true
-          },
-          {
-            "name": "loading",
-            "chinese": "进度条",
-            "isWeb": true
-          },
-          {
-            "name": "timeago",
-            "chinese": "友好时间",
-            "isWeb": true
-          },
-          {
-            "name": "image-preload",
-            "chinese": "图片预加载",
-            "isWeb": true
+            "name": "auto-bind",
+            "chinese": "自动绑定",
+            "isWeb": true,
+            "isIos": true,
+            "isAndroid": true
           }
         ]
       },
       "packageJson": {
-        "name": "nt-web-tabs",
-        "version": "0.0.0",
-        "description": "标签页",
+        "name": "react-native-image-pan-zoom",
+        "version": "1.1.0",
+        "description": "图片手势操作",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/web-common-tabs.git"
+          "url": "https://github.com/ascoders/react-native-image-zoom.git"
         },
         "keywords": [
-          "tabs"
+          "image-zoom"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {},
-        "peerDependencies": {}
+        "dependencies": {
+          "nt-auto-bind": "^2.0.0"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-native": "^0.33.0"
+        }
       },
       "dependence": [
         {
@@ -126,25 +88,17 @@
         },
         {
           "type": "npm",
-          "name": "classnames"
+          "name": "react-native"
         },
         {
           "type": "component",
-          "name": "transmit-transparently",
+          "name": "auto-bind",
           "category": "common"
-        },
-        {
-          "type": "npm",
-          "name": "react-dom"
-        },
-        {
-          "type": "npm",
-          "name": "jquery"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.0"
+    "preVersion": "1.1.0"
   },
   {
     "userPublishLevel": "patch",
@@ -207,7 +161,7 @@
       },
       "packageJson": {
         "name": "react-native-image-zoom-viewer",
-        "version": "1.2.0",
+        "version": "1.2.1",
         "description": "大图浏览",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -257,6 +211,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.2.0"
+    "preVersion": "1.2.1"
   }
 ]
