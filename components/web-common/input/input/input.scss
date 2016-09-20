@@ -68,6 +68,16 @@
     }
 }
 
+::-webkit-input-placeholder {
+    color: #aaa;
+}
+
+.input:focus, .input:valid {
+    &::-webkit-input-placeholder {
+        color: #ccc;
+    }
+}
+
 .input:focus ~ .label, .input:valid ~ .label {
     top: -10px;
     font-size: 12px;
