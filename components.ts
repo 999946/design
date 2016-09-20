@@ -38,6 +38,10 @@ export default [{
         chinese: '工具提示',
         isWeb: true
     }, {
+        name: 'message',
+        chinese: '全局消息',
+        isWeb: true
+    }, {
         name: 'margin-padding-editor',
         chinese: '内/外边距编辑器',
         isWeb: true
