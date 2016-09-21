@@ -1,25 +1,26 @@
 {
-    "name": "nt-web-collapse",
-    "version": "1.0.1",
-    "description": "手风琴",
-    "main": "lib/index.js",
-    "typings": "lib/index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/next-component/web-common-collapse.git"
-    },
-    "keywords": [
-        "collapse"
-    ],
-    "author": "ascoders",
-    "license": "ISC",
-    "dependencies": {
-        "jquery": "^3.1.0",
-        "classnames": "^2.2.5",
-        "nt-transmit-transparently": "^1.0.2"
-    },
-    "peerDependencies": {
-        "react": "^0.14.0 || ^15.0.0",
-        "react-dom": "^0.14.0 || ^15.0.0"
-    }
+  "name": "nt-web-collapse",
+  "version": "1.0.2",
+  "description": "手风琴",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/next-component/web-common-collapse.git"
+  },
+  "keywords": [
+    "collapse"
+  ],
+  "author": "ascoders",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "classnames": "^2.2.5",
+    "nt-transmit-transparently": "^1.0.3",
+    "nt-transparently-props": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
+  }
 }

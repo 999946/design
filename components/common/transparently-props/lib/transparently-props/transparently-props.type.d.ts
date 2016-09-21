@@ -1,7 +1,7 @@
-import { TransparentlyPropsPropsDefine } from  'nt-transparently-props';
-export interface PropsDefine extends TransparentlyPropsPropsDefine {
-    defaultExpendAll?: boolean;
-    toggleByArrow?: boolean;
+import { CSSProperties } from 'react';
+export interface PropsDefine {
+    style?: CSSProperties;
+    className?: string;
     others?: any;
 }
 export declare class PropsGaea {
@@ -10,8 +10,6 @@ export declare class PropsGaea {
     gaeaUniqueKey: string;
 }
 export declare class Props extends PropsGaea implements PropsDefine {
-    defaultExpendAll: boolean;
-    toggleByArrow: boolean;
 }
 export interface StateDefine {
 }

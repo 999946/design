@@ -1,23 +1,23 @@
 {
-    "name": "nt-web-loading",
-    "version": "1.0.0",
-    "description": "进度条",
-    "main": "lib/index.js",
-    "typings": "lib/index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/next-component/web-common-loading.git"
-    },
-    "keywords": [
-        "loading"
-    ],
-    "author": "ascoders",
-    "license": "ISC",
-    "dependencies": {
-        "classnames": "^2.2.5",
-        "nt-transmit-transparently": "^1.0.2"
-    },
-    "peerDependencies": {
-        "react": "^0.14.0 || ^15.0.0"
-    }
+  "name": "nt-web-loading",
+  "version": "1.0.1",
+  "description": "进度条",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/next-component/web-common-loading.git"
+  },
+  "keywords": [
+    "loading"
+  ],
+  "author": "ascoders",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "nt-transmit-transparently": "^1.0.3"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0"
+  }
 }

@@ -1,4 +1,5 @@
-export interface PropsDefine {
+import { TransparentlyPropsPropsDefine } from  'nt-transparently-props';
+export interface PropsDefine extends TransparentlyPropsPropsDefine {
     title?: string;
     showChildren?: boolean;
     defaultExpendAll?: boolean;

@@ -1,6 +1,6 @@
 {
   "name": "nt-web-modal",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "模态框",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -13,6 +13,14 @@
   ],
   "author": "ascoders",
   "license": "ISC",
-  "dependencies": {},
-  "peerDependencies": {}
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "nt-web-button": "^1.0.1",
+    "nt-transmit-transparently": "^1.0.3",
+    "nt-transparently-props": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
+  }
 }

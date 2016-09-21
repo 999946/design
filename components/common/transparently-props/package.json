@@ -1,15 +1,15 @@
 {
-  "name": "nt-auto-bind",
-  "version": "2.0.1",
-  "description": "自动绑定",
+  "name": "nt-transparently-props",
+  "version": "0.0.1",
+  "description": "透传属性定义",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/next-component/common-auto-bind.git"
+    "url": "https://github.com/next-component/common-transparently-props.git"
   },
   "keywords": [
-    "auto-bind"
+    "transparently-props"
   ],
   "author": "ascoders",
   "license": "ISC",

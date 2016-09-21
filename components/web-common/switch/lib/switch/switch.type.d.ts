@@ -1,5 +1,6 @@
 import * as React from 'react';
-export interface PropsDefine {
+import { TransparentlyPropsPropsDefine } from  'nt-transparently-props';
+export interface PropsDefine extends TransparentlyPropsPropsDefine {
     onChange?: (checked?: boolean) => void;
     checked?: boolean;
     defaultChecked?: boolean;
