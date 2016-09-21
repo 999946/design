@@ -1,4 +1,4 @@
-export interface PropsDefine extends CommonModel.TransmitTransparentlyProps {
+export interface PropsDefine {
     value?: any;
     defaultValue?: any;
     vertical?: boolean;

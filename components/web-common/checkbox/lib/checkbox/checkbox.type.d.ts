@@ -1,4 +1,4 @@
-export interface PropsDefine extends CommonModel.TransmitTransparentlyProps {
+export interface PropsDefine {
     checked?: boolean;
     defaultChecked?: boolean;
     onChange?: (checked?: boolean) => void;

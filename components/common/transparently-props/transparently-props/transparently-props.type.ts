@@ -10,6 +10,8 @@ export interface PropsDefine {
      * class
      */
     className ?: string
+
+    others?: any
 }
 
 export class PropsGaea {

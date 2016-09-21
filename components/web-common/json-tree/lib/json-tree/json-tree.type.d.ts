@@ -1,5 +1,5 @@
 import { TreePropsDefine } from  'nt-web-tree';
-export interface PropsDefine extends TreePropsDefine, CommonModel.TransmitTransparentlyProps {
+export interface PropsDefine extends TreePropsDefine {
     json: Object;
     root?: boolean;
 }
