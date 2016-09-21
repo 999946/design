@@ -1,7 +1,14 @@
 import * as React from 'react';
-import { HTMLProps } from 'react';
+import { TransparentlyPropsPropsDefine } from  'nt-transparently-props';
 import { ExtendValidatorStatic } from './validate';
-export interface PropsDefine extends HTMLProps<HTMLInputElement> {
+export interface PropsDefine extends TransparentlyPropsPropsDefine {
+    value?: string;
+    defaultValue?: string;
+    onChange?: (value: string | Array<string>) => void;
+    id?: number | string;
+    placeholder?: string;
+    autoComplete?: string;
+    onClick?: () => void;
     label?: string;
     highlight?: boolean;
     highlightLine?: boolean;
