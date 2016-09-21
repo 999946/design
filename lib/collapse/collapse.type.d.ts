@@ -1,4 +1,4 @@
-export interface PropsDefine extends CommonModel.TransmitTransparentlyProps {
+export interface PropsDefine  {
     accordion?: boolean;
     onChange?: (key?: number | string) => void;
     value?: string | number | Array<number | string>;
