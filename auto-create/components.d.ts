@@ -169,3 +169,27 @@ export interface NavbarPropsDefine {}
 
                 }
             
+                declare module 'nt-editor-gaea-editor' {    
+                    export interface GaeaEditor {}
+export interface GaeaEditorPropsDefine {}
+
+                }
+            
+                declare module 'nt-editor-gaea-preview' {    
+                    export interface GaeaPreview {}
+export interface GaeaPreviewPropsDefine {}
+
+                }
+            
+                declare module 'nt-editor-gaea-web-components' {    
+                    export interface GaeaWebComponents {}
+export interface GaeaWebComponentsPropsDefine {}
+
+                }
+            
+                declare module 'nt-editor-gaea-native-components' {    
+                    export interface GaeaNativeComponents {}
+export interface GaeaNativeComponentsPropsDefine {}
+
+                }
+            
