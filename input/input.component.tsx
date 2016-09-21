@@ -103,7 +103,7 @@ export default class Input extends React.Component <typings.PropsDefine, typings
                 <div className="right-addon">
                     {this.props.rightRender() }
                 </div>
-                {this.props.innerRender.constructor.name === 'Function' ? this.props.innerRender() : this.props.innerRender}
+                {this.props.innerRender()}
                 {Highlight}
                 {HighlightLine}
                 <label className={labelClasses}>{this.props.label}{ErrorLabel}</label>

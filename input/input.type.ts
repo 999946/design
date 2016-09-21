@@ -1,9 +1,44 @@
 import * as React from 'react'
-import {HTMLProps} from 'react'
+import {TransparentlyPropsPropsDefine} from '../../../common/transparently-props/index'
 
 import {ExtendValidatorStatic} from './validate'
 
-export interface PropsDefine extends HTMLProps<HTMLInputElement> {
+export interface PropsDefine extends TransparentlyPropsPropsDefine {
+    /**
+     * 值
+     */
+    value?: string
+
+    /**
+     * 默认值
+     */
+    defaultValue?: string
+
+    /**
+     * 修改时的回调
+     */
+    onChange?: (value: string | Array<string>)=>void
+
+    /**
+     * id
+     */
+    id?: number|string
+
+    /**
+     * 占位字符
+     */
+    placeholder?: string
+
+    /**
+     * 自动补全是否开启
+     */
+    autoComplete?: string
+
+    /**
+     * 点击时的回调
+     */
+    onClick?: ()=>void
+
     /**
      * 提示文字
      */
