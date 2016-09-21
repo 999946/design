@@ -176,5 +176,13 @@ export default [{
         isIos: true,
         git: 'https://github.com/ascoders/gaea-native-components.git',
         npm: 'gaea-native-components'
+    }, {
+        name: 'gaea-model',
+        chinese: '盖亚-原生组件',
+        isWeb: true,
+        isAndroid: true,
+        isIos: true,
+        git: 'https://github.com/ascoders/gaea-model.git',
+        npm: 'gaea-model'
     }]
 }] as Array<Components.Category>

@@ -151,6 +151,12 @@ export interface AutoBindClassPropsDefine {}
 
                 }
             
+                declare module 'nt-transparently-props' {    
+                    export interface TransparentlyProps {}
+export interface TransparentlyPropsPropsDefine {}
+
+                }
+            
                 declare module 'nt-wefan-image' {    
                     export interface Image {}
 export interface ImagePropsDefine {}

@@ -976,6 +976,35 @@ routerMap.set('common/auto-bind', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('common/transparently-props', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/transparently-props/demo/basic').default,
+                            code: require('-!text!../../components/common/transparently-props/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/transparently-props/transparently-props/transparently-props.type'),
+                            typeCode: require('-!text!../../components/common/transparently-props/transparently-props/transparently-props.type.ts'),
+                            typePath: 'components/common/transparently-props/transparently-props/transparently-props.type',
+                            componentName: 'TransparentlyProps',
+                            sourceCode: require('-!text!../../components/common/transparently-props/transparently-props/transparently-props.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/common/transparently-props/package.json')),
+                                documents,
+                                main: require('../components/common/transparently-props/index')
+                            })
+                        })
+                    })
 routerMap.set('wefan/image', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
