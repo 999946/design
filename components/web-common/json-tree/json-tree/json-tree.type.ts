@@ -1,7 +1,8 @@
 import * as React from 'react'
 import {TreePropsDefine} from '../../tree/index'
+import {TransparentlyPropsPropsDefine} from '../../../common/transparently-props/index'
 
-export interface PropsDefine extends TreePropsDefine, CommonModel.TransmitTransparentlyProps {
+export interface PropsDefine extends TransparentlyPropsPropsDefine {
     /**
      * 期望展示的对象
      */

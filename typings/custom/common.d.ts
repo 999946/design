@@ -4,9 +4,4 @@ declare namespace CommonModel {
         errmsg: string
         data: T
     }
-
-    export interface TransmitTransparentlyProps {
-        className ?: string
-        style?: any
-    }
 }
