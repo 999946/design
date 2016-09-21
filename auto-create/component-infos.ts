@@ -1155,7 +1155,7 @@ routerMap.set('editor/gaea-preview', (callback: any) => {
                             
                         documents.push({
                             type: require('../components/editor/gaea-preview/gaea-preview/gaea-preview.type'),
-                            typeCode: require('-!text!../../components/editor/gaea-preview/gaea-preview/gaea-preview.type.ts'),
+                            typeCode: require('-!text!../../components/editor/gaea-preview/gaea-preview/gaea-preview.type.tsx'),
                             typePath: 'components/editor/gaea-preview/gaea-preview/gaea-preview.type',
                             componentName: 'GaeaPreview',
                             sourceCode: require('-!text!../../components/editor/gaea-preview/gaea-preview/gaea-preview.component.tsx')
@@ -1182,14 +1182,6 @@ routerMap.set('editor/gaea-web-components', (callback: any) => {
                         })
                     
                             
-                        documents.push({
-                            type: require('../components/editor/gaea-web-components/gaea-web-components/gaea-web-components.type'),
-                            typeCode: require('-!text!../../components/editor/gaea-web-components/gaea-web-components/gaea-web-components.type.ts'),
-                            typePath: 'components/editor/gaea-web-components/gaea-web-components/gaea-web-components.type',
-                            componentName: 'GaeaWebComponents',
-                            sourceCode: require('-!text!../../components/editor/gaea-web-components/gaea-web-components/gaea-web-components.component.tsx')
-                        })
-                    
                             
                             callback({
                                 demos: demoLists,
@@ -1225,6 +1217,27 @@ routerMap.set('editor/gaea-native-components', (callback: any) => {
                                 packageJson: JSON.parse(require('-!text!../components/editor/gaea-native-components/package.json')),
                                 documents,
                                 main: require('../components/editor/gaea-native-components/index')
+                            })
+                        })
+                    })
+routerMap.set('editor/gaea-model', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/editor/gaea-model/demo/basic').default,
+                            code: require('-!text!../../components/editor/gaea-model/demo/basic.tsx')
+                        })
+                    
+                            
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/editor/gaea-model/package.json')),
+                                documents,
+                                main: require('../components/editor/gaea-model/index')
                             })
                         })
                     })

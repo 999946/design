@@ -62,8 +62,19 @@ export default ()=> {
             const mainSource = fs.readFileSync(`${componentAbsolutePath}/index.ts`).toString()
 
             // 导出的那行代码
-            const exportString = _.trim(/export\s?\{([^}]+)\}/.exec(mainSource)[1])
+            const exports = /export\s?\{([^}]+)\}/.exec(mainSource)
+
+            let exportString: string
+
+            if (!exports) {
+                // 主入口没有导出
+                exportString = ''
+            } else {
+                exportString = _.trim(exports[1])
+            }
+
             let exportStringSplit = exportString.split(',')
+            exportStringSplit = exportStringSplit.filter(item=>_.trim(item) !== '')
 
             if (fs.existsSync(`${componentAbsolutePath}/demo`)) {
                 const demoLists: any = []

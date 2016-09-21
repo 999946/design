@@ -48,3 +48,18 @@ declare module 'rc-animate'{
 declare module 'css-animation'{
     export const isCssAnimationSupported:boolean
 }
+
+declare module 'react-codemirror'{
+    var exports:()=>any
+    export = exports
+}
+
+declare module 'codemirror' {
+    const exports: any
+    export = exports
+}
+
+declare module 'sortablejs' {
+    const api: any
+    export = api
+}

@@ -1,23 +1,23 @@
 {
-  "name": "gaea-native-components",
-  "version": "0.0.4",
-  "description": "盖亚-原生组件",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ascoders/gaea-native-components.git"
-  },
-  "keywords": [
-    "gaea-native-components"
-  ],
-  "author": "ascoders",
-  "license": "ISC",
-  "dependencies": {
-    "classnames": "^2.2.5",
-    "nt-transparently-props": "^0.0.2"
-  },
-  "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0"
-  }
+    "name": "gaea-native-components",
+    "version": "0.0.4",
+    "description": "盖亚-原生组件",
+    "main": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ascoders/gaea-native-components.git"
+    },
+    "keywords": [
+        "gaea-native-components"
+    ],
+    "author": "ascoders",
+    "license": "ISC",
+    "dependencies": {
+        "classnames": "^2.2.5",
+        "nt-transparently-props": "^0.0.2"
+    },
+    "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0"
+    }
 }

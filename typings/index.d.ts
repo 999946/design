@@ -19,6 +19,7 @@
 /// <reference path="globals/gulp-typescript/index.d.ts" />
 /// <reference path="globals/gulp/index.d.ts" />
 /// <reference path="globals/jquery/index.d.ts" />
+/// <reference path="globals/keymaster/index.d.ts" />
 /// <reference path="globals/koa-mount/index.d.ts" />
 /// <reference path="globals/koa-router/index.d.ts" />
 /// <reference path="globals/koa/index.d.ts" />

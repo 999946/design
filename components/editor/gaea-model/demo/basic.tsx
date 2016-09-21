@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {observer} from 'mobx-react'
-import GaeaModel from '../index'
 
 @observer
 export default class Demo extends React.Component <any, any> {
@@ -9,7 +8,7 @@ export default class Demo extends React.Component <any, any> {
 
     render() {
         return (
-            <GaeaModel />
+            <div>Gaea 系列的定义文件</div>
         )
     }
 }

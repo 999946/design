@@ -188,8 +188,7 @@ export interface GaeaPreviewPropsDefine {}
                 }
             
                 declare module 'nt-editor-gaea-web-components' {    
-                    export interface GaeaWebComponents {}
-export interface GaeaWebComponentsPropsDefine {}
+                    export interface Components {}
 
                 }
             
@@ -197,5 +196,9 @@ export interface GaeaWebComponentsPropsDefine {}
                     export interface GaeaNativeComponents {}
 export interface GaeaNativeComponentsPropsDefine {}
 
+                }
+            
+                declare module 'nt-editor-gaea-model' {    
+                    
                 }
             

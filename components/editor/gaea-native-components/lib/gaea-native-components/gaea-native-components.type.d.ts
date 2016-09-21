@@ -1,4 +1,4 @@
-import { TransparentlyPropsPropsDefine } from  'nt-transparently-props';
+import {TransparentlyPropsPropsDefine} from  'nt-transparently-props';
 export interface PropsDefine extends TransparentlyPropsPropsDefine {
 }
 export declare class PropsGaea {

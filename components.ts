@@ -26,6 +26,10 @@ export default [{
         chinese: '多选框',
         isWeb: true
     }, {
+        name: 'select',
+        chinese: '下拉选择框',
+        isWeb: true
+    }, {
         name: 'collapse',
         chinese: '手风琴',
         isWeb: true
@@ -178,7 +182,7 @@ export default [{
         npm: 'gaea-native-components'
     }, {
         name: 'gaea-model',
-        chinese: '盖亚-原生组件',
+        chinese: '盖亚-定义',
         isWeb: true,
         isAndroid: true,
         isIos: true,
