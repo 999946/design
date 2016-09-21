@@ -1,5 +1,5 @@
-import { TreePropsDefine } from  'nt-web-tree';
-export interface PropsDefine extends TreePropsDefine {
+import { TransparentlyPropsPropsDefine } from  'nt-transparently-props';
+export interface PropsDefine extends TransparentlyPropsPropsDefine {
     json: Object;
     root?: boolean;
 }
