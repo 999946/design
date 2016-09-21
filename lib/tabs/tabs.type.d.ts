@@ -1,4 +1,4 @@
-export interface PropsDefine extends CommonModel.TransmitTransparentlyProps {
+export interface PropsDefine  {
     defaultActiveKey?: string | number;
     activeKey?: string | number;
     onChange?: (key?: string | number) => void;

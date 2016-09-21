@@ -1,5 +1,5 @@
 import * as React from 'react';
-export interface PropsDefine extends CommonModel.TransmitTransparentlyProps {
+export interface PropsDefine  {
     activeKey?: string;
     tab?: string;
     tabRender?: (isActive?: boolean) => React.ReactElement<any>;
