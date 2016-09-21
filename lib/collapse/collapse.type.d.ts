@@ -1,4 +1,5 @@
-export interface PropsDefine  {
+import { TransparentlyPropsPropsDefine } from  'nt-transparently-props';
+export interface PropsDefine extends TransparentlyPropsPropsDefine {
     accordion?: boolean;
     onChange?: (key?: number | string) => void;
     value?: string | number | Array<number | string>;
