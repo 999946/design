@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as typings from './collapse.type'
 import * as classNames from 'classnames'
+import * as _ from 'lodash'
 
 const arrayOrStrEqual = (item: any, arr: any)=> {
     if (_.isArray(arr)) {
