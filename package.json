@@ -1,6 +1,6 @@
 {
   "name": "nt-web-radio",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "单选框",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -15,9 +15,9 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.5",
-    "nt-transmit-transparently": "^1.0.3",
-    "nt-transparently-props": "^0.0.1",
-    "nt-web-button": "^1.0.1"
+    "nt-transmit-transparently": "^1.0.4",
+    "nt-transparently-props": "^0.0.2",
+    "nt-web-button": "^1.0.2"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0"
