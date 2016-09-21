@@ -1,6 +1,6 @@
 {
   "name": "nt-web-message",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "全局消息",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
