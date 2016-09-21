@@ -1,0 +1,17 @@
+.nt-web-select-option {
+  padding: 10px 15px !important;
+  cursor: pointer; }
+  .nt-web-select-option:hover:not(.disabled), .nt-web-select-option.active {
+    background: #f8f9fb;
+    border-left: 2px solid #7266ba;
+    padding-left: 13px !important; }
+  .nt-web-select-option .active {
+    color: #f50; }
+
+.nt-web-select-option.disabled {
+  cursor: not-allowed;
+  background-color: whitesmoke;
+  color: #bbb; }
+  .nt-web-select-option.disabled:hover {
+    cursor: not-allowed;
+    background-color: whitesmoke; }
