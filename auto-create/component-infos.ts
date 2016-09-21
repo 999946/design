@@ -271,8 +271,43 @@ routerMap.set('web-common/select', (callback: any) => {
                         require.ensure([], function (require: any) {
                             
                         demoLists.push({
-                            Class: require('../components/web-common/select/demo/basic').default,
-                            code: require('-!text!../../components/web-common/select/demo/basic.tsx')
+                            Class: require('../components/web-common/select/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/select/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/select/demo/2.disabled').default,
+                            code: require('-!text!../../components/web-common/select/demo/2.disabled.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/select/demo/3.option').default,
+                            code: require('-!text!../../components/web-common/select/demo/3.option.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/select/demo/4.group').default,
+                            code: require('-!text!../../components/web-common/select/demo/4.group.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/select/demo/5.search').default,
+                            code: require('-!text!../../components/web-common/select/demo/5.search.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/select/demo/6.simple').default,
+                            code: require('-!text!../../components/web-common/select/demo/6.simple.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/select/demo/7.cascader').default,
+                            code: require('-!text!../../components/web-common/select/demo/7.cascader.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/select/demo/8.cascader-group').default,
+                            code: require('-!text!../../components/web-common/select/demo/8.cascader-group.tsx')
                         })
                     
                             
@@ -282,6 +317,22 @@ routerMap.set('web-common/select', (callback: any) => {
                             typePath: 'components/web-common/select/select/select.type',
                             componentName: 'Select',
                             sourceCode: require('-!text!../../components/web-common/select/select/select.component.tsx')
+                        })
+                    
+                        documents.push({
+                            type: require('../components/web-common/select/option/option.type'),
+                            typeCode: require('-!text!../../components/web-common/select/option/option.type.ts'),
+                            typePath: 'components/web-common/select/option/option.type',
+                            componentName: 'Option',
+                            sourceCode: require('-!text!../../components/web-common/select/option/option.component.tsx')
+                        })
+                    
+                        documents.push({
+                            type: require('../components/web-common/select/opt-group/opt-group.type'),
+                            typeCode: require('-!text!../../components/web-common/select/opt-group/opt-group.type.ts'),
+                            typePath: 'components/web-common/select/opt-group/opt-group.type',
+                            componentName: 'OptGroup',
+                            sourceCode: require('-!text!../../components/web-common/select/opt-group/opt-group.component.tsx')
                         })
                     
                             
@@ -1148,8 +1199,13 @@ routerMap.set('editor/gaea-editor', (callback: any) => {
                         require.ensure([], function (require: any) {
                             
                         demoLists.push({
-                            Class: require('../components/editor/gaea-editor/demo/basic').default,
-                            code: require('-!text!../../components/editor/gaea-editor/demo/basic.tsx')
+                            Class: require('../components/editor/gaea-editor/demo/1.web').default,
+                            code: require('-!text!../../components/editor/gaea-editor/demo/1.web.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/editor/gaea-editor/demo/2.native').default,
+                            code: require('-!text!../../components/editor/gaea-editor/demo/2.native.tsx')
                         })
                     
                             
@@ -1232,14 +1288,6 @@ routerMap.set('editor/gaea-native-components', (callback: any) => {
                         })
                     
                             
-                        documents.push({
-                            type: require('../components/editor/gaea-native-components/gaea-native-components/gaea-native-components.type'),
-                            typeCode: require('-!text!../../components/editor/gaea-native-components/gaea-native-components/gaea-native-components.type.ts'),
-                            typePath: 'components/editor/gaea-native-components/gaea-native-components/gaea-native-components.type',
-                            componentName: 'GaeaNativeComponents',
-                            sourceCode: require('-!text!../../components/editor/gaea-native-components/gaea-native-components/gaea-native-components.component.tsx')
-                        })
-                    
                             
                             callback({
                                 demos: demoLists,

@@ -4,7 +4,7 @@ import Transmittransparently from '../index'
 
 @observer
 export default class Demo extends React.Component <any, any> {
-    static title = '透传豁免'
+    static title = '透传忽略'
     static description = ``
 
     render() {
@@ -25,7 +25,7 @@ export default class Demo extends React.Component <any, any> {
     }
 }
 
-@Transmittransparently('areYourSure')
+@Transmittransparently('onClick')
 class TestTransmitTransparently extends React.Component <any, any> {
     static defaultProps = {
         onMouseOver: null as any

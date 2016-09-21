@@ -36,6 +36,10 @@ export interface CheckboxPropsDefine {}
                 declare module 'nt-web-select' {    
                     export interface Select {}
 export interface SelectPropsDefine {}
+export interface Option {}
+export interface OptionPropsDefine {}
+export interface OptGroup {}
+export interface OptGroupPropsDefine {}
 
                 }
             
@@ -199,9 +203,7 @@ export interface GaeaPreviewPropsDefine {}
                 }
             
                 declare module 'nt-editor-gaea-native-components' {    
-                    export interface GaeaNativeComponents {}
-export interface GaeaNativeComponentsPropsDefine {}
-
+                    
                 }
             
                 declare module 'nt-editor-gaea-model' {    

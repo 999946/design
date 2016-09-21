@@ -96,7 +96,7 @@ export default ()=> {
                     }
                 `)
 
-                fs.writeFileSync(`${componentRootPath}/demo/basic.tsx`, `
+                fs.writeFileSync(`${componentRootPath}/demo/1.basic.tsx`, `
                     import * as React from 'react'
                     import {observer} from 'mobx-react'
                     import ${camelComponentName} from '../index'

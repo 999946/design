@@ -15,8 +15,11 @@ export default (defaultProps: any = {}, props: any = {}, ignore?: string[])=> {
         // 不能出现在 defaultProps ignore 里
         // 必须在 htmlAttributes 里
         // 如果是 reactNative, 则忽略 dom 属性的检测
+        if (ignore.findIndex(item=>item === key) > -1) {
+            return
+        }
 
-        if (ignore.findIndex(item=>item === key) > -1 || (defaultPropsKeys.findIndex(item=>item === key) === -1 && htmlAttributes.findIndex(item=>item === key) > -1)) {
+        if (defaultPropsKeys.findIndex(item=>item === key) === -1 && htmlAttributes.findIndex(item=>item === key) > -1) {
             others[key] = props[key]
         }
     })

@@ -7,13 +7,16 @@ export default (...ignore: string[]) => (Target: any) => {
         static defaultProps: typings.PropsDefine = new typings.Props()
         public state: typings.StateDefine = new typings.State()
 
-        componentWillMount() {
-            this.state.others = others(Target.defaultProps, this.props, ignore)
-        }
+        private displayName = 'TransmitTransparently'
+        private wrappedInstance: React.ReactInstance
 
         public render(): React.ReactElement<any> {
             const newProps: any = Object.assign({}, this.props)
-            newProps.others = this.state.others
+            newProps.others = others(Target.defaultProps, newProps, ignore)
+            newProps.ref = ((ref: React.ReactInstance) => {
+                    this.wrappedInstance = ref
+                }
+            )
             return React.createElement(Target, newProps, this.props.children)
         }
     }

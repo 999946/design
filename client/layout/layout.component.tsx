@@ -7,6 +7,11 @@ import {browserHistory} from '../main.browser'
 
 import './layout.scss'
 
+let MobxReactDevtools: any
+if (process.env['NODE_ENV'] !== 'production') {
+    MobxReactDevtools = require('mobx-react-devtools').default
+}
+
 @inject('application') @observer
 export default class Layout extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
@@ -83,9 +88,6 @@ export default class Layout extends React.Component <typings.PropsDefine, typing
                         <Link to="/design-space"
                               activeClassName="active"
                               className="item">工作台</Link>
-                        <a href="http://fit.baidu.com/"
-                           target="_blank"
-                           className="item">Web组件库</a>
                     </div>
 
                     <div className="nav-bar-second-container">
@@ -97,6 +99,8 @@ export default class Layout extends React.Component <typings.PropsDefine, typing
                      style={loadingStyle}></div>
 
                 {this.props.children}
+
+                {process.env['NODE_ENV'] !== 'production' && <MobxReactDevtools/>}
             </div>
         )
     }

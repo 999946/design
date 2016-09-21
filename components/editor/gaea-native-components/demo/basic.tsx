@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {observer} from 'mobx-react'
-import GaeaNativeComponents from '../index'
 
 @observer
 export default class Demo extends React.Component <any, any> {
@@ -9,7 +8,7 @@ export default class Demo extends React.Component <any, any> {
 
     render() {
         return (
-            <GaeaNativeComponents />
+            <div>提供给 GaeaEditor GaeaPreview 的基础原生组件</div>
         )
     }
 }

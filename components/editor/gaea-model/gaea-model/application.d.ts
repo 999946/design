@@ -46,8 +46,8 @@ declare namespace FitGaea {
      * 组件配置 选择器配置
      */
     export interface ComponentPropsOptionsSelector {
-        key: number|string
-        value: number|string
+        key: string
+        value: string
     }
 
     /**
