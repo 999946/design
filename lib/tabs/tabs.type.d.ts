@@ -1,4 +1,5 @@
-export interface PropsDefine  {
+import { TransparentlyPropsPropsDefine } from  'nt-transparently-props';
+export interface PropsDefine extends TransparentlyPropsPropsDefine {
     defaultActiveKey?: string | number;
     activeKey?: string | number;
     onChange?: (key?: string | number) => void;
