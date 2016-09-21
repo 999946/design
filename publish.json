@@ -103,7 +103,7 @@
       },
       "packageJson": {
         "name": "nt-tooltip",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "工具提示",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -140,7 +140,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -246,7 +246,7 @@
       },
       "packageJson": {
         "name": "nt-web-message",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "全局消息",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -283,7 +283,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -389,7 +389,7 @@
       },
       "packageJson": {
         "name": "nt-web-image-preload",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "图片预加载",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -415,7 +415,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -485,7 +485,7 @@
       },
       "packageJson": {
         "name": "nt-transmit-transparently",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "description": "透传",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -511,7 +511,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.2"
+    "preVersion": "1.0.3"
   },
   {
     "userPublishLevel": "patch",
@@ -581,7 +581,7 @@
       },
       "packageJson": {
         "name": "nt-auto-bind",
-        "version": "2.0.0",
+        "version": "2.0.1",
         "description": "自动绑定",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -607,7 +607,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "2.0.0"
+    "preVersion": "2.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -677,7 +677,7 @@
       },
       "packageJson": {
         "name": "nt-transparently-props",
-        "version": "0.0.0",
+        "version": "0.0.1",
         "description": "透传属性定义",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -691,7 +691,9 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {},
-        "peerDependencies": {}
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0"
+        }
       },
       "dependence": [
         {
@@ -701,7 +703,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.0"
+    "preVersion": "0.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -744,7 +746,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-resource-card",
-        "version": "0.0.27",
+        "version": "0.0.28",
         "description": "资源卡片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -775,7 +777,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.27"
+    "preVersion": "0.0.28"
   },
   {
     "userPublishLevel": "patch",
@@ -818,7 +820,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-navbar",
-        "version": "0.0.27",
+        "version": "0.0.28",
         "description": "导航条",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -849,7 +851,97 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.27"
+    "preVersion": "0.0.28"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "gaea-model",
+        "chinese": "盖亚-原生组件",
+        "isWeb": true,
+        "isAndroid": true,
+        "isIos": true,
+        "git": "https://github.com/ascoders/gaea-model.git",
+        "npm": "gaea-model"
+      },
+      "category": {
+        "name": "editor",
+        "chinese": "编辑器",
+        "prefix": "nt-editor",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "gaea-editor",
+            "chinese": "盖亚-编辑器",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-editor.git",
+            "npm": "gaea-editor"
+          },
+          {
+            "name": "gaea-preview",
+            "chinese": "盖亚-查看器",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-preview.git",
+            "npm": "gaea-preview"
+          },
+          {
+            "name": "gaea-web-components",
+            "chinese": "盖亚-网页组件",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-web-components.git",
+            "npm": "gaea-web-components"
+          },
+          {
+            "name": "gaea-native-components",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-native-components.git",
+            "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model"
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "gaea-model",
+        "version": "0.0.0",
+        "description": "盖亚-原生组件",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/ascoders/gaea-model.git"
+        },
+        "keywords": [
+          "gaea-model"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {},
+        "peerDependencies": {}
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "0.0.0"
   },
   {
     "userPublishLevel": "patch",
@@ -955,7 +1047,7 @@
       },
       "packageJson": {
         "name": "nt-button",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "按钮",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -970,7 +1062,7 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.2"
+          "nt-transmit-transparently": "^1.0.3"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -998,7 +1090,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -1104,7 +1196,7 @@
       },
       "packageJson": {
         "name": "nt-web-input",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "输入框",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1119,7 +1211,7 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.2",
+          "nt-transmit-transparently": "^1.0.3",
           "validator": "^5.7.0"
         },
         "peerDependencies": {
@@ -1147,7 +1239,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -1253,7 +1345,7 @@
       },
       "packageJson": {
         "name": "nt-web-switch",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "开关",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1268,7 +1360,8 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.2"
+          "nt-transmit-transparently": "^1.0.3",
+          "nt-transparently-props": "^0.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -1296,7 +1389,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -1402,7 +1495,7 @@
       },
       "packageJson": {
         "name": "nt-web-checkbox",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "多选框",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1417,7 +1510,8 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.2"
+          "nt-transmit-transparently": "^1.0.3",
+          "nt-transparently-props": "^0.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -1445,7 +1539,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -1551,7 +1645,7 @@
       },
       "packageJson": {
         "name": "nt-web-collapse",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "手风琴",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1567,7 +1661,8 @@
         "dependencies": {
           "jquery": "^3.1.0",
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.2"
+          "nt-transmit-transparently": "^1.0.3",
+          "nt-transparently-props": "^0.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -1604,7 +1699,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -1710,7 +1805,7 @@
       },
       "packageJson": {
         "name": "nt-web-tabs",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "标签页",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1725,7 +1820,8 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.2",
+          "nt-transmit-transparently": "^1.0.3",
+          "nt-transparently-props": "^0.0.1",
           "jquery": "^3.1.0"
         },
         "peerDependencies": {
@@ -1763,7 +1859,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -1869,7 +1965,7 @@
       },
       "packageJson": {
         "name": "nt-web-tree",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "折叠树",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1884,7 +1980,8 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.2"
+          "nt-transmit-transparently": "^1.0.3",
+          "nt-transparently-props": "^0.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -1912,7 +2009,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -2018,7 +2115,7 @@
       },
       "packageJson": {
         "name": "nt-web-margin-padding-editor",
-        "version": "1.1.1",
+        "version": "1.1.2",
         "description": "内/外边距编辑器",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2033,7 +2130,8 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-auto-bind": "^2.0.0"
+          "nt-auto-bind": "^2.0.1",
+          "nt-transmit-transparently": "^1.0.3"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -2066,7 +2164,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.1.1"
+    "preVersion": "1.1.2"
   },
   {
     "userPublishLevel": "patch",
@@ -2172,7 +2270,7 @@
       },
       "packageJson": {
         "name": "nt-web-badge",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "徽标",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2187,8 +2285,9 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.2",
+          "nt-transmit-transparently": "^1.0.3",
           "rc-animate": "^2.3.1",
+          "lodash": "^4.15.0",
           "css-animation": "^1.3.0"
         },
         "peerDependencies": {
@@ -2224,7 +2323,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -2330,7 +2429,7 @@
       },
       "packageJson": {
         "name": "nt-web-loading",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "进度条",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2345,7 +2444,7 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.2"
+          "nt-transmit-transparently": "^1.0.3"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -2368,7 +2467,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -2474,7 +2573,7 @@
       },
       "packageJson": {
         "name": "nt-web-timeago",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "友好时间",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2489,7 +2588,8 @@
         "license": "ISC",
         "dependencies": {
           "moment": "^2.15.0",
-          "nt-transmit-transparently": "^1.0.2"
+          "lodash": "^4.15.0",
+          "nt-transmit-transparently": "^1.0.3"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -2516,7 +2616,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -2585,7 +2685,7 @@
       },
       "packageJson": {
         "name": "nt-image",
-        "version": "0.1.2",
+        "version": "0.1.3",
         "description": "图片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2599,7 +2699,7 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-transmit-transparently": "^1.0.2"
+          "nt-transmit-transparently": "^1.0.3"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -2623,7 +2723,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.1.2"
+    "preVersion": "0.1.3"
   },
   {
     "userPublishLevel": "patch",
@@ -2693,7 +2793,7 @@
       },
       "packageJson": {
         "name": "react-native-image-pan-zoom",
-        "version": "1.1.1",
+        "version": "1.1.2",
         "description": "图片手势操作",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2707,7 +2807,7 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-auto-bind": "^2.0.0"
+          "nt-auto-bind": "^2.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -2731,7 +2831,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.1.1"
+    "preVersion": "1.1.2"
   },
   {
     "userPublishLevel": "patch",
@@ -2781,12 +2881,21 @@
             "isIos": true,
             "git": "https://github.com/ascoders/gaea-native-components.git",
             "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model"
           }
         ]
       },
       "packageJson": {
         "name": "gaea-editor",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "description": "盖亚",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2800,7 +2909,8 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "classnames": "^2.2.5"
+          "classnames": "^2.2.5",
+          "nt-transparently-props": "^0.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -2823,7 +2933,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.3"
+    "preVersion": "0.0.4"
   },
   {
     "userPublishLevel": "patch",
@@ -2875,12 +2985,21 @@
             "isIos": true,
             "git": "https://github.com/ascoders/gaea-native-components.git",
             "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model"
           }
         ]
       },
       "packageJson": {
         "name": "gaea-preview",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "description": "盖亚-查看器",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2894,7 +3013,8 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "classnames": "^2.2.5"
+          "classnames": "^2.2.5",
+          "nt-transparently-props": "^0.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -2907,7 +3027,7 @@
         },
         {
           "type": "npm",
-          "name": "classnames"
+          "name": "lodash"
         },
         {
           "type": "component",
@@ -2917,7 +3037,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.2"
+    "preVersion": "0.0.3"
   },
   {
     "userPublishLevel": "patch",
@@ -2967,12 +3087,21 @@
             "isIos": true,
             "git": "https://github.com/ascoders/gaea-native-components.git",
             "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model"
           }
         ]
       },
       "packageJson": {
         "name": "gaea-web-components",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "description": "盖亚-网页组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2986,7 +3115,8 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "classnames": "^2.2.5"
+          "classnames": "^2.2.5",
+          "nt-transparently-props": "^0.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -3009,7 +3139,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.3"
+    "preVersion": "0.0.4"
   },
   {
     "userPublishLevel": "patch",
@@ -3061,12 +3191,21 @@
             "isIos": true,
             "git": "https://github.com/ascoders/gaea-native-components.git",
             "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model"
           }
         ]
       },
       "packageJson": {
         "name": "gaea-native-components",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "description": "盖亚-原生组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3080,7 +3219,8 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "classnames": "^2.2.5"
+          "classnames": "^2.2.5",
+          "nt-transparently-props": "^0.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -3103,7 +3243,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.2"
+    "preVersion": "0.0.3"
   },
   {
     "userPublishLevel": "patch",
@@ -3209,7 +3349,7 @@
       },
       "packageJson": {
         "name": "nt-web-radio",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "单选框",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3224,8 +3364,9 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.2",
-          "nt-web-button": "^1.0.0"
+          "nt-transmit-transparently": "^1.0.3",
+          "nt-transparently-props": "^0.0.1",
+          "nt-web-button": "^1.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -3258,7 +3399,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -3364,7 +3505,7 @@
       },
       "packageJson": {
         "name": "nt-web-modal",
-        "version": "0.0.0",
+        "version": "0.0.1",
         "description": "模态框",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3377,8 +3518,16 @@
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {},
-        "peerDependencies": {}
+        "dependencies": {
+          "classnames": "^2.2.5",
+          "nt-web-button": "^1.0.1",
+          "nt-transmit-transparently": "^1.0.3",
+          "nt-transparently-props": "^0.0.1"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-dom": "^0.14.0 || ^15.0.0"
+        }
       },
       "dependence": [
         {
@@ -3411,7 +3560,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.0"
+    "preVersion": "0.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -3517,7 +3666,7 @@
       },
       "packageJson": {
         "name": "nt-web-json-tree",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "json 树",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3532,8 +3681,9 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-web-tree": "^1.0.0",
-          "nt-transmit-transparently": "^1.0.2"
+          "nt-web-tree": "^1.0.1",
+          "nt-transmit-transparently": "^1.0.3",
+          "nt-transparently-props": "^0.0.1"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -3566,7 +3716,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.0"
+    "preVersion": "1.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -3635,7 +3785,7 @@
       },
       "packageJson": {
         "name": "nt-gif",
-        "version": "0.1.2",
+        "version": "0.1.3",
         "description": "GIF",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3649,8 +3799,8 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-image": "^0.1.2",
-          "nt-transmit-transparently": "^1.0.2"
+          "nt-image": "^0.1.3",
+          "nt-transmit-transparently": "^1.0.3"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -3679,7 +3829,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.1.2"
+    "preVersion": "0.1.3"
   },
   {
     "userPublishLevel": "patch",
@@ -3749,7 +3899,7 @@
       },
       "packageJson": {
         "name": "react-native-image-zoom-viewer",
-        "version": "1.2.3",
+        "version": "1.2.4",
         "description": "大图浏览",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3763,9 +3913,9 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-auto-bind": "^2.0.0",
-          "nt-transmit-transparently": "^1.0.2",
-          "react-native-image-pan-zoom": "^1.1.1"
+          "nt-auto-bind": "^2.0.1",
+          "nt-transmit-transparently": "^1.0.3",
+          "react-native-image-pan-zoom": "^1.1.2"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -3799,7 +3949,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.2.3"
+    "preVersion": "1.2.4"
   },
   {
     "userPublishLevel": "patch",
@@ -3841,7 +3991,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-image",
-        "version": "0.1.2",
+        "version": "0.1.3",
         "description": "图片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3855,8 +4005,8 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-gif": "^0.1.2",
-          "nt-transmit-transparently": "^1.0.2"
+          "nt-gif": "^0.1.3",
+          "nt-transmit-transparently": "^1.0.3"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -3885,6 +4035,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.1.2"
+    "preVersion": "0.1.3"
   }
 ]
