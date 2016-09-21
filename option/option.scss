@@ -1,0 +1,24 @@
+@import "../../../../styles/color";
+
+& {
+    padding: 10px 15px !important;
+    cursor: pointer;
+    &:hover:not(.disabled), &.active {
+        background: #f8f9fb;
+        border-left: 2px solid $primary-color;
+        padding-left: 13px !important;
+    }
+    .active {
+        color: $error-color;
+    }
+}
+
+&.disabled {
+    cursor: not-allowed;
+    background-color: whitesmoke;
+    color: #bbb;
+    &:hover {
+        cursor: not-allowed;
+        background-color: whitesmoke;
+    }
+}
