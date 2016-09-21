@@ -264,6 +264,35 @@ routerMap.set('web-common/checkbox', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('web-common/select', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/select/demo/basic').default,
+                            code: require('-!text!../../components/web-common/select/demo/basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/select/select/select.type'),
+                            typeCode: require('-!text!../../components/web-common/select/select/select.type.ts'),
+                            typePath: 'components/web-common/select/select/select.type',
+                            componentName: 'Select',
+                            sourceCode: require('-!text!../../components/web-common/select/select/select.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/select/index')
+                            })
+                        })
+                    })
 routerMap.set('web-common/collapse', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

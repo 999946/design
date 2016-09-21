@@ -33,6 +33,12 @@ export interface CheckboxPropsDefine {}
 
                 }
             
+                declare module 'nt-web-select' {    
+                    export interface Select {}
+export interface SelectPropsDefine {}
+
+                }
+            
                 declare module 'nt-web-collapse' {    
                     export interface Collapse {}
 export interface CollapsePropsDefine {}
