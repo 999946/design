@@ -35,19 +35,20 @@ exports.default = function () {
                 var _this = _possibleConstructorReturn(this, (_ref = Transmit.__proto__ || Object.getPrototypeOf(Transmit)).call.apply(_ref, [this].concat(args)));
 
                 _this.state = new typings.State();
+                _this.displayName = 'TransmitTransparently';
                 return _this;
             }
 
             _createClass(Transmit, [{
-                key: 'componentWillMount',
-                value: function componentWillMount() {
-                    this.state.others = others_1.default(Target.defaultProps, this.props, ignore);
-                }
-            }, {
                 key: 'render',
                 value: function render() {
+                    var _this2 = this;
+
                     var newProps = _extends({}, this.props);
-                    newProps.others = this.state.others;
+                    newProps.others = others_1.default(Target.defaultProps, newProps, ignore);
+                    newProps.ref = function (ref) {
+                        _this2.wrappedInstance = ref;
+                    };
                     return React.createElement(Target, newProps, this.props.children);
                 }
             }]);

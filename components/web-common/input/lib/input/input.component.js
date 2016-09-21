@@ -121,7 +121,7 @@ var Input = function (_React$Component) {
             if (this.state.hasError) {
                 ErrorLabel = React.createElement("span", { className: "label-error" }, this.state.errorMessage);
             }
-            return React.createElement("div", { className: classes, style: separateStyle }, React.createElement("input", __assign({}, this.props.others, { style: originStyle, required: true, disabled: this.props.disabled, onChange: this.handleInputChange.bind(this), className: inputClasses })), React.createElement("div", { className: "right-addon" }, this.props.rightRender()), this.props.innerRender.constructor.name === 'Function' ? this.props.innerRender() : this.props.innerRender, Highlight, HighlightLine, React.createElement("label", { className: labelClasses }, this.props.label, ErrorLabel));
+            return React.createElement("div", { className: classes, style: separateStyle }, React.createElement("input", __assign({}, this.props.others, { style: originStyle, required: true, disabled: this.props.disabled, onChange: this.handleInputChange.bind(this), className: inputClasses })), React.createElement("div", { className: "right-addon" }, this.props.rightRender()), this.props.innerRender(), Highlight, HighlightLine, React.createElement("label", { className: labelClasses }, this.props.label, ErrorLabel));
         }
     }]);
 

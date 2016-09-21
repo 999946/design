@@ -1,6 +1,6 @@
 {
   "name": "nt-gif",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "GIF",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -14,8 +14,8 @@
   "author": "ascoders",
   "license": "ISC",
   "dependencies": {
-    "nt-image": "^0.1.4",
-    "nt-transmit-transparently": "^1.0.4"
+    "nt-image": "^0.1.5",
+    "nt-transmit-transparently": "^1.0.5"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",

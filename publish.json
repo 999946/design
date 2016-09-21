@@ -40,6 +40,11 @@
             "isWeb": true
           },
           {
+            "name": "select",
+            "chinese": "下拉选择框",
+            "isWeb": true
+          },
+          {
             "name": "collapse",
             "chinese": "手风琴",
             "isWeb": true
@@ -103,7 +108,7 @@
       },
       "packageJson": {
         "name": "nt-tooltip",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "工具提示",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -140,7 +145,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -180,6 +185,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -246,7 +256,7 @@
       },
       "packageJson": {
         "name": "nt-web-message",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "全局消息",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -283,7 +293,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -323,6 +333,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -389,7 +404,7 @@
       },
       "packageJson": {
         "name": "nt-web-image-preload",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "图片预加载",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -415,7 +430,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -485,7 +500,7 @@
       },
       "packageJson": {
         "name": "nt-transmit-transparently",
-        "version": "1.0.3",
+        "version": "1.0.4",
         "description": "透传",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -511,7 +526,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.3"
+    "preVersion": "1.0.4"
   },
   {
     "userPublishLevel": "patch",
@@ -581,7 +596,7 @@
       },
       "packageJson": {
         "name": "nt-auto-bind",
-        "version": "2.0.1",
+        "version": "2.0.2",
         "description": "自动绑定",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -607,7 +622,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "2.0.1"
+    "preVersion": "2.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -677,7 +692,7 @@
       },
       "packageJson": {
         "name": "nt-transparently-props",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "description": "透传属性定义",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -703,7 +718,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.1"
+    "preVersion": "0.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -746,7 +761,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-resource-card",
-        "version": "0.0.28",
+        "version": "0.0.29",
         "description": "资源卡片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -762,7 +777,7 @@
         "dependencies": {},
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.33.0"
+          "react-native": "*"
         }
       },
       "dependence": [
@@ -777,7 +792,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.28"
+    "preVersion": "0.0.29"
   },
   {
     "userPublishLevel": "patch",
@@ -820,7 +835,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-navbar",
-        "version": "0.0.28",
+        "version": "0.0.29",
         "description": "导航条",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -836,7 +851,7 @@
         "dependencies": {},
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.33.0"
+          "react-native": "*"
         }
       },
       "dependence": [
@@ -851,7 +866,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.28"
+    "preVersion": "0.0.29"
   },
   {
     "userPublishLevel": "patch",
@@ -859,7 +874,7 @@
     "componentInfoWithDep": {
       "component": {
         "name": "gaea-model",
-        "chinese": "盖亚-原生组件",
+        "chinese": "盖亚-定义",
         "isWeb": true,
         "isAndroid": true,
         "isIos": true,
@@ -906,7 +921,7 @@
           },
           {
             "name": "gaea-model",
-            "chinese": "盖亚-原生组件",
+            "chinese": "盖亚-定义",
             "isWeb": true,
             "isAndroid": true,
             "isIos": true,
@@ -917,7 +932,7 @@
       },
       "packageJson": {
         "name": "gaea-model",
-        "version": "0.0.0",
+        "version": "0.0.1",
         "description": "盖亚-原生组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -931,17 +946,14 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {},
-        "peerDependencies": {}
-      },
-      "dependence": [
-        {
-          "type": "npm",
-          "name": "react"
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0"
         }
-      ]
+      },
+      "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "0.0.0"
+    "preVersion": "0.0.1"
   },
   {
     "userPublishLevel": "patch",
@@ -981,6 +993,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -1047,7 +1064,7 @@
       },
       "packageJson": {
         "name": "nt-button",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "按钮",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1062,7 +1079,7 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.3"
+          "nt-transmit-transparently": "^1.0.4"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -1090,7 +1107,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -1130,6 +1147,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -1196,7 +1218,7 @@
       },
       "packageJson": {
         "name": "nt-web-input",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "输入框",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1211,7 +1233,7 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.3",
+          "nt-transmit-transparently": "^1.0.4",
           "validator": "^5.7.0"
         },
         "peerDependencies": {
@@ -1233,13 +1255,18 @@
           "category": "common"
         },
         {
+          "type": "component",
+          "name": "transparently-props",
+          "category": "common"
+        },
+        {
           "type": "npm",
           "name": "validator"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -1279,6 +1306,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -1345,7 +1377,7 @@
       },
       "packageJson": {
         "name": "nt-web-switch",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "开关",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1360,8 +1392,8 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.3",
-          "nt-transparently-props": "^0.0.1"
+          "nt-transmit-transparently": "^1.0.4",
+          "nt-transparently-props": "^0.0.2"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -1389,7 +1421,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -1429,6 +1461,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -1495,7 +1532,7 @@
       },
       "packageJson": {
         "name": "nt-web-checkbox",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "多选框",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1510,8 +1547,8 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.3",
-          "nt-transparently-props": "^0.0.1"
+          "nt-transmit-transparently": "^1.0.4",
+          "nt-transparently-props": "^0.0.2"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -1539,7 +1576,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -1579,6 +1616,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -1645,7 +1687,7 @@
       },
       "packageJson": {
         "name": "nt-web-collapse",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "description": "手风琴",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1661,8 +1703,8 @@
         "dependencies": {
           "jquery": "^3.1.0",
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.3",
-          "nt-transparently-props": "^0.0.1"
+          "nt-transmit-transparently": "^1.0.4",
+          "nt-transparently-props": "^0.0.2"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -1695,11 +1737,15 @@
           "type": "component",
           "name": "transparently-props",
           "category": "common"
+        },
+        {
+          "type": "npm",
+          "name": "lodash"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.2"
+    "preVersion": "1.0.3"
   },
   {
     "userPublishLevel": "patch",
@@ -1739,6 +1785,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -1805,7 +1856,7 @@
       },
       "packageJson": {
         "name": "nt-web-tabs",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "标签页",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1820,8 +1871,8 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.3",
-          "nt-transparently-props": "^0.0.1",
+          "nt-transmit-transparently": "^1.0.4",
+          "nt-transparently-props": "^0.0.2",
           "jquery": "^3.1.0"
         },
         "peerDependencies": {
@@ -1859,7 +1910,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -1899,6 +1950,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -1965,7 +2021,7 @@
       },
       "packageJson": {
         "name": "nt-web-tree",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "折叠树",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -1980,8 +2036,8 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.3",
-          "nt-transparently-props": "^0.0.1"
+          "nt-transmit-transparently": "^1.0.4",
+          "nt-transparently-props": "^0.0.2"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -2009,7 +2065,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -2049,6 +2105,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -2115,7 +2176,7 @@
       },
       "packageJson": {
         "name": "nt-web-margin-padding-editor",
-        "version": "1.1.2",
+        "version": "1.1.3",
         "description": "内/外边距编辑器",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2130,8 +2191,8 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-auto-bind": "^2.0.1",
-          "nt-transmit-transparently": "^1.0.3"
+          "nt-auto-bind": "^2.0.2",
+          "nt-transmit-transparently": "^1.0.4"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -2164,7 +2225,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.1.2"
+    "preVersion": "1.1.3"
   },
   {
     "userPublishLevel": "patch",
@@ -2204,6 +2265,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -2270,7 +2336,7 @@
       },
       "packageJson": {
         "name": "nt-web-badge",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "徽标",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2285,7 +2351,7 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.3",
+          "nt-transmit-transparently": "^1.0.4",
           "rc-animate": "^2.3.1",
           "lodash": "^4.15.0",
           "css-animation": "^1.3.0"
@@ -2323,7 +2389,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -2363,6 +2429,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -2429,7 +2500,7 @@
       },
       "packageJson": {
         "name": "nt-web-loading",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "进度条",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2444,7 +2515,7 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.3"
+          "nt-transmit-transparently": "^1.0.4"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -2467,7 +2538,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -2507,6 +2578,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -2573,7 +2649,7 @@
       },
       "packageJson": {
         "name": "nt-web-timeago",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "友好时间",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2589,7 +2665,7 @@
         "dependencies": {
           "moment": "^2.15.0",
           "lodash": "^4.15.0",
-          "nt-transmit-transparently": "^1.0.3"
+          "nt-transmit-transparently": "^1.0.4"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -2616,7 +2692,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -2685,7 +2761,7 @@
       },
       "packageJson": {
         "name": "nt-image",
-        "version": "0.1.3",
+        "version": "0.1.4",
         "description": "图片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2699,11 +2775,11 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-transmit-transparently": "^1.0.3"
+          "nt-transmit-transparently": "^1.0.4"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.33.0"
+          "react-native": "*"
         }
       },
       "dependence": [
@@ -2723,7 +2799,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.1.3"
+    "preVersion": "0.1.4"
   },
   {
     "userPublishLevel": "patch",
@@ -2793,7 +2869,7 @@
       },
       "packageJson": {
         "name": "react-native-image-pan-zoom",
-        "version": "1.1.2",
+        "version": "1.1.3",
         "description": "图片手势操作",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -2807,11 +2883,11 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-auto-bind": "^2.0.1"
+          "nt-auto-bind": "^2.0.2"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.33.0"
+          "react-native": "*"
         }
       },
       "dependence": [
@@ -2831,109 +2907,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.1.2"
-  },
-  {
-    "userPublishLevel": "patch",
-    "publishLevel": "patch",
-    "componentInfoWithDep": {
-      "component": {
-        "name": "gaea-editor",
-        "chinese": "盖亚-编辑器",
-        "isWeb": true,
-        "git": "https://github.com/ascoders/gaea-editor.git",
-        "npm": "gaea-editor"
-      },
-      "category": {
-        "name": "editor",
-        "chinese": "编辑器",
-        "prefix": "nt-editor",
-        "isPrivate": false,
-        "components": [
-          {
-            "name": "gaea-editor",
-            "chinese": "盖亚-编辑器",
-            "isWeb": true,
-            "git": "https://github.com/ascoders/gaea-editor.git",
-            "npm": "gaea-editor"
-          },
-          {
-            "name": "gaea-preview",
-            "chinese": "盖亚-查看器",
-            "isWeb": true,
-            "isAndroid": true,
-            "isIos": true,
-            "git": "https://github.com/ascoders/gaea-preview.git",
-            "npm": "gaea-preview"
-          },
-          {
-            "name": "gaea-web-components",
-            "chinese": "盖亚-网页组件",
-            "isWeb": true,
-            "git": "https://github.com/ascoders/gaea-web-components.git",
-            "npm": "gaea-web-components"
-          },
-          {
-            "name": "gaea-native-components",
-            "chinese": "盖亚-原生组件",
-            "isWeb": true,
-            "isAndroid": true,
-            "isIos": true,
-            "git": "https://github.com/ascoders/gaea-native-components.git",
-            "npm": "gaea-native-components"
-          },
-          {
-            "name": "gaea-model",
-            "chinese": "盖亚-原生组件",
-            "isWeb": true,
-            "isAndroid": true,
-            "isIos": true,
-            "git": "https://github.com/ascoders/gaea-model.git",
-            "npm": "gaea-model"
-          }
-        ]
-      },
-      "packageJson": {
-        "name": "gaea-editor",
-        "version": "0.0.4",
-        "description": "盖亚",
-        "main": "lib/index.js",
-        "typings": "lib/index.d.ts",
-        "repository": {
-          "type": "git",
-          "url": "https://github.com/ascoders/gaea.git"
-        },
-        "keywords": [
-          "gaea"
-        ],
-        "author": "ascoders",
-        "license": "ISC",
-        "dependencies": {
-          "classnames": "^2.2.5",
-          "nt-transparently-props": "^0.0.1"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0"
-        }
-      },
-      "dependence": [
-        {
-          "type": "npm",
-          "name": "react"
-        },
-        {
-          "type": "npm",
-          "name": "classnames"
-        },
-        {
-          "type": "component",
-          "name": "transparently-props",
-          "category": "common"
-        }
-      ]
-    },
-    "isUserOperate": true,
-    "preVersion": "0.0.4"
+    "preVersion": "1.1.3"
   },
   {
     "userPublishLevel": "patch",
@@ -2988,7 +2962,7 @@
           },
           {
             "name": "gaea-model",
-            "chinese": "盖亚-原生组件",
+            "chinese": "盖亚-定义",
             "isWeb": true,
             "isAndroid": true,
             "isIos": true,
@@ -2999,7 +2973,7 @@
       },
       "packageJson": {
         "name": "gaea-preview",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "description": "盖亚-查看器",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3013,8 +2987,8 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "classnames": "^2.2.5",
-          "nt-transparently-props": "^0.0.1"
+          "lodash": "^4.15.0",
+          "nt-transparently-props": "^0.0.2"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -3031,110 +3005,8 @@
         },
         {
           "type": "component",
-          "name": "transparently-props",
-          "category": "common"
-        }
-      ]
-    },
-    "isUserOperate": true,
-    "preVersion": "0.0.3"
-  },
-  {
-    "userPublishLevel": "patch",
-    "publishLevel": "patch",
-    "componentInfoWithDep": {
-      "component": {
-        "name": "gaea-web-components",
-        "chinese": "盖亚-网页组件",
-        "isWeb": true,
-        "git": "https://github.com/ascoders/gaea-web-components.git",
-        "npm": "gaea-web-components"
-      },
-      "category": {
-        "name": "editor",
-        "chinese": "编辑器",
-        "prefix": "nt-editor",
-        "isPrivate": false,
-        "components": [
-          {
-            "name": "gaea-editor",
-            "chinese": "盖亚-编辑器",
-            "isWeb": true,
-            "git": "https://github.com/ascoders/gaea-editor.git",
-            "npm": "gaea-editor"
-          },
-          {
-            "name": "gaea-preview",
-            "chinese": "盖亚-查看器",
-            "isWeb": true,
-            "isAndroid": true,
-            "isIos": true,
-            "git": "https://github.com/ascoders/gaea-preview.git",
-            "npm": "gaea-preview"
-          },
-          {
-            "name": "gaea-web-components",
-            "chinese": "盖亚-网页组件",
-            "isWeb": true,
-            "git": "https://github.com/ascoders/gaea-web-components.git",
-            "npm": "gaea-web-components"
-          },
-          {
-            "name": "gaea-native-components",
-            "chinese": "盖亚-原生组件",
-            "isWeb": true,
-            "isAndroid": true,
-            "isIos": true,
-            "git": "https://github.com/ascoders/gaea-native-components.git",
-            "npm": "gaea-native-components"
-          },
-          {
-            "name": "gaea-model",
-            "chinese": "盖亚-原生组件",
-            "isWeb": true,
-            "isAndroid": true,
-            "isIos": true,
-            "git": "https://github.com/ascoders/gaea-model.git",
-            "npm": "gaea-model"
-          }
-        ]
-      },
-      "packageJson": {
-        "name": "gaea-web-components",
-        "version": "0.0.4",
-        "description": "盖亚-网页组件",
-        "main": "lib/index.js",
-        "typings": "lib/index.d.ts",
-        "repository": {
-          "type": "git",
-          "url": "https://github.com/ascoders/gaea-web-components.git"
-        },
-        "keywords": [
-          "gaea-web-components"
-        ],
-        "author": "ascoders",
-        "license": "ISC",
-        "dependencies": {
-          "classnames": "^2.2.5",
-          "nt-transparently-props": "^0.0.1"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0"
-        }
-      },
-      "dependence": [
-        {
-          "type": "npm",
-          "name": "react"
-        },
-        {
-          "type": "npm",
-          "name": "classnames"
-        },
-        {
-          "type": "component",
-          "name": "transparently-props",
-          "category": "common"
+          "name": "gaea-model",
+          "category": "editor"
         }
       ]
     },
@@ -3194,7 +3066,7 @@
           },
           {
             "name": "gaea-model",
-            "chinese": "盖亚-原生组件",
+            "chinese": "盖亚-定义",
             "isWeb": true,
             "isAndroid": true,
             "isIos": true,
@@ -3205,7 +3077,7 @@
       },
       "packageJson": {
         "name": "gaea-native-components",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "description": "盖亚-原生组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3220,7 +3092,7 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transparently-props": "^0.0.1"
+          "nt-transparently-props": "^0.0.2"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -3232,18 +3104,14 @@
           "name": "react"
         },
         {
-          "type": "npm",
-          "name": "classnames"
-        },
-        {
           "type": "component",
-          "name": "transparently-props",
+          "name": "transmit-transparently",
           "category": "common"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.3"
+    "preVersion": "0.0.4"
   },
   {
     "userPublishLevel": "patch",
@@ -3283,6 +3151,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -3349,7 +3222,7 @@
       },
       "packageJson": {
         "name": "nt-web-radio",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "单选框",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3364,9 +3237,9 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.3",
-          "nt-transparently-props": "^0.0.1",
-          "nt-web-button": "^1.0.1"
+          "nt-transmit-transparently": "^1.0.4",
+          "nt-transparently-props": "^0.0.2",
+          "nt-web-button": "^1.0.2"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -3399,7 +3272,178 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "select",
+        "chinese": "下拉选择框",
+        "isWeb": true
+      },
+      "category": {
+        "name": "web-common",
+        "chinese": "web通用",
+        "prefix": "nt-web",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "button",
+            "chinese": "按钮",
+            "isWeb": true
+          },
+          {
+            "name": "input",
+            "chinese": "输入框",
+            "isWeb": true
+          },
+          {
+            "name": "switch",
+            "chinese": "开关",
+            "isWeb": true
+          },
+          {
+            "name": "radio",
+            "chinese": "单选框",
+            "isWeb": true
+          },
+          {
+            "name": "checkbox",
+            "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
+            "isWeb": true
+          },
+          {
+            "name": "collapse",
+            "chinese": "手风琴",
+            "isWeb": true
+          },
+          {
+            "name": "tooltip",
+            "chinese": "工具提示",
+            "isWeb": true
+          },
+          {
+            "name": "message",
+            "chinese": "全局消息",
+            "isWeb": true
+          },
+          {
+            "name": "modal",
+            "chinese": "模态框",
+            "isWeb": true
+          },
+          {
+            "name": "tabs",
+            "chinese": "标签页",
+            "isWeb": true
+          },
+          {
+            "name": "tree",
+            "chinese": "树",
+            "isWeb": true
+          },
+          {
+            "name": "json-tree",
+            "chinese": "json 树",
+            "isWeb": true
+          },
+          {
+            "name": "margin-padding-editor",
+            "chinese": "内/外边距编辑器",
+            "isWeb": true
+          },
+          {
+            "name": "badge",
+            "chinese": "徽标",
+            "isWeb": true
+          },
+          {
+            "name": "loading",
+            "chinese": "进度条",
+            "isWeb": true
+          },
+          {
+            "name": "timeago",
+            "chinese": "友好时间",
+            "isWeb": true
+          },
+          {
+            "name": "image-preload",
+            "chinese": "图片预加载",
+            "isWeb": true
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "nt-web-select",
+        "version": "0.0.0",
+        "description": "下拉选择框",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/next-component/web-common-select.git"
+        },
+        "keywords": [
+          "select"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {},
+        "peerDependencies": {}
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "classnames"
+        },
+        {
+          "type": "component",
+          "name": "transparently-props",
+          "category": "common"
+        },
+        {
+          "type": "npm",
+          "name": "lodash"
+        },
+        {
+          "type": "component",
+          "name": "transmit-transparently",
+          "category": "common"
+        },
+        {
+          "type": "npm",
+          "name": "react-dom"
+        },
+        {
+          "type": "npm",
+          "name": "jquery"
+        },
+        {
+          "type": "component",
+          "name": "input",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "input",
+          "category": "web-common"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "0.0.0"
   },
   {
     "userPublishLevel": "patch",
@@ -3439,6 +3483,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -3505,7 +3554,7 @@
       },
       "packageJson": {
         "name": "nt-web-modal",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "description": "模态框",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3520,9 +3569,9 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-web-button": "^1.0.1",
-          "nt-transmit-transparently": "^1.0.3",
-          "nt-transparently-props": "^0.0.1"
+          "nt-web-button": "^1.0.2",
+          "nt-transmit-transparently": "^1.0.4",
+          "nt-transparently-props": "^0.0.2"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -3560,7 +3609,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.1"
+    "preVersion": "0.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -3600,6 +3649,11 @@
           {
             "name": "checkbox",
             "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
             "isWeb": true
           },
           {
@@ -3666,7 +3720,7 @@
       },
       "packageJson": {
         "name": "nt-web-json-tree",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "json 树",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3681,9 +3735,9 @@
         "license": "ISC",
         "dependencies": {
           "classnames": "^2.2.5",
-          "nt-web-tree": "^1.0.1",
-          "nt-transmit-transparently": "^1.0.3",
-          "nt-transparently-props": "^0.0.1"
+          "nt-web-tree": "^1.0.2",
+          "nt-transmit-transparently": "^1.0.4",
+          "nt-transparently-props": "^0.0.2"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -3716,7 +3770,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   },
   {
     "userPublishLevel": "patch",
@@ -3785,7 +3839,7 @@
       },
       "packageJson": {
         "name": "nt-gif",
-        "version": "0.1.3",
+        "version": "0.1.4",
         "description": "GIF",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3799,12 +3853,12 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-image": "^0.1.3",
-          "nt-transmit-transparently": "^1.0.3"
+          "nt-image": "^0.1.4",
+          "nt-transmit-transparently": "^1.0.4"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.33.0"
+          "react-native": "*"
         }
       },
       "dependence": [
@@ -3829,7 +3883,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.1.3"
+    "preVersion": "0.1.4"
   },
   {
     "userPublishLevel": "patch",
@@ -3899,7 +3953,7 @@
       },
       "packageJson": {
         "name": "react-native-image-zoom-viewer",
-        "version": "1.2.4",
+        "version": "1.2.5",
         "description": "大图浏览",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -3913,13 +3967,13 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-auto-bind": "^2.0.1",
-          "nt-transmit-transparently": "^1.0.3",
-          "react-native-image-pan-zoom": "^1.1.2"
+          "nt-auto-bind": "^2.0.2",
+          "nt-transmit-transparently": "^1.0.4",
+          "react-native-image-pan-zoom": "^1.1.3"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.33.0"
+          "react-native": "*"
         }
       },
       "dependence": [
@@ -3949,7 +4003,115 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.2.4"
+    "preVersion": "1.2.5"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "gaea-web-components",
+        "chinese": "盖亚-网页组件",
+        "isWeb": true,
+        "git": "https://github.com/ascoders/gaea-web-components.git",
+        "npm": "gaea-web-components"
+      },
+      "category": {
+        "name": "editor",
+        "chinese": "编辑器",
+        "prefix": "nt-editor",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "gaea-editor",
+            "chinese": "盖亚-编辑器",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-editor.git",
+            "npm": "gaea-editor"
+          },
+          {
+            "name": "gaea-preview",
+            "chinese": "盖亚-查看器",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-preview.git",
+            "npm": "gaea-preview"
+          },
+          {
+            "name": "gaea-web-components",
+            "chinese": "盖亚-网页组件",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-web-components.git",
+            "npm": "gaea-web-components"
+          },
+          {
+            "name": "gaea-native-components",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-native-components.git",
+            "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-定义",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model"
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "gaea-web-components",
+        "version": "0.0.5",
+        "description": "盖亚-网页组件",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/ascoders/gaea-web-components.git"
+        },
+        "keywords": [
+          "gaea-web-components"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {
+          "classnames": "^2.2.5",
+          "nt-transparently-props": "^0.0.2"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0"
+        }
+      },
+      "dependence": [
+        {
+          "type": "component",
+          "name": "button",
+          "category": "web-common"
+        },
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "component",
+          "name": "transmit-transparently",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "transparently-props",
+          "category": "common"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "0.0.5"
   },
   {
     "userPublishLevel": "patch",
@@ -3991,7 +4153,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-image",
-        "version": "0.1.3",
+        "version": "0.1.4",
         "description": "图片",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -4005,12 +4167,12 @@
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "nt-gif": "^0.1.3",
-          "nt-transmit-transparently": "^1.0.3"
+          "nt-gif": "^0.1.4",
+          "nt-transmit-transparently": "^1.0.4"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "^0.33.0"
+          "react-native": "*"
         }
       },
       "dependence": [
@@ -4035,6 +4197,256 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.1.3"
+    "preVersion": "0.1.4"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "gaea-editor",
+        "chinese": "盖亚-编辑器",
+        "isWeb": true,
+        "git": "https://github.com/ascoders/gaea-editor.git",
+        "npm": "gaea-editor"
+      },
+      "category": {
+        "name": "editor",
+        "chinese": "编辑器",
+        "prefix": "nt-editor",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "gaea-editor",
+            "chinese": "盖亚-编辑器",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-editor.git",
+            "npm": "gaea-editor"
+          },
+          {
+            "name": "gaea-preview",
+            "chinese": "盖亚-查看器",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-preview.git",
+            "npm": "gaea-preview"
+          },
+          {
+            "name": "gaea-web-components",
+            "chinese": "盖亚-网页组件",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-web-components.git",
+            "npm": "gaea-web-components"
+          },
+          {
+            "name": "gaea-native-components",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-native-components.git",
+            "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-定义",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model"
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "gaea-editor",
+        "version": "0.0.5",
+        "description": "盖亚",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/ascoders/gaea.git"
+        },
+        "keywords": [
+          "gaea"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {
+          "classnames": "^2.2.5",
+          "nt-transparently-props": "^0.0.2"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0"
+        }
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "react-dom"
+        },
+        {
+          "type": "npm",
+          "name": "mobx-react"
+        },
+        {
+          "type": "component",
+          "name": "transparently-props",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "auto-bind",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "message",
+          "category": "web-common"
+        },
+        {
+          "type": "npm",
+          "name": "keymaster"
+        },
+        {
+          "type": "npm",
+          "name": "classnames"
+        },
+        {
+          "type": "component",
+          "name": "auto-bind",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "modal",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "switch",
+          "category": "web-common"
+        },
+        {
+          "type": "npm",
+          "name": "lodash"
+        },
+        {
+          "type": "component",
+          "name": "auto-bind",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "gaea-preview",
+          "category": "editor"
+        },
+        {
+          "type": "component",
+          "name": "auto-bind",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "button",
+          "category": "web-common"
+        },
+        {
+          "type": "npm",
+          "name": "sortablejs"
+        },
+        {
+          "type": "component",
+          "name": "tabs",
+          "category": "web-common"
+        },
+        {
+          "type": "npm",
+          "name": "mobx"
+        },
+        {
+          "type": "component",
+          "name": "button",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "checkbox",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "input",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "button",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "margin-padding-editor",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "select",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "switch",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "input",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "modal",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "input",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "tabs",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "tree",
+          "category": "web-common"
+        },
+        {
+          "type": "npm",
+          "name": "jquery"
+        },
+        {
+          "type": "component",
+          "name": "tree",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "gaea-model",
+          "category": "editor"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "0.0.5"
   }
 ]

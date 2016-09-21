@@ -1,0 +1,28 @@
+{
+  "name": "nt-web-select",
+  "version": "0.0.1",
+  "description": "下拉选择框",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/next-component/web-common-select.git"
+  },
+  "keywords": [
+    "select"
+  ],
+  "author": "ascoders",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "nt-transparently-props": "^0.0.3",
+    "lodash": "^4.15.0",
+    "nt-transmit-transparently": "^1.0.5",
+    "jquery": "^3.1.0",
+    "nt-web-input": "^1.0.3"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
+  }
+}

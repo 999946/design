@@ -2,8 +2,6 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21,14 +19,6 @@ var __assign = undefined && undefined.__assign || Object.assign || function (t) 
     }
     return t;
 };
-var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    }return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 var React = require('react');
 var classNames = require('classnames');
 var ReactDOM = require('react-dom');
@@ -44,6 +34,7 @@ var removeClass = function removeClass(obj, cls) {
         obj.className = obj.className.replace(reg, ' ');
     }
 };
+
 var Button = function (_React$Component) {
     _inherits(Button, _React$Component);
 
@@ -63,12 +54,12 @@ var Button = function (_React$Component) {
     }
 
     _createClass(Button, [{
-        key: "componentDidMount",
+        key: 'componentDidMount',
         value: function componentDidMount() {
             this.selfDom = ReactDOM.findDOMNode(this);
         }
     }, {
-        key: "handleClick",
+        key: 'handleClick',
         value: function handleClick(event) {
             if (this.props.disabled || this.props.loading) return;
             this.props.onClick(event);
@@ -95,7 +86,7 @@ var Button = function (_React$Component) {
             taint.style.left = x + 'px';
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             var _classNames2;
 
@@ -120,13 +111,14 @@ var Button = function (_React$Component) {
                 'nt-web-button-button': true,
                 'btn': true
             }, _defineProperty(_classNames2, 'btn-' + this.props.type, true), _defineProperty(_classNames2, 'disabled', this.props.disabled || this.props.loading === true), _defineProperty(_classNames2, 'btn-addon', this.props.addonLeft || this.props.addonRight), _defineProperty(_classNames2, 'btn-rounded', this.props.rounded), _defineProperty(_classNames2, 'active', this.props.active), _defineProperty(_classNames2, this.props.className, !!this.props.className), _classNames2));
-            return React.createElement("button", __assign({}, this.props.others, { onClick: this.handleClick.bind(this), className: btnClass }), React.createElement("div", { className: "button-container" }, this.props.addonLeft ? addon : null, React.createElement("div", { className: "text-child" }, this.props.children), this.props.addonRight ? addon : null, this.props.loading ? loadingComponent : null));
+            var _others = index_1.others(new typings.Props(), this.props);
+            return React.createElement("button", __assign({}, _others, { onClick: this.handleClick.bind(this), className: btnClass }), React.createElement("div", { className: "button-container" }, this.props.addonLeft ? addon : null, React.createElement("div", { className: "text-child" }, this.props.children), this.props.addonRight ? addon : null, this.props.loading ? loadingComponent : null));
         }
     }]);
 
     return Button;
 }(React.Component);
+
 Button.defaultProps = new typings.Props();
-Button = __decorate([index_1.TransmitTransparently()], Button);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Button;

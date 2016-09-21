@@ -1,6 +1,6 @@
 {
   "name": "nt-web-collapse",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "手风琴",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -16,8 +16,9 @@
   "dependencies": {
     "jquery": "^3.1.0",
     "classnames": "^2.2.5",
-    "nt-transmit-transparently": "^1.0.4",
-    "nt-transparently-props": "^0.0.2"
+    "nt-transmit-transparently": "^1.0.5",
+    "nt-transparently-props": "^0.0.3",
+    "lodash": "^4.15.0"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",

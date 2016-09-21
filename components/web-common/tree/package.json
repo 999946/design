@@ -1,6 +1,6 @@
 {
   "name": "nt-web-tree",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "折叠树",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -15,8 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.5",
-    "nt-transmit-transparently": "^1.0.4",
-    "nt-transparently-props": "^0.0.2"
+    "nt-transmit-transparently": "^1.0.5",
+    "nt-transparently-props": "^0.0.3"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0"

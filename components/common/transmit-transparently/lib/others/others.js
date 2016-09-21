@@ -15,7 +15,10 @@ exports.default = function () {
     Object.keys(props).forEach(function (key) {
         if (ignore.findIndex(function (item) {
             return item === key;
-        }) > -1 || defaultPropsKeys.findIndex(function (item) {
+        }) > -1) {
+            return;
+        }
+        if (defaultPropsKeys.findIndex(function (item) {
             return item === key;
         }) === -1 && htmlAttributes.findIndex(function (item) {
             return item === key;
