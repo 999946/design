@@ -66,4 +66,3 @@ var TextInputComponent = function (_React$Component) {
 TextInputComponent.defaultProps = new _module.Props();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = TextInputComponent;
-//# sourceMappingURL=index.js.map

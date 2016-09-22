@@ -72,4 +72,3 @@ var LViewComponent = function (_React$Component) {
 LViewComponent.defaultProps = new _module.Props();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = LViewComponent;
-//# sourceMappingURL=index.js.map

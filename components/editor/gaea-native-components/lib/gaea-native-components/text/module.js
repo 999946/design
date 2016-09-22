@@ -56,4 +56,3 @@ var State = function State() {
 };
 
 exports.State = State;
-//# sourceMappingURL=module.js.map

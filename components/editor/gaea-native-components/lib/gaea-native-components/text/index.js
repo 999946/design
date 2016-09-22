@@ -60,4 +60,3 @@ var TextComponent = function (_React$Component) {
 TextComponent.defaultProps = new _module.Props();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = TextComponent;
-//# sourceMappingURL=index.js.map
