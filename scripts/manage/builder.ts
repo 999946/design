@@ -142,30 +142,6 @@ const getFilesBySuffix = (suffix: string, modulePath: string): Array<string>=> {
 }
 
 /**
- * 产出定义文件
- */
-export const buildDTs = ()=> {
-    const comboFilePath = 'components/combo.ts'
-
-    // 先创建聚合文件
-    let comboComponentContent = `///<reference path="../typings/index.d.ts" />\n`
-
-    components.forEach(category=> {
-        category.components.forEach(component=> {
-            comboComponentContent += `import './${category.name}/${component.name}/index'\n`
-        })
-    })
-
-    fs.writeFileSync(comboFilePath, comboComponentContent)
-
-    // 生成整体 d.ts
-    execSync(`tsc -m commonjs -t es6 -d --removeComments --outDir built-components --jsx react --experimentalDecorators ${comboFilePath}`)
-
-    // 再删除聚合文件, 就像它从未出现过一样
-    fs.unlink(comboFilePath)
-}
-
-/**
  * 编译 lib 文件夹
  */
 export const buildLib = (component: Components.ComponentConfig, category: Components.Category)=> {

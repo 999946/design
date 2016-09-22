@@ -338,7 +338,7 @@ routerMap.set('web-common/select', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/select/package.json')),
                                 documents,
                                 main: require('../components/web-common/select/index')
                             })

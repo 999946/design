@@ -396,8 +396,8 @@ export default (publishFullPaths: Array<string>)=> {
 
     getAllComponentsInfoWithDep()
 
-    // 生成 ts 编译和定义文件
-    builder.buildDTs()
+    // 整体 tsc
+    execSync(`tsc`)
 
     // 实际发布路径
     const realPublishFullPaths: Array<string> = []

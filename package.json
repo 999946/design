@@ -5,7 +5,7 @@
   "main": "page/index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-before": "npm run tsc && npm run dll && npm run manage -- --router",
+    "start-before": "npm run dll && npm run manage -- --router",
     "start-before-production": "npm run tsc && npm run dll-production",
     "start": "npm run gulp & npm run client-build",
     "tsc": "rm -rf built && tsc",
