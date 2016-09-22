@@ -1,6 +1,6 @@
 {
   "name": "gaea-native-components",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "盖亚-原生组件",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -14,7 +14,7 @@
   "author": "ascoders",
   "license": "ISC",
   "dependencies": {
-    "nt-transmit-transparently": "^1.0.5"
+    "nt-transmit-transparently": "^1.0.6"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0"
