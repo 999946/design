@@ -174,7 +174,6 @@ export const buildDTs = ()=> {
  * 编译 lib 文件夹
  */
 export const buildLib = (component: Components.ComponentConfig, category: Components.Category)=> {
-    console.log(component.name, component.ignoreBuild)
     // 如果这个组件忽略编译，直接跳过
     if (component.ignoreBuild) {
         return

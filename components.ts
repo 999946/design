@@ -157,8 +157,7 @@ export default [{
         chinese: '盖亚-编辑器',
         isWeb: true,
         git: 'https://github.com/ascoders/gaea-editor.git',
-        npm: 'gaea-editor',
-        ignoreBuild: true
+        npm: 'gaea-editor'
     }, {
         name: 'gaea-preview',
         chinese: '盖亚-查看器',
@@ -188,6 +187,7 @@ export default [{
         isAndroid: true,
         isIos: true,
         git: 'https://github.com/ascoders/gaea-model.git',
-        npm: 'gaea-model'
+        npm: 'gaea-model',
+        ignoreBuild: true
     }]
 }] as Array<Components.Category>
