@@ -1,6 +1,6 @@
 {
   "name": "gaea-model",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "盖亚-原生组件",
   "main": "lib/index.js",
   "typings": "index.ts",
