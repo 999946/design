@@ -397,7 +397,7 @@ export default (publishFullPaths: Array<string>)=> {
     getAllComponentsInfoWithDep()
 
     // 整体 tsc
-    execSync(`tsc`)
+    // execSync(`tsc`)
 
     // 实际发布路径
     const realPublishFullPaths: Array<string> = []
