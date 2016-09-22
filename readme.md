@@ -14,7 +14,33 @@ npm run manage -- --push --message "更新功能"
 - 目录可以是多个, 用空格隔开
 
 ```bash
+# 发布 common 分类下 swiper 组件
 npm run manage -- --publish common/swiper#patch
+```
+
+```bash
+# 发布 common 分类下 swiper 组件
+npm run manage -- --publish components/common/swiper#patch
+```
+
+```bash
+# 发布 common 分类下所有组件
+npm run manage -- --publish components/common#patch
+```
+
+```bash
+# 发布 common 分类下所有组件
+npm run manage -- --publish common#patch
+```
+
+```bash
+# 发布所有组件
+npm run manage -- --publish components#patch
+```
+
+```bash
+# 发布 common 分类下所有组件，和 web-common 分类下的 input 组件
+npm run manage -- --publish common#patch components/web-common/input#patch
 ```
 
 ## 更新
