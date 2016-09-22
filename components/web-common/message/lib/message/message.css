@@ -86,7 +86,8 @@
             align-items: center;
     color: white;
     font-size: 16px;
-    font-weight: bold; }
+    font-weight: bold;
+    word-break: break-all; }
     .nt-web-message-message .m-layer .lyct.info {
       background: #23b7e5; }
     .nt-web-message-message .m-layer .lyct.success {
