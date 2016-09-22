@@ -1,4 +1,4 @@
-/// <reference path="./gaea-model/application.d.ts" />
-/// <reference path="./gaea-model/viewport.d.ts" />
-/// <reference path="./gaea-model/event.d.ts" />
-/// <reference path="./gaea-model/diff.d.ts" />
+import './gaea-model/application'
+import './gaea-model/diff'
+import './gaea-model/event'
+import './gaea-model/viewport'
