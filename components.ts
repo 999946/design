@@ -157,7 +157,8 @@ export default [{
         chinese: '盖亚-编辑器',
         isWeb: true,
         git: 'https://github.com/ascoders/gaea-editor.git',
-        npm: 'gaea-editor'
+        npm: 'gaea-editor',
+        ignoreBuild: true
     }, {
         name: 'gaea-preview',
         chinese: '盖亚-查看器',

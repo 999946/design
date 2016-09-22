@@ -152,6 +152,11 @@ export const buildDTs = ()=> {
 
     components.forEach(category=> {
         category.components.forEach(component=> {
+            // 略过忽略编译的
+            if (component.ignoreBuild) {
+                return
+            }
+
             comboComponentContent += `import './${category.name}/${component.name}/index'\n`
         })
     })
@@ -169,6 +174,11 @@ export const buildDTs = ()=> {
  * 编译 lib 文件夹
  */
 export const buildLib = (component: Components.ComponentConfig, category: Components.Category)=> {
+    // 如果这个组件忽略编译，直接跳过
+    if (component.ignoreBuild) {
+        return
+    }
+
     // lib 路径
     const sourcePath = `components/${category.name}/${component.name}`
     const libPath = `components/${category.name}/${component.name}/lib`

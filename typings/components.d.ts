@@ -53,6 +53,10 @@ declare namespace Components {
          * npm 发布的模块名，优先于默认设定
          */
         npm?: string
+        /**
+         * 是否忽略编译
+         */
+        ignoreBuild?: boolean
     }
 
     export interface ComponentFullInfo {
