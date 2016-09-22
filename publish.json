@@ -55,13 +55,14 @@
             "isAndroid": true,
             "isIos": true,
             "git": "https://github.com/ascoders/gaea-model.git",
-            "npm": "gaea-model"
+            "npm": "gaea-model",
+            "ignoreBuild": true
           }
         ]
       },
       "packageJson": {
         "name": "gaea-web-components",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "盖亚-网页组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -106,7 +107,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.7"
+    "preVersion": "0.0.8"
   },
   {
     "userPublishLevel": "patch",
@@ -166,13 +167,14 @@
             "isAndroid": true,
             "isIos": true,
             "git": "https://github.com/ascoders/gaea-model.git",
-            "npm": "gaea-model"
+            "npm": "gaea-model",
+            "ignoreBuild": true
           }
         ]
       },
       "packageJson": {
         "name": "gaea-native-components",
-        "version": "0.0.6",
+        "version": "0.0.7",
         "description": "盖亚-原生组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -205,7 +207,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.6"
+    "preVersion": "0.0.7"
   },
   {
     "userPublishLevel": "patch",
@@ -218,7 +220,8 @@
         "isAndroid": true,
         "isIos": true,
         "git": "https://github.com/ascoders/gaea-model.git",
-        "npm": "gaea-model"
+        "npm": "gaea-model",
+        "ignoreBuild": true
       },
       "category": {
         "name": "editor",
@@ -265,16 +268,17 @@
             "isAndroid": true,
             "isIos": true,
             "git": "https://github.com/ascoders/gaea-model.git",
-            "npm": "gaea-model"
+            "npm": "gaea-model",
+            "ignoreBuild": true
           }
         ]
       },
       "packageJson": {
         "name": "gaea-model",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "description": "盖亚-原生组件",
-        "main": "lib/index.js",
-        "typings": "index.ts",
+        "main": "index.d.ts",
+        "typings": "index.d.ts",
         "repository": {
           "type": "git",
           "url": "https://github.com/ascoders/gaea-model.git"
@@ -290,7 +294,7 @@
       "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "0.0.5"
+    "preVersion": "0.0.6"
   },
   {
     "userPublishLevel": "patch",
@@ -350,13 +354,14 @@
             "isAndroid": true,
             "isIos": true,
             "git": "https://github.com/ascoders/gaea-model.git",
-            "npm": "gaea-model"
+            "npm": "gaea-model",
+            "ignoreBuild": true
           }
         ]
       },
       "packageJson": {
         "name": "gaea-preview",
-        "version": "0.0.6",
+        "version": "0.0.7",
         "description": "盖亚-查看器",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -371,7 +376,7 @@
         "license": "ISC",
         "dependencies": {
           "lodash": "^4.15.0",
-          "gaea-model": "^0.0.4"
+          "gaea-model": "^0.0.6"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -394,7 +399,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.6"
+    "preVersion": "0.0.7"
   },
   {
     "userPublishLevel": "patch",
@@ -452,13 +457,14 @@
             "isAndroid": true,
             "isIos": true,
             "git": "https://github.com/ascoders/gaea-model.git",
-            "npm": "gaea-model"
+            "npm": "gaea-model",
+            "ignoreBuild": true
           }
         ]
       },
       "packageJson": {
         "name": "gaea-editor",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "盖亚",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -481,7 +487,7 @@
           "nt-web-modal": "^0.0.4",
           "nt-web-switch": "^1.0.4",
           "lodash": "^4.15.0",
-          "gaea-preview": "^0.0.6",
+          "gaea-preview": "^0.0.7",
           "nt-web-button": "^1.0.4",
           "sortablejs": "git://github.com/RubaXa/Sortable.git#dev",
           "nt-web-tabs": "^1.0.4",
@@ -492,7 +498,7 @@
           "nt-web-select": "^0.0.2",
           "nt-web-tree": "^1.0.4",
           "jquery": "^3.1.0",
-          "gaea-model": "^0.0.4"
+          "gaea-model": "^0.0.6"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -664,6 +670,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.7"
+    "preVersion": "0.0.8"
   }
 ]
