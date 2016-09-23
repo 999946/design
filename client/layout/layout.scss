@@ -10,6 +10,7 @@
 
 .nav-bar-second-container {
     display: flex;
+    z-index: 11;
 }
 
 .item {
@@ -43,6 +44,8 @@
     left: 0;
     height: 3px;
     background-color: #af31b1;
+    opacity: .3;
+    z-index: 10;
 }
 
 .loading-start {

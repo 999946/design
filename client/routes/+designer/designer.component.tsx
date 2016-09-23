@@ -55,14 +55,14 @@ export default class Designer extends React.Component <typings.PropsDefine, typi
     private getGaeaWebComponentFullInfo = new Promise<string>((resolve, reject)=> {
         const getGaeaWebComponentFullInfo = componentInfos.get('editor/gaea-web-components')
         getGaeaWebComponentFullInfo((componentFullInfo: RouterComponentsModel.ComponentFullInfo)=> {
-            this.GaeaNativeComponents = componentFullInfo.main.default
+            this.GaeaWebComponents = componentFullInfo.main.default
             resolve('finish')
         })
     })
     private getGaeaNativeComponentFullInfo = new Promise<string>((resolve, reject)=> {
         const getGaeaNativeComponentFullInfo = componentInfos.get('editor/gaea-native-components')
         getGaeaNativeComponentFullInfo((componentFullInfo: RouterComponentsModel.ComponentFullInfo)=> {
-            this.GaeaWebComponents = componentFullInfo.main.default
+            this.GaeaNativeComponents = componentFullInfo.main.default
             resolve('finish')
         })
     })

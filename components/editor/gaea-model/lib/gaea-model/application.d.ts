@@ -1,4 +1,8 @@
 declare namespace FitGaea {
+    export class _ {
+
+    }
+
     /**
      * 组件信息
      */

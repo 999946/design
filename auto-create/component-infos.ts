@@ -1314,7 +1314,7 @@ routerMap.set('editor/gaea-model', (callback: any) => {
                                 demos: demoLists,
                                 packageJson: JSON.parse(require('-!text!../components/editor/gaea-model/package.json')),
                                 documents,
-                                main: require('../components/editor/gaea-model/index')
+                                main: require('../components/editor/gaea-model/lib/index')
                             })
                         })
                     })

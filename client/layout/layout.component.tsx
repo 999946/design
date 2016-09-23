@@ -65,7 +65,8 @@ export default class Layout extends React.Component <typings.PropsDefine, typing
 
     render() {
         const loadingStyle = {
-            top: this.props.application.headerHeight
+            top: 0,
+            height: this.props.application.headerHeight
         }
 
         const loadingClasses = classNames({

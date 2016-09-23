@@ -58,8 +58,12 @@ export default ()=> {
         category.components.forEach(component=> {
             const componentAbsolutePath = `${config.componentsPath}/${category.name}/${component.name}`
 
-            // 组件入口文件
-            const mainSource = fs.readFileSync(`${componentAbsolutePath}/index.ts`).toString()
+            // 组件入口文件源码
+            let mainSource = ''
+
+            if (fs.existsSync(`${componentAbsolutePath}/index.ts`)) {
+                mainSource = fs.readFileSync(`${componentAbsolutePath}/index.ts`).toString()
+            }
 
             // 导出的那行代码
             const exports = /export\s?\{([^}]+)\}/.exec(mainSource)
