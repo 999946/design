@@ -2,6 +2,9 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import * as typings from './home.type'
 import {observer, inject} from 'mobx-react'
+
+//import * as PIXI from 'pixi.js'
+
 import './home.scss'
 
 @inject('application') @observer
@@ -11,6 +14,10 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
 
     componentWillMount() {
         this.props.application.event.emit(this.props.application.event.sceneLoaded)
+
+        // const renderer = new PIXI.WebGLRenderer(600, 400)
+        // document.body.appendChild(renderer.view)
+        // const stage = new PIXI.Container()
     }
 
     render() {
