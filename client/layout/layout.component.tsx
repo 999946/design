@@ -75,34 +75,41 @@ export default class Layout extends React.Component <typings.PropsDefine, typing
             'loading-end': this.state.loadingStatus === 'end'
         })
 
-        return (
-            <div className="_namespace">
-                <div className="nav-bar-container"
-                     style={{height: this.props.application.headerHeight}}>
-                    <div className="nav-bar-second-container">
-                        <Link to="/"
-                              activeClassName="active"
-                              className="brand item">Next</Link>
-                        <Link to="/components"
-                              activeClassName="active"
-                              className="item">组件库</Link>
-                        <Link to="/design-space"
-                              activeClassName="active"
-                              className="item">工作台</Link>
+        switch (this.props.routes[1].path) {
+            case 'publish-web':
+                return this.props.children
+            case 'publish-native':
+                return this.props.children
+            default:
+                return (
+                    <div className="_namespace">
+                        <div className="nav-bar-container"
+                             style={{height: this.props.application.headerHeight}}>
+                            <div className="nav-bar-second-container">
+                                <Link to="/"
+                                      activeClassName="active"
+                                      className="brand item">Next</Link>
+                                <Link to="/components"
+                                      activeClassName="active"
+                                      className="item">组件库</Link>
+                                <Link to="/design-space"
+                                      activeClassName="active"
+                                      className="item">工作台</Link>
+                            </div>
+
+                            <div className="nav-bar-second-container">
+
+                            </div>
+                        </div>
+
+                        <div className={loadingClasses}
+                             style={loadingStyle}></div>
+
+                        {this.props.children}
+
+                        {process.env['NODE_ENV'] !== 'production' && <MobxReactDevtools/>}
                     </div>
-
-                    <div className="nav-bar-second-container">
-
-                    </div>
-                </div>
-
-                <div className={loadingClasses}
-                     style={loadingStyle}></div>
-
-                {this.props.children}
-
-                {process.env['NODE_ENV'] !== 'production' && <MobxReactDevtools/>}
-            </div>
-        )
+                )
+        }
     }
 }

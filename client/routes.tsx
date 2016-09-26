@@ -31,6 +31,18 @@ const getDesigner = (nextState: any, callback: any)=> {
     })
 }
 
+const getPublishWeb = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+publish-web/publish-web.component').default)
+    })
+}
+
+const getPublishNative = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+publish-native/publish-native.component').default)
+    })
+}
+
 const getComponents = (nextState: any, callback: any)=> {
     require.ensure([], function (require: any) {
         callback(null, require('./routes/+components/components.component').default)
@@ -87,6 +99,10 @@ export default (
                getComponent={getDesignSpace}/>
         <Route path="designer"
                getComponent={getDesigner}/>
+        <Route path="publish-web"
+               getComponent={getPublishWeb}/>
+        <Route path="publish-native"
+               getComponent={getPublishNative}/>
         <Route path="components"
                getComponent={getComponents}>
             <IndexRoute getComponent={getComponentsHome}/>

@@ -1,11 +1,10 @@
 export default [
     'react',
     'react-dom',
+    'react-native',
     'react-router',
     'mobx',
     'mobx-react',
-    'validator',
-    'react-native',
     'lodash',
-    'superagent',
+    'superagent'
 ]
