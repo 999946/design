@@ -538,7 +538,7 @@ export default (publishFullPaths: Array<string>)=> {
                     // 因为这个 tag 也打到了根目录, 所以在根目录删除这个 tag
                     execSync(`git tag -d v${publishInfo.componentInfoWithDep.packageJson.version}`)
                 } else {
-                    execSync(`cd ${publishPath}; npm publish`)
+                    exec(`cd ${publishPath}; npm publish`)
                 }
 
                 // push 到 master
