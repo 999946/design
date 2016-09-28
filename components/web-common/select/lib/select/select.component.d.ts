@@ -15,7 +15,7 @@ export default class Select extends React.Component<typings.PropsDefine, typings
     componentWillUnmount(): void;
     handleSelectClick(): void;
     handleClick(value: string, label: string, children?: Array<typings.Options>, zIndex?: number): void;
-    handleSearchChange(event: any): void;
+    handleSearchChange(value: string): void;
     handleSetLabelValue(labelValue: string): void;
     getOptionChildren(): JSX.Element;
     getOptionChildrenByOptions(): JSX.Element;

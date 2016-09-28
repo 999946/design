@@ -1,6 +1,6 @@
 {
   "name": "nt-web-select",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "下拉选择框",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -19,7 +19,7 @@
     "lodash": "^4.15.0",
     "nt-transmit-transparently": "^1.0.6",
     "jquery": "^3.1.0",
-    "nt-web-input": "^1.0.4"
+    "nt-web-input": "^1.0.5"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
