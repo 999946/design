@@ -6,6 +6,9 @@
     position: relative;
     margin-top: 20px;
     background: white;
+    &.no-label {
+        margin-top: 0;
+    }
 }
 
 .input {
