@@ -81,6 +81,8 @@
   position: relative;
   margin-top: 20px;
   background: white; }
+  .nt-web-input-input.no-label {
+    margin-top: 0; }
 
 .nt-web-input-input .input {
   font-size: 14px;
@@ -212,7 +214,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  height: 38px;
+  height: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

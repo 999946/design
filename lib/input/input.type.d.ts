@@ -4,7 +4,7 @@ import { ExtendValidatorStatic } from './validate';
 export interface PropsDefine extends TransparentlyPropsPropsDefine {
     value?: string;
     defaultValue?: string;
-    onChange?: (value: string | Array<string>) => void;
+    onChange?: (value: string | string[]) => void;
     id?: number | string;
     placeholder?: string;
     autoComplete?: string;
