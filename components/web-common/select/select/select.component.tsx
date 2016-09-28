@@ -178,9 +178,9 @@ export default class Select extends React.Component <typings.PropsDefine, typing
     }
 
     // 搜索框改变
-    handleSearchChange(event: any) {
+    handleSearchChange(value: string) {
         this.setState({
-            searchValue: event.target.value
+            searchValue: value
         })
     }
 
