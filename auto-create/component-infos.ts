@@ -109,6 +109,45 @@ routerMap.set('web-common/input', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('web-common/number', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/number/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/number/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/number/demo/2.speed').default,
+                            code: require('-!text!../../components/web-common/number/demo/2.speed.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/number/demo/3.step').default,
+                            code: require('-!text!../../components/web-common/number/demo/3.step.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/number/number/number.type'),
+                            typeCode: require('-!text!../../components/web-common/number/number/number.type.ts'),
+                            typePath: 'components/web-common/number/number/number.type',
+                            componentName: 'Number',
+                            sourceCode: require('-!text!../../components/web-common/number/number/number.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/number/index')
+                            })
+                        })
+                    })
 routerMap.set('web-common/switch', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

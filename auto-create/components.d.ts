@@ -13,6 +13,12 @@ export interface InputPropsDefine {}
 
                 }
             
+                declare module 'nt-web-number' {    
+                    export interface Number {}
+export interface NumberPropsDefine {}
+
+                }
+            
                 declare module 'nt-web-switch' {    
                     export interface Switch {}
 export interface SwitchPropsDefine {}

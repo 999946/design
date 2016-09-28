@@ -38,7 +38,7 @@ export default class Input extends React.Component <typings.PropsDefine, typings
     }
 
     handleInputChange(event: any) {
-        this.props.onChange(event)
+        this.props.onChange(event.target.value as string)
 
         const validateResult = this.props.validateMiddleware(event.target.value, validator)
         this.setState({
