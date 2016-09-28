@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as typings from './input.type'
 import * as classNames from 'classnames'
+import * as _ from 'lodash'
 
 import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 import validator from './validate'
@@ -50,7 +51,8 @@ export default class Input extends React.Component <typings.PropsDefine, typings
     render() {
         const classes = classNames({
             '_namespace': true,
-            [this.props['className']]: !!this.props['className']
+            'no-label': this.props.label === '',
+            [this.props.className]: !!this.props.className
         })
 
         // 获取焦点时高亮的dom

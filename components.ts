@@ -14,6 +14,10 @@ export default [{
         chinese: '输入框',
         isWeb: true
     }, {
+        name: 'number',
+        chinese: '数字框',
+        isWeb: true
+    }, {
         name: 'switch',
         chinese: '开关',
         isWeb: true
