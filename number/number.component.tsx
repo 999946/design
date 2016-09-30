@@ -10,11 +10,11 @@ import parseToNumber from './parse-to-number'
 
 import './number.scss'
 
-let interval: any
-
 export default class Number extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
+
+    private interval: any
 
     componentWillMount() {
         this.setState({
@@ -24,7 +24,7 @@ export default class Number extends React.Component <typings.PropsDefine, typing
 
     // 鼠标松开后停止计数
     @autoBindMethod handleMouseUp() {
-        clearInterval(interval)
+        clearInterval(this.interval)
     }
 
     componentDidMount() {
@@ -36,14 +36,14 @@ export default class Number extends React.Component <typings.PropsDefine, typing
     }
 
     increase() {
-        interval = setInterval(() => {
+        this.interval = setInterval(() => {
             this.safeSetValue((parseFloat(this.state.value) || 0) + this.props.step, true)
         }, this.props.speed)
         this.safeSetValue((parseFloat(this.state.value) || 0) + this.props.step, true)
     }
 
     reduce() {
-        interval = setInterval(() => {
+        this.interval = setInterval(() => {
             this.safeSetValue((parseFloat(this.state.value) || 0) - this.props.step, true)
         }, this.props.speed)
         this.safeSetValue((parseFloat(this.state.value) || 0) - this.props.step, true)
@@ -51,18 +51,31 @@ export default class Number extends React.Component <typings.PropsDefine, typing
 
     // input后跟随内容
     rightRender() {
-        return (
-            <div className="addon">
-                <Button onMouseDown={this.increase.bind(this) }
-                        type="secondary">
-                    <span className="fit-number-arrow-up"/>
-                </Button>
-                <Button onMouseDown={this.reduce.bind(this) }
-                        type="secondary">
-                    <span className="fit-number-arrow-down"/>
-                </Button>
-            </div>
-        )
+        if (this.props.unit === null) {
+            return (
+                <div className="addon">
+                    <span className="fit-number-arrow-up"
+                          onMouseDown={this.increase.bind(this) }/>
+                    <span className="fit-number-arrow-down"
+                          onMouseDown={this.reduce.bind(this) }/>
+                </div>
+            )
+        } else {
+            return (
+                <div className="addon-container">
+                    <div className="unit-container">
+                        12
+                    </div>
+
+                    <div className="addon">
+                    <span className="fit-number-arrow-up"
+                          onMouseDown={this.increase.bind(this) }/>
+                        <span className="fit-number-arrow-down"
+                              onMouseDown={this.reduce.bind(this) }/>
+                    </div>
+                </div>
+            )
+        }
     }
 
     handleChange(value: string) {

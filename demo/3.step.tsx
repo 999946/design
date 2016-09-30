@@ -9,7 +9,7 @@ export default class Demo extends React.Component <any, any> {
 
     render() {
         return (
-            <div>
+            <div style={{width:200}}>
                 <Number label="步长为5"
                         step={5}/>
                 <Number label="步长为1.5"

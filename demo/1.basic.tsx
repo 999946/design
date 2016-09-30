@@ -9,7 +9,7 @@ export default class Demo extends React.Component <any, any> {
 
     render() {
         return (
-            <div>
+            <div style={{width:200}}>
                 <Number label="最大10,精确1位小数"
                         float={1}
                         max={10}/>
