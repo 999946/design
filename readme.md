@@ -1,3 +1,14 @@
+## Update
+
+Init project.
+
+- Clone or update all subtree project.
+- Make sure working directory clean.
+
+```bash
+npm run manage -- --update
+```
+
 ## Push
 
 - Will push root project (this), and all subtree project.
@@ -43,15 +54,6 @@ npm run manage -- --publish common#patch components/web-common/input#patch
 ```bash
 # Publish all components
 npm run manage -- --publish components#patch
-```
-
-## Update
-
-- Clone or update all subtree project.
-- Make sure working directory clean.
-
-```bash
-npm run manage -- --update
 ```
 
 ## Run
