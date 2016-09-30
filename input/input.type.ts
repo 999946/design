@@ -17,7 +17,7 @@ export interface PropsDefine extends TransparentlyPropsPropsDefine {
     /**
      * 修改时的回调
      */
-    onChange?: (value: string | string[])=>void
+    onChange?: (value?: string | string[], others?: string | string[])=>void
 
     /**
      * id
