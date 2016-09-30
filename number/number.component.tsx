@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as typings from './number.type'
 import * as classNames from 'classnames'
 
-import {Button} from '../../button/index'
+import {Select} from '../../select/index'
 import {Input} from '../../input/index'
 import {others} from '../../../common/transmit-transparently'
 import {autoBindMethod} from '../../../common/auto-bind/index'
@@ -18,13 +18,9 @@ export default class Number extends React.Component <typings.PropsDefine, typing
 
     componentWillMount() {
         this.setState({
-            value: this.props.value ? parseToNumber(this.props.value, this, true) : parseToNumber(this.props.defaultValue, this, true)
+            value: this.props.value ? parseToNumber(this.props.value, this, true) : parseToNumber(this.props.defaultValue, this, true),
+            currentUnit: this.props.currentUnit
         })
-    }
-
-    // 鼠标松开后停止计数
-    @autoBindMethod handleMouseUp() {
-        clearInterval(this.interval)
     }
 
     componentDidMount() {
@@ -33,6 +29,21 @@ export default class Number extends React.Component <typings.PropsDefine, typing
 
     componentWillUnmount() {
         document.removeEventListener('mouseup', this.handleMouseUp)
+    }
+
+    // 鼠标松开后停止计数
+    @autoBindMethod handleMouseUp() {
+        clearInterval(this.interval)
+    }
+
+    /**
+     * 单位被修改
+     */
+    @autoBindMethod handleUnitChange(value: string) {
+        this.setState({
+            currentUnit: value
+        })
+        this.props.onChange(this.state.value, value)
     }
 
     increase() {
@@ -51,7 +62,7 @@ export default class Number extends React.Component <typings.PropsDefine, typing
 
     // input后跟随内容
     rightRender() {
-        if (this.props.unit === null) {
+        if (this.props.units === null) {
             return (
                 <div className="addon">
                     <span className="fit-number-arrow-up"
@@ -64,7 +75,11 @@ export default class Number extends React.Component <typings.PropsDefine, typing
             return (
                 <div className="addon-container">
                     <div className="unit-container">
-                        12
+                        <Select style={{width:37,marginTop:4}}
+                                defaultValue={this.props.currentUnit}
+                                simple
+                                onChange={this.handleUnitChange}
+                                options={this.props.units}/>
                     </div>
 
                     <div className="addon">
@@ -86,7 +101,7 @@ export default class Number extends React.Component <typings.PropsDefine, typing
         this.setState({
             value: parseToNumber(value.toString(), this, fullLength)
         })
-        this.props.onChange(value.toString())
+        this.props.onChange(value.toString(), this.state.currentUnit)
     }
 
     render() {
