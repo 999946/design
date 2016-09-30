@@ -32,7 +32,13 @@ export default ()=> {
                 execSync(`git subtree add -P ${componentRootPath} ${gitSource} master`)
             } else {
                 // 组件存在, 更新
-                execSync(`git subtree pull -P ${componentRootPath} ${gitSource} master`)
+                try {
+                    execSync(`git subtree pull -P ${componentRootPath} ${gitSource} master`)
+                } catch (error) {
+                    if (category.isPrivate) {
+                        consoleLog.warn('subtree 更新失败，可能因为没有私有项目权限')
+                    }
+                }
             }
 
             // 更新完后如果发现没东西, 或者目录下除了 readme.md 以外都是空的, 填上默认文件

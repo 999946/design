@@ -1,84 +1,88 @@
-## 提交
+## Push
 
-- 提交当前根项目和所有子组件
-- 可以添加 `--message` 提交信息
+- Will push root project (this), and all subtree project.
+- Add message by `--message`
+- Do not use `git add` or `git commit` because we push subtree is based on `git diff`
 
 ```bash
-npm run manage -- --push --message "更新功能"
+npm run manage -- --push --message "fix some bug"
 ```
 
-## 发布
+## Publish
 
-- 发布到 npm 或者内部仓库（私有模块）
-- 追加目录表示要发布的组件, #后跟发布级别 [major, minor, patch]
-- 目录可以是多个, 用空格隔开
+- Publish to npm or private git repository.
+- Must add suffix # [major, minor, patch].
+- Automatic build.
+- Make sure working directory clean.
 
 ```bash
-# 发布 common 分类下 swiper 组件
+# publish common/swiper
 npm run manage -- --publish common/swiper#patch
 ```
 
 ```bash
-# 发布 common 分类下 swiper 组件
+# publish common/swiper
 npm run manage -- --publish components/common/swiper#patch
 ```
 
 ```bash
-# 发布 common 分类下所有组件
+# Publish all components in the common directory
 npm run manage -- --publish components/common#patch
 ```
 
 ```bash
-# 发布 common 分类下所有组件
+# Publish all components in the common directory
 npm run manage -- --publish common#patch
 ```
 
 ```bash
-# 发布所有组件
-npm run manage -- --publish components#patch
-```
-
-```bash
-# 发布 common 分类下所有组件，和 web-common 分类下的 input 组件
+# Publish all components in the common directory, and input components under web-common directory
 npm run manage -- --publish common#patch components/web-common/input#patch
 ```
 
-## 更新
+```bash
+# Publish all components
+npm run manage -- --publish components#patch
+```
 
-- 更新根项目和所有子组件
-- 项目有未提交改动无效
+## Update
+
+- Clone or update all subtree project.
+- Make sure working directory clean.
 
 ```bash
 npm run manage -- --update
 ```
 
-## 开发
+## Run
 
-- 产出在 built 文件夹
+- Use IDE auto tsc or run `tsc -w` in root directory.
+- run `start-before` only first time, will optimize the compilation of performance, such as packaging react.
+- run `start` then open localhost:8080.
 
 ```bash
 npm run start-before
 npm start
 ```
 
-## 生成 demo 动态路由
+## Production
+
+- Output in built-production folder.
 
 ```bash
-npm run manage -- --router
+npm run production
 ```
 
-## 上线前编译
-
-- 产出在 built-production 文件夹
-
-```bash
-npm run start-before-production
-npm run gulp-production
-npm run client-build-production
-```
-
-## 本地上线预览
+you can preview page by run following script, then open localhost:8080.
 
 ```bash
 npm run server-production
+```
+
+## Add Demo
+
+- After adding an demo, you want to display in the page, need to execute this script.
+
+```bash
+npm run manage -- --router
 ```
