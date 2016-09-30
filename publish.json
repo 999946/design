@@ -69,7 +69,7 @@
       },
       "packageJson": {
         "name": "react-native-image-zoom-viewer",
-        "version": "1.2.19",
+        "version": "1.2.20",
         "description": "大图浏览",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -119,6 +119,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.2.19"
+    "preVersion": "1.2.20"
   }
 ]
