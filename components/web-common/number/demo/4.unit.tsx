@@ -2,7 +2,7 @@ import * as React from 'react'
 import {observer} from 'mobx-react'
 import Number from '../index'
 
-const unit = [{
+const units = [{
     key: '%',
     value: '%'
 }, {
@@ -15,10 +15,16 @@ export default class Demo extends React.Component <any, any> {
     static title = '单位'
     static description = ``
 
+    handleChange(value: string, unit: string) {
+        console.log(`value:${value}, unit:${unit}`)
+    }
+
     render() {
         return (
             <Number style={{width:200}}
-                    unit={unit}/>
+                    units={units}
+                    currentUnit="px"
+                    onChange={this.handleChange}/>
         )
     }
 }

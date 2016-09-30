@@ -55,6 +55,15 @@ declare namespace FitGaea {
     }
 
     /**
+     * number 配置项
+     */
+    export interface Number {
+        // 为空时，是数字，否则会以字符串加后缀形式赋值
+        key: string
+        value: string
+    }
+
+    /**
      * 组件的值
      */
     export type ComponentPropsOptionValue = number|string|boolean|Array<ComponentPropsOptionsArrayValue>|any
@@ -104,6 +113,10 @@ declare namespace FitGaea {
          * 暂存这个字段非 null 时候的值, 为了在设置 null 后可以还原
          */
         notNullValue?: any
+        /**
+         * 控制 number 单位
+         */
+            number?: Array<Number>
     }
 
     /**
