@@ -16,12 +16,12 @@ npm run manage -- --push --message "fix some bug"
 - Make sure working directory clean.
 
 ```bash
-# publish common/swiper
+# Publish common/swiper
 npm run manage -- --publish common/swiper#patch
 ```
 
 ```bash
-# publish common/swiper
+# Publish common/swiper
 npm run manage -- --publish components/common/swiper#patch
 ```
 
