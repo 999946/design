@@ -1,3 +1,11 @@
+## Init
+
+```bash
+npm install
+```
+
+First time, you should run `npm run manage -- --update` to get all subtree project.
+
 ## Update
 
 Init project.
