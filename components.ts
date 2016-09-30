@@ -108,7 +108,8 @@ export default [{
         chinese: '大图浏览',
         git: 'https://github.com/ascoders/react-native-image-viewer.git',
         npm: 'react-native-image-zoom-viewer',
-        isIos: true
+        isIos: true,
+        isAndroid: true
     }, {
         name: 'transmit-transparently',
         chinese: '透传',

@@ -130,6 +130,11 @@ routerMap.set('web-common/number', (callback: any) => {
                             code: require('-!text!../../components/web-common/number/demo/3.step.tsx')
                         })
                     
+                        demoLists.push({
+                            Class: require('../components/web-common/number/demo/4.unit').default,
+                            code: require('-!text!../../components/web-common/number/demo/4.unit.tsx')
+                        })
+                    
                             
                         documents.push({
                             type: require('../components/web-common/number/number/number.type'),
@@ -142,7 +147,7 @@ routerMap.set('web-common/number', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/number/package.json')),
                                 documents,
                                 main: require('../components/web-common/number/index')
                             })

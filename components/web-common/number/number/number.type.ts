@@ -26,6 +26,16 @@ export interface PropsDefine extends InputPropsDefine {
      * 长按变化频率
      */
     speed?: number
+
+    /**
+     * 单位
+     */
+    unit?: Array<Unit>
+
+    /**
+     * 当前单位，对应 key
+     */
+    currentUnit?: string
 }
 
 export class PropsGaea {
@@ -42,6 +52,7 @@ export class Props extends PropsGaea implements PropsDefine {
     speed = 200
     onChange = ()=> {
     }
+    unit = null as any
 }
 
 export interface StateDefine {
@@ -51,4 +62,8 @@ export interface StateDefine {
 export class State implements StateDefine {
 
 }
-                
+
+export interface Unit {
+    key: string
+    value: string
+}
