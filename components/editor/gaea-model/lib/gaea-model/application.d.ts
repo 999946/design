@@ -116,7 +116,17 @@ declare namespace FitGaea {
         /**
          * 控制 number 单位
          */
-            number?: Array<Number>
+            number?: {
+            units: Array<Number>
+            currentUnit: string
+            max?: number
+            min?: number
+            step?: number
+            speed?: number
+            inputRange?: Array<number>
+            outputRange?: Array<number>
+            slider?: boolean
+        }
     }
 
     /**
