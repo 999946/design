@@ -194,5 +194,14 @@ export default [{
         git: 'https://github.com/ascoders/gaea-model.git',
         npm: 'gaea-model',
         ignoreBuild: true
+    }, {
+        name: 'gaea-helper',
+        chinese: '盖亚-组件辅助',
+        isWeb: true,
+        isAndroid: true,
+        isIos: true,
+        git: 'https://github.com/ascoders/gaea-helper.git',
+        npm: 'gaea-helper',
+        ignoreBuild: true
     }]
 }] as Array<Components.Category>

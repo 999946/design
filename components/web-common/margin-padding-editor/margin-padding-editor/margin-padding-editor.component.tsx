@@ -183,28 +183,28 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
 
         switch (name) {
             case 'marginLeft':
-                style.marginLeft = -specialBorderWidth / 2
+                style.marginLeft = 0
                 break
             case 'paddingLeft':
                 style.marginLeft = -outerWidth
                 outerStyle.marginLeft = outerSpace
                 break
             case 'marginTop':
-                style.marginTop = -specialBorderWidth / 2
+                style.marginTop = 0
                 break
             case 'paddingTop':
                 style.marginTop = -outerWidth
                 outerStyle.marginTop = outerSpace
                 break
             case 'marginRight':
-                style.marginLeft = -outerWidth
+                style.marginLeft = -outerWidth * 3
                 outerStyle.marginLeft = outerSpace
                 break
             case 'paddingRight':
                 style.marginLeft = -specialBorderWidth / 2
                 break
             case 'marginBottom':
-                style.marginTop = -outerWidth
+                style.marginTop = -outerWidth * 3
                 outerStyle.marginTop = outerSpace
                 break
             case 'paddingBottom':
@@ -246,12 +246,12 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
 
         const containerStyle = {
             width: this.props.size,
-            height: this.props.size
+            height: this.props.size - this.props.size / 5
         }
 
         const leftStyle = {
             left: specialBorderWidth,
-            top: this.props.size / 2 - normalBorderWidth
+            top: this.props.size / 2 - normalBorderWidth - this.props.size / 10
         }
 
         const topStyle = {
@@ -261,7 +261,7 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
 
         const rightStyle = {
             right: specialBorderWidth,
-            top: this.props.size / 2 - normalBorderWidth
+            top: this.props.size / 2 - normalBorderWidth - this.props.size / 10
         }
 
         const bottomStyle = {
@@ -273,7 +273,7 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
             width: specialBorderWidth,
             height: specialBorderWidth,
             left: 0,
-            top: this.props.size / 2 - specialBorderWidth / 2
+            top: this.props.size / 2 - specialBorderWidth / 2 - this.props.size / 10
         }
 
         const numberOuterTopStyle = {
@@ -287,7 +287,7 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
             width: specialBorderWidth,
             height: specialBorderWidth,
             right: 0,
-            top: this.props.size / 2 - specialBorderWidth / 2
+            top: this.props.size / 2 - specialBorderWidth / 2 - this.props.size / 10
         }
 
         const numberOuterBottomStyle = {
@@ -301,7 +301,7 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
             width: specialBorderWidth,
             height: specialBorderWidth,
             left: this.props.size / 3 - specialBorderWidth / 2,
-            top: this.props.size / 2 - specialBorderWidth / 2
+            top: this.props.size / 2 - specialBorderWidth / 2 - this.props.size / 10
         }
 
         const numberInnerTopStyle = {
@@ -315,7 +315,7 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
             width: specialBorderWidth,
             height: specialBorderWidth,
             right: this.props.size / 3 - specialBorderWidth / 2,
-            top: this.props.size / 2 - specialBorderWidth / 2
+            top: this.props.size / 2 - specialBorderWidth / 2 - this.props.size / 10
         }
 
         const numberInnerBottomStyle = {
@@ -331,23 +331,23 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
                 style={containerStyle}>
                 <div className="left"
                      style={leftStyle}>
-                    {this.renderTriangle('left', 'marginLeft')}
+                    {this.renderTriangle('right', 'marginLeft')}
                     {this.renderTriangle('right', 'paddingLeft', {marginLeft: 5})}
                 </div>
                 <div className="right"
                      style={rightStyle}>
                     {this.renderTriangle('left', 'paddingRight')}
-                    {this.renderTriangle('right', 'marginRight', {marginLeft: 5})}
+                    {this.renderTriangle('left', 'marginRight', {marginLeft: 5})}
                 </div>
                 <div className="top"
                      style={topStyle}>
-                    {this.renderTriangle('top', 'marginTop')}
+                    {this.renderTriangle('bottom', 'marginTop')}
                     {this.renderTriangle('bottom', 'paddingTop', {marginTop: 5})}
                 </div>
                 <div className="bottom"
                      style={bottomStyle}>
                     {this.renderTriangle('top', 'paddingBottom')}
-                    {this.renderTriangle('bottom', 'marginBottom', {marginTop: 5})}
+                    {this.renderTriangle('top', 'marginBottom', {marginTop: 5})}
                 </div>
 
                 <div className="number"
