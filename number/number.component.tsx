@@ -31,6 +31,14 @@ export default class Number extends React.Component <typings.PropsDefine, typing
         document.removeEventListener('mouseup', this.handleMouseUp)
     }
 
+    componentWillReceiveProps(nextProps: typings.PropsDefine) {
+        if (nextProps.value !== null) {
+            this.setState({
+                value: parseToNumber(nextProps.value, this, true)
+            })
+        }
+    }
+
     // 鼠标松开后停止计数
     @autoBindMethod handleMouseUp() {
         clearInterval(this.interval)
