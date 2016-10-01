@@ -5,6 +5,8 @@ export interface PropsDefine extends InputPropsDefine {
     step?: number;
     float?: number;
     speed?: number;
+    units?: Array<Unit>;
+    currentUnit?: string;
 }
 export declare class PropsGaea {
     gaeaName: string;
@@ -18,9 +20,15 @@ export declare class Props extends PropsGaea implements PropsDefine {
     float: number;
     speed: number;
     onChange: () => void;
+    units: any;
 }
 export interface StateDefine {
     value?: string;
+    currentUnit?: string;
 }
 export declare class State implements StateDefine {
+}
+export interface Unit {
+    key: string;
+    value: string;
 }

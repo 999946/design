@@ -32,13 +32,12 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
 var React = require('react');
 var typings = require('./number.type');
 var classNames = require('classnames');
-var index_1 = require('nt-web-button');
+var index_1 = require('nt-web-select');
 var index_2 = require('nt-web-input');
 var transmit_transparently_1 = require('nt-transmit-transparently');
 var index_3 = require('nt-auto-bind');
 var parse_to_number_1 = require('./parse-to-number');
 require('./number.css');
-var interval = void 0;
 
 var Number = function (_React$Component) {
     _inherits(Number, _React$Component);
@@ -62,13 +61,9 @@ var Number = function (_React$Component) {
         key: "componentWillMount",
         value: function componentWillMount() {
             this.setState({
-                value: this.props.value ? parse_to_number_1.default(this.props.value, this, true) : parse_to_number_1.default(this.props.defaultValue, this, true)
+                value: this.props.value ? parse_to_number_1.default(this.props.value, this, true) : parse_to_number_1.default(this.props.defaultValue, this, true),
+                currentUnit: this.props.currentUnit
             });
-        }
-    }, {
-        key: "handleMouseUp",
-        value: function handleMouseUp() {
-            clearInterval(interval);
         }
     }, {
         key: "componentDidMount",
@@ -81,11 +76,33 @@ var Number = function (_React$Component) {
             document.removeEventListener('mouseup', this.handleMouseUp);
         }
     }, {
+        key: "componentWillReceiveProps",
+        value: function componentWillReceiveProps(nextProps) {
+            if (nextProps.value !== null) {
+                this.setState({
+                    value: parse_to_number_1.default(nextProps.value, this, true)
+                });
+            }
+        }
+    }, {
+        key: "handleMouseUp",
+        value: function handleMouseUp() {
+            clearInterval(this.interval);
+        }
+    }, {
+        key: "handleUnitChange",
+        value: function handleUnitChange(value) {
+            this.setState({
+                currentUnit: value
+            });
+            this.props.onChange(this.state.value, value);
+        }
+    }, {
         key: "increase",
         value: function increase() {
             var _this2 = this;
 
-            interval = setInterval(function () {
+            this.interval = setInterval(function () {
                 _this2.safeSetValue((parseFloat(_this2.state.value) || 0) + _this2.props.step, true);
             }, this.props.speed);
             this.safeSetValue((parseFloat(this.state.value) || 0) + this.props.step, true);
@@ -95,7 +112,7 @@ var Number = function (_React$Component) {
         value: function reduce() {
             var _this3 = this;
 
-            interval = setInterval(function () {
+            this.interval = setInterval(function () {
                 _this3.safeSetValue((parseFloat(_this3.state.value) || 0) - _this3.props.step, true);
             }, this.props.speed);
             this.safeSetValue((parseFloat(this.state.value) || 0) - this.props.step, true);
@@ -103,7 +120,11 @@ var Number = function (_React$Component) {
     }, {
         key: "rightRender",
         value: function rightRender() {
-            return React.createElement("div", { className: "addon" }, React.createElement(index_1.Button, { onMouseDown: this.increase.bind(this), type: "secondary" }, React.createElement("span", { className: "fit-number-arrow-up" })), React.createElement(index_1.Button, { onMouseDown: this.reduce.bind(this), type: "secondary" }, React.createElement("span", { className: "fit-number-arrow-down" })));
+            if (this.props.units === null) {
+                return React.createElement("div", { className: "addon" }, React.createElement("span", { className: "fit-number-arrow-up", onMouseDown: this.increase.bind(this) }), React.createElement("span", { className: "fit-number-arrow-down", onMouseDown: this.reduce.bind(this) }));
+            } else {
+                return React.createElement("div", { className: "addon-container" }, React.createElement("div", { className: "unit-container" }, React.createElement(index_1.Select, { style: { width: 37, marginTop: 4 }, defaultValue: this.props.currentUnit, simple: true, onChange: this.handleUnitChange, options: this.props.units })), React.createElement("div", { className: "addon" }, React.createElement("span", { className: "fit-number-arrow-up", onMouseDown: this.increase.bind(this) }), React.createElement("span", { className: "fit-number-arrow-down", onMouseDown: this.reduce.bind(this) })));
+            }
         }
     }, {
         key: "handleChange",
@@ -116,7 +137,7 @@ var Number = function (_React$Component) {
             this.setState({
                 value: parse_to_number_1.default(value.toString(), this, fullLength)
             });
-            this.props.onChange(value.toString());
+            this.props.onChange(value.toString(), this.state.currentUnit);
         }
     }, {
         key: "render",
@@ -134,5 +155,6 @@ var Number = function (_React$Component) {
 
 Number.defaultProps = new typings.Props();
 __decorate([index_3.autoBindMethod], Number.prototype, "handleMouseUp", null);
+__decorate([index_3.autoBindMethod], Number.prototype, "handleUnitChange", null);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Number;
