@@ -75,7 +75,7 @@ declare namespace FitGaea {
         /**
          * 对应字段名
          */
-        field: string
+        field: string | Array<string>
         /**
          * 选项名称
          */
@@ -102,17 +102,9 @@ declare namespace FitGaea {
          */
             type?: string
         /**
-         * 是否为 null
+         * 为空时的值，默认为 null
          */
-        isNull?: boolean
-        /**
-         * 能否被设置为 null
-         */
-        canNull?: boolean
-        /**
-         * 暂存这个字段非 null 时候的值, 为了在设置 null 后可以还原
-         */
-        notNullValue?: any
+        emptyValue?: any
         /**
          * 控制 number 单位
          */

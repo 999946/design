@@ -83,7 +83,7 @@ export default class Number extends React.Component <typings.PropsDefine, typing
             return (
                 <div className="addon-container">
                     <div className="unit-container">
-                        <Select style={{width:37,marginTop:4}}
+                        <Select style={{width:25,marginTop:4}}
                                 defaultValue={this.props.currentUnit}
                                 simple
                                 onChange={this.handleUnitChange}

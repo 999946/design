@@ -20,16 +20,11 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
     private currentHolding: typings.MarginPaddingField = ''
 
     componentWillMount() {
-        this.setState({
-            paddingLeft: this.props.paddingLeft,
-            paddingTop: this.props.paddingTop,
-            paddingRight: this.props.paddingRight,
-            paddingBottom: this.props.paddingBottom,
-            marginLeft: this.props.marginLeft,
-            marginTop: this.props.marginTop,
-            marginRight: this.props.marginRight,
-            marginBottom: this.props.marginBottom
-        })
+        this.init(this.props)
+    }
+
+    componentWillReceiveProps(nextProps: typings.PropsDefine) {
+        this.init(nextProps)
     }
 
     componentDidMount() {
@@ -40,6 +35,22 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
     componentWillUnmount() {
         document.removeEventListener('mousemove', this.handleMouseMove)
         document.removeEventListener('mouseup', this.handleMouseUp)
+    }
+
+    /**
+     * 初始化值
+     */
+    init(props: typings.PropsDefine) {
+        this.setState({
+            paddingLeft: props.paddingLeft,
+            paddingTop: props.paddingTop,
+            paddingRight: props.paddingRight,
+            paddingBottom: props.paddingBottom,
+            marginLeft: props.marginLeft,
+            marginTop: props.marginTop,
+            marginRight: props.marginRight,
+            marginBottom: props.marginBottom
+        })
     }
 
     /**

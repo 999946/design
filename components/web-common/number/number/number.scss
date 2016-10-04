@@ -36,6 +36,9 @@
 
 .addon-container {
     display: flex;
+    .right-addon {
+        display: none;
+    }
 }
 
 .addon {
@@ -56,6 +59,6 @@
     }
 }
 
-.unit-container{
+.unit-container {
 
 }

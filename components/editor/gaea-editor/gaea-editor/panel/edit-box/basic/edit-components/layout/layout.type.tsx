@@ -1,16 +1,13 @@
 import * as React from 'react'
+import Viewport from '../../../../../store/viewport'
 
-export interface PropsDefine extends React.HTMLAttributes {
-    /**
-     * 是垂直显示
-     */
-    vertical?: boolean
-
-    others?: any
+export interface PropsDefine {
+    editOption?: FitGaea.ComponentPropsGaeaEdit
+    viewport?: Viewport
 }
 
 export class Props implements PropsDefine {
-    vertical = false
+
 }
 
 export interface StateDefine {

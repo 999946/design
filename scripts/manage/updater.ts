@@ -83,13 +83,7 @@ export default ()=> {
 
                     }
                     
-                    export class PropsGaea {
-                        gaeaName = '${component.chinese}'
-                        gaeaIcon = 'square-o'
-                        gaeaUniqueKey = '${category.prefix}-${component.name}'
-                    }
-                    
-                    export class Props extends PropsGaea implements PropsDefine {
+                    export class Props extends implements PropsDefine {
                         
                     }
                     

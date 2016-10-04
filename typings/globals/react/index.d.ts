@@ -1905,6 +1905,9 @@ declare namespace __React {
          */
         zoom?: "auto" | number;
 
+        justifyContent?: string
+        flexWrap?: string
+
         [propertyName: string]: any;
     }
 

@@ -1362,6 +1362,27 @@ routerMap.set('editor/gaea-model', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('editor/gaea-helper', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/editor/gaea-helper/demo/1.basic').default,
+                            code: require('-!text!../../components/editor/gaea-helper/demo/1.basic.tsx')
+                        })
+                    
+                            
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/editor/gaea-helper/index')
+                            })
+                        })
+                    })
 
     
         export default routerMap

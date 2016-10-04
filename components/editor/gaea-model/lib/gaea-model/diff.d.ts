@@ -36,7 +36,6 @@ declare namespace FitGaea {
         }
         // 更新操作
         update?: {
-            editOptions: ComponentPropsGaeaEdit
             oldValue: ComponentProps
             newValue: ComponentProps
         }

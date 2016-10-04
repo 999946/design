@@ -81,6 +81,10 @@ export default [{
         name: 'image-preload',
         chinese: '图片预加载',
         isWeb: true
+    }, {
+        name: 'render-to',
+        chinese: '任意位置渲染',
+        isWeb: true
     }]
 }, {
     name: 'common',

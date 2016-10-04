@@ -9,7 +9,7 @@ import componentInfos from '../../../auto-create/component-infos'
 
 import './designer.scss'
 
-const customComponents = [Navbar, ResourceCard]
+const nativeCustomComponents = [Navbar, ResourceCard]
 
 @inject('application') @observer
 export default class Designer extends React.Component <typings.PropsDefine, typings.StateDefine> {
@@ -115,7 +115,7 @@ export default class Designer extends React.Component <typings.PropsDefine, typi
         return (
             <div className="_namespace">
                 {React.createElement(this.Gaea, {
-                    customComponents: customComponents,
+                    customComponents: this.props.location.query['type'] === 'native' ? nativeCustomComponents : [],
                     baseComponents: baseComponents,
                     onSave: this.handleSave.bind(this),
                     isReactNative: this.props.location.query['type'] === 'native',

@@ -40,17 +40,17 @@ declare module 'fit-scroll-listen' {
     export = api
 }
 
-declare module 'rc-animate'{
-    var exports:()=>any
+declare module 'rc-animate' {
+    var exports: ()=>any
     export = exports
 }
 
-declare module 'css-animation'{
-    export const isCssAnimationSupported:boolean
+declare module 'css-animation' {
+    export const isCssAnimationSupported: boolean
 }
 
-declare module 'react-codemirror'{
-    var exports:()=>any
+declare module 'react-codemirror' {
+    var exports: ()=>any
     export = exports
 }
 
@@ -61,5 +61,13 @@ declare module 'codemirror' {
 
 declare module 'sortablejs' {
     const api: any
+    export = api
+}
+
+declare module 'react-color' {
+    const api: {
+        SketchPicker: any
+        ChromePicker: any
+    }
     export = api
 }

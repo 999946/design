@@ -65,13 +65,7 @@ export interface PropsDefine extends HTMLAttributes {
     others?: any
 }
 
-export class PropsGaea {
-    gaeaName = '按钮'
-    gaeaIcon = 'square-o'
-    gaeaUniqueKey = 'web-common-button'
-}
-
-export class Props extends PropsGaea implements PropsDefine {
+export class Props implements PropsDefine {
     type = Type.Default
     disabled = false
     active = false

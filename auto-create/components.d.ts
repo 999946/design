@@ -216,3 +216,8 @@ export interface GaeaPreviewPropsDefine {}
                     
                 }
             
+                declare module 'nt-editor-gaea-helper' {    
+                    export interface gaeaHelper {}
+
+                }
+            
