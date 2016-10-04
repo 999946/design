@@ -38,6 +38,7 @@
     .chosen-drop {
         width: 100%;
         position: absolute;
+        min-width: 45px;
         top: 32px;
         z-index: 10;
         background: white;
