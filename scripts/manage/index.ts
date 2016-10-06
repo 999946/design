@@ -15,6 +15,7 @@ commander.version('1.0.0')
     .option('-tk, --token', 'github的token')
     .option('-m, --message [value]', '提交时带的信息', 'quick push')
     .option('-r, --router', '初始化组件路由信息')
+    .option('-l, --log', '把 message 记录到更新日志中')
     .parse(process.argv)
 
 if (commander['update']) {

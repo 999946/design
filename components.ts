@@ -132,6 +132,12 @@ export default [{
         isWeb: true,
         isIos: true,
         isAndroid: true
+    }, {
+        name: 'transparently-native-props',
+        chinese: 'Native透传属性定义',
+        isWeb: true,
+        isIos: true,
+        isAndroid: true
     }]
 }, {
     name: 'wefan',

@@ -9,7 +9,9 @@ export interface PropsDefine {
     /**
      * class
      */
-    className ?: string
+    className?: string
+
+    children?: React.ReactElement<any>
 
     others?: any
 }

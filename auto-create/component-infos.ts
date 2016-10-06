@@ -875,6 +875,35 @@ routerMap.set('web-common/image-preload', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('web-common/render-to', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/render-to/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/render-to/demo/1.basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/render-to/render-to/render-to.type'),
+                            typeCode: require('-!text!../../components/web-common/render-to/render-to/render-to.type.ts'),
+                            typePath: 'components/web-common/render-to/render-to/render-to.type',
+                            componentName: 'RenderTo',
+                            sourceCode: require('-!text!../../components/web-common/render-to/render-to/render-to.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/web-common/render-to/index')
+                            })
+                        })
+                    })
 routerMap.set('common/image', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

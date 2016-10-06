@@ -127,6 +127,12 @@ export interface ImagePreloadPropsDefine {}
 
                 }
             
+                declare module 'nt-web-render-to' {    
+                    export interface RenderTo {}
+export interface RenderToPropsDefine {}
+
+                }
+            
                 declare module 'nt-image' {    
                     export interface Image {}
 export interface ImagePropsDefine {}

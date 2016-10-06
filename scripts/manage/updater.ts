@@ -83,7 +83,7 @@ export default ()=> {
 
                     }
                     
-                    export class Props extends implements PropsDefine {
+                    export class Props implements PropsDefine {
                         
                     }
                     
