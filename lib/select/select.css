@@ -27,6 +27,7 @@
 .nt-web-select-select .chosen-drop {
   width: 100%;
   position: absolute;
+  min-width: 45px;
   top: 32px;
   z-index: 10;
   background: white; }
@@ -44,7 +45,8 @@
   display: inline-block;
   margin: 0; }
   .nt-web-select-select.simple .input {
-    border-color: transparent; }
+    border-color: transparent;
+    padding: 5px; }
 
 .nt-web-select-select .search-input {
   margin: 0; }
