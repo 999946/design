@@ -4,6 +4,11 @@ export type MarginPaddingField = 'paddingLeft' | 'paddingTop' | 'paddingRight' |
 
 export interface PropsDefine {
     /**
+     * 当鼠标按下的时候
+     */
+    onStart?: ()=>void
+
+    /**
      * 当值修改的时候
      */
     onChange?: (type: MarginPaddingField, value: number)=>void
@@ -40,13 +45,7 @@ export interface PropsDefine {
     classNames?: string
 }
 
-export class PropsGaea {
-    gaeaName = '内/外边距编辑器'
-    gaeaIcon = 'square-o'
-    gaeaUniqueKey = 'nt-web-margin-padding-editor'
-}
-
-export class Props extends PropsGaea implements PropsDefine {
+export class Props implements PropsDefine {
     size = 200
     onChange = ()=> {
     }
@@ -60,6 +59,8 @@ export class Props extends PropsGaea implements PropsDefine {
     marginTop = 0
     marginRight = 0
     marginBottom = 0
+    onStart = ()=> {
+    }
 }
 
 export interface StateDefine {
