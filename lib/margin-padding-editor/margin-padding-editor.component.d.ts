@@ -7,9 +7,12 @@ export default class MarginPaddingEditor extends React.Component<typings.PropsDe
     private lastX;
     private lastY;
     private currentHolding;
+    private hasMouseDown;
     componentWillMount(): void;
+    componentWillReceiveProps(nextProps: typings.PropsDefine): void;
     componentDidMount(): void;
     componentWillUnmount(): void;
+    init(props: typings.PropsDefine): void;
     handleMouseDown(name: typings.MarginPaddingField, event: MouseEvent): void;
     handleMouseMove(event: MouseEvent): void;
     handleMouseUp(): void;

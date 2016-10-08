@@ -1,5 +1,6 @@
 export declare type MarginPaddingField = 'paddingLeft' | 'paddingTop' | 'paddingRight' | 'paddingBottom' | 'marginLeft' | 'marginTop' | 'marginRight' | 'marginBottom' | '';
 export interface PropsDefine {
+    onStart?: () => void;
     onChange?: (type: MarginPaddingField, value: number) => void;
     onFinalChange?: (type?: MarginPaddingField, value?: number) => void;
     size?: number;
@@ -14,12 +15,7 @@ export interface PropsDefine {
     others?: any;
     classNames?: string;
 }
-export declare class PropsGaea {
-    gaeaName: string;
-    gaeaIcon: string;
-    gaeaUniqueKey: string;
-}
-export declare class Props extends PropsGaea implements PropsDefine {
+export declare class Props implements PropsDefine {
     size: number;
     onChange: () => void;
     onFinalChange: () => void;
@@ -31,6 +27,7 @@ export declare class Props extends PropsGaea implements PropsDefine {
     marginTop: number;
     marginRight: number;
     marginBottom: number;
+    onStart: () => void;
 }
 export interface StateDefine {
     paddingLeft?: number;
