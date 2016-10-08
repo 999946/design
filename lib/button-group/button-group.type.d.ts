@@ -3,12 +3,7 @@ export interface PropsDefine extends React.HTMLAttributes {
     vertical?: boolean;
     others?: any;
 }
-export declare class PropsGaea {
-    gaeaName: string;
-    gaeaIcon: string;
-    gaeaUniqueKey: string;
-}
-export declare class Props extends PropsGaea implements PropsDefine {
+export declare class Props implements PropsDefine {
     vertical: boolean;
 }
 export interface StateDefine {
