@@ -9,7 +9,7 @@ import componentInfos from '../../../auto-create/component-infos'
 
 import './designer.scss'
 
-const nativeCustomComponents = [Navbar, ResourceCard]
+const nativeCustomComponents = [] as any
 
 @inject('application') @observer
 export default class Designer extends React.Component <typings.PropsDefine, typings.StateDefine> {

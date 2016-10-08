@@ -6,7 +6,7 @@ export const opacity = {
 }
 
 export const opacityEditor = {
-    field: ['style', 'opacity'],
+    field: 'style.opacity',
     label: '透明度',
     editor: 'number',
     number: {
@@ -77,6 +77,14 @@ export const layout = {
     flexWrap: 'nowrap'
 }
 
+export const layoutNative = {
+    flex: null as any,
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
+    flexDirection: 'row',
+    flexWrap: 'nowrap'
+}
+
 export const layoutEditor = {
     field: null as any,
     label: '',
@@ -108,6 +116,10 @@ export const background = {
     backgroundColor: null as any,
     backgroundImage: null as any,
     backgroundPosition: null as any
+}
+
+export const backgroundNative = {
+    backgroundColor: null as any
 }
 
 export const backgroundEditor = {

@@ -1158,6 +1158,35 @@ routerMap.set('common/transparently-props', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('common/transparently-native-props', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/transparently-native-props/demo/1.basic').default,
+                            code: require('-!text!../../components/common/transparently-native-props/demo/1.basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/transparently-native-props/transparently-native-props/transparently-native-props.type'),
+                            typeCode: require('-!text!../../components/common/transparently-native-props/transparently-native-props/transparently-native-props.type.ts'),
+                            typePath: 'components/common/transparently-native-props/transparently-native-props/transparently-native-props.type',
+                            componentName: 'TransparentlyNativeProps',
+                            sourceCode: require('-!text!../../components/common/transparently-native-props/transparently-native-props/transparently-native-props.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/common/transparently-native-props/index')
+                            })
+                        })
+                    })
 routerMap.set('wefan/image', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

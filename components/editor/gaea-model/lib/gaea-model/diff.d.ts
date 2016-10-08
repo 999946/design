@@ -4,7 +4,7 @@ declare namespace FitGaea {
      */
     export interface Diff {
         // 操作类型
-        type: 'add' | 'move' | 'remove' | 'exchange' | 'update' | 'paste' | 'reset' | 'addCombo'
+        type: 'add' | 'move' | 'remove' | 'exchange' | 'update' | 'paste' | 'reset' | 'addCombo' | 'addSource'
         // 操作组件的 mapUniqueKey
         mapUniqueKey: string
         // 新增操作
@@ -49,6 +49,15 @@ declare namespace FitGaea {
         }
         // 新增组合
         addCombo?: {
+            // 父级 mapKey
+            parentMapUniqueKey: string
+            // 父级的 index
+            index: number
+            // 组合的完整信息（不是 copy 的, 是真正对应的 mapUniqueKey）
+            componentInfo: ViewportComponentFullInfo
+        }
+        // 新增模板
+        addSource?: {
             // 父级 mapKey
             parentMapUniqueKey: string
             // 父级的 index

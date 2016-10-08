@@ -55,7 +55,7 @@
 }
 
 .loading-end {
-    animation: loading-from-start 0.02s;
+    animation: loading-from-start 0.01s;
     animation-iteration-count: 1;
     animation-fill-mode: none;
 }
@@ -77,7 +77,7 @@
 
 @keyframes loading-from-start {
     0% {
-        width: 95%;
+        width: 100%;
     }
     100% {
         width: 100%;

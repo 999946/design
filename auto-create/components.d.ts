@@ -179,6 +179,12 @@ export interface TransparentlyPropsPropsDefine {}
 
                 }
             
+                declare module 'nt-transparently-native-props' {    
+                    export interface TransparentlyNativeProps {}
+export interface TransparentlyNativePropsPropsDefine {}
+
+                }
+            
                 declare module 'nt-wefan-image' {    
                     export interface Image {}
 export interface ImagePropsDefine {}

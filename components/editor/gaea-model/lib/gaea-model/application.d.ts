@@ -75,7 +75,7 @@ declare namespace FitGaea {
         /**
          * 对应字段名
          */
-        field: string | Array<string>
+        field: string
         /**
          * 选项名称
          */

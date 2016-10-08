@@ -28,6 +28,8 @@ declare namespace FitGaea {
         isNew: boolean
         // 组件的唯一标识, 新建的时候采用
         uniqueKey: string
+        // 直接给 source 就直接用
+        source: string
     }
 
     /**

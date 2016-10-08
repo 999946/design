@@ -19,6 +19,9 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
     // 当前按住的类型
     private currentHolding: typings.MarginPaddingField = ''
 
+    // 记录鼠标是否按下了
+    private hasMouseDown = false
+
     componentWillMount() {
         this.init(this.props)
     }
@@ -60,6 +63,8 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
         this.lastX = event.clientX
         this.lastY = event.clientY
         this.currentHolding = name
+        this.hasMouseDown = true
+        this.props.onStart()
     }
 
     /**
@@ -128,12 +133,20 @@ export default class MarginPaddingEditor extends React.Component <typings.PropsD
      */
     @autoBindMethod
     handleMouseUp() {
+        if (!this.hasMouseDown) {
+            return
+        }
+        this.hasMouseDown = false
+
         // 清空前，调用低频修改
         this.props.onFinalChange(this.currentHolding, this.state[this.currentHolding])
 
         this.currentHolding = ''
     }
 
+    /**
+     * 输入框调用的修改
+     */
     handleChange(name: typings.MarginPaddingField, event: any) {
         this.setState({
             [name]: Number(event.target.value)
