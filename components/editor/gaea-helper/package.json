@@ -1,0 +1,18 @@
+{
+  "name": "gaea-helper",
+  "version": "0.0.0",
+  "description": "盖亚-组件辅助",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ascoders/gaea-helper.git"
+  },
+  "keywords": [
+    "gaea-helper"
+  ],
+  "author": "ascoders",
+  "license": "ISC",
+  "dependencies": {},
+  "peerDependencies": {}
+}
