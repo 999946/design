@@ -1,6 +1,6 @@
 {
   "name": "nt-web-loading",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "进度条",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.5",
-    "nt-transmit-transparently": "^1.0.6"
+    "nt-transmit-transparently": "^1.0.7"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0"
