@@ -28,6 +28,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
+  .nt-web-number-number .addon-container .right-addon {
+    display: none; }
 
 .nt-web-number-number .addon {
   display: -webkit-box;

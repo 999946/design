@@ -56,22 +56,19 @@ var MarginPaddingEditor = function (_React$Component) {
         _this.lastX = null;
         _this.lastY = null;
         _this.currentHolding = '';
+        _this.hasMouseDown = false;
         return _this;
     }
 
     _createClass(MarginPaddingEditor, [{
         key: "componentWillMount",
         value: function componentWillMount() {
-            this.setState({
-                paddingLeft: this.props.paddingLeft,
-                paddingTop: this.props.paddingTop,
-                paddingRight: this.props.paddingRight,
-                paddingBottom: this.props.paddingBottom,
-                marginLeft: this.props.marginLeft,
-                marginTop: this.props.marginTop,
-                marginRight: this.props.marginRight,
-                marginBottom: this.props.marginBottom
-            });
+            this.init(this.props);
+        }
+    }, {
+        key: "componentWillReceiveProps",
+        value: function componentWillReceiveProps(nextProps) {
+            this.init(nextProps);
         }
     }, {
         key: "componentDidMount",
@@ -86,11 +83,27 @@ var MarginPaddingEditor = function (_React$Component) {
             document.removeEventListener('mouseup', this.handleMouseUp);
         }
     }, {
+        key: "init",
+        value: function init(props) {
+            this.setState({
+                paddingLeft: props.paddingLeft,
+                paddingTop: props.paddingTop,
+                paddingRight: props.paddingRight,
+                paddingBottom: props.paddingBottom,
+                marginLeft: props.marginLeft,
+                marginTop: props.marginTop,
+                marginRight: props.marginRight,
+                marginBottom: props.marginBottom
+            });
+        }
+    }, {
         key: "handleMouseDown",
         value: function handleMouseDown(name, event) {
             this.lastX = event.clientX;
             this.lastY = event.clientY;
             this.currentHolding = name;
+            this.hasMouseDown = true;
+            this.props.onStart();
         }
     }, {
         key: "handleMouseMove",
@@ -153,6 +166,10 @@ var MarginPaddingEditor = function (_React$Component) {
     }, {
         key: "handleMouseUp",
         value: function handleMouseUp() {
+            if (!this.hasMouseDown) {
+                return;
+            }
+            this.hasMouseDown = false;
             this.props.onFinalChange(this.currentHolding, this.state[this.currentHolding]);
             this.currentHolding = '';
         }
@@ -216,28 +233,28 @@ var MarginPaddingEditor = function (_React$Component) {
             }
             switch (name) {
                 case 'marginLeft':
-                    style.marginLeft = -specialBorderWidth / 2;
+                    style.marginLeft = 0;
                     break;
                 case 'paddingLeft':
                     style.marginLeft = -outerWidth;
                     outerStyle.marginLeft = outerSpace;
                     break;
                 case 'marginTop':
-                    style.marginTop = -specialBorderWidth / 2;
+                    style.marginTop = 0;
                     break;
                 case 'paddingTop':
                     style.marginTop = -outerWidth;
                     outerStyle.marginTop = outerSpace;
                     break;
                 case 'marginRight':
-                    style.marginLeft = -outerWidth;
+                    style.marginLeft = -outerWidth * 3;
                     outerStyle.marginLeft = outerSpace;
                     break;
                 case 'paddingRight':
                     style.marginLeft = -specialBorderWidth / 2;
                     break;
                 case 'marginBottom':
-                    style.marginTop = -outerWidth;
+                    style.marginTop = -outerWidth * 3;
                     outerStyle.marginTop = outerSpace;
                     break;
                 case 'paddingBottom':
@@ -272,11 +289,11 @@ var MarginPaddingEditor = function (_React$Component) {
             var specialBorderWidth = this.props.size / 7;
             var containerStyle = {
                 width: this.props.size,
-                height: this.props.size
+                height: this.props.size - this.props.size / 5
             };
             var leftStyle = {
                 left: specialBorderWidth,
-                top: this.props.size / 2 - normalBorderWidth
+                top: this.props.size / 2 - normalBorderWidth - this.props.size / 10
             };
             var topStyle = {
                 top: specialBorderWidth,
@@ -284,7 +301,7 @@ var MarginPaddingEditor = function (_React$Component) {
             };
             var rightStyle = {
                 right: specialBorderWidth,
-                top: this.props.size / 2 - normalBorderWidth
+                top: this.props.size / 2 - normalBorderWidth - this.props.size / 10
             };
             var bottomStyle = {
                 bottom: specialBorderWidth,
@@ -294,7 +311,7 @@ var MarginPaddingEditor = function (_React$Component) {
                 width: specialBorderWidth,
                 height: specialBorderWidth,
                 left: 0,
-                top: this.props.size / 2 - specialBorderWidth / 2
+                top: this.props.size / 2 - specialBorderWidth / 2 - this.props.size / 10
             };
             var numberOuterTopStyle = {
                 width: specialBorderWidth,
@@ -306,7 +323,7 @@ var MarginPaddingEditor = function (_React$Component) {
                 width: specialBorderWidth,
                 height: specialBorderWidth,
                 right: 0,
-                top: this.props.size / 2 - specialBorderWidth / 2
+                top: this.props.size / 2 - specialBorderWidth / 2 - this.props.size / 10
             };
             var numberOuterBottomStyle = {
                 width: specialBorderWidth,
@@ -318,7 +335,7 @@ var MarginPaddingEditor = function (_React$Component) {
                 width: specialBorderWidth,
                 height: specialBorderWidth,
                 left: this.props.size / 3 - specialBorderWidth / 2,
-                top: this.props.size / 2 - specialBorderWidth / 2
+                top: this.props.size / 2 - specialBorderWidth / 2 - this.props.size / 10
             };
             var numberInnerTopStyle = {
                 width: specialBorderWidth,
@@ -330,7 +347,7 @@ var MarginPaddingEditor = function (_React$Component) {
                 width: specialBorderWidth,
                 height: specialBorderWidth,
                 right: this.props.size / 3 - specialBorderWidth / 2,
-                top: this.props.size / 2 - specialBorderWidth / 2
+                top: this.props.size / 2 - specialBorderWidth / 2 - this.props.size / 10
             };
             var numberInnerBottomStyle = {
                 width: specialBorderWidth,
@@ -338,7 +355,7 @@ var MarginPaddingEditor = function (_React$Component) {
                 bottom: this.props.size / 3 - specialBorderWidth / 2,
                 left: this.props.size / 2 - specialBorderWidth / 2
             };
-            return React.createElement("div", __assign({}, this.props.others, { className: "nt-web-margin-padding-editor-margin_padding_editor", style: containerStyle }), React.createElement("div", { className: "left", style: leftStyle }, this.renderTriangle('left', 'marginLeft'), this.renderTriangle('right', 'paddingLeft', { marginLeft: 5 })), React.createElement("div", { className: "right", style: rightStyle }, this.renderTriangle('left', 'paddingRight'), this.renderTriangle('right', 'marginRight', { marginLeft: 5 })), React.createElement("div", { className: "top", style: topStyle }, this.renderTriangle('top', 'marginTop'), this.renderTriangle('bottom', 'paddingTop', { marginTop: 5 })), React.createElement("div", { className: "bottom", style: bottomStyle }, this.renderTriangle('top', 'paddingBottom'), this.renderTriangle('bottom', 'marginBottom', { marginTop: 5 })), React.createElement("div", { className: "number", style: numberOuterLeftStyle }, React.createElement("input", { className: "input", ref: "marginLeftInput", onMouseEnter: this.handleInputEnter.bind(this, 'marginLeft'), onMouseLeave: this.handleInputLeave.bind(this, 'marginLeft'), onChange: this.handleChange.bind(this, 'marginLeft'), value: this.state.marginLeft })), React.createElement("div", { className: "number", style: numberOuterTopStyle }, React.createElement("input", { className: "input", ref: "marginTopInput", onMouseEnter: this.handleInputEnter.bind(this, 'marginTop'), onMouseLeave: this.handleInputLeave.bind(this, 'marginTop'), onChange: this.handleChange.bind(this, 'marginTop'), value: this.state.marginTop })), React.createElement("div", { className: "number", style: numberOuterRightStyle }, React.createElement("input", { className: "input", ref: "marginRightInput", onMouseEnter: this.handleInputEnter.bind(this, 'marginRight'), onMouseLeave: this.handleInputLeave.bind(this, 'marginRight'), onChange: this.handleChange.bind(this, 'marginRight'), value: this.state.marginRight })), React.createElement("div", { className: "number", style: numberOuterBottomStyle }, React.createElement("input", { className: "input", ref: "marginBottomInput", onMouseEnter: this.handleInputEnter.bind(this, 'marginBottom'), onMouseLeave: this.handleInputLeave.bind(this, 'marginBottom'), onChange: this.handleChange.bind(this, 'marginBottom'), value: this.state.marginBottom })), React.createElement("div", { className: "number", style: numberInnerLeftStyle }, React.createElement("input", { className: "input", ref: "paddingLeftInput", onMouseEnter: this.handleInputEnter.bind(this, 'paddingLeft'), onMouseLeave: this.handleInputLeave.bind(this, 'paddingLeft'), onChange: this.handleChange.bind(this, 'paddingLeft'), value: this.state.paddingLeft })), React.createElement("div", { className: "number", style: numberInnerTopStyle }, React.createElement("input", { className: "input", ref: "paddingTopInput", onMouseEnter: this.handleInputEnter.bind(this, 'paddingTop'), onMouseLeave: this.handleInputLeave.bind(this, 'paddingTop'), onChange: this.handleChange.bind(this, 'paddingTop'), value: this.state.paddingTop })), React.createElement("div", { className: "number", style: numberInnerRightStyle }, React.createElement("input", { className: "input", ref: "paddingRightInput", onMouseEnter: this.handleInputEnter.bind(this, 'paddingRight'), onMouseLeave: this.handleInputLeave.bind(this, 'paddingRight'), onChange: this.handleChange.bind(this, 'paddingRight'), value: this.state.paddingRight })), React.createElement("div", { className: "number", style: numberInnerBottomStyle }, React.createElement("input", { className: "input", ref: "paddingBottomInput", onMouseEnter: this.handleInputEnter.bind(this, 'paddingBottom'), onMouseLeave: this.handleInputLeave.bind(this, 'paddingBottom'), onChange: this.handleChange.bind(this, 'paddingBottom'), value: this.state.paddingBottom })));
+            return React.createElement("div", __assign({}, this.props.others, { className: "nt-web-margin-padding-editor-margin_padding_editor", style: containerStyle }), React.createElement("div", { className: "left", style: leftStyle }, this.renderTriangle('right', 'marginLeft'), this.renderTriangle('right', 'paddingLeft', { marginLeft: 5 })), React.createElement("div", { className: "right", style: rightStyle }, this.renderTriangle('left', 'paddingRight'), this.renderTriangle('left', 'marginRight', { marginLeft: 5 })), React.createElement("div", { className: "top", style: topStyle }, this.renderTriangle('bottom', 'marginTop'), this.renderTriangle('bottom', 'paddingTop', { marginTop: 5 })), React.createElement("div", { className: "bottom", style: bottomStyle }, this.renderTriangle('top', 'paddingBottom'), this.renderTriangle('top', 'marginBottom', { marginTop: 5 })), React.createElement("div", { className: "number", style: numberOuterLeftStyle }, React.createElement("input", { className: "input", ref: "marginLeftInput", onMouseEnter: this.handleInputEnter.bind(this, 'marginLeft'), onMouseLeave: this.handleInputLeave.bind(this, 'marginLeft'), onChange: this.handleChange.bind(this, 'marginLeft'), value: this.state.marginLeft })), React.createElement("div", { className: "number", style: numberOuterTopStyle }, React.createElement("input", { className: "input", ref: "marginTopInput", onMouseEnter: this.handleInputEnter.bind(this, 'marginTop'), onMouseLeave: this.handleInputLeave.bind(this, 'marginTop'), onChange: this.handleChange.bind(this, 'marginTop'), value: this.state.marginTop })), React.createElement("div", { className: "number", style: numberOuterRightStyle }, React.createElement("input", { className: "input", ref: "marginRightInput", onMouseEnter: this.handleInputEnter.bind(this, 'marginRight'), onMouseLeave: this.handleInputLeave.bind(this, 'marginRight'), onChange: this.handleChange.bind(this, 'marginRight'), value: this.state.marginRight })), React.createElement("div", { className: "number", style: numberOuterBottomStyle }, React.createElement("input", { className: "input", ref: "marginBottomInput", onMouseEnter: this.handleInputEnter.bind(this, 'marginBottom'), onMouseLeave: this.handleInputLeave.bind(this, 'marginBottom'), onChange: this.handleChange.bind(this, 'marginBottom'), value: this.state.marginBottom })), React.createElement("div", { className: "number", style: numberInnerLeftStyle }, React.createElement("input", { className: "input", ref: "paddingLeftInput", onMouseEnter: this.handleInputEnter.bind(this, 'paddingLeft'), onMouseLeave: this.handleInputLeave.bind(this, 'paddingLeft'), onChange: this.handleChange.bind(this, 'paddingLeft'), value: this.state.paddingLeft })), React.createElement("div", { className: "number", style: numberInnerTopStyle }, React.createElement("input", { className: "input", ref: "paddingTopInput", onMouseEnter: this.handleInputEnter.bind(this, 'paddingTop'), onMouseLeave: this.handleInputLeave.bind(this, 'paddingTop'), onChange: this.handleChange.bind(this, 'paddingTop'), value: this.state.paddingTop })), React.createElement("div", { className: "number", style: numberInnerRightStyle }, React.createElement("input", { className: "input", ref: "paddingRightInput", onMouseEnter: this.handleInputEnter.bind(this, 'paddingRight'), onMouseLeave: this.handleInputLeave.bind(this, 'paddingRight'), onChange: this.handleChange.bind(this, 'paddingRight'), value: this.state.paddingRight })), React.createElement("div", { className: "number", style: numberInnerBottomStyle }, React.createElement("input", { className: "input", ref: "paddingBottomInput", onMouseEnter: this.handleInputEnter.bind(this, 'paddingBottom'), onMouseLeave: this.handleInputLeave.bind(this, 'paddingBottom'), onChange: this.handleChange.bind(this, 'paddingBottom'), value: this.state.paddingBottom })));
         }
     }]);
 

@@ -1,6 +1,6 @@
 {
   "name": "nt-web-render-to",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "任意位置渲染",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -13,6 +13,11 @@
   ],
   "author": "ascoders",
   "license": "ISC",
-  "dependencies": {},
-  "peerDependencies": {}
+  "dependencies": {
+    "nt-transparently-props": "^0.0.5"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
+  }
 }

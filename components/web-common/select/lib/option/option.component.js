@@ -52,14 +52,14 @@ var Select = function (_React$Component) {
         key: 'componentWillMount',
         value: function componentWillMount() {
             if (this.props.value === this.props.activeValue) {
-                this.props.setLabelValue(this.props.children);
+                this.props.setLabelValue(this.props.children.toString());
             }
         }
     }, {
         key: 'handleClick',
         value: function handleClick() {
             if (this.props.disabled) return;
-            this.props.onClick(this.props.value, this.props.children, this.props.optChildren, this.props.zIndex);
+            this.props.onClick(this.props.value, this.props.children.toString(), this.props.optChildren, this.props.zIndex);
         }
     }, {
         key: 'render',

@@ -21,12 +21,7 @@ export interface PropsDefine extends HTMLAttributes {
     onClick?: (event?: React.MouseEvent) => void;
     others?: any;
 }
-export declare class PropsGaea {
-    gaeaName: string;
-    gaeaIcon: string;
-    gaeaUniqueKey: string;
-}
-export declare class Props extends PropsGaea implements PropsDefine {
+export declare class Props implements PropsDefine {
     type: string;
     disabled: boolean;
     active: boolean;

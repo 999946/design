@@ -123,7 +123,7 @@ var Number = function (_React$Component) {
             if (this.props.units === null) {
                 return React.createElement("div", { className: "addon" }, React.createElement("span", { className: "fit-number-arrow-up", onMouseDown: this.increase.bind(this) }), React.createElement("span", { className: "fit-number-arrow-down", onMouseDown: this.reduce.bind(this) }));
             } else {
-                return React.createElement("div", { className: "addon-container" }, React.createElement("div", { className: "unit-container" }, React.createElement(index_1.Select, { style: { width: 37, marginTop: 4 }, defaultValue: this.props.currentUnit, simple: true, onChange: this.handleUnitChange, options: this.props.units })), React.createElement("div", { className: "addon" }, React.createElement("span", { className: "fit-number-arrow-up", onMouseDown: this.increase.bind(this) }), React.createElement("span", { className: "fit-number-arrow-down", onMouseDown: this.reduce.bind(this) })));
+                return React.createElement("div", { className: "addon-container" }, React.createElement("div", { className: "unit-container" }, React.createElement(index_1.Select, { style: { width: 25, marginTop: 4 }, defaultValue: this.props.currentUnit, simple: true, onChange: this.handleUnitChange, options: this.props.units })), React.createElement("div", { className: "addon" }, React.createElement("span", { className: "fit-number-arrow-up", onMouseDown: this.increase.bind(this) }), React.createElement("span", { className: "fit-number-arrow-down", onMouseDown: this.reduce.bind(this) })));
             }
         }
     }, {

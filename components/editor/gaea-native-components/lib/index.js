@@ -1,8 +1,9 @@
 "use strict";
 
-var view_1 = require('./gaea-native-components/view');
-var text_1 = require('./gaea-native-components/text');
-var text_input_1 = require('./gaea-native-components/text-input');
-var switch_1 = require('./gaea-native-components/switch');
+var view_component_1 = require('./view/view.component');
+var text_component_1 = require('./text/text.component');
+var text_input_component_1 = require('./text-input/text-input.component');
+var switch_component_1 = require('./switch/switch.component');
+var image_component_1 = require('./image/image.component');
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = [view_1.default, text_1.default, text_input_1.default, switch_1.default];
+exports.default = [view_component_1.default, text_component_1.default, text_input_component_1.default, switch_component_1.default, image_component_1.default];

@@ -8,18 +8,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var __assign = undefined && undefined.__assign || Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) {
-            if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-    }
-    return t;
-};
 var React = require('react');
 var typings = require('./layout.type');
-var index_1 = require('nt-transmit-transparently');
 
 var LayoutComponent = function (_React$Component) {
     _inherits(LayoutComponent, _React$Component);
@@ -42,31 +32,7 @@ var LayoutComponent = function (_React$Component) {
     _createClass(LayoutComponent, [{
         key: 'render',
         value: function render() {
-            var style = {
-                width: this.props.width,
-                minWidth: this.props.minWidth,
-                height: this.props.height,
-                minHeight: this.props.minHeight,
-                background: this.props.background,
-                display: this.props.display,
-                flexDirection: this.props.flexDirection,
-                flexGrow: this.props.flexGrow,
-                flexWrap: this.props.flexWrap,
-                justifyContent: this.props.justifyContent,
-                alignItems: this.props.alignItems,
-                overflow: this.props.overflow,
-                overflowX: this.props.overflowX,
-                overflowY: this.props.overflowY,
-                paddingLeft: this.props.paddingLeft,
-                paddingTop: this.props.paddingTop,
-                paddingRight: this.props.paddingRight,
-                paddingBottom: this.props.paddingBottom,
-                marginLeft: this.props.marginLeft,
-                marginTop: this.props.marginTop,
-                marginRight: this.props.marginRight,
-                marginBottom: this.props.marginBottom
-            };
-            return React.createElement("div", __assign({}, index_1.others(new typings.Props(), this.props), { style: style }), this.props.children);
+            return React.createElement("div", { style: this.props.style }, this.props.children);
         }
     }]);
 
