@@ -898,7 +898,7 @@ routerMap.set('web-common/render-to', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/render-to/package.json')),
                                 documents,
                                 main: require('../components/web-common/render-to/index')
                             })
@@ -1181,7 +1181,7 @@ routerMap.set('common/transparently-native-props', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/common/transparently-native-props/package.json')),
                                 documents,
                                 main: require('../components/common/transparently-native-props/index')
                             })
@@ -1291,6 +1291,27 @@ routerMap.set('wefan/navbar', (callback: any) => {
                                 packageJson: JSON.parse(require('-!text!../components/wefan/navbar/package.json')),
                                 documents,
                                 main: require('../components/wefan/navbar/index')
+                            })
+                        })
+                    })
+routerMap.set('wefan/gaea-components', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/wefan/gaea-components/demo/1.basic').default,
+                            code: require('-!text!../../components/wefan/gaea-components/demo/1.basic.tsx')
+                        })
+                    
+                            
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/wefan/gaea-components/package.json')),
+                                documents,
+                                main: require('../components/wefan/gaea-components/index')
                             })
                         })
                     })
@@ -1435,7 +1456,7 @@ routerMap.set('editor/gaea-helper', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/editor/gaea-helper/package.json')),
                                 documents,
                                 main: require('../components/editor/gaea-helper/index')
                             })

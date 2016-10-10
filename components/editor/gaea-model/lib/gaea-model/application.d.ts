@@ -81,7 +81,7 @@ declare namespace FitGaea {
          */
         label: string
         /**
-         * 编辑器类型 text array(暂时不支持) selector switch
+         * 编辑器类型
          */
         editor: string
         /**
@@ -119,6 +119,12 @@ declare namespace FitGaea {
             outputRange?: Array<number>
             slider?: boolean
         }
+        /**
+         * 枚举实例
+         */
+        instance?: Array<{
+            [key: string]: ComponentPropsOptionValue
+        }>
     }
 
     /**

@@ -203,6 +203,10 @@ export interface NavbarPropsDefine {}
 
                 }
             
+                declare module 'nt-wefan-gaea-components' {    
+                    
+                }
+            
                 declare module 'nt-editor-gaea-editor' {    
                     export interface GaeaEditor {}
 export interface GaeaEditorPropsDefine {}
