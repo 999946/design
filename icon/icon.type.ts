@@ -2,9 +2,25 @@ import {TransparentlyNativePropsPropsDefine} from '../../../common/transparently
 import {gaeaHelper} from '../../../editor/gaea-helper/index'
 import * as ReactNaitve from 'react-native'
 
+const instances = [{
+    name: 'icnHomepageZfS'
+}, {
+    name: 'iconBackNavMineBlack'
+}, {
+    name: 'iconMoreNavN'
+}, {
+    name: 'iconCloseNav'
+}, {
+    name: 'icnHomeTopNewb'
+}]
+
 export interface PropsDefine extends TransparentlyNativePropsPropsDefine {
     style?: ReactNaitve.ViewStyle
-    source?: string
+
+    /**
+     * 图标名
+     */
+    name?: string
 }
 
 export class PropsGaea {
@@ -12,12 +28,13 @@ export class PropsGaea {
     gaeaIcon = 'square-o'
     gaeaUniqueKey = 'wefan-icon'
     gaeaEdit = [
-        '图片',
+        '图标',
         {
-            field: 'source',
-            label: '图片地址',
-            editor: 'text',
-            editable: true
+            field: null as string,
+            label: '',
+            editor: 'instance',
+            editable: true,
+            instance: instances
         },
         '布局',
         gaeaHelper.marginPaddingEditor,
@@ -39,7 +56,7 @@ export class Props extends PropsGaea implements PropsDefine {
             height: 40
         }
     )
-    source = ''
+    name = 'icnHomepageZfS'
 }
 
 export interface StateDefine {
