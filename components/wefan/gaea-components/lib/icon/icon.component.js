@@ -11,6 +11,19 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var React = require('react');
 var typings = require('./icon.type');
 var react_native_1 = require('react-native');
+var icons = {
+    icnHomepageZfS: require('./images/icn_homepage_zf_s.png'),
+    iconBackNavMineBlack: require('./images/icon_back_nav_mine_black.png'),
+    iconMoreNavN: require('./images/icon_more_nav_n.png'),
+    iconCloseNav: require('./images/icon_close_nav.png'),
+    icnHomeTopNewb: require('./images/icn_home_top_newb.png'),
+    icnMineSettingB: require('./images/icn_mine_setting_b.png'),
+    iconFindSearch: require('./images/icon_find_search.png'),
+    minus: require('./images/minus.png')
+};
+var getIconByName = function getIconByName(name) {
+    return icons[name];
+};
 
 var GaeaComponents = function (_React$Component) {
     _inherits(GaeaComponents, _React$Component);
@@ -33,7 +46,7 @@ var GaeaComponents = function (_React$Component) {
     _createClass(GaeaComponents, [{
         key: 'render',
         value: function render() {
-            return React.createElement(react_native_1.Image, { style: this.props.style, source: this.props.source });
+            return React.createElement(react_native_1.Image, { style: this.props.style, source: getIconByName(this.props.name) });
         }
     }]);
 

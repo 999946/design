@@ -56,6 +56,11 @@ var EditBox = function (_React$Component) {
             this.props.viewport.cancelEditComponent();
         }
     }, {
+        key: "handleShadowClick",
+        value: function handleShadowClick() {
+            this.props.viewport.setShowEditorPanelShadow(false);
+        }
+    }, {
         key: "render",
         value: function render() {
             if (this.props.viewport.currentEditComponentMapUniqueKey === null) {
@@ -65,7 +70,7 @@ var EditBox = function (_React$Component) {
                 height: "calc(100% - " + this.props.application.footerHeight + "px)",
                 flexGrow: 0
             };
-            return React.createElement("div", { className: "nt-editor-gaea-editor-gaea_editor-panel-edit_box container-box" }, React.createElement("span", { className: "handle-drag-close", onClick: this.handleCloseClick }, "x"), React.createElement(index_2.Tabs, { defaultActiveKey: "basic", type: "retro", className: "edit-box-handle" }, React.createElement(index_2.TabPanel, { tab: "基础", style: itemStyle, activeKey: "basic", className: "edit-container" }, React.createElement(basic_component_1.default, null)), React.createElement(index_2.TabPanel, { tab: "脚本", style: itemStyle, activeKey: "script", className: "edit-container" }, React.createElement(script_component_1.default, null))));
+            return React.createElement("div", { className: "nt-editor-gaea-editor-gaea_editor-panel-edit_box container-box" }, React.createElement("span", { className: "handle-drag-close", onClick: this.handleCloseClick }, "x"), this.props.viewport.showEditorPanelShadow && React.createElement("div", { className: "shadow-container", onClick: this.handleShadowClick.bind(this) }), React.createElement(index_2.Tabs, { defaultActiveKey: "basic", type: "retro", className: "edit-box-handle" }, React.createElement(index_2.TabPanel, { tab: "基础", style: itemStyle, activeKey: "basic", className: "edit-container" }, React.createElement(basic_component_1.default, null)), React.createElement(index_2.TabPanel, { tab: "脚本", style: itemStyle, activeKey: "script", className: "edit-container" }, React.createElement(script_component_1.default, null))));
         }
     }]);
 

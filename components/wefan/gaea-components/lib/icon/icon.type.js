@@ -9,6 +9,23 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var index_1 = require('gaea-helper');
+var instances = [{
+    name: 'icnHomepageZfS'
+}, {
+    name: 'iconBackNavMineBlack'
+}, {
+    name: 'iconMoreNavN'
+}, {
+    name: 'iconCloseNav'
+}, {
+    name: 'icnHomeTopNewb'
+}, {
+    name: 'icnMineSettingB'
+}, {
+    name: 'iconFindSearch'
+}, {
+    name: 'minus'
+}];
 
 var PropsGaea = function PropsGaea() {
     _classCallCheck(this, PropsGaea);
@@ -16,11 +33,12 @@ var PropsGaea = function PropsGaea() {
     this.gaeaName = '图标';
     this.gaeaIcon = 'square-o';
     this.gaeaUniqueKey = 'wefan-icon';
-    this.gaeaEdit = ['图片', {
-        field: 'source',
-        label: '图片地址',
-        editor: 'text',
-        editable: true
+    this.gaeaEdit = ['图标', {
+        field: null,
+        label: '',
+        editor: 'instance',
+        editable: true,
+        instance: instances
     }, '布局', index_1.gaeaHelper.marginPaddingEditor, index_1.gaeaHelper.widthHeightEditor, '特效', index_1.gaeaHelper.opacityEditor];
 };
 
@@ -44,7 +62,7 @@ var Props = function (_PropsGaea) {
             width: 40,
             height: 40
         });
-        _this.source = '';
+        _this.name = 'icnHomepageZfS';
         return _this;
     }
 

@@ -19,15 +19,11 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
     }return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var React = require('react');
-var ReactDOM = require('react-dom');
 var typings = require('./template.type');
 var mobx_react_1 = require('mobx-react');
-var drag_list_1 = require('../../../utils/drag-list');
+var web_component_1 = require('./web/web.component');
+var native_component_1 = require('./native/native.component');
 require('./template.css');
-var TWO_COLUMN = "{\"name\":\"两列\",\"mapUniqueKey\":\"gaea-component-1475912221054-2\",\"componentInfo\":{\"props\":{\"style\":{},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475912210697-1\",\"layoutChilds\":[\"gaea-component-1475912222125-3\",\"gaea-component-1475912223600-4\"]},\"childs\":{\"gaea-component-1475912222125-3\":{\"props\":{\"style\":{\"flexGrow\":\"1\"},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475912221054-2\"},\"gaea-component-1475912223600-4\":{\"props\":{\"style\":{\"flexGrow\":\"1\"},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475912221054-2\"}}}";
-var THREE_COLUMN = "{\"name\":\"3列\",\"mapUniqueKey\":\"gaea-component-1475912307384-2\",\"componentInfo\":{\"props\":{\"style\":{},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475912305457-1\",\"layoutChilds\":[\"gaea-component-1475912308194-3\",\"gaea-component-1475912309672-5\",\"gaea-component-1475912310663-6\"]},\"childs\":{\"gaea-component-1475912308194-3\":{\"props\":{\"style\":{\"flexGrow\":\"1\"},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475912307384-2\"},\"gaea-component-1475912309672-5\":{\"props\":{\"style\":{\"flexGrow\":\"1\"},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475912307384-2\"},\"gaea-component-1475912310663-6\":{\"props\":{\"style\":{\"flexGrow\":\"1\"},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475912307384-2\"}}}";
-var FOUR_COLUMN = "{\"name\":\"4列\",\"mapUniqueKey\":\"gaea-component-1475912307384-2\",\"componentInfo\":{\"props\":{\"style\":{},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475912305457-1\",\"layoutChilds\":[\"gaea-component-1475912308194-3\",\"gaea-component-1475912309002-4\",\"gaea-component-1475912309672-5\",\"gaea-component-1475912310663-6\"]},\"childs\":{\"gaea-component-1475912308194-3\":{\"props\":{\"style\":{\"flexGrow\":\"1\"},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475912307384-2\"},\"gaea-component-1475912309002-4\":{\"props\":{\"style\":{\"flexGrow\":\"1\"},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475912307384-2\"},\"gaea-component-1475912309672-5\":{\"props\":{\"style\":{\"flexGrow\":\"1\"},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475912307384-2\"},\"gaea-component-1475912310663-6\":{\"props\":{\"style\":{\"flexGrow\":\"1\"},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475912307384-2\"}}}";
-var LEFT_IMAGE_RIGHT_TEXT = "{\"name\":\"左图右字\",\"mapUniqueKey\":\"gaea-component-1475893714294-2\",\"componentInfo\":{\"props\":{\"style\":{},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475893709367-1\",\"layoutChilds\":[\"gaea-component-1475893715582-3\",\"gaea-component-1475893719087-4\"]},\"childs\":{\"gaea-component-1475893715582-3\":{\"props\":{\"style\":{},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475893714294-2\",\"layoutChilds\":[\"gaea-component-1475893764790-5\"]},\"gaea-component-1475893764790-5\":{\"props\":{\"style\":{},\"gaeaUniqueKey\":\"gaea-text\"},\"parentMapUniqueKey\":\"gaea-component-1475893715582-3\"},\"gaea-component-1475893719087-4\":{\"props\":{\"style\":{\"flexGrow\":\"1\"},\"gaeaUniqueKey\":\"gaea-layout\"},\"parentMapUniqueKey\":\"gaea-component-1475893714294-2\",\"layoutChilds\":[\"gaea-component-1475893766342-6\"]},\"gaea-component-1475893766342-6\":{\"props\":{\"style\":{},\"gaeaUniqueKey\":\"gaea-text\"},\"parentMapUniqueKey\":\"gaea-component-1475893719087-4\"}}}";
 var Template = function (_React$Component) {
     _inherits(Template, _React$Component);
 
@@ -47,21 +43,15 @@ var Template = function (_React$Component) {
     }
 
     _createClass(Template, [{
-        key: "componentDidMount",
-        value: function componentDidMount() {
-            new drag_list_1.default(ReactDOM.findDOMNode(this.refs['dragContainer1']), this.props.viewport);
-            new drag_list_1.default(ReactDOM.findDOMNode(this.refs['dragContainer2']), this.props.viewport);
-        }
-    }, {
         key: "render",
         value: function render() {
-            return React.createElement("div", { className: "nt-editor-gaea-editor-gaea_editor-page-left_bar-template" }, React.createElement("div", { className: "title" }, "布局"), React.createElement("div", { className: "drag-container", ref: "dragContainer1" }, React.createElement("div", { className: "template-item", "data-source": TWO_COLUMN }, "两列"), React.createElement("div", { className: "template-item", "data-source": THREE_COLUMN }, "三列"), React.createElement("div", { className: "template-item", "data-source": FOUR_COLUMN }, "四列")), React.createElement("div", { className: "title" }, "卡片"), React.createElement("div", { className: "drag-container", ref: "dragContainer2" }, React.createElement("div", { className: "template-item", "data-source": LEFT_IMAGE_RIGHT_TEXT }, "左图右字")));
+            return React.createElement("div", { className: "nt-editor-gaea-editor-gaea_editor-page-left_bar-template" }, React.createElement("div", { className: "title" }, "布局"), this.props.application.isReactNative ? React.createElement(native_component_1.default, null) : React.createElement(web_component_1.default, null));
         }
     }]);
 
     return Template;
 }(React.Component);
 Template.defaultProps = new typings.Props();
-Template = __decorate([mobx_react_1.inject('setting', 'viewport'), mobx_react_1.observer], Template);
+Template = __decorate([mobx_react_1.inject('setting', 'viewport', 'application'), mobx_react_1.observer], Template);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Template;
