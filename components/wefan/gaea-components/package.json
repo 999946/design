@@ -1,0 +1,24 @@
+{
+  "name": "nt-wefan-gaea-components",
+  "version": "0.0.1",
+  "description": "盖亚组件表",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.baidu.com/tb-next-component/wefan-gaea-components.git"
+  },
+  "keywords": [
+    "gaea-components"
+  ],
+  "author": "ascoders",
+  "license": "ISC",
+  "dependencies": {
+    "nt-transparently-native-props": "^0.0.1",
+    "gaea-helper": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-native": "*"
+  }
+}
