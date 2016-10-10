@@ -9,7 +9,10 @@ const icons: {
     iconBackNavMineBlack: require('./images/icon_back_nav_mine_black.png'),
     iconMoreNavN: require('./images/icon_more_nav_n.png'),
     iconCloseNav: require('./images/icon_close_nav.png'),
-    icnHomeTopNewb: require('./images/icn_home_top_newb.png')
+    icnHomeTopNewb: require('./images/icn_home_top_newb.png'),
+    icnMineSettingB: require('./images/icn_mine_setting_b.png'),
+    iconFindSearch: require('./images/icon_find_search.png'),
+    minus: require('./images/minus.png')
 }
 
 const getIconByName = (name: string)=> {

@@ -12,6 +12,12 @@ const instances = [{
     name: 'iconCloseNav'
 }, {
     name: 'icnHomeTopNewb'
+}, {
+    name: 'icnMineSettingB'
+}, {
+    name: 'iconFindSearch'
+}, {
+    name: 'minus'
 }]
 
 export interface PropsDefine extends TransparentlyNativePropsPropsDefine {
