@@ -19,6 +19,8 @@ export class PropsGaea {
             editor: 'text',
             editable: true
         },
+        '排版',
+        gaeaHelper.fontEditor,
         '布局',
         gaeaHelper.marginPaddingEditor,
         gaeaHelper.widthHeightEditor,
@@ -35,7 +37,8 @@ export class Props extends PropsGaea implements PropsDefine {
         gaeaHelper.marginPadding,
         gaeaHelper.opacity,
         gaeaHelper.widthHeight,
-        gaeaHelper.overflow
+        gaeaHelper.overflow,
+        gaeaHelper.fontNative
     )
     text = '文字'
 }

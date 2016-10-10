@@ -71,3 +71,8 @@ declare module 'react-color' {
     }
     export = api
 }
+
+declare module 'lz-string' {
+    const api: any
+    export = api
+}

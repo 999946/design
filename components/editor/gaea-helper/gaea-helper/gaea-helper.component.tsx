@@ -128,3 +128,87 @@ export const backgroundEditor = {
     editor: 'background',
     editable: true
 }
+
+/**
+ * 字体
+ */
+export const font = {
+    fontWeight: null as any,
+    fontStyle: 'normal',
+    color: null as any,
+    fontSize: 14,
+    lineHeight: null as any,
+    textAlign: 'left',
+    textDecoration: 'none',
+    whiteSpace: null as any,
+    wordWrap: 'break-word',
+    wordBreak: 'normal'
+}
+
+export const fontNative = {
+    fontWeight: null as any,
+    fontStyle: 'normal',
+    color: null as any,
+    fontSize: 14,
+    lineHeight: null as any,
+    textAlign: 'left',
+    textDecorationLine: 'none',
+}
+
+export const fontEditor = {
+    field: null as any,
+    label: '',
+    editor: 'font',
+    editable: true
+}
+
+/**
+ * 边框
+ */
+export const border = {
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+
+    borderLeftColor: null as any,
+    borderBottomColor: null as any,
+    borderRightColor: null as any,
+    borderTopColor: null as any,
+
+    borderBottomWidth: null as any,
+    borderRightWidth: null as any,
+    borderTopWidth: null as any,
+    borderLeftWidth: null as any,
+
+    borderLeftStyle: 'none',
+    borderTopStyle: 'none',
+    borderRightStyle: 'none',
+    borderBottomStyle: 'none'
+}
+
+export const borderNative = {
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+
+    borderColor: null as any,
+
+    borderBottomWidth: null as any,
+    borderRightWidth: null as any,
+    borderTopWidth: null as any,
+    borderLeftWidth: null as any,
+
+    borderLeftStyle: null as any,
+    borderTopStyle: null as any,
+    borderRightStyle: null as any,
+    borderBottomStyle: null as any
+}
+
+export const borderEditor = {
+    field: null as any,
+    label: '',
+    editor: 'border',
+    editable: true
+}

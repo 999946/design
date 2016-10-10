@@ -161,6 +161,12 @@ export default [{
         isWeb: true,
         isAndroid: true,
         isIos: true
+    }, {
+        name: 'gaea-components',
+        chinese: '盖亚组件表',
+        isWeb: true,
+        isAndroid: true,
+        isIos: true
     }]
 }, {
     name: 'editor',
