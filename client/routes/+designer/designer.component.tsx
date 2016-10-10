@@ -9,8 +9,6 @@ import componentInfos from '../../../auto-create/component-infos'
 
 import './designer.scss'
 
-const nativeCustomComponents = [] as any
-
 @inject('application') @observer
 export default class Designer extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
@@ -20,6 +18,7 @@ export default class Designer extends React.Component <typings.PropsDefine, typi
     private GaeaNativeComponents: any
     private GaeaWebComponents: any
     private Message: any
+    private customComponents: any = []
 
     /**
      * 获取页面信息
@@ -66,6 +65,17 @@ export default class Designer extends React.Component <typings.PropsDefine, typi
             resolve('finish')
         })
     })
+    private getGaeaCustomComponentFullInfo = new Promise<string>((resolve, reject)=> {
+        if (this.props.location.query['type'] === 'native') {
+            const getGaeaCustomComponentFullInfo = componentInfos.get('wefan/gaea-components')
+            getGaeaCustomComponentFullInfo((componentFullInfo: RouterComponentsModel.ComponentFullInfo)=> {
+                this.customComponents = componentFullInfo.main.default
+                resolve('finish')
+            })
+        } else {
+            resolve('finish')
+        }
+    })
 
     componentWillMount() {
         Promise.all([
@@ -73,7 +83,8 @@ export default class Designer extends React.Component <typings.PropsDefine, typi
             this.getGaeaComponentFullInfo,
             this.getGaeaWebComponentFullInfo,
             this.getGaeaNativeComponentFullInfo,
-            this.getMessageComponentFullInfo
+            this.getMessageComponentFullInfo,
+            this.getGaeaCustomComponentFullInfo
         ]).then(()=> {
             this.setState({
                 isReady: true
@@ -115,7 +126,7 @@ export default class Designer extends React.Component <typings.PropsDefine, typi
         return (
             <div className="_namespace">
                 {React.createElement(this.Gaea, {
-                    customComponents: this.props.location.query['type'] === 'native' ? nativeCustomComponents : [],
+                    customComponents: this.customComponents,
                     baseComponents: baseComponents,
                     onSave: this.handleSave.bind(this),
                     isReactNative: this.props.location.query['type'] === 'native',
