@@ -2,13 +2,21 @@ import { TransparentlyNativePropsPropsDefine } from  'nt-transparently-native-pr
 import * as ReactNaitve from 'react-native';
 export interface PropsDefine extends TransparentlyNativePropsPropsDefine {
     style?: ReactNaitve.ViewStyle;
-    source?: string;
+    name?: string;
 }
 export declare class PropsGaea {
     gaeaName: string;
     gaeaIcon: string;
     gaeaUniqueKey: string;
     gaeaEdit: (string | {
+        field: string;
+        label: string;
+        editor: string;
+        editable: boolean;
+        instance: {
+            name: string;
+        }[];
+    } | {
         field: any;
         label: string;
         editor: string;
@@ -17,7 +25,7 @@ export declare class PropsGaea {
 }
 export declare class Props extends PropsGaea implements PropsDefine {
     style: any;
-    source: string;
+    name: string;
 }
 export interface StateDefine {
 }
