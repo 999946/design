@@ -47,7 +47,7 @@
       },
       "packageJson": {
         "name": "nt-wefan-gaea-components",
-        "version": "0.0.0",
+        "version": "0.0.1",
         "description": "盖亚组件表",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -60,8 +60,14 @@
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {},
-        "peerDependencies": {}
+        "dependencies": {
+          "nt-transparently-native-props": "^0.0.1",
+          "gaea-helper": "^0.0.1"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-native": "*"
+        }
       },
       "dependence": [
         {
@@ -85,6 +91,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.0"
+    "preVersion": "0.0.1"
   }
 ]
