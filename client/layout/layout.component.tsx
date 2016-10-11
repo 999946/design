@@ -60,7 +60,7 @@ export default class Layout extends React.Component <typings.PropsDefine, typing
             this.setState({
                 loadingStatus: 'end'
             })
-        }, 100)
+        }, 150)
     }
 
     render() {

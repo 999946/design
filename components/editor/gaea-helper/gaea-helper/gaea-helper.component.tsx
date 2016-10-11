@@ -113,13 +113,13 @@ export const overflowEditor = {
  */
 export const background = {
     background: null as any,
-    backgroundColor: null as any,
+    backgroundColor: 'transparent',
     backgroundImage: null as any,
     backgroundPosition: null as any
 }
 
 export const backgroundNative = {
-    backgroundColor: null as any
+    backgroundColor: 'transparent'
 }
 
 export const backgroundEditor = {
