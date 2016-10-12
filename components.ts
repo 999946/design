@@ -116,7 +116,8 @@ export default [{
         chinese: '图片手势操作',
         git: 'https://github.com/ascoders/react-native-image-zoom.git',
         npm: 'react-native-image-pan-zoom',
-        isIos: true
+        isIos: true,
+        isAndroid: true
     }, {
         name: 'image-viewer',
         chinese: '大图浏览',
@@ -155,6 +156,12 @@ export default [{
     prefix: 'nt-wefan',
     isPrivate: true,
     components: [{
+        name: 'button',
+        chinese: '按钮',
+        isWeb: true,
+        isIos: true,
+        isAndroid: true
+    }, {
         name: 'image',
         chinese: '图片',
         isWeb: true,
