@@ -4,11 +4,9 @@
     "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "button",
-        "chinese": "按钮",
-        "isWeb": true,
-        "isIos": true,
-        "isAndroid": true
+        "name": "line",
+        "chinese": "线",
+        "isWeb": true
       },
       "category": {
         "name": "common",
@@ -86,17 +84,17 @@
         ]
       },
       "packageJson": {
-        "name": "nt-button",
+        "name": "nt-line",
         "version": "0.0.0",
-        "description": "按钮",
+        "description": "线",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/common-button.git"
+          "url": "https://github.com/next-component/common-line.git"
         },
         "keywords": [
-          "button"
+          "line"
         ],
         "author": "ascoders",
         "license": "ISC",
@@ -115,11 +113,6 @@
         {
           "type": "component",
           "name": "transmit-transparently",
-          "category": "common"
-        },
-        {
-          "type": "component",
-          "name": "auto-bind",
           "category": "common"
         },
         {
