@@ -179,6 +179,12 @@ export default [{
         isAndroid: true,
         isIos: true
     }, {
+        name: 'loading',
+        chinese: '加载条',
+        isWeb: true,
+        isAndroid: true,
+        isIos: true
+    }, {
         name: 'gaea-components',
         chinese: '盖亚组件表',
         isWeb: true,
