@@ -72,7 +72,7 @@ export default class Modal extends React.Component <typings.PropsDefine, typings
             <div {...others}
                 className={classes}
                 onClick={this.handleOutClick.bind(this)}
-                tabIndex="-1">
+                tabIndex={-1}>
                 <div className={extraModalSizeClass}
                      onClick={this.handleModalClick.bind(this)}>
                     <div className="modal-content">

@@ -33,7 +33,7 @@ export default class Demo extends React.Component <any, any> {
         })
     }
 
-    renderOperateButton(triggerOk: Function, triggerCancel: Function) {
+    renderOperateButton(triggerOk: any, triggerCancel: Function) {
         return (
             <div>
                 <Button onClick={triggerOk}>我知道了</Button>
