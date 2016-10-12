@@ -4,11 +4,11 @@
     "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "button",
-        "chinese": "按钮",
+        "name": "loading",
+        "chinese": "加载条",
         "isWeb": true,
-        "isIos": true,
-        "isAndroid": true
+        "isAndroid": true,
+        "isIos": true
       },
       "category": {
         "name": "wefan",
@@ -44,6 +44,13 @@
             "isIos": true
           },
           {
+            "name": "loading",
+            "chinese": "加载条",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true
+          },
+          {
             "name": "gaea-components",
             "chinese": "盖亚组件表",
             "isWeb": true,
@@ -53,17 +60,17 @@
         ]
       },
       "packageJson": {
-        "name": "nt-wefan-button",
+        "name": "nt-wefan-loading",
         "version": "0.0.0",
-        "description": "按钮",
+        "description": "加载条",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "http://gitlab.baidu.com/tb-next-component/wefan-button.git"
+          "url": "http://gitlab.baidu.com/tb-next-component/wefan-loading.git"
         },
         "keywords": [
-          "button"
+          "loading"
         ],
         "author": "ascoders",
         "license": "ISC",
@@ -74,11 +81,6 @@
         {
           "type": "npm",
           "name": "react"
-        },
-        {
-          "type": "component",
-          "name": "button",
-          "category": "common"
         },
         {
           "type": "npm",
