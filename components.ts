@@ -10,6 +10,10 @@ export default [{
         chinese: '按钮',
         isWeb: true
     }, {
+        name: 'line',
+        chinese: '线',
+        isWeb: true
+    }, {
         name: 'input',
         chinese: '输入框',
         isWeb: true
