@@ -904,6 +904,35 @@ routerMap.set('web-common/render-to', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('common/button', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/button/demo/1.basic').default,
+                            code: require('-!text!../../components/common/button/demo/1.basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/button/button/button.type'),
+                            typeCode: require('-!text!../../components/common/button/button/button.type.ts'),
+                            typePath: 'components/common/button/button/button.type',
+                            componentName: 'Button',
+                            sourceCode: require('-!text!../../components/common/button/button/button.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/common/button/index')
+                            })
+                        })
+                    })
 routerMap.set('common/image', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

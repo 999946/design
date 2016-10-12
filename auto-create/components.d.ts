@@ -133,6 +133,12 @@ export interface RenderToPropsDefine {}
 
                 }
             
+                declare module 'nt-button' {    
+                    export interface Button {}
+export interface ButtonPropsDefine {}
+
+                }
+            
                 declare module 'nt-image' {    
                     export interface Image {}
 export interface ImagePropsDefine {}

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import * as typings from './render-to.type'
+import ReactElement = __React.ReactElement;
 
 export default class RenderTo extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
@@ -48,7 +49,7 @@ export default class RenderTo extends React.Component <typings.PropsDefine, typi
 
     renderLayer() {
         this.popups.forEach(popup => {
-            ReactDOM.render(this.props.children, popup)
+            ReactDOM.render(this.props.children as ReactElement<any>, popup)
         })
     }
 

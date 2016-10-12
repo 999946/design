@@ -11,8 +11,6 @@ export interface PropsDefine {
      */
     className?: string
 
-    children?: React.ReactElement<any>
-
     others?: any
 }
 
