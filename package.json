@@ -1,6 +1,6 @@
 {
   "name": "nt-line",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "线",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -13,6 +13,12 @@
   ],
   "author": "ascoders",
   "license": "ISC",
-  "dependencies": {},
-  "peerDependencies": {}
+  "dependencies": {
+    "nt-transmit-transparently": "^1.0.7",
+    "nt-transparently-native-props": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-native": "*"
+  }
 }
