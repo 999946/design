@@ -1273,7 +1273,7 @@ routerMap.set('wefan/button', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/wefan/button/package.json')),
                                 documents,
                                 main: require('../components/wefan/button/index')
                             })
@@ -1383,6 +1383,35 @@ routerMap.set('wefan/navbar', (callback: any) => {
                                 packageJson: JSON.parse(require('-!text!../components/wefan/navbar/package.json')),
                                 documents,
                                 main: require('../components/wefan/navbar/index')
+                            })
+                        })
+                    })
+routerMap.set('wefan/loading', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/wefan/loading/demo/1.basic').default,
+                            code: require('-!text!../../components/wefan/loading/demo/1.basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/wefan/loading/loading/loading.type'),
+                            typeCode: require('-!text!../../components/wefan/loading/loading/loading.type.ts'),
+                            typePath: 'components/wefan/loading/loading/loading.type',
+                            componentName: 'Loading',
+                            sourceCode: require('-!text!../../components/wefan/loading/loading/loading.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/wefan/loading/index')
                             })
                         })
                     })

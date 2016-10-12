@@ -221,6 +221,12 @@ export interface NavbarPropsDefine {}
 
                 }
             
+                declare module 'nt-wefan-loading' {    
+                    export interface Loading {}
+export interface LoadingPropsDefine {}
+
+                }
+            
                 declare module 'nt-wefan-gaea-components' {    
                     
                 }

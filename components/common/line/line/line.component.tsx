@@ -25,7 +25,6 @@ export default class Line extends React.Component <typings.PropsDefine, typings.
                 borderBottomColor: this.props.color,
             }]
         }
-        console.log(lineStyle)
 
         return <View {...this.props.others} style={[lineStyle, this.props.style]}/>
     }
