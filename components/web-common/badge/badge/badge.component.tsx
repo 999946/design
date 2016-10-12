@@ -33,7 +33,7 @@ export default class Badge extends React.Component <typings.PropsDefine, typings
 
         return (
             <span className={classes}
-                  title={countAfterCalculation}>
+                  title={countAfterCalculation.toString()}>
                 {this.props.children}
                 <Animate showProp="data-show"
                          transitionName={`zoom`}
@@ -41,7 +41,7 @@ export default class Badge extends React.Component <typings.PropsDefine, typings
                     {hidden ? null :
                         <ScrollNumber data-show={!hidden}
                                       className={scrollNumberCls}
-                                      count={countAfterCalculation}
+                                      count={parseInt(countAfterCalculation.toString())}
                             {...this.props.others}/>
                     }
                 </Animate>

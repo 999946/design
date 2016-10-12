@@ -6,7 +6,7 @@ import {parseDts} from '../../../../../utils/parse-typings'
 
 import './third-components.scss'
 
-@inject('application') @observer
+@inject('application', 'event') @observer
 export default class ComponentsThirdComponents extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
@@ -29,7 +29,7 @@ export default class ComponentsThirdComponents extends React.Component <typings.
     asyncGetComponentInfo(props: typings.PropsDefine) {
         const getComponentFullInfo = thirdComponentTypings.get(props.params.component)
         getComponentFullInfo && getComponentFullInfo((componentFullInfo: RouterComponentsModel.ThirdComponentFullInfo)=> {
-            this.props.application.event.emit(this.props.application.event.sceneLoaded)
+            this.props.event.emit(this.props.event.sceneLoaded)
             this.setState({
                 componentFullInfo
             })

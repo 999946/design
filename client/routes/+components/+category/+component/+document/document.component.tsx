@@ -119,7 +119,7 @@ export default class Document extends FullComponentInfo <typings.PropsDefine, ty
 
                     ExtendDep = (
                         <tr key={key}>
-                            <td colSpan="4">
+                            <td colSpan={4}>
                                 <Link className="document-link"
                                       to={linkUrl}>{text}</Link>
                             </td>

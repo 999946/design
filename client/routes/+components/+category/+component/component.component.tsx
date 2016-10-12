@@ -5,7 +5,7 @@ import {Button, ButtonGroup} from '../../../../../components/web-common/button/i
 import * as ReactCopyToClipboard from 'react-copy-to-clipboard'
 import Message from '../../../../../components/web-common/message/index'
 import FullComponentInfo from './full-component-info/full-component-info.component'
-import {browserHistory} from '../../../../main.browser'
+import {browserHistory} from '../../../../../utils/provider'
 import * as componentHelper from '../../../../../scripts/manage/utils/component-helper'
 
 import 'highlight.js/styles/github.css'

@@ -6,5 +6,7 @@ export default [
     'mobx',
     'mobx-react',
     'lodash',
-    'superagent'
+    'superagent',
+    'inversify',
+    'inversify-inject-decorators'
 ]

@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as typings from './full-component-info.type'
 import componentInfos from '../../../../../../auto-create/component-infos'
 import components from '../../../../../../components'
-import {application} from '../../../../../main.browser'
+import {application, event} from '../../../../../../utils/provider'
 
 /**
  * 获得当前路由下组件完整信息
@@ -24,7 +24,7 @@ export default class FullComponentInfo <P, S> extends React.Component <typings.P
     asyncGetComponentInfo(props: typings.PropsDefine) {
         const getComponentFullInfo = componentInfos.get(`${props.params.category}/${props.params.component}`)
         getComponentFullInfo && getComponentFullInfo((componentFullInfo: RouterComponentsModel.ComponentFullInfo)=> {
-            application.event.emit(application.event.sceneLoaded)
+            event.emit(event.sceneLoaded)
             this.setState({
                 componentFullInfo
             })

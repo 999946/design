@@ -1,7 +1,3 @@
-/**
- * 事件系统
- */
-
 import Event from '../utils/event-system'
 
 export default class EventSystem extends Event {

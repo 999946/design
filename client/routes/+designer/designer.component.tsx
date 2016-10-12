@@ -24,14 +24,14 @@ export default class Designer extends React.Component <typings.PropsDefine, typi
      * 获取页面信息
      */
     private getPageInfo = new Promise<string>((resolve, reject) => {
-        request.get('/rn/designer/get').end((err, res)=> {
-            const body = res.body as CommonModel.Response<DesignerModel.SaveResponse>
-            this.props.application.event.emit(this.props.application.event.sceneLoaded)
-            this.setState({
-                value: decodeURIComponent(body.data.content)
-            })
-            resolve('getPageInfoFinish')
-        })
+        // request.get('/rn/designer/get').end((err, res)=> {
+        //     const body = res.body as CommonModel.Response<DesignerModel.SaveResponse>
+        //     this.props.application.event.emit(this.props.application.event.sceneLoaded)
+        //     this.setState({
+        //         value: decodeURIComponent(body.data.content)
+        //     })
+        //     resolve('getPageInfoFinish')
+        // })
     })
 
     /**
@@ -98,13 +98,13 @@ export default class Designer extends React.Component <typings.PropsDefine, typi
      * 触发保存
      */
     handleSave(componentsInfo: any) {
-        request.post('/rn/designer/set').type('form').send({
-            content: encodeURIComponent(JSON.stringify(componentsInfo))
-        } as DesignerModel.SaveRequest).end((err, res)=> {
-            if (res && res.body.errno === 0) {
-                this.Message.success('保存成功')
-            }
-        })
+        // request.post('/rn/designer/set').type('form').send({
+        //     content: encodeURIComponent(JSON.stringify(componentsInfo))
+        // } as DesignerModel.SaveRequest).end((err, res)=> {
+        //     if (res && res.body.errno === 0) {
+        //         this.Message.success('保存成功')
+        //     }
+        // })
     }
 
     render() {

@@ -5,7 +5,7 @@ import './publish-web.scss'
 
 import componentInfos from '../../../auto-create/component-infos'
 
-@inject('application') @observer
+@inject('application', 'event') @observer
 export default class PublishWeb extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
@@ -36,7 +36,7 @@ export default class PublishWeb extends React.Component <typings.PropsDefine, ty
             this.setState({
                 isReady: true
             }, ()=> {
-                this.props.application.event.emit(this.props.application.event.sceneLoaded)
+                this.props.event.emit(this.props.event.sceneLoaded)
             })
         }).catch(()=> {
 

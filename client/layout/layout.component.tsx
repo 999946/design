@@ -1,9 +1,9 @@
 import * as React from 'react'
 import * as classNames from 'classnames'
 import * as typings from './layout.type'
-import {observer, inject} from 'mobx-react'
-import {Link} from 'react-router'
-import {browserHistory} from '../main.browser'
+import { observer, inject } from 'mobx-react'
+import { Link } from 'react-router'
+import { browserHistory } from '../../utils/provider'
 
 import './layout.scss'
 
@@ -12,8 +12,8 @@ if (process.env['NODE_ENV'] !== 'production') {
     MobxReactDevtools = require('mobx-react-devtools').default
 }
 
-@inject('application') @observer
-export default class Layout extends React.Component <typings.PropsDefine, typings.StateDefine> {
+@inject('event', 'application', 'applicationAction', 'user', 'userAction') @observer
+export default class Layout extends React.Component<typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
 
@@ -21,26 +21,31 @@ export default class Layout extends React.Component <typings.PropsDefine, typing
     private handleSceneLoadedBind = this.handleSceneLoaded.bind(this)
 
     componentWillMount() {
-        this.props.application.event.on(this.props.application.event.sceneChange, this.handleSceneChangeBind)
-        this.props.application.event.on(this.props.application.event.sceneLoaded, this.handleSceneLoadedBind)
+        // 监听页面 load 事件
+        this.props.event.on(this.props.event.sceneChange, this.handleSceneChangeBind)
+        this.props.event.on(this.props.event.sceneLoaded, this.handleSceneLoadedBind)
 
-        browserHistory.listen(location=> {
+        // 监听页面切换事件
+        browserHistory.listen(location => {
             if (this.props.application.lastUrlPath === '') {
                 // 初始不会触发 change
-                this.props.application.setLastUrlPath(location.pathname)
+                this.props.applicationAction.setLastUrlPath(location.pathname)
             } else {
                 if (location.pathname !== this.props.application.lastUrlPath) {
                     // 只有 url path 改变才会触发 change
-                    this.props.application.setLastUrlPath(location.pathname)
-                    this.props.application.event.emit(this.props.application.event.sceneChange)
+                    this.props.applicationAction.setLastUrlPath(location.pathname)
+                    this.props.event.emit(this.props.event.sceneChange)
                 }
             }
         })
+
+        // 获取当前用户信息
+        this.props.userAction.fetchUserData()
     }
 
     componentWillUnmount() {
-        this.props.application.event.off(this.props.application.event.sceneChange, this.handleSceneChangeBind)
-        this.props.application.event.off(this.props.application.event.sceneLoaded, this.handleSceneLoadedBind)
+        this.props.event.off(this.props.event.sceneChange, this.handleSceneChangeBind)
+        this.props.event.off(this.props.event.sceneLoaded, this.handleSceneLoadedBind)
     }
 
     /**
@@ -56,7 +61,7 @@ export default class Layout extends React.Component <typings.PropsDefine, typing
      * 场景加载完毕
      */
     handleSceneLoaded() {
-        setTimeout(()=> {
+        setTimeout(() => {
             this.setState({
                 loadingStatus: 'end'
             })
@@ -84,30 +89,30 @@ export default class Layout extends React.Component <typings.PropsDefine, typing
                 return (
                     <div className="_namespace">
                         <div className="nav-bar-container"
-                             style={{height: this.props.application.headerHeight}}>
+                            style={{ height: this.props.application.headerHeight }}>
                             <div className="nav-bar-second-container">
                                 <Link to="/"
-                                      activeClassName="active"
-                                      className="brand item">Next</Link>
+                                    activeClassName="active"
+                                    className="brand item">Next</Link>
                                 <Link to="/components"
-                                      activeClassName="active"
-                                      className="item">组件库</Link>
+                                    activeClassName="active"
+                                    className="item">组件库</Link>
                                 <Link to="/design-space"
-                                      activeClassName="active"
-                                      className="item">工作台</Link>
+                                    activeClassName="active"
+                                    className="item">工作台</Link>
                             </div>
 
                             <div className="nav-bar-second-container">
-
+                                <div className="item">{this.props.user.currentUser.user_name}</div>
                             </div>
                         </div>
 
                         <div className={loadingClasses}
-                             style={loadingStyle}></div>
+                            style={loadingStyle}></div>
 
                         {this.props.children}
 
-                        {process.env['NODE_ENV'] !== 'production' && <MobxReactDevtools/>}
+                        {process.env['NODE_ENV'] !== 'production' && <MobxReactDevtools position={{ left: 0, bottom: 0 }} />}
                     </div>
                 )
         }

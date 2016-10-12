@@ -3,12 +3,21 @@
         "module": "commonjs",
         "noImplicitAny": true,
         "target": "es6",
+        "lib": [
+            "es6",
+            "dom"
+        ],
         "removeComments": true,
         "preserveConstEnums": true,
-        "experimentalDecorators": true,
         "jsx": "react",
         "sourceMap": true,
-        "outDir": "built"
+        "outDir": "built",
+        "types": [
+            "reflect-metadata"
+        ],
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
     },
     "awesomeTypescriptLoaderOptions": {
         "useWebpackText": true,

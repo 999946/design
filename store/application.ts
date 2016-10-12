@@ -1,9 +1,8 @@
+import {injectable} from 'inversify'
 import {observable} from 'mobx'
-import Event from './event'
 
-export default class Application {
-    public event = new Event()
-
+@injectable()
+export default class ApplicationStore {
     /**
      * 头部栏高度
      */
@@ -13,8 +12,4 @@ export default class Application {
      * 上一次切换的 url path
      */
     lastUrlPath = ''
-
-    setLastUrlPath(path: string) {
-        this.lastUrlPath = path
-    }
 }

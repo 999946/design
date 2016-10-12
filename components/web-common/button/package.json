@@ -1,5 +1,5 @@
 {
-  "name": "nt-button",
+  "name": "nt-web-button",
   "version": "1.0.5",
   "description": "按钮",
   "main": "lib/index.js",

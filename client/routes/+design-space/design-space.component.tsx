@@ -1,18 +1,18 @@
 import * as React from 'react'
 import * as typings from './design-space.type'
 import {observer, inject} from 'mobx-react'
-import {browserHistory} from '../../main.browser'
+import {browserHistory} from '../../../utils/provider'
 
 import Button from '../../../components/web-common/button/index'
 import './design-space.scss'
 
-@inject('application') @observer
+@inject('application', 'event') @observer
 export default class DesignSpace extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
 
     componentWillMount() {
-        this.props.application.event.emit(this.props.application.event.sceneLoaded)
+        this.props.event.emit(this.props.event.sceneLoaded)
     }
 
     jumpToPath(path: string) {
