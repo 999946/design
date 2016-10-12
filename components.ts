@@ -92,6 +92,12 @@ export default [{
     prefix: 'nt',
     isPrivate: false,
     components: [{
+        name: 'button',
+        chinese: '按钮',
+        isWeb: true,
+        isIos: true,
+        isAndroid: true
+    }, {
         name: 'image',
         chinese: '图片',
         isWeb: true,
