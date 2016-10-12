@@ -4,12 +4,13 @@ import Line from '../index'
 
 @observer
 export default class Demo extends React.Component <any, any> {
-    static title = '横线'
+    static title = '竖线'
     static description = ``
 
     render() {
         return (
-            <Line />
+            <Line vertical={true}
+                  style={{height:100}}/>
         )
     }
 }

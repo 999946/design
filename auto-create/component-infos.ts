@@ -927,9 +927,43 @@ routerMap.set('common/button', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/common/button/package.json')),
                                 documents,
                                 main: require('../components/common/button/index')
+                            })
+                        })
+                    })
+routerMap.set('common/line', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/line/demo/1.basic').default,
+                            code: require('-!text!../../components/common/line/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/common/line/demo/2.vertical').default,
+                            code: require('-!text!../../components/common/line/demo/2.vertical.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/line/line/line.type'),
+                            typeCode: require('-!text!../../components/common/line/line/line.type.ts'),
+                            typePath: 'components/common/line/line/line.type',
+                            componentName: 'Line',
+                            sourceCode: require('-!text!../../components/common/line/line/line.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/common/line/package.json')),
+                                documents,
+                                main: require('../components/common/line/index')
                             })
                         })
                     })

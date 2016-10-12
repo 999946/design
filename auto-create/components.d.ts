@@ -139,6 +139,12 @@ export interface ButtonPropsDefine {}
 
                 }
             
+                declare module 'nt-line' {    
+                    export interface Line {}
+export interface LinePropsDefine {}
+
+                }
+            
                 declare module 'nt-image' {    
                     export interface Image {}
 export interface ImagePropsDefine {}
