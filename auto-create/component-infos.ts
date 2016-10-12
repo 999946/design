@@ -1250,6 +1250,35 @@ routerMap.set('common/transparently-native-props', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('wefan/button', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/wefan/button/demo/1.basic').default,
+                            code: require('-!text!../../components/wefan/button/demo/1.basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/wefan/button/button/button.type'),
+                            typeCode: require('-!text!../../components/wefan/button/button/button.type.ts'),
+                            typePath: 'components/wefan/button/button/button.type',
+                            componentName: 'Button',
+                            sourceCode: require('-!text!../../components/wefan/button/button/button.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/wefan/button/index')
+                            })
+                        })
+                    })
 routerMap.set('wefan/image', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

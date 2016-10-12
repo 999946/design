@@ -1,11 +1,6 @@
 import * as React from 'react'
 
 export interface PropsDefine {
-    /**
-     * class
-     */
-    className?: string
-
     others?: any
 }
 

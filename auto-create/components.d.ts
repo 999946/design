@@ -197,6 +197,12 @@ export interface TransparentlyNativePropsPropsDefine {}
 
                 }
             
+                declare module 'nt-wefan-button' {    
+                    export interface Button {}
+export interface ButtonPropsDefine {}
+
+                }
+            
                 declare module 'nt-wefan-image' {    
                     export interface Image {}
 export interface ImagePropsDefine {}
