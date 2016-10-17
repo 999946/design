@@ -78,6 +78,9 @@ exports.overflow = {
     overflowX: null,
     overflowY: null
 };
+exports.overflowNative = {
+    overflow: null
+};
 exports.overflowEditor = {
     field: null,
     label: '',

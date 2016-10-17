@@ -74,7 +74,7 @@
       },
       "packageJson": {
         "name": "gaea-model",
-        "version": "0.0.12",
+        "version": "0.0.13",
         "description": "盖亚-定义文件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -93,7 +93,7 @@
       "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "0.0.12"
+    "preVersion": "0.0.13"
   },
   {
     "userPublishLevel": "patch",
@@ -169,7 +169,7 @@
       },
       "packageJson": {
         "name": "gaea-helper",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "description": "盖亚-组件辅助",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -188,7 +188,7 @@
       "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "0.0.4"
+    "preVersion": "0.0.5"
   },
   {
     "userPublishLevel": "patch",
@@ -264,7 +264,7 @@
       },
       "packageJson": {
         "name": "gaea-preview",
-        "version": "0.0.16",
+        "version": "0.0.17",
         "description": "盖亚-查看器",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -280,7 +280,7 @@
         "dependencies": {
           "lodash": "^4.15.0",
           "lz-string": "^1.4.4",
-          "gaea-model": "^0.0.12"
+          "gaea-model": "^0.0.13"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -307,7 +307,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.16"
+    "preVersion": "0.0.17"
   },
   {
     "userPublishLevel": "patch",
@@ -381,7 +381,7 @@
       },
       "packageJson": {
         "name": "gaea-web-components",
-        "version": "0.0.14",
+        "version": "0.0.15",
         "description": "盖亚-网页组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -397,7 +397,7 @@
         "dependencies": {
           "nt-web-button": "^1.0.5",
           "nt-transparently-props": "^0.0.5",
-          "gaea-helper": "^0.0.4",
+          "gaea-helper": "^0.0.5",
           "nt-web-input": "^1.0.6"
         },
         "peerDependencies": {
@@ -432,7 +432,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.14"
+    "preVersion": "0.0.15"
   },
   {
     "userPublishLevel": "patch",
@@ -508,7 +508,7 @@
       },
       "packageJson": {
         "name": "gaea-native-components",
-        "version": "0.0.13",
+        "version": "0.0.14",
         "description": "盖亚-原生组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -523,7 +523,7 @@
         "license": "ISC",
         "dependencies": {
           "nt-transparently-native-props": "^0.0.1",
-          "gaea-helper": "^0.0.4"
+          "gaea-helper": "^0.0.5"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -552,7 +552,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.13"
+    "preVersion": "0.0.14"
   },
   {
     "userPublishLevel": "patch",
@@ -626,7 +626,7 @@
       },
       "packageJson": {
         "name": "gaea-editor",
-        "version": "0.0.15",
+        "version": "0.0.16",
         "description": "盖亚",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -654,7 +654,7 @@
           "mobx": "^2.4.3",
           "lz-string": "^1.4.4",
           "lodash": "^4.15.0",
-          "gaea-preview": "^0.0.16",
+          "gaea-preview": "^0.0.17",
           "nt-web-button": "^1.0.5",
           "sortablejs": "git://github.com/RubaXa/Sortable.git#dev",
           "nt-web-tabs": "^1.0.5",
@@ -664,7 +664,7 @@
           "nt-web-margin-padding-editor": "^1.1.6",
           "nt-web-tree": "^1.0.5",
           "jquery": "^3.1.0",
-          "gaea-model": "^0.0.12"
+          "gaea-model": "^0.0.13"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -879,6 +879,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.15"
+    "preVersion": "0.0.16"
   }
 ]

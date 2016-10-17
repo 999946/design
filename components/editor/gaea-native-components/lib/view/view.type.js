@@ -29,7 +29,7 @@ var Props = function (_PropsGaea) {
 
         var _this = _possibleConstructorReturn(this, (Props.__proto__ || Object.getPrototypeOf(Props)).apply(this, arguments));
 
-        _this.style = _extends({}, index_1.gaeaHelper.layoutNative, index_1.gaeaHelper.marginPadding, index_1.gaeaHelper.opacity, index_1.gaeaHelper.widthHeight, index_1.gaeaHelper.overflow, index_1.gaeaHelper.backgroundNative, index_1.gaeaHelper.borderNative, {
+        _this.style = _extends({}, index_1.gaeaHelper.layoutNative, index_1.gaeaHelper.marginPadding, index_1.gaeaHelper.opacity, index_1.gaeaHelper.widthHeight, index_1.gaeaHelper.overflowNative, index_1.gaeaHelper.backgroundNative, index_1.gaeaHelper.borderNative, {
             backgroundColor: 'white'
         });
         return _this;
