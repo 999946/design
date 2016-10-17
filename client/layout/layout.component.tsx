@@ -65,7 +65,7 @@ export default class Layout extends React.Component<typings.PropsDefine, typings
             this.setState({
                 loadingStatus: 'end'
             })
-        }, 150)
+        }, 50)
     }
 
     render() {
@@ -81,9 +81,9 @@ export default class Layout extends React.Component<typings.PropsDefine, typings
         })
 
         switch (this.props.routes[1].path) {
-            case 'publish-web':
+            case 'web/:id':
                 return this.props.children
-            case 'publish-native':
+            case 'native/:id':
                 return this.props.children
             default:
                 return (
@@ -97,6 +97,9 @@ export default class Layout extends React.Component<typings.PropsDefine, typings
                                 <Link to="/components"
                                     activeClassName="active"
                                     className="item">组件库</Link>
+                                <Link to="/icons"
+                                    activeClassName="active"
+                                    className="item">图标库</Link>
                                 <Link to="/design-space"
                                     activeClassName="active"
                                     className="item">工作台</Link>

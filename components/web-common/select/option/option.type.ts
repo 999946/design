@@ -39,7 +39,7 @@ export interface PropsDefine extends TransparentlyPropsPropsDefine {
      * 设置label
      * @ignore
      */
-    setLabelValue?: (value:string)=>void
+    setLabelValue?: (value:string, labelValue:string)=>void
 
     /**
      * @ignore
@@ -52,13 +52,7 @@ export interface PropsDefine extends TransparentlyPropsPropsDefine {
     searchValue?: string
 }
 
-export class PropsGaea {
-    gaeaName = '下拉选择框'
-    gaeaIcon = 'square-o'
-    gaeaUniqueKey = 'nt-web-select'
-}
-
-export class Props extends PropsGaea implements PropsDefine {
+export class Props implements PropsDefine {
     value = ''
     disabled = false
     zIndex = 1

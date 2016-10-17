@@ -12,12 +12,23 @@ declare namespace Http {
      * 分页结构
      */
     export interface ListData<T> {
-        list: T
+        list: Array<T>
         page: Page
     }
 
+    /**
+     * 分页中表示信息
+     */
     export interface Page {
         all_page: number
         current_page: number
+    }
+
+    /**
+     * 分页请求
+     */
+    export interface ListRequest {
+        pn: number
+        rn: number
     }
 }

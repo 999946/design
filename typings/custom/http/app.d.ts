@@ -50,7 +50,7 @@ declare namespace Http {
      */
     export type AppAdminListResponse = Array<{
         id: string // 应用唯一key
-        user: UserResponse // 用户信息
+        user: UserInfo // 用户信息
         name: string // 应用名称
         type: 'web' | 'native' // 类型
         published_time: number // 最新发布时间的时间戳

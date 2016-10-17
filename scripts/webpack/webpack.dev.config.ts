@@ -64,7 +64,7 @@ const webpackConfig = {
             columns: false
         }),
         new webpack.DllReferencePlugin({
-            context : '.',
+            context: '.',
             manifest: require(path.join(process.cwd(), 'built/output/static/dll/library-mainfest.json'))
         })
     ]

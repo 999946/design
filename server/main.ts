@@ -1,7 +1,9 @@
 import * as koa from 'koa'
 import * as config from '../config'
 import * as staticCache from 'koa-static-cache'
+import * as path from 'path'
 import templateHtml from '../client/html'
+import * as trimHelper from '../utils/trim-string'
 
 const app = new koa()
 const isProduction = process.argv[2] === '--production'
@@ -36,11 +38,11 @@ process.on('uncaughtException', (err: any)=> {
     }
 })
 
-router.all('/rn/*', proxy({
-    host: 'http://tieba.baidu.com'
+router.all(path.join(config.apiPrefix, '/*'), proxy({
+    host: config.apiHost
 }))
 
-router.get('/*', function *(): any {
+router.get('*', function *(): any {
     this.type = 'text/html; charset=utf-8'
     this.body = templateHtml
 })

@@ -6,7 +6,7 @@ export default class UserStore {
     /**
      * 当前用户信息
      */
-    @observable currentUser: User.FullInfo = {
+    @observable currentUser: Http.UserInfo = {
         user_id: null,
         user_name: null,
         user_sex: null,

@@ -1,0 +1,54 @@
+& {
+    padding: 20px;
+    margin: 20px;
+    background: white;
+}
+
+.title-content {
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.icons-container {
+    display: flex;
+    margin: 40px 0;
+}
+
+.icons-item {
+    display: flex;
+}
+
+.left, .right {
+    display: flex;
+}
+
+.left {
+    flex-direction: column;
+}
+
+.right {
+    margin-left: 20px;
+    flex-wrap: wrap;
+}
+
+.icon-img {
+    width: 100px;
+    height: 100px;
+}
+
+.icon-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}

@@ -1,35 +1,51 @@
 import * as request from 'superagent'
+import {injectable} from 'inversify'
+import * as path from 'path'
+import * as config from '../config'
+import {lazyInject} from './kernel'
+import TiebaStore from '../store/tieba'
 
-export const post = async <T>(url: string, params?: any) => {
-    const result = await request.post(url).send(params)
-    const body = result.body as Http.Response<T>
+@injectable()
+export default class Fetch {
+    @lazyInject(TiebaStore) private tieba: TiebaStore
 
-    // 处理错误情况
-    if (!body) {
-        return {} as T
+    async post<S, T>(url: string, params?: S) {
+        const result = await request.post(path.join(config.apiPrefix, url)).type('form').send(Object.assign(params || {}, {
+            tbs: this.tieba.tbs,
+            ie: 'utf-8'
+        }))
+        const body = result.body as Http.Response<T>
+
+        // 处理错误情况
+        if (!body) {
+            return null as T
+        }
+
+        if (body.errno !== 0) {
+            console.warn(body.errmsg)
+            return null as T
+        }
+
+        return body.data as T
     }
 
-    if (body.errno !== 0) {
-        console.warn(body.errmsg)
-        return {} as T
+    async get<S, T>(url: string, params?: S) {
+        const result = await request.get(path.join(config.apiPrefix, url)).query(Object.assign(params || {}, {
+            tbs: this.tieba.tbs,
+            ie: 'utf-8'
+        }))
+        const body = result.body as Http.Response<T>
+
+        // 处理错误情况
+        if (!body) {
+            return null as T
+        }
+
+        if (body.errno !== 0) {
+            console.warn(body.errmsg)
+            return null as T
+        }
+
+        return body.data as T
     }
-
-    return body.data as T
-}
-
-export const get = async <T>(url: string, params?: any) => {
-    const result = await request.get(url).query(params)
-    const body = result.body as Http.Response<T>
-
-    // 处理错误情况
-    if (!body) {
-        return {} as T
-    }
-
-    if (body.errno !== 0) {
-        console.warn(body.errmsg)
-        return {} as T
-    }
-
-    return body.data as T
 }

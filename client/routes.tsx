@@ -55,6 +55,12 @@ const getComponentsHome = (nextState: any, callback: any)=> {
     })
 }
 
+const getIcons = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+icons/icons.component').default)
+    })
+}
+
 const getComponentsCategory = (nextState: any, callback: any)=> {
     require.ensure([], function (require: any) {
         callback(null, require('./routes/+components/+category/category.component').default)
@@ -97,11 +103,13 @@ export default (
         <IndexRoute getComponent={getHome}/>
         <Route path="design-space"
                getComponent={getDesignSpace}/>
-        <Route path="designer"
+        <Route path="icons"
+               getComponent={getIcons}/>
+        <Route path="design/:id"
                getComponent={getDesigner}/>
-        <Route path="publish-web"
+        <Route path="web/:id"
                getComponent={getPublishWeb}/>
-        <Route path="publish-native"
+        <Route path="native/:id"
                getComponent={getPublishNative}/>
         <Route path="components"
                getComponent={getComponents}>

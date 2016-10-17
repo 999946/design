@@ -43,7 +43,7 @@
     position: absolute;
     left: 0;
     height: 3px;
-    background-color: #8e307e;
+    background: linear-gradient(90deg, #9a2687, #832aa0);
     z-index: 10;
 }
 
@@ -77,10 +77,10 @@
 @keyframes loading-from-start {
     0% {
         width: 100%;
-        background-color: #8e307e;
+        background: linear-gradient(90deg, #9a2687, #832aa0);
     }
     100% {
         width: 100%;
-        background-color: #67315e;
+        background: linear-gradient(90deg, #9a2687, #832aa0);
     }
 }

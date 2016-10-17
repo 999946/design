@@ -7,7 +7,7 @@ import {isCssAnimationSupported} from 'css-animation'
 
 import './scroll-number.scss'
 
-const getNumberArray = (num: number) => {
+const getNumberArray = (num: number | string) => {
     return num ? num.toString().split('').reverse().map(i => Number(i)) : []
 }
 
@@ -16,7 +16,7 @@ export default class ScrollNumber extends React.Component <typings.PropsDefine, 
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
 
-    private lastCount: number
+    private lastCount: number | string
 
     constructor(props: any) {
         super(props)
@@ -95,7 +95,7 @@ export default class ScrollNumber extends React.Component <typings.PropsDefine, 
     }
 
     renderNumberElement(): any {
-        if (!this.state.count || isNaN(this.state.count)) {
+        if (!this.state.count || isNaN(parseInt(this.state.count.toString()))) {
             return this.state.count
         }
         return getNumberArray(this.state.count).map((num, i) => this.renderCurrentNumber(num, i)).reverse()

@@ -41,6 +41,12 @@ export const customNpmPackage = [{
     version: '^2.7.0'
 }]
 
+// 反向代理接口 main
+export const apiHost = 'http://10.40.41.14:8271'
+
+// 后端接口 url 前缀
+export const apiPrefix = '/designer'
+
 // 路由统一前缀
 export const routerBasenameProduction = '/'
 export const routerBasename = process.env['NODE_ENV'] === 'production' ? routerBasenameProduction : ''

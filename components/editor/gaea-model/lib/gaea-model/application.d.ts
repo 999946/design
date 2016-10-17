@@ -128,60 +128,27 @@ declare namespace FitGaea {
     }
 
     /**
-     * 保存信息
-     */
-    export interface SaveInfo {
-        /**
-         * 保存时间
-         */
-        date: Date,
-        /**
-         * 页面组件构成信息
-         */
-        pageInfo: any,
-        /**
-         * 唯一标识
-         */
-        id: string,
-        /**
-         * 是否已发布
-         */
-        isPublished?: boolean,
-        /**
-         * 发布的版本号
-         */
-        publishCode?: string
-        /**
-         * 发布的备注
-         */
-        remarks?: string
-    }
-
-    /**
-     * 资源文件
-     */
-    export interface SourceFile {
-        // 文件类型
-        type: string
-        // 文件名
-        name: string
-        // 序号,排在第几
-        order: number
-    }
-
-    /**
-     * 上线信息
-     */
-    export interface OnlineVersion {
-        key: string,
-        value: string
-    }
-
-    /**
      * 组合信息
      */
     export interface ComboComponentInfo extends ViewportComponentFullInfo {
         // 组合名
         name: string
+    }
+
+    /**
+     * 获取发布列表的返回值
+     */
+    export interface GetPublishListResult {
+        // 版本
+        version: string
+        // 描述
+        description: string
+    }
+
+    /**
+     * 版本信息
+     */
+    export interface VersionInfo {
+        content: string
     }
 }

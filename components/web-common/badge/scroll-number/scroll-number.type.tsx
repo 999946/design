@@ -4,7 +4,7 @@ export interface PropsDefine extends HTMLAttributes {
     /**
      * 总数量
      */
-    count?: number
+    count?: number | string
 
     /**
      * 渲染的节点名称
@@ -34,7 +34,7 @@ export class Props implements PropsDefine {
 
 export interface StateDefine {
     animateStarted?: boolean
-    count?: number
+    count?: number | string
 }
 
 export class State implements StateDefine {
