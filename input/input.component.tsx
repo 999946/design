@@ -67,6 +67,7 @@ export default class Input extends React.Component <typings.PropsDefine, typings
         const inputClasses = classNames({
             'input': true,
             'no-label': this.props.label === '',
+            'normal': this.props.normal,
             [this.props.textAlign]: true
         })
 

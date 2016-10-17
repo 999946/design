@@ -79,6 +79,11 @@ export interface PropsDefine extends TransparentlyPropsPropsDefine {
      */
     disabled?: boolean
 
+    /**
+     * 是否显得简单朴素
+     */
+    normal?: boolean
+
     others?: any
 }
 

@@ -22,6 +22,15 @@
     color: #333;
     // 防止火狐给 invalid 元素增加 box-shadow 样式
     box-shadow: none !important;
+    &.no-label {
+        padding: 5px;
+    }
+    &.normal {
+        border-bottom: 1px solid transparent;
+        &:hover {
+            border-bottom: 1px solid #ccc;
+        }
+    }
     &.center {
         text-align: center;
     }
