@@ -18,13 +18,11 @@ const parseBabel = (filePath: string, component: Components.ComponentConfig, cat
     const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
 
     let jsFileContent = fs.readFileSync(filePath).toString()
-    console.log('parseBabel !!')
 
     // 把引用的其它组件代码转换成绝对地址
     const regex = /require\s?\([\'\"]([^'"]*)[\'\"]\)/g
     jsFileContent = jsFileContent.replace(regex, (...matched: Array<string>)=> {
         const importPath = matched[1]
-        console.log('importPath', importPath)
         if (importPath.startsWith('./') || importPath.startsWith('../')) {
             // 获得文件所在文件夹路径
             const filePathSplit = filePath.split('/')
