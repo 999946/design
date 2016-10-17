@@ -74,7 +74,7 @@
       },
       "packageJson": {
         "name": "gaea-preview",
-        "version": "0.0.13",
+        "version": "0.0.14",
         "description": "盖亚-查看器",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -117,6 +117,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.13"
+    "preVersion": "0.0.14"
   }
 ]
