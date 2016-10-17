@@ -8,30 +8,24 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var React = require('react');
-var typings = require('./text.type');
-var react_native_1 = require('react-native');
+var React = require("react");
+var typings = require("./text.type");
+var react_native_1 = require("react-native");
 
 var TextComponent = function (_React$Component) {
     _inherits(TextComponent, _React$Component);
 
     function TextComponent() {
-        var _ref;
-
         _classCallCheck(this, TextComponent);
 
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
-
-        var _this = _possibleConstructorReturn(this, (_ref = TextComponent.__proto__ || Object.getPrototypeOf(TextComponent)).call.apply(_ref, [this].concat(args)));
+        var _this = _possibleConstructorReturn(this, (TextComponent.__proto__ || Object.getPrototypeOf(TextComponent)).apply(this, arguments));
 
         _this.state = new typings.State();
         return _this;
     }
 
     _createClass(TextComponent, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return React.createElement(react_native_1.Text, { style: this.props.style }, this.props.text);
         }
@@ -40,6 +34,6 @@ var TextComponent = function (_React$Component) {
     return TextComponent;
 }(React.Component);
 
-TextComponent.defaultProps = new typings.Props();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = TextComponent;
+TextComponent.defaultProps = new typings.Props();

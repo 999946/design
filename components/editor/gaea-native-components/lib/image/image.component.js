@@ -8,30 +8,24 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var React = require('react');
-var typings = require('./image.type');
-var react_native_1 = require('react-native');
+var React = require("react");
+var typings = require("./image.type");
+var react_native_1 = require("react-native");
 
 var ImageComponent = function (_React$Component) {
     _inherits(ImageComponent, _React$Component);
 
     function ImageComponent() {
-        var _ref;
-
         _classCallCheck(this, ImageComponent);
 
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
-
-        var _this = _possibleConstructorReturn(this, (_ref = ImageComponent.__proto__ || Object.getPrototypeOf(ImageComponent)).call.apply(_ref, [this].concat(args)));
+        var _this = _possibleConstructorReturn(this, (ImageComponent.__proto__ || Object.getPrototypeOf(ImageComponent)).apply(this, arguments));
 
         _this.state = new typings.State();
         return _this;
     }
 
     _createClass(ImageComponent, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return React.createElement(react_native_1.Image, { style: this.props.style, source: this.props.source });
         }
@@ -40,6 +34,6 @@ var ImageComponent = function (_React$Component) {
     return ImageComponent;
 }(React.Component);
 
-ImageComponent.defaultProps = new typings.Props();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = ImageComponent;
+ImageComponent.defaultProps = new typings.Props();

@@ -8,30 +8,24 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var React = require('react');
-var typings = require('./view.type');
-var react_native_1 = require('react-native');
+var React = require("react");
+var typings = require("./view.type");
+var react_native_1 = require("react-native");
 
 var ViewComponent = function (_React$Component) {
     _inherits(ViewComponent, _React$Component);
 
     function ViewComponent() {
-        var _ref;
-
         _classCallCheck(this, ViewComponent);
 
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
-
-        var _this = _possibleConstructorReturn(this, (_ref = ViewComponent.__proto__ || Object.getPrototypeOf(ViewComponent)).call.apply(_ref, [this].concat(args)));
+        var _this = _possibleConstructorReturn(this, (ViewComponent.__proto__ || Object.getPrototypeOf(ViewComponent)).apply(this, arguments));
 
         _this.state = new typings.State();
         return _this;
     }
 
     _createClass(ViewComponent, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return React.createElement(react_native_1.View, { style: this.props.style }, this.props.children);
         }
@@ -40,6 +34,6 @@ var ViewComponent = function (_React$Component) {
     return ViewComponent;
 }(React.Component);
 
-ViewComponent.defaultProps = new typings.Props();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = ViewComponent;
+ViewComponent.defaultProps = new typings.Props();
