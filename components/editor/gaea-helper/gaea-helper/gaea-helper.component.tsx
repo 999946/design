@@ -101,6 +101,10 @@ export const overflow = {
     overflowY: null as any
 }
 
+export const overflowNative = {
+    overflow: null as any
+}
+
 export const overflowEditor = {
     field: null as any,
     label: '',

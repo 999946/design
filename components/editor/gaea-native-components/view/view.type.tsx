@@ -32,7 +32,7 @@ export class Props extends PropsGaea implements PropsDefine {
         gaeaHelper.marginPadding,
         gaeaHelper.opacity,
         gaeaHelper.widthHeight,
-        gaeaHelper.overflow,
+        gaeaHelper.overflowNative,
         gaeaHelper.backgroundNative,
         gaeaHelper.borderNative,
         {

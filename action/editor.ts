@@ -49,7 +49,7 @@ export default class EditorAction {
     // 所有人都有权限读
     @action('获取发布的激活版本信息')
     async getPublishActiveContent(appId: string) {
-        return await this.fetch.post<Http.EditorContentRequest, Http.EditorContentResponse>('/loadContent', {
+        return await this.fetch.get<Http.EditorContentRequest, Http.EditorContentResponse>('/loadContent', {
             app_id: appId
         })
     }
