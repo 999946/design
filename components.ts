@@ -240,7 +240,6 @@ export default [{
         isAndroid: true,
         isIos: true,
         git: 'https://github.com/ascoders/gaea-helper.git',
-        npm: 'gaea-helper',
-        ignoreBuild: true
+        npm: 'gaea-helper'
     }]
 }] as Array<Components.Category>
