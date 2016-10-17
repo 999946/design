@@ -41,7 +41,7 @@ export default class Badge extends React.Component <typings.PropsDefine, typings
                     {hidden ? null :
                         <ScrollNumber data-show={!hidden}
                                       className={scrollNumberCls}
-                                      count={parseInt(countAfterCalculation.toString())}
+                                      count={countAfterCalculation}
                             {...this.props.others}/>
                     }
                 </Animate>
