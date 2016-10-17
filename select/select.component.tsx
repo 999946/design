@@ -45,9 +45,10 @@ export default class Select extends React.Component <typings.PropsDefine, typing
     }
 
     componentWillReceiveProps(nextProps: typings.PropsDefine) {
-        if ('value' in nextProps && nextProps.value !== null) {
+        if (nextProps.value !== null) {
             this.setState({
-                value: nextProps.value
+                value: nextProps.value,
+                optionKeyPrefix: nextProps.value
             })
         }
     }
@@ -187,9 +188,12 @@ export default class Select extends React.Component <typings.PropsDefine, typing
     /**
      * 设置初始化labelValue
      */
-    handleSetLabelValue(labelValue: string) {
+    handleSetLabelValue(value: string, labelValue: string) {
+        this.props.onChange(value)
+
         this.setState({
-            labelValue: labelValue
+            value,
+            labelValue
         })
     }
 
@@ -200,7 +204,7 @@ export default class Select extends React.Component <typings.PropsDefine, typing
         }
 
         // 循环子元素,同时获取value,同时判断search
-        let Children = React.Children.map(this.props['children'], (item: React.ReactElement<any>, index: number) => {
+        let Children = React.Children.map(this.props.children, (item: React.ReactElement<any>, index: number) => {
             let active = false
             if (item.props.value === this.state.value) {
                 active = true
@@ -216,7 +220,7 @@ export default class Select extends React.Component <typings.PropsDefine, typing
 
             return React.cloneElement(item, {
                 onClick: this.handleClick.bind(this),
-                key: index,
+                key: this.state.optionKeyPrefix + index,
                 active: active,
                 setLabelValue: this.handleSetLabelValue.bind(this),
                 activeValue: this.state.value,
@@ -299,7 +303,7 @@ export default class Select extends React.Component <typings.PropsDefine, typing
                 return this.getOptionItemByType(item, index, activeValue, zIndex)
             })
             return (
-                <OptionGroup key={key}
+                <OptionGroup key={this.state.optionKeyPrefix+key}
                              ignoreChildren={true}
                              label={item.groupValue}>{GroupChildren}</OptionGroup>
             )
@@ -312,7 +316,7 @@ export default class Select extends React.Component <typings.PropsDefine, typing
         }
 
         return (
-            <Option key={key}
+            <Option key={this.state.optionKeyPrefix+key}
                     value={item.key}
                     onClick={this.handleClick.bind(this)}
                     active={active}

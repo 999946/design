@@ -19,7 +19,7 @@ export default class Select extends React.Component <typings.PropsDefine, typing
     componentWillMount() {
         // 如果当前value和select的value相同,传递给父级
         if (this.props.value === this.props.activeValue) {
-            this.props.setLabelValue(this.props.children.toString() as string)
+            this.props.setLabelValue(this.props.value, this.props.children.toString() as string)
         }
     }
 
