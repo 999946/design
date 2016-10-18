@@ -19,6 +19,12 @@ export interface NumberPropsDefine {}
 
                 }
             
+                declare module 'nt-web-auto-complete' {    
+                    export interface AutoComplete {}
+export interface AutoCompletePropsDefine {}
+
+                }
+            
                 declare module 'nt-web-switch' {    
                     export interface Switch {}
 export interface SwitchPropsDefine {}

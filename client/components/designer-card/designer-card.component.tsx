@@ -52,7 +52,7 @@ export default class DesignerCard extends React.Component <typings.PropsDefine, 
         const isMine = this.props.user.currentUser.user_id === Number(this.props.info.user_id)
 
         // 是自己或者是管理员
-        const isMineOrManager = isMine || Number(this.props.user.currentUser.is_admin) === 1
+        const isMineOrManager = isMine || this.props.user.currentUser.is_admin
 
         return (
             <div className="_namespace">

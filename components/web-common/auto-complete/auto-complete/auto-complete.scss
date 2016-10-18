@@ -1,0 +1,35 @@
+@import "../../../../styles/color";
+
+& {
+    position: relative;
+}
+
+.complete-container {
+    box-sizing: border-box;
+    position: absolute;
+    background: white;
+    z-index: 1;
+    left: 0;
+    display: none;
+    width: 100%;
+    top: 38px;
+    border: 1px solid #cfdadd;
+    transition: all .3s;
+    .item {
+        position: relative;
+        padding: 10px 15px;
+        cursor: pointer;
+        color: #666;
+        &:hover:not(.active), &.active {
+            color: $primary-color;
+            border-left: 2px solid $primary-color;
+            padding-left: 13px;
+            background: #f8f9fb;
+        }
+        &:not(.active) {
+            .autocomplete-highlight {
+                color: red !important;
+            }
+        }
+    }
+}

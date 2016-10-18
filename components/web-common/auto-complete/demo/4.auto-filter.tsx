@@ -3,22 +3,23 @@ import {observer} from 'mobx-react'
 import AutoComplete from '../index'
 
 const opts = {
-    // url: '/api/auto-complete/basic',
-    // method: 'get',
-    // beforeSend: (value:any)=> {
-    //     return {
-    //         search: value
-    //     }
-    // },
-    // complete: (res:any)=> {
-    //     return res
-    // },
-    // delay: 200
+    datas: [{
+        text: '小明',
+        value: 1
+    }, {
+        text: '小王',
+        value: 1
+    }, {
+        text: '小红',
+        value: 1
+    }],
+    autoFilter: true,
+    placeholder: '小明 小王 小红'
 }
 
 @observer
 export default class Demo extends React.Component <any, any> {
-    static title = '基本用法'
+    static title = '自动过滤非正确内容'
     static description = ``
 
     render() {

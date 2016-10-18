@@ -30,7 +30,7 @@ export interface PropsDefine extends TransparentlyPropsPropsDefine {
     placeholder?: string
 
     /**
-     * 自动补全是否开启
+     * 自动补全
      */
     autoComplete?: string
 

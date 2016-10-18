@@ -158,6 +158,50 @@ routerMap.set('web-common/number', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('web-common/auto-complete', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/web-common/auto-complete/demo/1.basic').default,
+                            code: require('-!text!../../components/web-common/auto-complete/demo/1.basic.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/auto-complete/demo/2.callback').default,
+                            code: require('-!text!../../components/web-common/auto-complete/demo/2.callback.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/auto-complete/demo/3.local').default,
+                            code: require('-!text!../../components/web-common/auto-complete/demo/3.local.tsx')
+                        })
+                    
+                        demoLists.push({
+                            Class: require('../components/web-common/auto-complete/demo/4.auto-filter').default,
+                            code: require('-!text!../../components/web-common/auto-complete/demo/4.auto-filter.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/web-common/auto-complete/auto-complete/auto-complete.type'),
+                            typeCode: require('-!text!../../components/web-common/auto-complete/auto-complete/auto-complete.type.ts'),
+                            typePath: 'components/web-common/auto-complete/auto-complete/auto-complete.type',
+                            componentName: 'AutoComplete',
+                            sourceCode: require('-!text!../../components/web-common/auto-complete/auto-complete/auto-complete.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/web-common/auto-complete/package.json')),
+                                documents,
+                                main: require('../components/web-common/auto-complete/index')
+                            })
+                        })
+                    })
 routerMap.set('web-common/switch', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
