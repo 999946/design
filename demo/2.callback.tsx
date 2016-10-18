@@ -13,12 +13,15 @@ const opts = {
     // complete: (res:any)=> {
     //     return res
     // },
-    // delay: 200
+    // delay: 200,
+    // onSelect: (value:any)=> {
+    //     console.log(value)
+    // }
 }
 
 @observer
 export default class Demo extends React.Component <any, any> {
-    static title = '基本用法'
+    static title = '选中的回调'
     static description = ``
 
     render() {
