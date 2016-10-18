@@ -61,6 +61,12 @@ const getIcons = (nextState: any, callback: any)=> {
     })
 }
 
+const getExplore = (nextState: any, callback: any)=> {
+    require.ensure([], function (require: any) {
+        callback(null, require('./routes/+explore/explore.component').default)
+    })
+}
+
 const getComponentsCategory = (nextState: any, callback: any)=> {
     require.ensure([], function (require: any) {
         callback(null, require('./routes/+components/+category/category.component').default)
@@ -105,6 +111,8 @@ export default (
                getComponent={getDesignSpace}/>
         <Route path="icons"
                getComponent={getIcons}/>
+        <Route path="explore"
+               getComponent={getExplore}/>
         <Route path="design/:id"
                getComponent={getDesigner}/>
         <Route path="web/:id"

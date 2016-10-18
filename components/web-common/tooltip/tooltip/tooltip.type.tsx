@@ -2,6 +2,8 @@ import * as React from 'react'
 
 export type Position = 'left' | 'top' | 'right' | 'bottom'
 
+export type ShowType = 'hover' | 'click'
+
 export interface PropsDefine {
     /**
      * 文字内容
@@ -21,18 +23,32 @@ export interface PropsDefine {
     position?: Position
 
     /**
-     * 纵向层级
+     * 工具栏纵向层级
      */
     zIndex?: number
+
+    /**
+     * 遮罩层纵向层级
+     */
+    shadowZIndex?: number
+
+    /**
+     * 出现方式
+     */
+        type?: ShowType
+
+    /**
+     * 是否显示 tooltip 时同时显示遮罩层
+     */
+    showShadow?: boolean
+
+    /**
+     * 弹层无样式
+     */
+    simple?: boolean
 }
 
-export class PropsGaea {
-    gaeaName = '工具提示'
-    gaeaIcon = 'square-o'
-    gaeaUniqueKey = 'web-common-tooltip'
-}
-
-export class Props extends PropsGaea implements PropsDefine {
+export class Props implements PropsDefine {
     title = ''
     titleRender = ()=> {
         return (
@@ -40,7 +56,11 @@ export class Props extends PropsGaea implements PropsDefine {
         )
     }
     zIndex = 100
+    shadowZIndex = 99
     position = 'top' as Position
+    type = 'hover' as ShowType
+    showShadow = false
+    simple = false
 }
 
 export interface StateDefine {

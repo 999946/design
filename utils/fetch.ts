@@ -5,6 +5,8 @@ import * as config from '../config'
 import {lazyInject} from './kernel'
 import TiebaStore from '../store/tieba'
 
+import Message from '../components/web-common/message/index'
+
 @injectable()
 export default class Fetch {
     @lazyInject(TiebaStore) private tieba: TiebaStore
@@ -22,7 +24,7 @@ export default class Fetch {
         }
 
         if (body.errno !== 0) {
-            console.warn(body.errmsg)
+            Message.error(body.errmsg)
             return null as T
         }
 
@@ -42,7 +44,7 @@ export default class Fetch {
         }
 
         if (body.errno !== 0) {
-            console.warn(body.errmsg)
+            Message.error(body.errmsg)
             return null as T
         }
 

@@ -4,6 +4,22 @@ import * as classNames from 'classnames'
 import * as typings from './tooltip.type'
 import './tooltip.scss'
 
+import {autoBindMethod} from '../../../common/auto-bind/index'
+
+const cumulativeOffset = (element: HTMLElement) => {
+    let top = 0, left = 0
+    do {
+        top += element.offsetTop || 0
+        left += element.offsetLeft || 0
+        element = element.offsetParent as HTMLElement
+    } while (element)
+
+    return {
+        top: top,
+        left: left
+    }
+}
+
 export default class ToolTip extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
@@ -11,40 +27,52 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
     private childrenRef: React.ReactInstance
     private childrenDom: Element
     private tooltipDom: Element
-
-    private handleChildrenMouseOverBind = this.handleChildrenMouseOver.bind(this)
-    private handleChildrenMouseLeaveBind = this.handleChildrenMouseLeave.bind(this)
+    private tooltipShadowDom: Element
 
     componentDidMount() {
         this.childrenDom = ReactDOM.findDOMNode(this.childrenRef)
-        this.childrenDom.addEventListener('mouseover', this.handleChildrenMouseOverBind)
-        this.childrenDom.addEventListener('mouseleave', this.handleChildrenMouseLeaveBind)
+
+        this.childrenDom.addEventListener('mouseover', this.handleChildrenMouseOver)
+        this.childrenDom.addEventListener('mouseleave', this.handleChildrenMouseLeave)
+        this.childrenDom.addEventListener('click', this.handleChildrenClick)
 
         // 在 body 生成 tooltip
         this.tooltipDom = document.createElement('div')
         document.body.appendChild(this.tooltipDom)
+
+        if (this.props.showShadow) {
+            this.tooltipShadowDom = document.createElement('div')
+            document.body.appendChild(this.tooltipShadowDom)
+        }
         this.renderTooltip()
     }
 
     componentWillUnmount() {
-        this.childrenDom.removeEventListener('mouseover', this.handleChildrenMouseOverBind)
-        this.childrenDom.removeEventListener('mouseleave', this.handleChildrenMouseLeaveBind)
+        this.childrenDom.removeEventListener('mouseover', this.handleChildrenMouseOver)
+        this.childrenDom.removeEventListener('mouseleave', this.handleChildrenMouseLeave)
+        this.childrenDom.addEventListener('click', this.handleChildrenClick)
 
         // 在 body 移除 tooltip
         document.body.removeChild(this.tooltipDom)
+
+        if (this.props.showShadow) {
+            document.body.removeChild(this.tooltipShadowDom)
+        }
     }
 
     /**
-     * 鼠标滑到 children
+     * 显示元素在相应的位置
      */
-    handleChildrenMouseOver(event: MouseEvent) {
+    @autoBindMethod showTooltipPosition() {
         const childrenBoundingClientRect = this.childrenDom.getBoundingClientRect()
         const tooltipSpanDom = this.tooltipDom.childNodes[0] as Element
         const tooltipSpanBoundingClientRect = tooltipSpanDom.getBoundingClientRect()
 
+        const childrenOffset = cumulativeOffset(this.childrenDom as HTMLElement)
+
         this.setState({
-            childrenLeft: childrenBoundingClientRect.left,
-            childrenTop: childrenBoundingClientRect.top,
+            childrenLeft: childrenOffset.left,
+            childrenTop: childrenOffset.top,
             childrenWidth: childrenBoundingClientRect.width,
             childrenHeight: childrenBoundingClientRect.height,
             tooltipWidth: tooltipSpanBoundingClientRect.width,
@@ -54,9 +82,46 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
     }
 
     /**
+     * 鼠标点击 children
+     */
+    @autoBindMethod handleChildrenClick(event: MouseEvent) {
+        if (this.props.type !== 'click') {
+            return
+        }
+
+        if (!this.state.show) {
+            this.showTooltipPosition()
+        } else {
+            this.handleClose()
+        }
+    }
+
+    /**
+     * 鼠标滑到 children
+     */
+    @autoBindMethod handleChildrenMouseOver(event: MouseEvent) {
+        if (this.props.type !== 'hover') {
+            return
+        }
+
+        this.showTooltipPosition()
+    }
+
+    /**
      * 鼠标离开 children
      */
-    handleChildrenMouseLeave(event: MouseEvent) {
+    @autoBindMethod handleChildrenMouseLeave(event: MouseEvent) {
+        if (this.props.type !== 'hover') {
+            return
+        }
+
+        this.handleClose()
+    }
+
+    /**
+     * 关闭 tooltip
+     */
+    @autoBindMethod handleClose() {
         this.setState({
             show: false
         })
@@ -95,7 +160,8 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
      */
     renderTooltip() {
         let toolTipStyle: React.CSSProperties = {
-            zIndex: this.props.zIndex
+            zIndex: this.props.zIndex,
+            backgroundColor: this.props.simple ? 'transparent' : null
         }
         let position = this.props.position
         this.setPosition(toolTipStyle, position)
@@ -118,7 +184,7 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
             position = 'top'
         }
 
-        const toolTipProps = {
+        const tooltipProps = {
             className: classNames({
                 '_namespace': true,
                 'active': this.state.show,
@@ -127,11 +193,31 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
             style: toolTipStyle
         }
 
-        const ToolTipElement = (
-            <span {...toolTipProps}>{this.props.title === '' ? this.props.titleRender() : this.props.title}</span>
+        const TooltipElement = (
+            <span {...tooltipProps}>{this.props.title === '' ? this.props.titleRender() : this.props.title}</span>
         )
 
-        ReactDOM.render(ToolTipElement, this.tooltipDom)
+        const tooltipShadowStyle = {
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            opacity: 0.3,
+            backgroundColor: 'black',
+            display: this.state.show ? 'block' : 'none',
+            zIndex: this.props.shadowZIndex
+        }
+
+        const TooltipShadowElement = (
+            <div onClick={this.handleClose}
+                 style={tooltipShadowStyle}/>
+        )
+
+        ReactDOM.render(TooltipElement, this.tooltipDom)
+        if (this.props.showShadow) {
+            ReactDOM.render(TooltipShadowElement, this.tooltipShadowDom)
+        }
     }
 
     render() {

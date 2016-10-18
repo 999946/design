@@ -24,7 +24,8 @@ declare namespace Http {
      * 获取编辑列表的请求参数
      */
     export interface EditorListRequest extends ListRequest {
-        user_id?: string // null 表示获取自己的
+        user_id?: string // null 表示获取自己的 0 表示获取公共的
+        access_level?: number // 2 表示管理员可以获取私有的
     }
 
     /**

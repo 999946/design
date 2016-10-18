@@ -27,6 +27,21 @@ export default class EditorAction {
         })
     }
 
+    // 管理员可以看到私有的
+    @action('获取公共编辑列表')
+    async getExploreEditorList() {
+        const result = await this.fetch.get<Http.EditorListRequest, Http.ListData<Http.EditorResponse>>('/getAppList', {
+            pn: 1,
+            rn: 20,
+            access_level: 2,
+            user_id: '0'
+        })
+        this.editor.exploreEditList = []
+        result.list && result.list.forEach(item => {
+            this.editor.exploreEditList.push(item)
+        })
+    }
+
     @action('获取当前编辑器信息（不包括内容）')
     async getEditorById(appId: string) {
         const editorInfo = await this.fetch.get<Http.EditorGetRequest, Http.EditorResponse>('/getApp', {

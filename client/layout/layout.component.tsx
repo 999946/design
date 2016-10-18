@@ -1,9 +1,9 @@
 import * as React from 'react'
 import * as classNames from 'classnames'
 import * as typings from './layout.type'
-import { observer, inject } from 'mobx-react'
-import { Link } from 'react-router'
-import { browserHistory } from '../../utils/provider'
+import {observer, inject} from 'mobx-react'
+import {Link} from 'react-router'
+import {browserHistory} from '../../utils/provider'
 
 import './layout.scss'
 
@@ -89,20 +89,23 @@ export default class Layout extends React.Component<typings.PropsDefine, typings
                 return (
                     <div className="_namespace">
                         <div className="nav-bar-container"
-                            style={{ height: this.props.application.headerHeight }}>
+                             style={{ height: this.props.application.headerHeight }}>
                             <div className="nav-bar-second-container">
                                 <Link to="/"
-                                    activeClassName="active"
-                                    className="brand item">Next</Link>
+                                      activeClassName="active"
+                                      className="brand item">Next</Link>
                                 <Link to="/components"
-                                    activeClassName="active"
-                                    className="item">组件库</Link>
+                                      activeClassName="active"
+                                      className="item">组件库</Link>
                                 <Link to="/icons"
-                                    activeClassName="active"
-                                    className="item">图标库</Link>
+                                      activeClassName="active"
+                                      className="item">图标库</Link>
+                                <Link to="/explore"
+                                      activeClassName="active"
+                                      className="item">应用浏览</Link>
                                 <Link to="/design-space"
-                                    activeClassName="active"
-                                    className="item">工作台</Link>
+                                      activeClassName="active"
+                                      className="item">工作台</Link>
                             </div>
 
                             <div className="nav-bar-second-container">
@@ -111,11 +114,12 @@ export default class Layout extends React.Component<typings.PropsDefine, typings
                         </div>
 
                         <div className={loadingClasses}
-                            style={loadingStyle}></div>
+                             style={loadingStyle}></div>
 
                         {this.props.children}
 
-                        {process.env['NODE_ENV'] !== 'production' && <MobxReactDevtools position={{ left: 0, bottom: 0 }} />}
+                        {process.env['NODE_ENV'] !== 'production' &&
+                        <MobxReactDevtools position={{ left: 0, bottom: 0 }}/>}
                     </div>
                 )
         }

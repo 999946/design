@@ -45,6 +45,7 @@
     height: 3px;
     background: linear-gradient(90deg, #9a2687, #832aa0);
     z-index: 10;
+    transform: translate3D(0, 0, 0);
 }
 
 .loading-start {

@@ -35,9 +35,15 @@ export interface StateDefine {
      * 创建表单描述
      */
     createIntro?: string
+
+    /**
+     * 创建应用权限等级
+     */
+    accessLevel?: string
 }
 
 export class State implements StateDefine {
     show = false
     createType = 'web'
+    accessLevel = 'public'
 }

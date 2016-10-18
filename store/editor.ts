@@ -9,6 +9,11 @@ export default class EditorStore {
     @observable myEditList: Array<Http.EditorResponse> = []
 
     /**
+     * 浏览编辑项目列表
+     */
+    @observable exploreEditList: Array<Http.EditorResponse> = []
+
+    /**
      * 编辑器信息的 map
      */
     editorInfos = new Map<string, Http.EditorResponse>()

@@ -65,10 +65,16 @@ export default class Designer extends React.Component<typings.PropsDefine, typin
      */
     async getCurrentEditorInfo() {
         await this.props.editorAction.getEditorById(this.props.params.id)
-        await this.props.editorAction.getEditorContentById(this.props.params.id)
+        if (this.props.location.query['isExplore'] === '1') {
+            await this.props.editorAction.getEditorContentById(this.props.params.id, null)
+        } else {
+            await this.props.editorAction.getEditorContentById(this.props.params.id)
+        }
         //await* [this.props.editorAction.getEditorById(this.props.params.id), this.props.editorAction.getEditorContentById(this.props.params.id)]
         this.setState({
             isReady: true
+        }, ()=> {
+            this.props.event.emit(this.props.event.sceneLoaded)
         })
     }
 
@@ -80,7 +86,6 @@ export default class Designer extends React.Component<typings.PropsDefine, typin
             this.getMessageComponentFullInfo,
             this.getGaeaCustomComponentFullInfo
         ]).then(() => {
-            this.props.event.emit(this.props.event.sceneLoaded)
             this.getCurrentEditorInfo()
         }).catch(() => {
 
@@ -164,7 +169,8 @@ export default class Designer extends React.Component<typings.PropsDefine, typin
                     onGetPublishList: this.handleGetPublishList.bind(this),
                     onPublish: this.handlePublish.bind(this),
                     onSwitchVersion: this.handleSwitchVersion.bind(this),
-                    onPreviewVersion: this.handlePreviewVersion.bind(this)
+                    onPreviewVersion: this.handlePreviewVersion.bind(this),
+                    explore: this.props.location.query['isExplore'] === '1'
                 })}
             </div>
         )

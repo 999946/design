@@ -18,6 +18,10 @@ export default [{
         chinese: '数字框',
         isWeb: true
     }, {
+        name: 'auto-complete',
+        chinese: '自动完成',
+        isWeb: true
+    }, {
         name: 'switch',
         chinese: '开关',
         isWeb: true

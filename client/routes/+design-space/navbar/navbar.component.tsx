@@ -8,6 +8,7 @@ import Modal from '../../../../components/web-common/modal/index'
 import Button from '../../../../components/web-common/button/index'
 import {autoBindMethod} from '../../../../components/common/auto-bind/index'
 import Input from '../../../../components/web-common/input/index'
+import {Radio, RadioGroup} from '../../../../components/web-common/radio/index'
 
 import './navbar.scss'
 
@@ -71,7 +72,7 @@ export default class Navbar extends React.Component <typings.PropsDefine, typing
         const result = await this.props.editorAction.createEditor({
             app_name: this.state.createName,
             app_intro: this.state.createIntro,
-            access_level: 2,
+            access_level: this.state.accessLevel === 'public' ? 2 : 1,
             app_type: this.state.createType === 'web' ? 1 : 2
         })
 
@@ -96,6 +97,12 @@ export default class Navbar extends React.Component <typings.PropsDefine, typing
     @autoBindMethod handleIntroChange(value: string) {
         this.setState({
             createIntro: value
+        })
+    }
+
+    @autoBindMethod handleChangeAccessLevel(level: string) {
+        this.setState({
+            accessLevel: level
         })
     }
 
@@ -125,6 +132,12 @@ export default class Navbar extends React.Component <typings.PropsDefine, typing
                     <Input label="应用描述"
                            validateMiddleware={introInputValidate}
                            onChange={this.handleIntroChange}/>
+                    <RadioGroup value={this.state.accessLevel}
+                                style={{marginTop:20}}
+                                onChange={this.handleChangeAccessLevel}>
+                        <Radio value="public">公有</Radio>
+                        <Radio value="private">私有</Radio>
+                    </RadioGroup>
                 </Modal>
             </div>
         )
