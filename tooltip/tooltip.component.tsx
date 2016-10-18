@@ -6,20 +6,6 @@ import './tooltip.scss'
 
 import {autoBindMethod} from '../../../common/auto-bind/index'
 
-const cumulativeOffset = (element: HTMLElement) => {
-    let top = 0, left = 0
-    do {
-        top += element.offsetTop || 0
-        left += element.offsetLeft || 0
-        element = element.offsetParent as HTMLElement
-    } while (element)
-
-    return {
-        top: top,
-        left: left
-    }
-}
-
 export default class ToolTip extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
@@ -68,11 +54,9 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
         const tooltipSpanDom = this.tooltipDom.childNodes[0] as Element
         const tooltipSpanBoundingClientRect = tooltipSpanDom.getBoundingClientRect()
 
-        const childrenOffset = cumulativeOffset(this.childrenDom as HTMLElement)
-
         this.setState({
-            childrenLeft: childrenOffset.left,
-            childrenTop: childrenOffset.top,
+            childrenLeft: childrenBoundingClientRect.left + document.body.scrollLeft,
+            childrenTop: childrenBoundingClientRect.top + document.body.scrollTop,
             childrenWidth: childrenBoundingClientRect.width,
             childrenHeight: childrenBoundingClientRect.height,
             tooltipWidth: tooltipSpanBoundingClientRect.width,
@@ -150,7 +134,7 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
                 break
             case 'bottom':
                 toolTipStyle.left = this.state.childrenLeft + this.state.childrenWidth / 2 - this.state.tooltipWidth / 2
-                toolTipStyle.top = this.state.childrenTop + this.state.tooltipHeight
+                toolTipStyle.top = this.state.childrenTop + this.state.childrenHeight + 7
                 break
         }
     }
