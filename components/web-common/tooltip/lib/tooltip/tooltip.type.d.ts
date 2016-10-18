@@ -1,21 +1,25 @@
 import * as React from 'react';
 export declare type Position = 'left' | 'top' | 'right' | 'bottom';
+export declare type ShowType = 'hover' | 'click';
 export interface PropsDefine {
     title?: string;
     titleRender?: () => React.ReactElement<any>;
     position?: Position;
     zIndex?: number;
+    shadowZIndex?: number;
+    type?: ShowType;
+    showShadow?: boolean;
+    simple?: boolean;
 }
-export declare class PropsGaea {
-    gaeaName: string;
-    gaeaIcon: string;
-    gaeaUniqueKey: string;
-}
-export declare class Props extends PropsGaea implements PropsDefine {
+export declare class Props implements PropsDefine {
     title: string;
     titleRender: () => JSX.Element;
     zIndex: number;
-    position: "left" | "top" | "right" | "bottom";
+    shadowZIndex: number;
+    position: Position;
+    type: ShowType;
+    showShadow: boolean;
+    simple: boolean;
 }
 export interface StateDefine {
     childrenTop?: number;

@@ -1,6 +1,6 @@
 {
   "name": "nt-tooltip",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "工具提示",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -14,7 +14,8 @@
   "author": "ascoders",
   "license": "ISC",
   "dependencies": {
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "nt-auto-bind": "^2.0.5"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
