@@ -1,11 +1,11 @@
 [
   {
-    "userPublishLevel": "minor",
-    "publishLevel": "minor",
+    "userPublishLevel": "major",
+    "publishLevel": "major",
     "componentInfoWithDep": {
       "component": {
-        "name": "tooltip",
-        "chinese": "工具提示",
+        "name": "auto-complete",
+        "chinese": "自动完成",
         "isWeb": true
       },
       "category": {
@@ -122,27 +122,22 @@
         ]
       },
       "packageJson": {
-        "name": "nt-tooltip",
-        "version": "1.0.5",
-        "description": "工具提示",
+        "name": "nt-web-auto-complete",
+        "version": "0.0.0",
+        "description": "自动完成",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/common-tooltip.git"
+          "url": "https://github.com/next-component/web-common-auto-complete.git"
         },
         "keywords": [
-          "tooltip"
+          "auto-complete"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {
-          "classnames": "^2.2.5"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-dom": "^0.14.0 || ^15.0.0"
-        }
+        "dependencies": {},
+        "peerDependencies": {}
       },
       "dependence": [
         {
@@ -158,13 +153,22 @@
           "name": "classnames"
         },
         {
+          "type": "npm",
+          "name": "jquery"
+        },
+        {
           "type": "component",
-          "name": "auto-bind",
+          "name": "input",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "transmit-transparently",
           "category": "common"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.5"
+    "preVersion": "0.0.0"
   }
 ]
