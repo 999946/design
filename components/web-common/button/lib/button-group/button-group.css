@@ -6,7 +6,7 @@
     position: relative;
     float: left; }
     .nt-web-button-button_group.btn-group > .btn:hover, .nt-web-button-button_group.btn-group > .btn:focus, .nt-web-button-button_group.btn-group > .btn:active, .nt-web-button-button_group.btn-group > .btn.active, .nt-web-button-button_group.btn-group-vertical > .btn:hover, .nt-web-button-button_group.btn-group-vertical > .btn:focus, .nt-web-button-button_group.btn-group-vertical > .btn:active, .nt-web-button-button_group.btn-group-vertical > .btn.active {
-      z-index: 2; }
+     }
 
 .nt-web-button-button_group.btn-group .btn + .btn,
 .nt-web-button-button_group.btn-group .btn + .btn-group,

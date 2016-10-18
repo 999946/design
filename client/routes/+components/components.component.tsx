@@ -5,6 +5,8 @@ import {Link} from 'react-router'
 import * as classNames from 'classnames'
 import components from '../../../components'
 
+import ComponentsSearch from '../../components/components-search/components-search.component'
+
 import './components.scss'
 
 @inject('application') @observer
@@ -37,6 +39,9 @@ export default class Components extends React.Component <typings.PropsDefine, ty
                         {navBarCategorys}
                     </div>
                     <div className="right">
+                        <div className="search-container">
+                            <ComponentsSearch />
+                        </div>
                         <Link className={thirdComponentsClasses}
                               to="/components/third-components">第三方库</Link>
                     </div>

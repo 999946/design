@@ -7,6 +7,7 @@ import Message from '../../../../../components/web-common/message/index'
 import FullComponentInfo from './full-component-info/full-component-info.component'
 import {browserHistory} from '../../../../../utils/provider'
 import * as componentHelper from '../../../../../scripts/manage/utils/component-helper'
+import * as config from '../../../../../config'
 
 import 'highlight.js/styles/github.css'
 import 'highlight.js/lib/languages/typescript.js'
@@ -85,6 +86,13 @@ export default class ComponentsCategoryComponent extends FullComponentInfo <typi
                         {ForWeb}
                         {ForIos}
                         {ForAndroid}
+
+                        <a target="_blank"
+                           href={`${componentHelper.getGit(this.state.categoryInfo.name, this.state.componentInfo.name, true)}`}
+                           className="git-container">
+                            {this.state.categoryInfo.isPrivate ?
+                                <i className="fa fa-git"/>:<i className="fa fa-github"/>}
+                        </a>
                     </div>
                     <div className="right">
                         {this.state.componentFullInfo && this.state.componentFullInfo.packageJson &&

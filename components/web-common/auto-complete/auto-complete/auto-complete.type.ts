@@ -29,7 +29,6 @@ export interface PropsDefine extends InputPropsDefine {
 
     /**
      * 选中时回调
-     * @param value
      */
     onSelect?: (value: any) => void
 

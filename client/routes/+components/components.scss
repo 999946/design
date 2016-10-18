@@ -11,6 +11,12 @@
     .left, .right {
         display: flex;
     }
+    .right {
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+    }
 }
 
 .navbar-title {

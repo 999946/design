@@ -25,6 +25,7 @@
     justify-content: space-between;
     background: white;
     padding: 20px;
+    position: relative;
     .left {
         display: flex;
         .component-name {
@@ -78,5 +79,24 @@
         .switch-group {
             display: flex;
         }
+    }
+}
+
+.git-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 20px;
+    border-bottom-right-radius: 10px;
+    background-color: whitesmoke;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .3s;
+    &:hover {
+        background-color: white;
     }
 }
