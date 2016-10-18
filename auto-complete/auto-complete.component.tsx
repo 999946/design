@@ -43,12 +43,12 @@ export default class AutoComplete extends React.Component <typings.PropsDefine, 
     componentDidMount() {
         this._isMounted = true
         this.dom = ReactDOM.findDOMNode(this) as HTMLElement
-        $(document).on('click', this.handleDocumentClick)
+        document.addEventListener('click', this.handleDocumentClick)
     }
 
     componentWillUnmount() {
         this._isMounted = false
-        $(document).off('click', this.handleDocumentClick)
+        document.removeEventListener('click', this.handleDocumentClick)
     }
 
     handleFocus() {

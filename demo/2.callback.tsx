@@ -14,7 +14,7 @@ const opts = {
     //     return res
     // },
     // delay: 200,
-    // onSelect: (value:any)=> {
+    // onSelect: (value: string)=> {
     //     console.log(value)
     // }
 }
