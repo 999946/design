@@ -13,7 +13,7 @@ import 'highlight.js/styles/github.css'
 import 'highlight.js/lib/languages/typescript.js'
 import './component.scss'
 
-import Tooltip from '../../../../../components/web-common/tooltip'
+import Tooltip from '../../../../../components/web-common/tooltip/index'
 
 @observer
 export default class ComponentsCategoryComponent extends FullComponentInfo <typings.PropsDefine, typings.StateDefine> {
