@@ -11,6 +11,9 @@ export interface PropsDefine {
      */
     className?: string
 
+    onFocus?: React.FocusEventHandler
+    onKeyDown?: React.KeyboardEventHandler
+
     others?: any
 }
 
