@@ -6,6 +6,13 @@
     "plugins": [
         "transform-object-assign",
         "transform-decorators-legacy",
-        "array-includes"
+        "array-includes",
+        [
+            "transform-runtime",
+            {
+                "polyfill": false,
+                "regenerator": true
+            }
+        ]
     ]
 }

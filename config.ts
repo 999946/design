@@ -53,4 +53,4 @@ export const routerBasename = process.env['NODE_ENV'] === 'production' ? routerB
 
 // 发布静态资源路径前缀
 // [注意] 为空时要写成 '/', 保证绝对路径, 否则引用路径会变为相对路径
-export const staticPathPrefixProduction = 'http://tb1.bdstatic.com/static/next-design'
+export const staticPathPrefixProduction = process.env['PRODUCTION'] ? 'http://tb1.bdstatic.com/static/next-design' : '/'

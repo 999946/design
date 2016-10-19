@@ -20,6 +20,7 @@ export class PropsGaea {
             editable: true
         },
         '布局',
+        gaeaHelper.layoutEditor,
         gaeaHelper.marginPaddingEditor,
         gaeaHelper.widthHeightEditor,
         '特效',

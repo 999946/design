@@ -48,6 +48,8 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
         await this.getGaeaPreview()
         const result = await this.props.editorAction.getPublishActiveContent(this.props.params.id)
 
+        document.title = result.app_name
+
         this.setState({
             isReady: true,
             value: result.content
@@ -57,7 +59,7 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
     }
 
     render() {
-        if (!this.state.isReady) {
+        if (!this.state.isReady || this.state.value === '') {
             return null
         }
 

@@ -25,36 +25,33 @@ a {
     }
 }
 
-// reset input样式
-.lib-pc-input-src-input .input, .lib-pc-input-src-input {
-    background-color: transparent;
-    color: #9ECCF3;
-    border-color: #6B84B1;
-}
-
-::-webkit-input-placeholder {
-    color: #799BD8;
-}
-
-// 设置科幻 auto-complete 样式
-.lib-pc-auto_complete-src-auto_complete {
-    .complete-container {
-        background-color: #303E58;
-        color: #799BD8;
-        border: none;
-    }
-    .complete-container .item:hover:not(.active) {
-        background-color: #365173;
-    }
-    .complete-container .item:not(.active) .highlight {
-        color: #66E4A4;
-    }
-    .complete-container {
-        .item.active, .item:hover, .item:hover:not(.active) {
-            transition: text-shadow .2s;
-            background-color: #303E58;
-            text-shadow: 0 0 0px #fff, 0 0 0px #fff, 0 0 15px #fff, 0 0 19px #5aa3e2, 0 0 5px #5aa3e2;
-            color: #B4D7F5;
+.footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    background-color: #333;
+    padding: 50px;
+    color: #ddd;
+    .footer-item-container {
+        display: flex;
+        flex-direction: column;
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .item {
+            margin: 10px 0;
+            padding: 0;
         }
     }
+}
+
+.body-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    font-size: 20px;
+    font-weight: bold;
 }

@@ -55,6 +55,7 @@ declare namespace Http {
 
     export interface EditorContentResponse {
         content: string
+        app_name: string
     }
 
     /**

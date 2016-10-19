@@ -22,6 +22,11 @@ declare namespace FitGaea {
 
         gaeaEdit?: Array<ComponentPropsGaeaEdit>
 
+        gaeaEvent?: {
+            types?: Array<EventTriggerCondition>
+            events?: Array<EventAction>
+        }
+
         [x: string]: any
     }
 
@@ -150,5 +155,17 @@ declare namespace FitGaea {
      */
     export interface VersionInfo {
         content: string
+    }
+
+    export interface EventTriggerCondition {
+        name: string
+        // 触发类型
+        type: string
+    }
+
+    export interface EventAction {
+        name: string
+        // 动作类型
+        event: string
     }
 }

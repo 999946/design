@@ -9,7 +9,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const extractSCSS = new ExtractTextPlugin('style.css')
 
 const webpackConfig = {
-    debug: true,
+    debug: false,
 
     entry: [
         './built/client/main.browser.js'

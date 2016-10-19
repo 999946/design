@@ -189,8 +189,6 @@ export default class Select extends React.Component <typings.PropsDefine, typing
      * 设置初始化labelValue
      */
     handleSetLabelValue(value: string, labelValue: string) {
-        this.props.onChange(value)
-
         this.setState({
             value,
             labelValue

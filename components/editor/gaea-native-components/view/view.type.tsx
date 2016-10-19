@@ -23,6 +23,19 @@ export class PropsGaea {
         '特效',
         gaeaHelper.opacityEditor
     ]
+    gaeaEvent = {
+        types: [{
+            name: '初始化',
+            type: 'init'
+        }, {
+            name: '点击',
+            type: 'click'
+        }],
+        events: [{
+            name: '跳转',
+            event: 'call'
+        }]
+    }
 }
 
 export class Props extends PropsGaea implements PropsDefine {
