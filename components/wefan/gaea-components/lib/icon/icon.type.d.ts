@@ -9,6 +9,11 @@ export declare class PropsGaea {
     gaeaIcon: string;
     gaeaUniqueKey: string;
     gaeaEdit: (string | {
+        field: any;
+        label: string;
+        editor: string;
+        editable: boolean;
+    } | {
         field: string;
         label: string;
         editor: string;
@@ -16,11 +21,6 @@ export declare class PropsGaea {
         instance: {
             name: string;
         }[];
-    } | {
-        field: any;
-        label: string;
-        editor: string;
-        editable: boolean;
     })[];
 }
 export declare class Props extends PropsGaea implements PropsDefine {

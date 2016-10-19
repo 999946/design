@@ -1,148 +1,86 @@
 [
   {
-    "userPublishLevel": "minor",
-    "publishLevel": "minor",
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "tooltip",
-        "chinese": "工具提示",
-        "isWeb": true
+        "name": "gaea-components",
+        "chinese": "盖亚组件表",
+        "isWeb": true,
+        "isAndroid": true,
+        "isIos": true
       },
       "category": {
-        "name": "web-common",
-        "chinese": "web通用",
-        "prefix": "nt-web",
-        "isPrivate": false,
+        "name": "wefan",
+        "chinese": "微粉",
+        "prefix": "nt-wefan",
+        "isPrivate": true,
         "components": [
           {
             "name": "button",
             "chinese": "按钮",
-            "isWeb": true
+            "isWeb": true,
+            "isIos": true,
+            "isAndroid": true
           },
           {
-            "name": "input",
-            "chinese": "输入框",
-            "isWeb": true
+            "name": "image",
+            "chinese": "图片",
+            "isWeb": true,
+            "isIos": true
           },
           {
-            "name": "number",
-            "chinese": "数字框",
-            "isWeb": true
+            "name": "resource-card",
+            "chinese": "资源卡片",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true
           },
           {
-            "name": "auto-complete",
-            "chinese": "自动完成",
-            "isWeb": true
-          },
-          {
-            "name": "switch",
-            "chinese": "开关",
-            "isWeb": true
-          },
-          {
-            "name": "radio",
-            "chinese": "单选框",
-            "isWeb": true
-          },
-          {
-            "name": "checkbox",
-            "chinese": "多选框",
-            "isWeb": true
-          },
-          {
-            "name": "select",
-            "chinese": "下拉选择框",
-            "isWeb": true
-          },
-          {
-            "name": "collapse",
-            "chinese": "手风琴",
-            "isWeb": true
-          },
-          {
-            "name": "tooltip",
-            "chinese": "工具提示",
-            "isWeb": true
-          },
-          {
-            "name": "message",
-            "chinese": "全局消息",
-            "isWeb": true
-          },
-          {
-            "name": "modal",
-            "chinese": "模态框",
-            "isWeb": true
-          },
-          {
-            "name": "tabs",
-            "chinese": "标签页",
-            "isWeb": true
-          },
-          {
-            "name": "tree",
-            "chinese": "树",
-            "isWeb": true
-          },
-          {
-            "name": "json-tree",
-            "chinese": "json 树",
-            "isWeb": true
-          },
-          {
-            "name": "margin-padding-editor",
-            "chinese": "内/外边距编辑器",
-            "isWeb": true
-          },
-          {
-            "name": "badge",
-            "chinese": "徽标",
-            "isWeb": true
+            "name": "navbar",
+            "chinese": "导航条",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true
           },
           {
             "name": "loading",
-            "chinese": "进度条",
-            "isWeb": true
+            "chinese": "加载条",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true
           },
           {
-            "name": "timeago",
-            "chinese": "友好时间",
-            "isWeb": true
-          },
-          {
-            "name": "image-preload",
-            "chinese": "图片预加载",
-            "isWeb": true
-          },
-          {
-            "name": "render-to",
-            "chinese": "任意位置渲染",
-            "isWeb": true
+            "name": "gaea-components",
+            "chinese": "盖亚组件表",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true
           }
         ]
       },
       "packageJson": {
-        "name": "nt-tooltip",
-        "version": "1.1.0",
-        "description": "工具提示",
+        "name": "nt-wefan-gaea-components",
+        "version": "0.0.3",
+        "description": "盖亚组件表",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/common-tooltip.git"
+          "url": "http://gitlab.baidu.com/tb-next-component/wefan-gaea-components.git"
         },
         "keywords": [
-          "tooltip"
+          "gaea-components"
         ],
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "classnames": "^2.2.5",
-          "nt-auto-bind": "^2.0.5"
+          "nt-transparently-native-props": "^0.0.1",
+          "gaea-helper": "^0.0.2"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-dom": "^0.14.0 || ^15.0.0"
+          "react-native": "*"
         }
       },
       "dependence": [
@@ -152,20 +90,21 @@
         },
         {
           "type": "npm",
-          "name": "react-dom"
-        },
-        {
-          "type": "npm",
-          "name": "classnames"
+          "name": "react-native"
         },
         {
           "type": "component",
-          "name": "auto-bind",
+          "name": "transparently-native-props",
           "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "gaea-helper",
+          "category": "editor"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.1.0"
+    "preVersion": "0.0.3"
   }
 ]
