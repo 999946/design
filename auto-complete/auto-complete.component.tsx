@@ -64,6 +64,14 @@ export default class AutoComplete extends React.Component <typings.PropsDefine, 
         document.removeEventListener('click', this.handleDocumentClick)
     }
 
+    componentWillReceiveProps(nextProps: typings.PropsDefine) {
+        if (nextProps.value !== undefined) {
+            this.setState({
+                value: nextProps.value
+            })
+        }
+    }
+
     handleFocus() {
         this.setState({
             showComplete: true
