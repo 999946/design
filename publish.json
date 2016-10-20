@@ -1,7 +1,7 @@
 [
   {
-    "userPublishLevel": "major",
-    "publishLevel": "major",
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
         "name": "gaea-model",
@@ -96,8 +96,8 @@
     "preVersion": "1.0.0"
   },
   {
-    "userPublishLevel": "major",
-    "publishLevel": "major",
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
         "name": "gaea-helper",
@@ -191,8 +191,8 @@
     "preVersion": "1.0.0"
   },
   {
-    "userPublishLevel": "major",
-    "publishLevel": "major",
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
         "name": "gaea-preview",
@@ -316,8 +316,8 @@
     "preVersion": "1.0.0"
   },
   {
-    "userPublishLevel": "major",
-    "publishLevel": "major",
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
         "name": "gaea-web-components",
@@ -441,8 +441,8 @@
     "preVersion": "1.0.0"
   },
   {
-    "userPublishLevel": "major",
-    "publishLevel": "major",
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
         "name": "gaea-native-components",
@@ -561,116 +561,8 @@
     "preVersion": "1.0.0"
   },
   {
-    "userPublishLevel": "empty",
-    "publishLevel": "minor",
-    "componentInfoWithDep": {
-      "component": {
-        "name": "gaea-components",
-        "chinese": "盖亚组件表",
-        "isWeb": true,
-        "isAndroid": true,
-        "isIos": true
-      },
-      "category": {
-        "name": "wefan",
-        "chinese": "微粉",
-        "prefix": "nt-wefan",
-        "isPrivate": true,
-        "components": [
-          {
-            "name": "button",
-            "chinese": "按钮",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "image",
-            "chinese": "图片",
-            "isWeb": true,
-            "isIos": true
-          },
-          {
-            "name": "resource-card",
-            "chinese": "资源卡片",
-            "isWeb": true,
-            "isAndroid": true,
-            "isIos": true
-          },
-          {
-            "name": "navbar",
-            "chinese": "导航条",
-            "isWeb": true,
-            "isAndroid": true,
-            "isIos": true
-          },
-          {
-            "name": "loading",
-            "chinese": "加载条",
-            "isWeb": true,
-            "isAndroid": true,
-            "isIos": true
-          },
-          {
-            "name": "gaea-components",
-            "chinese": "盖亚组件表",
-            "isWeb": true,
-            "isAndroid": true,
-            "isIos": true
-          }
-        ]
-      },
-      "packageJson": {
-        "name": "nt-wefan-gaea-components",
-        "version": "0.1.0",
-        "description": "盖亚组件表",
-        "main": "lib/index.js",
-        "typings": "lib/index.d.ts",
-        "repository": {
-          "type": "git",
-          "url": "http://gitlab.baidu.com/tb-next-component/wefan-gaea-components.git"
-        },
-        "keywords": [
-          "gaea-components"
-        ],
-        "author": "ascoders",
-        "license": "ISC",
-        "dependencies": {
-          "nt-transparently-native-props": "^0.0.1",
-          "gaea-helper": "^1.0.0"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-native": "*"
-        }
-      },
-      "dependence": [
-        {
-          "type": "npm",
-          "name": "react"
-        },
-        {
-          "type": "npm",
-          "name": "react-native"
-        },
-        {
-          "type": "component",
-          "name": "transparently-native-props",
-          "category": "common"
-        },
-        {
-          "type": "component",
-          "name": "gaea-helper",
-          "category": "editor"
-        }
-      ]
-    },
-    "isUserOperate": false,
-    "preVersion": "0.1.0"
-  },
-  {
-    "userPublishLevel": "major",
-    "publishLevel": "major",
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
         "name": "gaea-editor",
