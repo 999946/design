@@ -29,6 +29,19 @@ export default class AutoComplete extends React.Component <typings.PropsDefine, 
     componentWillMount() {
         this.dom = ReactDOM.findDOMNode(this) as HTMLElement
         this._isMounted = true
+
+        if (this.props.value !== undefined) {
+            this.setState({
+                value: this.props.value
+            })
+        }
+
+        if (this.props.defaultValue !== undefined) {
+            this.setState({
+                value: this.props.defaultValue
+            })
+        }
+
         // 点击document
         this.handleDocumentClick = (event: any)=> {
             if (!this._isMounted)return
@@ -57,10 +70,13 @@ export default class AutoComplete extends React.Component <typings.PropsDefine, 
         })
     }
 
-    handleChange(value:string) {
+    handleChange(value: string) {
         this.setState({
             value
         })
+
+        this.props.onChange(value)
+
         this.searchValue = value
 
         if (this.props.url !== '') {

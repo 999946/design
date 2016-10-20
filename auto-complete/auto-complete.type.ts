@@ -61,6 +61,8 @@ export class Props implements PropsDefine {
     url = ''
     onSelect = (value: number | string) => {
     }
+    onChange = ()=> {
+    }
     beforeSend = (value: number | string) => {
         return value
     }
