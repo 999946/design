@@ -4,6 +4,10 @@ import * as ReactNaitve from 'react-native'
 
 export interface PropsDefine extends TransparentlyNativePropsPropsDefine {
     style?: ReactNaitve.ViewStyle
+
+    onClick?: ()=>void
+    gaeaEvent?: FitGaea.GaeaEvent
+    gaeaEventData?: Array<FitGaea.EventData>
 }
 
 export class PropsGaea {
@@ -25,15 +29,19 @@ export class PropsGaea {
     ]
     gaeaEvent = {
         types: [{
-            name: '初始化',
-            type: 'init'
-        }, {
             name: '点击',
-            type: 'click'
+            type: 'onClick',
+            selfCallback: true
         }],
         events: [{
-            name: '跳转',
-            event: 'call'
+            name: '跳转网址',
+            event: 'jumpUrl'
+        }, {
+            name: '回退',
+            event: 'call',
+            call: {
+                functionName: 'back'
+            }
         }]
     }
 }
@@ -52,6 +60,10 @@ export class Props extends PropsGaea implements PropsDefine {
             backgroundColor: 'white'
         }
     )
+
+    onClick = ()=> {
+
+    }
 }
 
 export interface StateDefine {

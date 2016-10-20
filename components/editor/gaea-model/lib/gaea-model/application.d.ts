@@ -22,10 +22,12 @@ declare namespace FitGaea {
 
         gaeaEdit?: Array<ComponentPropsGaeaEdit>
 
-        gaeaEvent?: {
-            types?: Array<EventTriggerCondition>
-            events?: Array<EventAction>
-        }
+        gaeaEvent?: GaeaEvent
+
+        /**
+         * 存储事件设置
+         */
+        gaeaEventData?: Array<EventData>
 
         [x: string]: any
     }
@@ -157,15 +159,79 @@ declare namespace FitGaea {
         content: string
     }
 
+    /**
+     * 事件设置
+     */
+    export interface GaeaEvent {
+        types: Array<EventTriggerCondition>
+        events: Array<EventAction>
+    }
+
+    export interface EventData {
+        type: string
+        event: string
+        /**
+         * 因为事件可能 type 相同，因此记录是第几个
+         */
+        typeIndex: number
+        eventIndex: number
+        typeData?: EventTriggerEvent
+        eventData?: EventActionJumpUrl | EventActionCall | EventActionEvent
+    }
+
     export interface EventTriggerCondition {
         name: string
         // 触发类型
         type: string
+        // 是否由自己的生命周期触发
+        selfCallback?: boolean
     }
 
     export interface EventAction {
         name: string
         // 动作类型
+        // call: 调用传进来的方法
+        // jumpUrl: 跳转一个网址
         event: string
+        call?: EventCallType
+    }
+
+    /**
+     * 事件定义类型
+     */
+    export interface EventCallType {
+        // 调用函数名称
+        functionName: string
+        // 调用参数
+        param?: Array<EventCallTypeParam>
+    }
+
+    export interface EventCallTypeParam {
+        label: string
+        field: string
+        editor: string // text
+    }
+
+    /**
+     * 事件触发数据类型
+     */
+    export interface EventTriggerEvent {
+        listen?: string
+    }
+
+    /**
+     * 事件动作数据类型
+     */
+    export interface EventActionJumpUrl {
+        url?: string
+    }
+
+    export interface EventActionCall {
+        // 函数在 map 里的 key
+        key?: string
+    }
+
+    export interface EventActionEvent {
+        emit?: string
     }
 }

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as typings from './publish-native.type'
 import {observer, inject} from 'mobx-react'
+import handleBrowserCall from '../../../utils/handle-browser-call'
 import './publish-native.scss'
 
 import componentInfos from '../../../auto-create/component-infos'
@@ -66,7 +67,8 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
         return React.createElement(this.GaeaPreview, {
             baseComponents: this.GaeaNativeComponents,
             customComponents: this.CustomComponents,
-            value: this.state.value
+            value: this.state.value,
+            onCall: handleBrowserCall
         })
     }
 }

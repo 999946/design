@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as typings from './publish-web.type'
 import {observer, inject} from 'mobx-react'
+import handleBrowserCall from '../../../utils/handle-browser-call'
 import './publish-web.scss'
 
 import componentInfos from '../../../auto-create/component-infos'
@@ -54,7 +55,8 @@ export default class PublishWeb extends React.Component <typings.PropsDefine, ty
 
         return React.createElement(this.GaeaPreview, {
             baseComponents: this.GaeaWebComponents,
-            value: this.state.value
+            value: this.state.value,
+            onCall: handleBrowserCall
         })
     }
 }
