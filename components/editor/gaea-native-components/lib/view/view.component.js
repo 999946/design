@@ -1,36 +1,59 @@
 "use strict";
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var _createClass2 = require("babel-runtime/helpers/createClass");
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require("babel-runtime/helpers/inherits");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var React = require("react");
 var typings = require("./view.type");
 var react_native_1 = require("react-native");
 
 var ViewComponent = function (_React$Component) {
-    _inherits(ViewComponent, _React$Component);
+    (0, _inherits3.default)(ViewComponent, _React$Component);
 
     function ViewComponent() {
-        _classCallCheck(this, ViewComponent);
+        (0, _classCallCheck3.default)(this, ViewComponent);
 
-        var _this = _possibleConstructorReturn(this, (ViewComponent.__proto__ || Object.getPrototypeOf(ViewComponent)).apply(this, arguments));
+        var _this = (0, _possibleConstructorReturn3.default)(this, (ViewComponent.__proto__ || Object.getPrototypeOf(ViewComponent)).apply(this, arguments));
 
         _this.state = new typings.State();
         return _this;
     }
 
-    _createClass(ViewComponent, [{
+    (0, _createClass3.default)(ViewComponent, [{
         key: "render",
         value: function render() {
-            return React.createElement(react_native_1.View, { style: this.props.style }, this.props.children);
+            var _this2 = this;
+
+            var hasClick = false;
+            if (this.props.gaeaEventData) {
+                this.props.gaeaEventData.forEach(function (data) {
+                    if (data.typeIndex > -1 && _this2.props.gaeaEvent.types[data.typeIndex].selfCallback && data.type === 'onClick') {
+                        hasClick = true;
+                    }
+                });
+            }
+            if (hasClick) {
+                return React.createElement(react_native_1.TouchableWithoutFeedback, { onPress: this.props.onClick.bind(this) }, React.createElement(react_native_1.View, { style: this.props.style }, this.props.children));
+            } else {
+                return React.createElement(react_native_1.View, { style: this.props.style }, this.props.children);
+            }
         }
     }]);
-
     return ViewComponent;
 }(React.Component);
 
