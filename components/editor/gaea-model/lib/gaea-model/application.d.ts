@@ -21,13 +21,23 @@ declare namespace FitGaea {
         gaeaIcon?: string
 
         gaeaEdit?: Array<ComponentPropsGaeaEdit>
-
+        /**
+         * 事件定义
+         */
         gaeaEvent?: GaeaEvent
+        /**
+         * 是否在预览模式
+         */
+        gaeaPreview?: boolean
 
         /**
          * 存储事件设置
          */
         gaeaEventData?: Array<EventData>
+        /**
+         * 存储native事件设置
+         */
+        gaeaNativeEventData?: Array<EventData>
 
         [x: string]: any
     }

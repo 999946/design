@@ -102,7 +102,7 @@ export const overflow = {
 }
 
 export const overflowNative = {
-    overflow: null as any
+    overflow: 'hidden'
 }
 
 export const overflowEditor = {
