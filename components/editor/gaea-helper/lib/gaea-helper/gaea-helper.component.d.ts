@@ -77,7 +77,7 @@ export declare const overflow: {
     overflowY: any;
 };
 export declare const overflowNative: {
-    overflow: any;
+    overflow: string;
 };
 export declare const overflowEditor: {
     field: any;

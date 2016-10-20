@@ -5,6 +5,8 @@ export interface PropsDefine extends TransparentlyNativePropsPropsDefine {
     onClick?: () => void;
     gaeaEvent?: FitGaea.GaeaEvent;
     gaeaEventData?: Array<FitGaea.EventData>;
+    gaeaPreview?: boolean;
+    canScroll?: boolean;
 }
 export declare class PropsGaea {
     gaeaName: string;
@@ -37,6 +39,7 @@ export declare class PropsGaea {
 export declare class Props extends PropsGaea implements PropsDefine {
     style: any;
     onClick: () => void;
+    canScroll: boolean;
 }
 export interface StateDefine {
 }

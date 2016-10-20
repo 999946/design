@@ -79,7 +79,7 @@ exports.overflow = {
     overflowY: null
 };
 exports.overflowNative = {
-    overflow: null
+    overflow: 'hidden'
 };
 exports.overflowEditor = {
     field: null,

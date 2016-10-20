@@ -26,7 +26,12 @@ var PropsGaea = function PropsGaea() {
     this.gaeaName = '布局';
     this.gaeaIcon = 'square-o';
     this.gaeaUniqueKey = 'gaea-layout';
-    this.gaeaEdit = ['布局', index_1.gaeaHelper.layoutEditor, index_1.gaeaHelper.marginPaddingEditor, index_1.gaeaHelper.widthHeightEditor, index_1.gaeaHelper.overflowEditor, '背景', index_1.gaeaHelper.backgroundEditor, '边框', index_1.gaeaHelper.borderEditor, '特效', index_1.gaeaHelper.opacityEditor];
+    this.gaeaEdit = ['特殊', {
+        field: 'canScroll',
+        label: '子元素能否滚动',
+        editor: 'switch',
+        editable: true
+    }, '布局', index_1.gaeaHelper.layoutEditor, index_1.gaeaHelper.marginPaddingEditor, index_1.gaeaHelper.widthHeightEditor, index_1.gaeaHelper.overflowEditor, '背景', index_1.gaeaHelper.backgroundEditor, '边框', index_1.gaeaHelper.borderEditor, '特效', index_1.gaeaHelper.opacityEditor];
     this.gaeaEvent = {
         types: [{
             name: '点击',
@@ -60,6 +65,7 @@ var Props = function (_PropsGaea) {
             backgroundColor: 'white'
         });
         _this.onClick = function () {};
+        _this.canScroll = false;
         return _this;
     }
 
