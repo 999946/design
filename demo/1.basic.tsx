@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {observer} from 'mobx-react'
 import Swiper from '../index'
+import Image from '../../image/index'
 
 @observer
 export default class Demo extends React.Component <any, any> {
@@ -9,7 +10,14 @@ export default class Demo extends React.Component <any, any> {
 
     render() {
         return (
-            <Swiper />
+            <Swiper style={{width:300,height:300}}>
+                <Image source={{uri:'http://img0.imgtn.bdimg.com/it/u=2609450077,4178219781&fm=21&gp=0.jpg'}}
+                       style={{width:100,height:100}}/>
+                <Image source={{uri:'http://img0.imgtn.bdimg.com/it/u=2609450077,4178219781&fm=21&gp=0.jpg'}}
+                       style={{width:150,height:150}}/>
+                <Image source={{uri:'http://img0.imgtn.bdimg.com/it/u=2609450077,4178219781&fm=21&gp=0.jpg'}}
+                       style={{width:300,height:300}}/>
+            </Swiper>
         )
     }
 }
