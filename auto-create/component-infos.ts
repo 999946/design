@@ -1190,7 +1190,7 @@ routerMap.set('common/swiper', (callback: any) => {
                             
                             callback({
                                 demos: demoLists,
-                                packageJson: null,
+                                packageJson: JSON.parse(require('-!text!../components/common/swiper/package.json')),
                                 documents,
                                 main: require('../components/common/swiper/index')
                             })

@@ -3717,7 +3717,7 @@ declare namespace  __React {
      * @see https://facebook.github.io/react-native/docs/platform-specific-code.html#content
      */
 
-    export type PlatformOSType = 'ios' | 'android'
+    export type PlatformOSType = 'ios' | 'android' | 'web'
 
     export interface PlatformStatic {
         OS: PlatformOSType,

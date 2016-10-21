@@ -52,6 +52,7 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
         this.scale.scale()
         document.getElementById('react-dom').style.height = '100%'
         document.getElementById('react-dom').style.backgroundColor = 'white'
+        document.getElementById('react-dom').style.display = 'flex'
 
         await this.getGaeaNativeComponents()
         await this.getGaeaWefanComponents()
@@ -72,6 +73,7 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
         this.scale.unScale()
         document.getElementById('react-dom').style.height = null
         document.getElementById('react-dom').style.backgroundColor = null
+        document.getElementById('react-dom').style.display = null
     }
 
     render() {

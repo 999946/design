@@ -1,26 +1,30 @@
-import {TransparentlyNativePropsPropsDefine} from '../../../common/transparently-native-props/index'
 import {gaeaHelper} from '../../gaea-helper/index'
 import * as ReactNaitve from 'react-native'
+import {ScrollViewProperties} from 'react-native'
 
-export interface PropsDefine extends TransparentlyNativePropsPropsDefine {
-    style?: ReactNaitve.ViewStyle
-
-    onClick?: ()=>void
+export interface PropsDefine extends ScrollViewProperties {
     gaeaEvent?: FitGaea.GaeaEvent
     gaeaEventData?: Array<FitGaea.EventData>
-
-    /**
-     * 是否在预览状态
-     */
-    gaeaPreview?: boolean
 }
 
 export class PropsGaea {
-    gaeaName = '布局'
+    gaeaName = '滚动布局'
     gaeaIcon = 'square-o'
-    gaeaUniqueKey = 'gaea-layout'
+    gaeaUniqueKey = 'gaea-scroll-layout'
     canDragIn = true
     gaeaEdit = [
+        '滚动布局',
+        {
+            field: 'horizontal',
+            label: '是否水平滚动',
+            editor: 'switch'
+        },
+        {
+            field: 'scrollEventThrottle',
+            label: '滚动触发最小间隔（毫秒）',
+            editor: 'number',
+            type: 'number'
+        },
         '布局',
         gaeaHelper.layoutEditor,
         gaeaHelper.marginPaddingEditor,
@@ -35,20 +39,11 @@ export class PropsGaea {
     ]
     gaeaEvent = {
         types: [{
-            name: '点击',
-            type: 'onClick',
+            name: '滚动时',
+            type: 'onScroll',
             selfCallback: true
         }],
-        events: [{
-            name: '跳转网址',
-            event: 'jumpUrl'
-        }, {
-            name: '回退',
-            event: 'call',
-            call: {
-                functionName: 'back'
-            }
-        }]
+        events: [] as any
     }
 }
 
@@ -67,8 +62,9 @@ export class Props extends PropsGaea implements PropsDefine {
         }
     )
 
-    onClick = ()=> {
-
+    horizontal = false
+    scrollEventThrottle = 100
+    onScroll = ()=> {
     }
 }
 

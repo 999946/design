@@ -19,17 +19,22 @@ declare namespace FitGaea {
          * 组件图标,为 fontAwesome
          */
         gaeaIcon?: string
-
+        /**
+         * 编辑信息
+         */
         gaeaEdit?: Array<ComponentPropsGaeaEdit>
         /**
          * 事件定义
          */
         gaeaEvent?: GaeaEvent
         /**
-         * 是否在预览模式
+         * 是否在预览模式，preivew 会传入 true
          */
         gaeaPreview?: boolean
-
+        /**
+         * 是否可以拖入子元素
+         */
+        canDragIn?: boolean
         /**
          * 存储事件设置
          */
