@@ -1167,6 +1167,35 @@ routerMap.set('common/image-viewer', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('common/swiper', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/swiper/demo/1.basic').default,
+                            code: require('-!text!../../components/common/swiper/demo/1.basic.tsx')
+                        })
+                    
+                            
+                        documents.push({
+                            type: require('../components/common/swiper/swiper/swiper.type'),
+                            typeCode: require('-!text!../../components/common/swiper/swiper/swiper.type.ts'),
+                            typePath: 'components/common/swiper/swiper/swiper.type',
+                            componentName: 'Swiper',
+                            sourceCode: require('-!text!../../components/common/swiper/swiper/swiper.component.tsx')
+                        })
+                    
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: null,
+                                documents,
+                                main: require('../components/common/swiper/index')
+                            })
+                        })
+                    })
 routerMap.set('common/transmit-transparently', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

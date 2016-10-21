@@ -175,6 +175,12 @@ export interface ImageViewerPropsDefine {}
 
                 }
             
+                declare module 'nt-swiper' {    
+                    export interface Swiper {}
+export interface SwiperPropsDefine {}
+
+                }
+            
                 declare module 'nt-transmit-transparently' {    
                     export interface TransmitTransparently {}
 export interface TransmitTransparentlyPropsDefine {}
