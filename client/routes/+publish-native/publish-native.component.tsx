@@ -4,6 +4,8 @@ import {observer, inject} from 'mobx-react'
 import handleBrowserCall from '../../../utils/handle-browser-call'
 import './publish-native.scss'
 
+import Scale from '../../../utils/scale'
+
 import componentInfos from '../../../auto-create/component-infos'
 
 @inject('application', 'event', 'editor', 'editorAction') @observer
@@ -14,6 +16,8 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
     private GaeaNativeComponents: any
     private GaeaPreview: any
     private CustomComponents: any
+
+    private scale: Scale
 
     private getGaeaNativeComponents = ()=> {
         return new Promise<string>((resolve, reject)=> {
@@ -44,6 +48,11 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
     }
 
     async componentWillMount() {
+        this.scale = new Scale()
+        this.scale.scale()
+        document.getElementById('react-dom').style.height = '100%'
+        document.getElementById('react-dom').style.backgroundColor = 'white'
+
         await this.getGaeaNativeComponents()
         await this.getGaeaWefanComponents()
         await this.getGaeaPreview()
@@ -57,6 +66,12 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
         }, ()=> {
             this.props.event.emit(this.props.event.sceneLoaded)
         })
+    }
+
+    componentWillUnmount() {
+        this.scale.unScale()
+        document.getElementById('react-dom').style.height = null
+        document.getElementById('react-dom').style.backgroundColor = null
     }
 
     render() {

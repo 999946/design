@@ -130,6 +130,12 @@ export default [{
         isIos: true,
         isAndroid: true
     }, {
+        name: 'swiper',
+        chinese: '轮播',
+        isWeb: true,
+        isIos: true,
+        isAndroid: true
+    }, {
         name: 'transmit-transparently',
         chinese: '透传',
         isWeb: true,

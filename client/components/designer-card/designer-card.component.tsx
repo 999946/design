@@ -72,7 +72,7 @@ export default class DesignerCard extends React.Component <typings.PropsDefine, 
                         <div className="tag public">公有</div>
                         }
 
-                        {this.props.info.active_ver !== '' &&
+                        {this.props.info.active_ver &&
                         <Tooltip title="打开网页版">
                             <i onClick={this.handleJump.bind(this ,`/${this.props.info.app_type==='1'?'web':'native'}/${this.props.info.app_id}`)}
                                className="fa fa-internet-explorer operate-button"/>

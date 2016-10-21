@@ -4,6 +4,8 @@ import {observer, inject} from 'mobx-react'
 import handleBrowserCall from '../../../utils/handle-browser-call'
 import './publish-web.scss'
 
+import Scale from '../../../utils/scale'
+
 import componentInfos from '../../../auto-create/component-infos'
 
 @inject('application', 'event', 'editor', 'editorAction') @observer
@@ -13,6 +15,8 @@ export default class PublishWeb extends React.Component <typings.PropsDefine, ty
 
     private GaeaWebComponents: any
     private GaeaPreview: any
+
+    private scale: Scale
 
     private getGaeaWebComponents = ()=> {
         return new Promise<string>((resolve, reject)=> {
@@ -34,6 +38,11 @@ export default class PublishWeb extends React.Component <typings.PropsDefine, ty
     }
 
     async componentWillMount() {
+        this.scale = new Scale()
+        this.scale.scale()
+        document.getElementById('react-dom').style.height = '100%'
+        document.getElementById('react-dom').style.backgroundColor = 'white'
+
         await this.getGaeaWebComponents()
         await this.getGaeaPreview()
         const result = await this.props.editorAction.getPublishActiveContent(this.props.params.id)
@@ -46,6 +55,12 @@ export default class PublishWeb extends React.Component <typings.PropsDefine, ty
         }, ()=> {
             this.props.event.emit(this.props.event.sceneLoaded)
         })
+    }
+
+    componentWillUnmount() {
+        this.scale.unScale()
+        document.getElementById('react-dom').style.height = null
+        document.getElementById('react-dom').style.backgroundColor = null
     }
 
     render() {
