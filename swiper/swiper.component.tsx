@@ -1,7 +1,14 @@
 import * as React from 'react'
 import * as typings from './swiper.type'
-import {PanResponder, Animated, View} from 'react-native'
-import LayoutChangeEvent = __React.LayoutChangeEvent;
+import {PanResponder, Animated, View, Platform} from 'react-native'
+
+const isMobile = ()=> {
+    if (Platform.OS === 'web' as React.PlatformOSType) {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    } else {
+        return true
+    }
+}
 
 export default class Swiper extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()
@@ -9,9 +16,6 @@ export default class Swiper extends React.Component <typings.PropsDefine, typing
 
     // 整体区域手势处理
     private panResponder: React.PanResponderInstance
-
-    // 是否开始了手势
-    private responderStart = false
 
     private lastPositionX: number = null
     private lastPositionY: number = null
@@ -39,21 +43,24 @@ export default class Swiper extends React.Component <typings.PropsDefine, typing
             onPanResponderTerminationRequest: (evt, gestureState) => false,
 
             onPanResponderGrant: (evt, gestureState) => {
+                if (!isMobile()) {
+                    return
+                }
+
                 this.lastPositionX = null
                 this.lastPositionY = null
                 this.horizontalWholeCounter = 0
             },
             onPanResponderMove: (evt, gestureState) => {
+                if (!isMobile()) {
+                    return
+                }
+
                 if (evt.nativeEvent.changedTouches.length <= 1) { // 一根手指触摸时
                     // x 位移
                     let diffX = gestureState.dx - this.lastPositionX
                     if (this.lastPositionX === null) {
                         diffX = 0
-                    }
-                    // y 位移
-                    let diffY = gestureState.dy - this.lastPositionY
-                    if (this.lastPositionY === null) {
-                        diffY = 0
                     }
 
                     // 保留这一次位移作为下次的上一次位移
@@ -74,6 +81,10 @@ export default class Swiper extends React.Component <typings.PropsDefine, typing
                 }
             },
             onPanResponderRelease: (evt, gestureState) => {
+                if (!isMobile()) {
+                    return
+                }
+
                 if (this.horizontalWholeCounter < -this.width * this.props.threshold / 100) {
                     // 下一张
                     if (this.nowIndex < React.Children.count(this.props.children) - 1) {
@@ -97,7 +108,7 @@ export default class Swiper extends React.Component <typings.PropsDefine, typing
         })
     }
 
-    handleLayout(event: LayoutChangeEvent) {
+    handleLayout(event: React.LayoutChangeEvent) {
         this.width = event.nativeEvent.layout.width
         this.height = event.nativeEvent.layout.height
         this.forceUpdate()
@@ -106,7 +117,7 @@ export default class Swiper extends React.Component <typings.PropsDefine, typing
     render() {
         const Childs = React.Children.map(this.props.children, (child, index)=> {
             return (
-                <View style={{width:this.width,height:this.height,justifyContent:'center',alignItems:'center'}}>
+                <View style={{width:this.width,height:this.height,justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
                     {child}
                 </View>
             )
