@@ -1,5 +1,5 @@
 export default  {
-    'react-native': 'nt-react-native-web'
+    'react-native': 'react-native-web'
 } as {
     [key: string]: string
 }
