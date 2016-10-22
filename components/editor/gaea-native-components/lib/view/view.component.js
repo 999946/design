@@ -50,14 +50,8 @@ var ViewComponent = function (_React$Component) {
             if (!this.props.gaeaPreview) {
                 return React.createElement(react_native_1.View, { style: this.props.style }, this.props.children);
             }
-            if (this.props.canScroll && !hasClick) {
-                delete this.props.style.justifyContent;
-                delete this.props.style.alignItems;
-                return React.createElement(react_native_1.ScrollView, { style: this.props.style }, this.props.children);
-            } else if (!this.props.canScroll && hasClick) {
-                return React.createElement(react_native_1.TouchableWithoutFeedback, { onPress: this.props.onClick.bind(this) }, React.createElement(react_native_1.View, null, this.props.children));
-            } else if (this.props.canScroll && hasClick) {
-                return React.createElement(react_native_1.TouchableWithoutFeedback, { onPress: this.props.onClick.bind(this) }, React.createElement(react_native_1.ScrollView, null, this.props.children));
+            if (hasClick) {
+                return React.createElement(react_native_1.TouchableWithoutFeedback, { style: this.props.style, onPress: this.props.onClick.bind(this) }, React.createElement(react_native_1.View, { style: this.props.style }, this.props.children));
             }
             return React.createElement(react_native_1.View, { style: this.props.style }, this.props.children);
         }

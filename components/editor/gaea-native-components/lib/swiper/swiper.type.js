@@ -23,28 +23,26 @@ var index_1 = require('gaea-helper');
 var PropsGaea = function PropsGaea() {
     (0, _classCallCheck3.default)(this, PropsGaea);
 
-    this.gaeaName = '布局';
+    this.gaeaName = '轮播';
     this.gaeaIcon = 'square-o';
-    this.gaeaUniqueKey = 'gaea-layout';
+    this.gaeaUniqueKey = 'gaea-swiper';
     this.canDragIn = true;
-    this.gaeaEdit = ['布局', index_1.gaeaHelper.layoutEditor, index_1.gaeaHelper.marginPaddingEditor, index_1.gaeaHelper.widthHeightEditor, index_1.gaeaHelper.overflowEditor, '背景', index_1.gaeaHelper.backgroundEditor, '边框', index_1.gaeaHelper.borderEditor, '特效', index_1.gaeaHelper.opacityEditor];
-    this.gaeaEvent = {
-        types: [{
-            name: '点击',
-            type: 'onClick',
-            selfCallback: true
-        }],
-        events: [{
-            name: '跳转网址',
-            event: 'jumpUrl'
-        }, {
-            name: '回退',
-            event: 'call',
-            call: {
-                functionName: 'back'
-            }
-        }]
-    };
+    this.gaeaEdit = ['轮播', {
+        label: '最大滑动距离（1-100）',
+        field: 'maxDistance',
+        editor: 'number',
+        type: 'number'
+    }, {
+        label: '滑动阈值（1-100）',
+        field: 'threshold',
+        editor: 'number',
+        type: 'number'
+    }, {
+        label: '速度阈值',
+        field: 'thresholdSpeed',
+        editor: 'number',
+        type: 'number'
+    }, '布局', index_1.gaeaHelper.layoutEditor, index_1.gaeaHelper.marginPaddingEditor, index_1.gaeaHelper.widthHeightEditor, '特效', index_1.gaeaHelper.opacityEditor];
 };
 
 exports.PropsGaea = PropsGaea;
@@ -57,11 +55,10 @@ var Props = function (_PropsGaea) {
 
         var _this = (0, _possibleConstructorReturn3.default)(this, (Props.__proto__ || Object.getPrototypeOf(Props)).apply(this, arguments));
 
-        _this.style = (0, _extends3.default)({}, index_1.gaeaHelper.layout, index_1.gaeaHelper.marginPadding, index_1.gaeaHelper.opacity, index_1.gaeaHelper.widthHeight, index_1.gaeaHelper.overflow, index_1.gaeaHelper.background, index_1.gaeaHelper.border, {
-            display: 'flex',
-            backgroundColor: 'transparent'
-        });
-        _this.onClick = function () {};
+        _this.style = (0, _extends3.default)({}, index_1.gaeaHelper.layoutNative, index_1.gaeaHelper.marginPadding, index_1.gaeaHelper.opacity, index_1.gaeaHelper.widthHeight);
+        _this.maxDistance = 90;
+        _this.threshold = 45;
+        _this.thresholdSpeed = 1;
         return _this;
     }
 

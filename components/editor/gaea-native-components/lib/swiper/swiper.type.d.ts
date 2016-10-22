@@ -1,11 +1,8 @@
 import { TransparentlyNativePropsPropsDefine } from  'nt-transparently-native-props';
+import { SwiperPropsDefine } from  'nt-swiper';
 import * as ReactNaitve from 'react-native';
-export interface PropsDefine extends TransparentlyNativePropsPropsDefine {
+export interface PropsDefine extends SwiperPropsDefine, TransparentlyNativePropsPropsDefine {
     style?: ReactNaitve.ViewStyle;
-    onClick?: () => void;
-    gaeaEvent?: FitGaea.GaeaEvent;
-    gaeaEventData?: Array<FitGaea.EventData>;
-    gaeaPreview?: boolean;
 }
 export declare class PropsGaea {
     gaeaName: string;
@@ -17,28 +14,18 @@ export declare class PropsGaea {
         label: string;
         editor: string;
         editable: boolean;
+    } | {
+        label: string;
+        field: string;
+        editor: string;
+        type: string;
     })[];
-    gaeaEvent: {
-        types: {
-            name: string;
-            type: string;
-            selfCallback: boolean;
-        }[];
-        events: ({
-            name: string;
-            event: string;
-        } | {
-            name: string;
-            event: string;
-            call: {
-                functionName: string;
-            };
-        })[];
-    };
 }
 export declare class Props extends PropsGaea implements PropsDefine {
     style: any;
-    onClick: () => void;
+    maxDistance: number;
+    threshold: number;
+    thresholdSpeed: number;
 }
 export interface StateDefine {
 }

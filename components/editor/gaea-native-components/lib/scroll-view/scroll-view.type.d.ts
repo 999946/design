@@ -1,11 +1,7 @@
-import { TransparentlyNativePropsPropsDefine } from  'nt-transparently-native-props';
-import * as ReactNaitve from 'react-native';
-export interface PropsDefine extends TransparentlyNativePropsPropsDefine {
-    style?: ReactNaitve.ViewStyle;
-    onClick?: () => void;
+import { ScrollViewProperties } from 'react-native';
+export interface PropsDefine extends ScrollViewProperties {
     gaeaEvent?: FitGaea.GaeaEvent;
     gaeaEventData?: Array<FitGaea.EventData>;
-    gaeaPreview?: boolean;
 }
 export declare class PropsGaea {
     gaeaName: string;
@@ -17,6 +13,15 @@ export declare class PropsGaea {
         label: string;
         editor: string;
         editable: boolean;
+    } | {
+        field: string;
+        label: string;
+        editor: string;
+    } | {
+        field: string;
+        label: string;
+        editor: string;
+        type: string;
     })[];
     gaeaEvent: {
         types: {
@@ -24,21 +29,14 @@ export declare class PropsGaea {
             type: string;
             selfCallback: boolean;
         }[];
-        events: ({
-            name: string;
-            event: string;
-        } | {
-            name: string;
-            event: string;
-            call: {
-                functionName: string;
-            };
-        })[];
+        events: any;
     };
 }
 export declare class Props extends PropsGaea implements PropsDefine {
     style: any;
-    onClick: () => void;
+    horizontal: boolean;
+    scrollEventThrottle: number;
+    onScroll: () => void;
 }
 export interface StateDefine {
 }
