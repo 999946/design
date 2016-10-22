@@ -37,7 +37,7 @@ var ImageComponent = function (_React$Component) {
     (0, _createClass3.default)(ImageComponent, [{
         key: "render",
         value: function render() {
-            return React.createElement(react_native_1.Image, { style: this.props.style, source: this.props.source });
+            return React.createElement(react_native_1.Image, { style: this.props.style, source: { uri: this.props.source } });
         }
     }]);
     return ImageComponent;
