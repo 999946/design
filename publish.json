@@ -73,7 +73,7 @@
       },
       "packageJson": {
         "name": "gaea-native-components",
-        "version": "1.0.3",
+        "version": "1.0.4",
         "description": "盖亚-原生组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -123,6 +123,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.3"
+    "preVersion": "1.0.4"
   }
 ]
