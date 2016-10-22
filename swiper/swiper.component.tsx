@@ -117,7 +117,7 @@ export default class Swiper extends React.Component <typings.PropsDefine, typing
     render() {
         const Childs = React.Children.map(this.props.children, (child, index)=> {
             return (
-                <View style={{width:this.width,height:this.height,justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
+                <View style={{width:this.width,height:this.height,justifyContent:'center',alignItems:'center',flexDirection:'row',flex:1}}>
                     {child}
                 </View>
             )
@@ -132,7 +132,7 @@ export default class Swiper extends React.Component <typings.PropsDefine, typing
         return (
             <View style={[this.props.style, {overflow:'hidden'}]} {...this.panResponder.panHandlers}
                   onLayout={this.handleLayout.bind(this)}>
-                <Animated.View style={[animateConf, {width:this.width,height:this.height,flexDirection:'row'}]}>
+                <Animated.View style={[animateConf, {width:this.width,height:this.height,flexDirection:'row',flex:1}]}>
                     {Childs}
                 </Animated.View>
             </View>
