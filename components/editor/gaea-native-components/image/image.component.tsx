@@ -8,7 +8,8 @@ export default class ImageComponent extends React.Component <typings.PropsDefine
 
     render() {
         return (
-            <Image style={this.props.style} source={this.props.source}/>
+            <Image style={this.props.style}
+                   source={{uri:this.props.source}}/>
         )
     }
 }
