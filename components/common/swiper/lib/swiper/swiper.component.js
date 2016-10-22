@@ -30,6 +30,14 @@ var __assign = undefined && undefined.__assign || Object.assign || function (t) 
 var React = require("react");
 var typings = require("./swiper.type");
 var react_native_1 = require("react-native");
+var isMobile = function isMobile() {
+    if (react_native_1.Platform.OS === 'web') {
+        return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        );
+    } else {
+        return true;
+    }
+};
 
 var Swiper = function (_React$Component) {
     (0, _inherits3.default)(Swiper, _React$Component);
@@ -40,7 +48,6 @@ var Swiper = function (_React$Component) {
         var _this = (0, _possibleConstructorReturn3.default)(this, (Swiper.__proto__ || Object.getPrototypeOf(Swiper)).apply(this, arguments));
 
         _this.state = new typings.State();
-        _this.responderStart = false;
         _this.lastPositionX = null;
         _this.lastPositionY = null;
         _this.animatedPositionX = new react_native_1.Animated.Value(0);
@@ -73,19 +80,21 @@ var Swiper = function (_React$Component) {
                     return false;
                 },
                 onPanResponderGrant: function onPanResponderGrant(evt, gestureState) {
+                    if (!isMobile()) {
+                        return;
+                    }
                     _this2.lastPositionX = null;
                     _this2.lastPositionY = null;
                     _this2.horizontalWholeCounter = 0;
                 },
                 onPanResponderMove: function onPanResponderMove(evt, gestureState) {
+                    if (!isMobile()) {
+                        return;
+                    }
                     if (evt.nativeEvent.changedTouches.length <= 1) {
                         var diffX = gestureState.dx - _this2.lastPositionX;
                         if (_this2.lastPositionX === null) {
                             diffX = 0;
-                        }
-                        var diffY = gestureState.dy - _this2.lastPositionY;
-                        if (_this2.lastPositionY === null) {
-                            diffY = 0;
                         }
                         _this2.lastPositionX = gestureState.dx;
                         _this2.lastPositionY = gestureState.dy;
@@ -100,6 +109,9 @@ var Swiper = function (_React$Component) {
                     }
                 },
                 onPanResponderRelease: function onPanResponderRelease(evt, gestureState) {
+                    if (!isMobile()) {
+                        return;
+                    }
                     if (_this2.horizontalWholeCounter < -_this2.width * _this2.props.threshold / 100) {
                         if (_this2.nowIndex < React.Children.count(_this2.props.children) - 1) {
                             _this2.nowIndex += 1;
@@ -130,14 +142,14 @@ var Swiper = function (_React$Component) {
             var _this3 = this;
 
             var Childs = React.Children.map(this.props.children, function (child, index) {
-                return React.createElement(react_native_1.View, { style: { width: _this3.width, height: _this3.height, justifyContent: 'center', alignItems: 'center' } }, child);
+                return React.createElement(react_native_1.View, { style: { width: _this3.width, height: _this3.height, justifyContent: 'center', alignItems: 'center', flexDirection: 'row', flex: 1 } }, child);
             });
             var animateConf = {
                 transform: [{
                     translateX: this.animatedPositionX
                 }]
             };
-            return React.createElement(react_native_1.View, __assign({ style: [this.props.style, { overflow: 'hidden' }] }, this.panResponder.panHandlers, { onLayout: this.handleLayout.bind(this) }), React.createElement(react_native_1.Animated.View, { style: [animateConf, { width: this.width, height: this.height, flexDirection: 'row' }] }, Childs));
+            return React.createElement(react_native_1.View, __assign({ style: [this.props.style, { overflow: 'hidden' }] }, this.panResponder.panHandlers, { onLayout: this.handleLayout.bind(this) }), React.createElement(react_native_1.Animated.View, { style: [animateConf, { width: this.width, height: this.height, flexDirection: 'row', flex: 1 }] }, Childs));
         }
     }]);
     return Swiper;
