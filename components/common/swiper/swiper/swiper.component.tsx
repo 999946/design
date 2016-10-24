@@ -34,28 +34,22 @@ export default class Swiper extends React.Component <typings.PropsDefine, typing
     private nowIndex = 0
 
     componentWillMount() {
+        const setResponder = isMobile()
+
         this.panResponder = PanResponder.create({
             // 要求成为响应者：
-            onStartShouldSetPanResponder: (evt, gestureState) => true,
-            onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
-            onMoveShouldSetPanResponder: (evt, gestureState) => true,
-            onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
+            onStartShouldSetPanResponder: (evt, gestureState) => setResponder,
+            onStartShouldSetPanResponderCapture: (evt, gestureState) => setResponder,
+            onMoveShouldSetPanResponder: (evt, gestureState) => setResponder,
+            onMoveShouldSetPanResponderCapture: (evt, gestureState) => setResponder,
             onPanResponderTerminationRequest: (evt, gestureState) => false,
 
             onPanResponderGrant: (evt, gestureState) => {
-                if (!isMobile()) {
-                    return
-                }
-
                 this.lastPositionX = null
                 this.lastPositionY = null
                 this.horizontalWholeCounter = 0
             },
             onPanResponderMove: (evt, gestureState) => {
-                if (!isMobile()) {
-                    return
-                }
-
                 if (evt.nativeEvent.changedTouches.length <= 1) { // 一根手指触摸时
                     // x 位移
                     let diffX = gestureState.dx - this.lastPositionX
@@ -81,10 +75,6 @@ export default class Swiper extends React.Component <typings.PropsDefine, typing
                 }
             },
             onPanResponderRelease: (evt, gestureState) => {
-                if (!isMobile()) {
-                    return
-                }
-
                 if (this.horizontalWholeCounter < -this.width * this.props.threshold / 100) {
                     // 下一张
                     if (this.nowIndex < React.Children.count(this.props.children) - 1) {
@@ -117,7 +107,7 @@ export default class Swiper extends React.Component <typings.PropsDefine, typing
     render() {
         const Childs = React.Children.map(this.props.children, (child, index)=> {
             return (
-                <View style={{width:this.width,height:this.height,justifyContent:'center',alignItems:'center',flexDirection:'row',flex:1}}>
+                <View style={{width:this.width,height:this.height,justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
                     {child}
                 </View>
             )
@@ -132,7 +122,7 @@ export default class Swiper extends React.Component <typings.PropsDefine, typing
         return (
             <View style={[this.props.style, {overflow:'hidden'}]} {...this.panResponder.panHandlers}
                   onLayout={this.handleLayout.bind(this)}>
-                <Animated.View style={[animateConf, {width:this.width,height:this.height,flexDirection:'row',flex:1}]}>
+                <Animated.View style={[animateConf, {height:this.height,flexDirection:'row',flex:1}]}>
                     {Childs}
                 </Animated.View>
             </View>

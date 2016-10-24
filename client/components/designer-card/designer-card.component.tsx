@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as typings from './designer-card.type'
 import {observer, inject} from 'mobx-react'
 import {browserHistory} from '../../../utils/provider'
+import * as LZString from 'lz-string'
 
 import Modal from '../../../components/web-common/modal/index'
 import Tooltip from '../../../components/web-common/tooltip/index'
@@ -47,6 +48,14 @@ export default class DesignerCard extends React.Component <typings.PropsDefine, 
         })
     }
 
+    @autoBindMethod handleJumpPublish(){
+        const appType = this.props.info.app_type==='1'?'web':'native'
+        const settings = JSON.parse(LZString.decompressFromBase64(this.props.info.settings)) as {
+            [mapUniqueKey: string]: any
+        }
+        browserHistory.push(`/${appType}/${this.props.info.app_id}?fitInWeb=${settings['fitInWeb']}`)
+    }
+
     render() {
         // 是不是自己的应用
         const isMine = this.props.user.currentUser.user_id === Number(this.props.info.user_id)
@@ -74,7 +83,7 @@ export default class DesignerCard extends React.Component <typings.PropsDefine, 
 
                         {this.props.info.active_ver &&
                         <Tooltip title="打开网页版">
-                            <i onClick={this.handleJump.bind(this ,`/${this.props.info.app_type==='1'?'web':'native'}/${this.props.info.app_id}`)}
+                            <i onClick={this.handleJumpPublish}
                                className="fa fa-internet-explorer operate-button"/>
                         </Tooltip>
                         }

@@ -42,7 +42,7 @@ export const customNpmPackage = [{
 }]
 
 // 反向代理接口 main
-export const apiHost = 'http://10.40.41.14:8271'
+export const apiHost = 'http://ss2.tieba.otp.baidu.com'
 
 // 后端接口 url 前缀
 export const apiPrefix = '/designer'

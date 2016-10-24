@@ -49,10 +49,14 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
 
     async componentWillMount() {
         this.scale = new Scale()
-        this.scale.scale()
         document.getElementById('react-dom').style.height = '100%'
         document.getElementById('react-dom').style.backgroundColor = 'white'
         document.getElementById('react-dom').style.display = 'flex'
+
+        // 如果需要适配移动端
+        if (this.props.location.query['fitInWeb'] === 'mobile') {
+            this.scale.scale()
+        }
 
         await this.getGaeaNativeComponents()
         await this.getGaeaWefanComponents()
@@ -70,7 +74,10 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
     }
 
     componentWillUnmount() {
-        this.scale.unScale()
+        if (this.props.location.query['fitInWeb'] === 'mobile') {
+            this.scale.unScale()
+        }
+
         document.getElementById('react-dom').style.height = null
         document.getElementById('react-dom').style.backgroundColor = null
         document.getElementById('react-dom').style.display = null

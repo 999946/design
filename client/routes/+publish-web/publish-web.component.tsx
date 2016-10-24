@@ -39,9 +39,12 @@ export default class PublishWeb extends React.Component <typings.PropsDefine, ty
 
     async componentWillMount() {
         this.scale = new Scale()
-        this.scale.scale()
-        document.getElementById('react-dom').style.height = '100%'
         document.getElementById('react-dom').style.backgroundColor = 'white'
+
+        // 如果需要适配移动端
+        if (this.props.location.query['fitInWeb'] === 'mobile') {
+            this.scale.scale()
+        }
 
         await this.getGaeaWebComponents()
         await this.getGaeaPreview()
@@ -58,8 +61,9 @@ export default class PublishWeb extends React.Component <typings.PropsDefine, ty
     }
 
     componentWillUnmount() {
-        this.scale.unScale()
-        document.getElementById('react-dom').style.height = null
+        if (this.props.location.query['fitInWeb'] === 'mobile') {
+            this.scale.unScale()
+        }
         document.getElementById('react-dom').style.backgroundColor = null
     }
 
