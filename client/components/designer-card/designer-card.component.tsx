@@ -7,6 +7,7 @@ import * as LZString from 'lz-string'
 import Modal from '../../../components/web-common/modal/index'
 import Tooltip from '../../../components/web-common/tooltip/index'
 import {autoBindMethod} from '../../../components/common/auto-bind/index'
+import * as QRCode from 'qrcode.react'
 
 import './designer-card.scss'
 
@@ -19,7 +20,7 @@ export default class DesignerCard extends React.Component <typings.PropsDefine, 
         browserHistory.push(path)
     }
 
-    @autoBindMethod handleJumpEditor(appId: string, type: string) {
+    @autoBindMethod handleJumpEditor(appId: string, type: string, width: number) {
         if (this.props.isExplore) {
             browserHistory.push(`/design/${appId}?type=${type === '1' ? 'web' : 'native'}&isExplore=1`)
         } else {
@@ -48,12 +49,32 @@ export default class DesignerCard extends React.Component <typings.PropsDefine, 
         })
     }
 
-    @autoBindMethod handleJumpPublish(){
-        const appType = this.props.info.app_type==='1'?'web':'native'
+    /**
+     * 获取跳转网页的 url
+     */
+    getWebUrl() {
+        const appType = this.props.info.app_type === '1' ? 'web' : 'native'
         const settings = JSON.parse(LZString.decompressFromBase64(this.props.info.settings)) as {
             [mapUniqueKey: string]: any
         }
-        browserHistory.push(`/${appType}/${this.props.info.app_id}?fitInWeb=${settings['fitInWeb']}`)
+        return `/${appType}/${this.props.info.app_id}?fitInWeb=${settings['fitInWeb'] || 'mobile'}&width=${settings['viewportWidth'] || 400}`
+    }
+
+    @autoBindMethod handleJumpPublish() {
+        browserHistory.push(this.getWebUrl())
+    }
+
+    @autoBindMethod handleRenderTitle() {
+        return (
+            <div>
+                <div>
+                    <QRCode value={`http://next.baidu.com${this.getWebUrl()}`}/>
+                </div>
+                <div>
+                    打开网页版
+                </div>
+            </div>
+        )
     }
 
     render() {
@@ -82,7 +103,7 @@ export default class DesignerCard extends React.Component <typings.PropsDefine, 
                         }
 
                         {this.props.info.active_ver &&
-                        <Tooltip title="打开网页版">
+                        <Tooltip titleRender={this.handleRenderTitle}>
                             <i onClick={this.handleJumpPublish}
                                className="fa fa-internet-explorer operate-button"/>
                         </Tooltip>

@@ -8,5 +8,6 @@ export default [
     'lodash',
     'superagent',
     'inversify',
-    'inversify-inject-decorators'
+    'inversify-inject-decorators',
+    'qrcode.react'
 ]

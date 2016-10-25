@@ -38,7 +38,7 @@ export default class PublishWeb extends React.Component <typings.PropsDefine, ty
     }
 
     async componentWillMount() {
-        this.scale = new Scale()
+        this.scale = new Scale(Number(this.props.location.query['width']))
         document.getElementById('react-dom').style.backgroundColor = 'white'
 
         // 如果需要适配移动端

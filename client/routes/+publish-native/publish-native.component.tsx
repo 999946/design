@@ -48,7 +48,7 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
     }
 
     async componentWillMount() {
-        this.scale = new Scale()
+        this.scale = new Scale(Number(this.props.location.query['width']))
         document.getElementById('react-dom').style.height = '100%'
         document.getElementById('react-dom').style.backgroundColor = 'white'
         document.getElementById('react-dom').style.display = 'flex'

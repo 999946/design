@@ -95,6 +95,7 @@
     "mobx-react": "^3.5.5",
     "moment": "^2.15.0",
     "pixi.js": "^4.0.2",
+    "qrcode.react": "^0.6.1",
     "rc-animate": "^2.3.1",
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.3.2",

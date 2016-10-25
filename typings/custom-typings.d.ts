@@ -76,3 +76,8 @@ declare module 'lz-string' {
     const api: any
     export = api
 }
+
+declare module 'qrcode.react' {
+    const api: any
+    export = api
+}
