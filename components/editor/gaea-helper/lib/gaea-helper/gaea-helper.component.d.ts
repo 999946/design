@@ -166,3 +166,17 @@ export declare const borderEditor: {
     editor: string;
     editable: boolean;
 };
+export declare const position: {
+    position: string;
+    left: number;
+    top: number;
+    right: number;
+    bottom: number;
+    zIndex: number;
+};
+export declare const positionEditor: {
+    field: any;
+    label: string;
+    editor: string;
+    editable: boolean;
+};

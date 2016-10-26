@@ -168,3 +168,17 @@ exports.borderEditor = {
     editor: 'border',
     editable: true
 };
+exports.position = {
+    position: 'relative',
+    left: 0,
+    top: 0,
+    right: null,
+    bottom: null,
+    zIndex: null
+};
+exports.positionEditor = {
+    field: null,
+    label: '',
+    editor: 'position',
+    editable: true
+};

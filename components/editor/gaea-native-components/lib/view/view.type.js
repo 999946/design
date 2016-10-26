@@ -27,7 +27,7 @@ var PropsGaea = function PropsGaea() {
     this.gaeaIcon = 'square-o';
     this.gaeaUniqueKey = 'gaea-layout';
     this.canDragIn = true;
-    this.gaeaEdit = ['布局', index_1.gaeaHelper.layoutEditor, index_1.gaeaHelper.marginPaddingEditor, index_1.gaeaHelper.widthHeightEditor, index_1.gaeaHelper.overflowEditor, '背景', index_1.gaeaHelper.backgroundEditor, '边框', index_1.gaeaHelper.borderEditor, '特效', index_1.gaeaHelper.opacityEditor];
+    this.gaeaEdit = ['布局', index_1.gaeaHelper.layoutEditor, index_1.gaeaHelper.marginPaddingEditor, index_1.gaeaHelper.widthHeightEditor, index_1.gaeaHelper.overflowEditor, '定位', index_1.gaeaHelper.positionEditor, '背景', index_1.gaeaHelper.backgroundEditor, '边框', index_1.gaeaHelper.borderEditor, '特效', index_1.gaeaHelper.opacityEditor];
     this.gaeaEvent = {
         types: [{
             name: '点击',
@@ -57,7 +57,7 @@ var Props = function (_PropsGaea) {
 
         var _this = (0, _possibleConstructorReturn3.default)(this, (Props.__proto__ || Object.getPrototypeOf(Props)).apply(this, arguments));
 
-        _this.style = (0, _extends3.default)({}, index_1.gaeaHelper.layoutNative, index_1.gaeaHelper.marginPadding, index_1.gaeaHelper.opacity, index_1.gaeaHelper.widthHeight, index_1.gaeaHelper.overflowNative, index_1.gaeaHelper.backgroundNative, index_1.gaeaHelper.borderNative, {
+        _this.style = (0, _extends3.default)({}, index_1.gaeaHelper.layoutNative, index_1.gaeaHelper.marginPadding, index_1.gaeaHelper.opacity, index_1.gaeaHelper.widthHeight, index_1.gaeaHelper.overflowNative, index_1.gaeaHelper.backgroundNative, index_1.gaeaHelper.borderNative, index_1.gaeaHelper.position, {
             backgroundColor: 'transparent'
         });
         _this.onClick = function () {};
