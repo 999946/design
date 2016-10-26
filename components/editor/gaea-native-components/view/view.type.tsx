@@ -26,6 +26,8 @@ export class PropsGaea {
         gaeaHelper.marginPaddingEditor,
         gaeaHelper.widthHeightEditor,
         gaeaHelper.overflowEditor,
+        '定位',
+        gaeaHelper.positionEditor,
         '背景',
         gaeaHelper.backgroundEditor,
         '边框',
@@ -62,6 +64,7 @@ export class Props extends PropsGaea implements PropsDefine {
         gaeaHelper.overflowNative,
         gaeaHelper.backgroundNative,
         gaeaHelper.borderNative,
+        gaeaHelper.position,
         {
             backgroundColor: 'transparent'
         }

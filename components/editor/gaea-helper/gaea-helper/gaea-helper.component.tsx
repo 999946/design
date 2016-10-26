@@ -216,3 +216,22 @@ export const borderEditor = {
     editor: 'border',
     editable: true
 }
+
+/**
+ * 定位
+ */
+export const position = {
+    position: 'relative',
+    left: 0,
+    top: 0,
+    right: null as number,
+    bottom: null as number,
+    zIndex: null as number
+}
+
+export const positionEditor = {
+    field: null as any,
+    label: '',
+    editor: 'position',
+    editable: true
+}
