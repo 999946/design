@@ -13,6 +13,12 @@ export declare class PropsGaea {
         label: string;
         editor: string;
         editable: boolean;
+    } | {
+        field: string;
+        label: string;
+        editor: string;
+        editable: boolean;
+        canVariable: boolean;
     })[];
 }
 export declare class Props extends PropsGaea implements PropsDefine {
