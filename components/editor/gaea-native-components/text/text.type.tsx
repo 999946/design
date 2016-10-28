@@ -17,7 +17,8 @@ export class PropsGaea {
             field: 'text',
             label: '内容',
             editor: 'text',
-            editable: true
+            editable: true,
+            canVariable: true
         },
         '排版',
         gaeaHelper.fontEditor,

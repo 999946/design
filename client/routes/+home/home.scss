@@ -3,9 +3,33 @@ a {
 }
 
 .hero {
-    height: 350px;
-    background-image: linear-gradient(225deg, #5a3e73, #923267 86%, #924172 0);
+    height: 350px !important;
     padding-top: 80px;
+    &.hero-components {
+        background-image: linear-gradient(225deg, #5a3e73, #923267 86%, #924172 0);
+    }
+    &.hero-updater {
+        background-image: linear-gradient(225deg, #732b2b, #ad664a 86%, #a76262 0);
+    }
+    &.hero-designer {
+        background-image: linear-gradient(225deg, #431f7b, #9d5cbf 86%, #9d69b7 0);
+    }
+    .hero-jump {
+        margin-top: 45px;
+        width: 150px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ccc;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: box-shadow .3s;
+        &:hover {
+            box-shadow: 0 0 5px white inset;
+        }
+    }
     .super-content {
         display: flex;
         flex-direction: column;
@@ -48,7 +72,7 @@ a {
 }
 
 .body-container {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     padding: 50px;

@@ -57,7 +57,7 @@ export default class DesignerCard extends React.Component <typings.PropsDefine, 
         const settings = JSON.parse(LZString.decompressFromBase64(this.props.info.settings)) as {
             [mapUniqueKey: string]: any
         }
-        return `/${appType}/${this.props.info.app_id}?fitInWeb=${settings['fitInWeb'] || 'mobile'}&width=${settings['viewportWidth'] || 400}`
+        return `/${appType}/${this.props.info.app_id}?_fitInWeb=${settings['fitInWeb'] || 'mobile'}&_width=${settings['viewportWidth'] || 400}`
     }
 
     @autoBindMethod handleJumpPublish() {

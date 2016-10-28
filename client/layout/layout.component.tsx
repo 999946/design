@@ -97,6 +97,9 @@ export default class Layout extends React.Component<typings.PropsDefine, typings
                                 <Link to="/components"
                                       activeClassName="active"
                                       className="item">组件库</Link>
+                                <a href="http://updater.next.baidu.com"
+                                   target="_blank"
+                                   className="item">热更新</a>
                                 <Link to="/icons"
                                       activeClassName="active"
                                       className="item">图标库</Link>

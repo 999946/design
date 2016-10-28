@@ -81,3 +81,8 @@ declare module 'qrcode.react' {
     const api: any
     export = api
 }
+
+declare module 'react-slick' {
+    const api: any
+    export = api
+}

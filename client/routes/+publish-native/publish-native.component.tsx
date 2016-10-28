@@ -48,13 +48,13 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
     }
 
     async componentWillMount() {
-        this.scale = new Scale(Number(this.props.location.query['width']))
+        this.scale = new Scale(Number(this.props.location.query['_width']))
         document.getElementById('react-dom').style.height = '100%'
         document.getElementById('react-dom').style.backgroundColor = 'white'
         document.getElementById('react-dom').style.display = 'flex'
 
         // 如果需要适配移动端
-        if (this.props.location.query['fitInWeb'] === 'mobile') {
+        if (this.props.location.query['_fitInWeb'] === 'mobile') {
             this.scale.scale()
         }
 
@@ -74,7 +74,7 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
     }
 
     componentWillUnmount() {
-        if (this.props.location.query['fitInWeb'] === 'mobile') {
+        if (this.props.location.query['_fitInWeb'] === 'mobile') {
             this.scale.unScale()
         }
 
@@ -92,7 +92,8 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
             baseComponents: this.GaeaNativeComponents,
             customComponents: this.CustomComponents,
             value: this.state.value,
-            onCall: handleBrowserCall
+            onCall: handleBrowserCall,
+            params: this.props.location.query
         })
     }
 }

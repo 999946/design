@@ -43,6 +43,10 @@ declare namespace FitGaea {
          * 存储native事件设置
          */
         gaeaNativeEventData?: Array<EventData>
+        /**
+         * 存储变量信息
+         */
+        gaeaVariables?: Array<VariableData>
 
         [x: string]: any
     }
@@ -147,6 +151,10 @@ declare namespace FitGaea {
         instance?: Array<{
             [key: string]: ComponentPropsOptionValue
         }>
+        /**
+         * 是否可以为变量
+         */
+        canVariable?: boolean
     }
 
     /**
@@ -248,5 +256,30 @@ declare namespace FitGaea {
 
     export interface EventActionEvent {
         emit?: string
+    }
+
+    export interface GlobalParam {
+        /**
+         * 名称
+         */
+        name: string
+        /**
+         * 类型
+         * number string boolean
+         */
+            type: string
+    }
+
+    /**
+     * 标识哪些字段用什么变量
+     */
+    export interface VariableData {
+        field: string
+        // 变量类型 globalParam
+        variableType: string
+        // 值类型 string number boolean
+        valueType: string
+        // 变量的哪个字段
+        variableField: string
     }
 }

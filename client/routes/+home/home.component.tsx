@@ -1,9 +1,20 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import * as Slider from 'react-slick'
 import * as typings from './home.type'
 import {observer, inject} from 'mobx-react'
+import {Link} from 'react-router'
 
 import './home.scss'
+import './react-slick.scss'
+import './react-slick-theme.scss'
+
+const SliderSettings = {
+    dots: true,
+    speed: 500,
+    autoplay: true,
+    arrows: false,
+    autoplaySpeed: 5000
+}
 
 @inject('application', 'event') @observer
 export default class Home extends React.Component <typings.PropsDefine, typings.StateDefine> {
@@ -17,13 +28,42 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
     render() {
         return (
             <div className="_namespace">
-                <div className="hero">
-                    <div className="super-content">
-                        <div className="brand">Next</div>
-                        <div className="description">ReactNative + Web 组件可视化解决方案</div>
-
+                <Slider {...SliderSettings}>
+                    <div className="hero hero-components">
+                        <div className="super-content">
+                            <div className="brand">Next Components</div>
+                            <div className="description">跨三端通用组件库</div>
+                            <Link to="/components"
+                                  className="hero-jump">
+                                立即查看
+                            </Link>
+                        </div>
                     </div>
-                </div>
+
+                    <div className="hero hero-updater">
+                        <div className="super-content">
+                            <div className="brand">Next Updater</div>
+                            <div className="description">热更新平台</div>
+                            <a href="http://updater.next.baidu.com/"
+                               target="_blank"
+                               className="hero-jump">
+                                立即使用
+                            </a>
+                        </div>
+                    </div>
+
+                    <div className="hero hero-designer">
+                        <div className="super-content">
+                            <div className="brand">Next Design</div>
+                            <div className="description">跨三端在线编辑平台</div>
+                            <Link to="design-space"
+                                  className="hero-jump">
+                                立即创建
+                            </Link>
+                        </div>
+                    </div>
+                </Slider>
+
 
                 <div className="body-container">
                     组件库 + 图标库 + 网站在线制作 + 同步生成Native页面

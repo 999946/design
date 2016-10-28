@@ -5,6 +5,7 @@ import * as typings from './tabs.type'
 import * as classNames from 'classnames'
 
 import {TransmitTransparently} from '../../../common/transmit-transparently/index'
+import {autoBindMethod} from '../../../common/auto-bind/index'
 
 import './tabs.scss'
 
@@ -35,8 +36,10 @@ export default class Tabs extends React.Component <typings.PropsDefine, typings.
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
 
-    previousTitleIndex: number
-    dom: Element
+    private previousTitleIndex: number
+    private dom: Element
+
+    private activeIndex: number
 
     componentWillMount() {
         this.state = {
@@ -54,9 +57,26 @@ export default class Tabs extends React.Component <typings.PropsDefine, typings.
                 activeIndex = index
             }
         })
-        setTimeout(()=> {
-            this.setActive(this.state.activeKey, activeIndex)
-        })
+        this.setActive(this.state.activeKey, activeIndex)
+
+        this.activeIndex = activeIndex
+
+        window.addEventListener('resize', this.handleAnyDomChange)
+
+        if (MutationObserver) {
+            // Listen to changes on the elements in the page that affect layout
+            const mObserver = new MutationObserver(this.handleAnyDomChange)
+            mObserver.observe(ReactDOM.findDOMNode(this), {
+                attributes: true,
+                childList: true,
+                characterData: true,
+                subtree: true
+            })
+        }
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleAnyDomChange)
     }
 
     componentWillReceiveProps(nextProps: typings.PropsDefine) {
@@ -67,9 +87,11 @@ export default class Tabs extends React.Component <typings.PropsDefine, typings.
         }
     }
 
-    setActive(value: string|number, index: number) {
-        if (index === this.previousTitleIndex)return
+    @autoBindMethod handleAnyDomChange() {
+        this.setActive(this.state.activeKey, this.activeIndex)
+    }
 
+    setActive(value: string|number, index: number) {
         const $dom = $(this.dom)
 
         // tab标题容器

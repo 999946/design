@@ -8,7 +8,7 @@ export default class ViewComponent extends React.Component <typings.PropsDefine,
 
     render() {
         return (
-            <CustomView style={this.props.style}>{this.props.children}</CustomView>
+            <CustomView {...this.props}>{this.props.children}</CustomView>
         )
     }
 }
