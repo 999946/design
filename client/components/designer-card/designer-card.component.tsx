@@ -22,9 +22,9 @@ export default class DesignerCard extends React.Component <typings.PropsDefine, 
 
     @autoBindMethod handleJumpEditor(appId: string, type: string, width: number) {
         if (this.props.isExplore) {
-            browserHistory.push(`/design/${appId}?type=${type === '1' ? 'web' : 'native'}&isExplore=1`)
+            browserHistory.push(`/design/editor/${appId}?type=${type === '1' ? 'web' : 'native'}&isExplore=1`)
         } else {
-            browserHistory.push(`/design/${appId}?type=${type === '1' ? 'web' : 'native'}`)
+            browserHistory.push(`/design/editor/${appId}?type=${type === '1' ? 'web' : 'native'}`)
         }
     }
 

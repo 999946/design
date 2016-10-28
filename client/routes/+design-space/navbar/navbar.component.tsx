@@ -78,7 +78,7 @@ export default class Navbar extends React.Component <typings.PropsDefine, typing
 
         if (result !== null) {
             // 创建成功会返回非 null 信息
-            browserHistory.push(`/design/${result.app_id}?type=${this.state.createType}`)
+            browserHistory.push(`/design/editor/${result.app_id}?type=${this.state.createType}`)
         }
     }
 

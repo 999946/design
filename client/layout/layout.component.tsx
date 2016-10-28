@@ -94,21 +94,18 @@ export default class Layout extends React.Component<typings.PropsDefine, typings
                                 <Link to="/"
                                       activeClassName="active"
                                       className="brand item">Next</Link>
+                                <Link to="/design"
+                                      activeClassName="active"
+                                      className="item">在线设计平台</Link>
+                                <a href="http://updater.next.baidu.com"
+                                   target="_blank"
+                                   className="item">热更新平台</a>
                                 <Link to="/components"
                                       activeClassName="active"
                                       className="item">组件库</Link>
-                                <a href="http://updater.next.baidu.com"
-                                   target="_blank"
-                                   className="item">热更新</a>
                                 <Link to="/icons"
                                       activeClassName="active"
                                       className="item">图标库</Link>
-                                <Link to="/explore"
-                                      activeClassName="active"
-                                      className="item">应用浏览</Link>
-                                <Link to="/design-space"
-                                      activeClassName="active"
-                                      className="item">工作台</Link>
                             </div>
 
                             <div className="nav-bar-second-container">

@@ -54,7 +54,7 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
 
                     <div className="hero hero-designer">
                         <div className="super-content">
-                            <div className="brand">Next Design</div>
+                            <div className="brand">Next Designer</div>
                             <div className="description">跨三端在线编辑平台</div>
                             <Link to="design-space"
                                   className="hero-jump">
@@ -66,7 +66,9 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
 
 
                 <div className="body-container">
-                    组件库 + 图标库 + 网站在线制作 + 同步生成Native页面
+
+
+
                 </div>
 
                 <div className="footer">
@@ -75,7 +77,7 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
                         <a className="item"
                            href="https://github.com/nt-team/design"
                            target="_blank">
-                            总仓库
+                            设计平台
                         </a>
                         <a className="item"
                            href="https://github.com/next-component"
@@ -91,11 +93,7 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
 
                     <div className="footer-item-container">
                         <div className="title">相关站点</div>
-                        <a className="item"
-                           href="http://updater.next.baidu.com"
-                           target="_blank">
-                            热更新平台
-                        </a>
+
                     </div>
 
                     <div className="footer-item-container">
