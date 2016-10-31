@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as Slider from 'react-slick'
+import * as Swiper from 'react-slick'
 import * as typings from './home.type'
 import {observer, inject} from 'mobx-react'
 import {Link} from 'react-router'
@@ -28,7 +28,7 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
     render() {
         return (
             <div className="_namespace">
-                <Slider {...SliderSettings}>
+                <Swiper {...SliderSettings}>
                     <div className="hero hero-components">
                         <div className="super-content">
                             <div className="brand">Next Components</div>
@@ -62,7 +62,7 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
                             </Link>
                         </div>
                     </div>
-                </Slider>
+                </Swiper>
 
 
                 <div className="body-container">

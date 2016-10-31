@@ -1,11 +1,11 @@
 import {gaeaHelper} from '../../gaea-helper/index'
-import * as CustomView from '../view/view.type'
+import * as Layout from '../layout/layout.type'
 
-export interface PropsDefine extends CustomView.PropsDefine {
+export interface PropsDefine extends Layout.PropsDefine {
 
 }
 
-export class PropsGaea extends CustomView.PropsGaea {
+export class PropsGaea extends Layout.PropsGaea {
     gaeaName = '布局-绝对定位'
     gaeaIcon = 'square-o'
     gaeaUniqueKey = 'gaea-layout-absolute'
@@ -14,13 +14,13 @@ export class PropsGaea extends CustomView.PropsGaea {
 export class Props extends PropsGaea implements PropsDefine {
     style = Object.assign(
         {},
-        gaeaHelper.layoutNative,
+        gaeaHelper.layout,
         gaeaHelper.marginPadding,
         gaeaHelper.opacity,
         gaeaHelper.widthHeight,
-        gaeaHelper.overflowNative,
-        gaeaHelper.backgroundNative,
-        gaeaHelper.borderNative,
+        gaeaHelper.overflow,
+        gaeaHelper.background,
+        gaeaHelper.border,
         gaeaHelper.position,
         {
             backgroundColor: 'transparent',
@@ -30,6 +30,9 @@ export class Props extends PropsGaea implements PropsDefine {
             zIndex: 1
         }
     )
+
+    onClick = ()=> {
+    }
 }
 
 export interface StateDefine {
