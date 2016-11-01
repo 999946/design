@@ -242,6 +242,13 @@ declare namespace FitGaea {
         listen?: string
     }
 
+    export interface EventUpdatePropsEvent {
+        /**
+         * 修改后的 props
+         */
+        props: ComponentProps
+    }
+
     /**
      * 事件动作数据类型
      */

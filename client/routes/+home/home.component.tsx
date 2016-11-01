@@ -56,7 +56,7 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
                         <div className="super-content">
                             <div className="brand">Next Designer</div>
                             <div className="description">跨三端在线编辑平台</div>
-                            <Link to="design-space"
+                            <Link to="/design/space"
                                   className="hero-jump">
                                 立即创建
                             </Link>
