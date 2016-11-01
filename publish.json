@@ -74,7 +74,7 @@
       },
       "packageJson": {
         "name": "gaea-model",
-        "version": "1.0.5",
+        "version": "1.0.6",
         "description": "盖亚-定义文件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -93,7 +93,7 @@
       "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "1.0.5"
+    "preVersion": "1.0.6"
   },
   {
     "userPublishLevel": "patch",
@@ -169,7 +169,7 @@
       },
       "packageJson": {
         "name": "gaea-helper",
-        "version": "1.0.5",
+        "version": "1.0.6",
         "description": "盖亚-组件辅助",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -188,7 +188,7 @@
       "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "1.0.5"
+    "preVersion": "1.0.6"
   },
   {
     "userPublishLevel": "patch",
@@ -264,7 +264,7 @@
       },
       "packageJson": {
         "name": "gaea-preview",
-        "version": "1.0.5",
+        "version": "1.0.6",
         "description": "盖亚-查看器",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -281,7 +281,7 @@
           "lodash": "^4.15.0",
           "lz-string": "^1.4.4",
           "nt-auto-bind": "^2.0.5",
-          "gaea-model": "^1.0.5"
+          "gaea-model": "^1.0.6"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -313,7 +313,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.5"
+    "preVersion": "1.0.6"
   },
   {
     "userPublishLevel": "patch",
@@ -387,7 +387,7 @@
       },
       "packageJson": {
         "name": "gaea-web-components",
-        "version": "1.0.5",
+        "version": "1.0.6",
         "description": "盖亚-网页组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -403,11 +403,15 @@
         "dependencies": {
           "nt-web-button": "^1.0.5",
           "nt-transparently-props": "^0.0.5",
-          "gaea-helper": "^1.0.5",
-          "nt-web-input": "^1.0.6"
+          "gaea-helper": "^1.0.6",
+          "nt-transparently-native-props": "^0.0.1",
+          "nt-web-input": "^1.0.6",
+          "nt-web-modal": "^0.0.5",
+          "react-slick": "^0.14.5"
         },
         "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0"
+          "react": "^0.14.0 || ^15.0.0",
+          "react-native": "*"
         }
       },
       "dependence": [
@@ -456,7 +460,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.5"
+    "preVersion": "1.0.6"
   },
   {
     "userPublishLevel": "patch",
@@ -532,7 +536,7 @@
       },
       "packageJson": {
         "name": "gaea-native-components",
-        "version": "1.0.8",
+        "version": "1.0.9",
         "description": "盖亚-原生组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -547,7 +551,7 @@
         "license": "ISC",
         "dependencies": {
           "nt-transparently-native-props": "^0.0.1",
-          "gaea-helper": "^1.0.5",
+          "gaea-helper": "^1.0.6",
           "nt-swiper": "^1.0.1"
         },
         "peerDependencies": {
@@ -582,7 +586,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.8"
+    "preVersion": "1.0.9"
   },
   {
     "userPublishLevel": "patch",
@@ -656,7 +660,7 @@
       },
       "packageJson": {
         "name": "gaea-editor",
-        "version": "1.0.5",
+        "version": "1.0.6",
         "description": "盖亚",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -688,7 +692,7 @@
           "mobx": "^2.4.3",
           "lz-string": "^1.4.4",
           "lodash": "^4.15.0",
-          "gaea-preview": "^1.0.5",
+          "gaea-preview": "^1.0.6",
           "sortablejs": "git://github.com/RubaXa/Sortable.git#dev",
           "nt-web-number": "^1.0.2",
           "nt-web-checkbox": "^1.0.5",
@@ -696,7 +700,7 @@
           "nt-web-auto-complete": "^1.0.0",
           "nt-web-tree": "^1.0.5",
           "jquery": "^3.1.0",
-          "gaea-model": "^1.0.5"
+          "gaea-model": "^1.0.6"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -936,6 +940,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.5"
+    "preVersion": "1.0.6"
   }
 ]
