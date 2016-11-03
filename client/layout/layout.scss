@@ -2,10 +2,21 @@
     position: relative;
 }
 
+.logo {
+    height: 25px;
+    width: 100px;
+    fill: whitesmoke;
+}
+
 .nav-bar-container {
     display: flex;
     justify-content: space-between;
-    background: #67315e;
+    &.components {
+        background: #67315e;
+    }
+    &.designer {
+        background: #5a2d8c;
+    }
 }
 
 .nav-bar-second-container {
@@ -43,9 +54,14 @@
     position: absolute;
     left: 0;
     height: 3px;
-    background: linear-gradient(90deg, #9a2687, #832aa0);
     z-index: 10;
     transform: translate3D(0, 0, 0);
+    &.components {
+        background-color: #b137aa;
+    }
+    &.designer {
+        background-color: #8930ea;
+    }
 }
 
 .loading-start {
@@ -78,10 +94,8 @@
 @keyframes loading-from-start {
     0% {
         width: 100%;
-        background: linear-gradient(90deg, #9a2687, #832aa0);
     }
     100% {
         width: 100%;
-        background: linear-gradient(90deg, #9a2687, #832aa0);
     }
 }

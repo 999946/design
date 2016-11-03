@@ -86,3 +86,17 @@ declare module 'react-slick' {
     const api: any
     export = api
 }
+
+declare module 'react-html5video' {
+    const Controls: any
+    const Play: any
+    const Mute: any
+    const Seek: any
+    const Fullscreen: any
+    const Time: any
+    const Overlay: any
+
+    const defaultExport: any
+    export default defaultExport
+    export {Controls, Play, Mute, Seek, Fullscreen, Time, Overlay}
+}

@@ -17,9 +17,10 @@ export class Props implements PropsDefine {
 }
 
 export interface StateDefine {
-
+    show?: boolean
+    videoUrl?: string
 }
 
 export class State implements StateDefine {
-
+    show = false
 }

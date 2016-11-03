@@ -104,6 +104,7 @@
     "react-copy-to-clipboard": "^4.2.3",
     "react-dom": "^15.3.2",
     "react-dropzone-component": "^1.2.0",
+    "react-html5video": "^1.2.12",
     "react-native-web": "0.0.47",
     "react-router": "^2.7.0",
     "react-slick": "^0.14.5",

@@ -5,6 +5,11 @@ a {
 .hero {
     height: 350px !important;
     padding-top: 80px;
+    .hero-logo{
+        height: 35px;
+        width: 120px;
+        fill: rgba(255, 255, 255, 0.8);
+    }
     &.hero-components {
         background-image: linear-gradient(225deg, #5a3e73, #923267 86%, #924172 0);
     }

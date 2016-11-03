@@ -31,7 +31,12 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
                 <Swiper {...SliderSettings}>
                     <div className="hero hero-components">
                         <div className="super-content">
-                            <div className="brand">Next Components</div>
+                            <div className="brand">
+                                <svg className="hero-logo">
+                                    <use xlinkHref="#next-logo"/>
+                                </svg>
+                                Components
+                            </div>
                             <div className="description">跨三端通用组件库</div>
                             <Link to="/components"
                                   className="hero-jump">
@@ -42,7 +47,12 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
 
                     <div className="hero hero-updater">
                         <div className="super-content">
-                            <div className="brand">Next Updater</div>
+                            <div className="brand">
+                                <svg className="hero-logo">
+                                    <use xlinkHref="#next-logo"/>
+                                </svg>
+                                Updater
+                            </div>
                             <div className="description">热更新平台</div>
                             <a href="http://updater.next.baidu.com/"
                                target="_blank"
@@ -54,8 +64,13 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
 
                     <div className="hero hero-designer">
                         <div className="super-content">
-                            <div className="brand">Next Designer</div>
-                            <div className="description">跨三端在线编辑平台</div>
+                            <div className="brand">
+                                <svg className="hero-logo">
+                                    <use xlinkHref="#next-logo"/>
+                                </svg>
+                                Designer
+                            </div>
+                            <div className="description">跨三端在线设计平台</div>
                             <Link to="/design/space"
                                   className="hero-jump">
                                 立即创建
@@ -66,7 +81,6 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
 
 
                 <div className="body-container">
-
 
 
                 </div>

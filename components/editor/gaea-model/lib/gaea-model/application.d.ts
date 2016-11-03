@@ -265,7 +265,7 @@ declare namespace FitGaea {
         emit?: string
     }
 
-    export interface GlobalParam {
+    export interface ExternalParameter {
         /**
          * 名称
          */
