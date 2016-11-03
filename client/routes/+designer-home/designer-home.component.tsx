@@ -7,6 +7,7 @@ import {default as Video, Controls, Play, Mute, Seek, Fullscreen, Time, Overlay}
 import {Modal} from '../../../components/web-common/modal/index'
 
 import './designer-home.scss'
+import 'react-html5video/src/assets/video.css'
 
 const demoList: Array<DesignerHomeModel.DemoList> = [{
     title: '基本操作',
@@ -31,10 +32,20 @@ const demoList: Array<DesignerHomeModel.DemoList> = [{
         video: 'http://tb1.bdstatic.com/next-designer/change-size.mp4',
         image: 'http://tb1.bdstatic.com/next-designer/change-size.jpg'
     }, {
+        title: '画布背景',
+        description: '修改画布背景颜色',
+        video: 'http://tb1.bdstatic.com/next-designer/bg-color.mp4',
+        image: 'http://tb1.bdstatic.com/next-designer/bg-color.jpg'
+    }, {
         title: '删除',
         description: '快捷键 Delete',
         video: 'http://tb1.bdstatic.com/next-designer/delete.mp4',
         image: 'http://tb1.bdstatic.com/next-designer/delete.jpg'
+    }, {
+        title: '复制粘贴',
+        description: '快捷键 ctrl/cmd + c & v',
+        video: 'http://tb1.bdstatic.com/next-designer/copy.mp4',
+        image: 'http://tb1.bdstatic.com/next-designer/copy.jpg'
     }, {
         title: '绝对定位',
         description: '把元素固定在某个点',
@@ -63,6 +74,11 @@ const demoList: Array<DesignerHomeModel.DemoList> = [{
         description: '可以指使任何组件触发动作',
         video: 'http://tb1.bdstatic.com/next-designer/event-emit.mp4',
         image: 'http://tb1.bdstatic.com/next-designer/event-emit.jpg'
+    }, {
+        title: '外部传参',
+        description: '能够读取url参数，native参数',
+        video: 'http://tb1.bdstatic.com/next-designer/insert-variable.mp4',
+        image: 'http://tb1.bdstatic.com/next-designer/insert-variable.jpg'
     }]
 }]
 
@@ -103,6 +119,7 @@ export default class DesignerHome extends React.Component<typings.PropsDefine, t
                          onClick={this.handleShowModal.bind(this,demo.video)}>
                         <img className="helper-image"
                              src={demo.image}/>
+                        <div className="helper-description-shadow"></div>
                         <div className="helper-description-container">
                             <div className="title">{demo.title}</div>
                             <div className="description">{demo.description}</div>
@@ -159,7 +176,9 @@ export default class DesignerHome extends React.Component<typings.PropsDefine, t
                     </div>
 
                     <div className="right-container">
-
+                        <div className="dev-doc-title">
+                            开发文档
+                        </div>
                     </div>
                 </div>
 
@@ -170,7 +189,8 @@ export default class DesignerHome extends React.Component<typings.PropsDefine, t
                        onCancel={this.handleCancel.bind(this)}>
                     {this.state.show &&
                     <div className="container">
-                        <Video autoPlay>
+                        <Video controls
+                               autoPlay>
                             <source src={this.state.videoUrl}
                                     type="video/mp4"/>
                         </Video>
