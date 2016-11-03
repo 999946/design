@@ -1,10 +1,12 @@
 import * as React from 'react'
+import {TransparentlyPropsPropsDefine} from '../../../common/transparently-props/index'
+import {CSSProperties} from 'react'
 
 export type Position = 'left' | 'top' | 'right' | 'bottom'
 
 export type ShowType = 'hover' | 'click'
 
-export interface PropsDefine {
+export interface PropsDefine extends TransparentlyPropsPropsDefine {
     /**
      * 文字内容
      */
@@ -31,6 +33,11 @@ export interface PropsDefine {
      * 遮罩层纵向层级
      */
     shadowZIndex?: number
+
+    /**
+     * 遮罩层样式
+     */
+    shadowStyle?: CSSProperties
 
     /**
      * 出现方式

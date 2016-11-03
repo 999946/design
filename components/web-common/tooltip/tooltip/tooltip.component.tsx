@@ -24,6 +24,11 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
 
         // 在 body 生成 tooltip
         this.tooltipDom = document.createElement('div')
+
+        if (this.props.className) {
+            this.tooltipDom.className = this.props.className
+        }
+
         document.body.appendChild(this.tooltipDom)
 
         if (this.props.showShadow) {
@@ -181,7 +186,7 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
             <span {...tooltipProps}>{this.props.title === '' ? this.props.titleRender() : this.props.title}</span>
         )
 
-        const tooltipShadowStyle = {
+        const tooltipShadowStyle = Object.assign({
             width: '100%',
             height: '100%',
             position: 'absolute',
@@ -191,10 +196,11 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
             backgroundColor: 'black',
             display: this.state.show ? 'block' : 'none',
             zIndex: this.props.shadowZIndex
-        }
+        }, this.props.shadowStyle)
 
         const TooltipShadowElement = (
             <div onClick={this.handleClose}
+                 className="tooltip-shadow"
                  style={tooltipShadowStyle}/>
         )
 
