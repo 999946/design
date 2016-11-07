@@ -289,4 +289,14 @@ declare namespace FitGaea {
         // 变量的哪个字段
         variableField: string
     }
+
+    /**
+     * 插件信息
+     */
+    export interface Plugin extends __React.ComponentClass<any> {
+        // 插件安放位置
+        position: string
+        Action?: any
+        Store?: any
+    }
 }

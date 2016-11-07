@@ -3,6 +3,8 @@ import * as typings from './tab-panel.type'
 import * as classNames from 'classnames'
 import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 
+import './tab-panel.scss'
+
 @TransmitTransparently()
 export default class TabPanel extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()

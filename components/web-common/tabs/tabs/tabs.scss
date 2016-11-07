@@ -1,6 +1,13 @@
+& {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .title-container {
     display: flex;
     position: relative;
+    height: 30px;
     .title-item {
         cursor: pointer;
         padding: 5px 10px 10px 10px;
@@ -13,6 +20,8 @@
 
 .content-container {
     padding: 0 10px;
+    flex-grow: 1;
+    height: 0;
 }
 
 .move-bar {
