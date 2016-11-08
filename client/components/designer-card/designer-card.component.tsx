@@ -110,6 +110,7 @@ export default class DesignerCard extends React.Component <typings.PropsDefine, 
                         }
                     </div>
                 </div>
+
                 <div className="description">{this.props.info.app_intro}</div>
 
                 <div className="absolute-layout">

@@ -91,7 +91,7 @@ export default class Layout extends React.Component<typings.PropsDefine, typings
         let LeftBar: React.ReactElement<any> = (
             <div className="nav-bar-second-container">
                 <Link to="/"
-                      activeClassName="active"
+                      activeClassName="no-active"
                       className="brand item">
                     <svg className="logo">
                         <use xlinkHref="#next-logo"/>
@@ -117,7 +117,7 @@ export default class Layout extends React.Component<typings.PropsDefine, typings
             LeftBar = (
                 <div className="nav-bar-second-container">
                     <Link to="/"
-                          activeClassName="active"
+                          activeClassName="no-active"
                           className="brand item">
                         <svg className="logo">
                             <use xlinkHref="#next-logo"/>

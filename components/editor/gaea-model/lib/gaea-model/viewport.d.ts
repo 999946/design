@@ -56,4 +56,32 @@ declare namespace FitGaea {
             [mapUniqueKey: string]: ViewportComponentInfo
         }
     }
+
+    /**
+     * 当前拖拽元素信息
+     */
+    export interface CurrentDragComponentInfo {
+        // 类型
+        type: 'new' | 'combo' | 'viewport'
+        // 开始拖拽父级的 dom
+        dragStartParentElement: HTMLElement
+        // 开始拖拽在父级中的位置
+        dragStartIndex: number
+        newInfo?: {
+            // 唯一 key，用来实例化组件
+            uniqueKey: string
+        }
+        comboInfo?: {
+            // combo 信息
+            source: string
+        }
+        viewportInfo?: {
+            // 当前拖拽组件的 mapUniqueKey
+            mapUniqueKey: string
+            // 拖拽目标的 mapUniqueKey
+            targetMapUniqueKey?: string
+            // 拖拽目标的 index
+            targetIndex?: number
+        }
+    }
 }

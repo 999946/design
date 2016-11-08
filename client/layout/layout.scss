@@ -45,6 +45,12 @@
     }
 }
 
+.designer {
+    .item.active {
+        background-color: #653ab1;
+    }
+}
+
 .github-link {
     font-size: 25px;
     color: white;
@@ -60,7 +66,7 @@
         background-color: #b137aa;
     }
     &.designer {
-        background-color: #8930ea;
+        background-color: #573297;
     }
 }
 
