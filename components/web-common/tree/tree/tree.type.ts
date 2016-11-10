@@ -1,7 +1,8 @@
 import * as React from 'react'
 import {TransparentlyPropsPropsDefine} from '../../../common/transparently-props/index'
+import {DOMAttributes} from 'react'
 
-export interface PropsDefine extends TransparentlyPropsPropsDefine {
+export interface PropsDefine extends TransparentlyPropsPropsDefine, DOMAttributes {
     /**
      * 默认是否展开全部
      */

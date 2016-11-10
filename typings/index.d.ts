@@ -30,6 +30,7 @@
 /// <reference path="globals/node/index.d.ts" />
 /// <reference path="globals/orchestrator/index.d.ts" />
 /// <reference path="globals/pixi.js/index.d.ts" />
+/// <reference path="globals/pure-render-decorator/index.d.ts" />
 /// <reference path="globals/q/index.d.ts" />
 /// <reference path="globals/react-dom/index.d.ts" />
 /// <reference path="globals/react-native/index.d.ts" />
