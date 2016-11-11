@@ -14,71 +14,71 @@ const demoList: Array<DesignerHomeModel.DemoList> = [{
     lists: [{
         title: '拖拽',
         description: '任意嵌套、排序',
-        video: 'http://tb1.bdstatic.com/next-designer/drag.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/drag.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/drag.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/drag.jpg'
     }, {
         title: '实例树',
         description: '辅助视图区操作',
-        video: 'http://tb1.bdstatic.com/next-designer/tree.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/tree.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/tree.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/tree.jpg'
     }, {
         title: '编辑',
         description: '效果实时预览',
-        video: 'http://tb1.bdstatic.com/next-designer/edit.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/edit.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/edit.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/edit.jpg'
     }, {
         title: '视图尺寸',
         description: '修改尺寸适应 PC、Mobile',
-        video: 'http://tb1.bdstatic.com/next-designer/change-size.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/change-size.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/change-size.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/change-size.jpg'
     }, {
         title: '画布背景',
         description: '修改画布背景颜色',
-        video: 'http://tb1.bdstatic.com/next-designer/bg-color.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/bg-color.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/bg-color.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/bg-color.jpg'
     }, {
         title: '删除',
         description: '快捷键 Delete',
-        video: 'http://tb1.bdstatic.com/next-designer/delete.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/delete.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/delete.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/delete.jpg'
     }, {
         title: '复制粘贴',
         description: '快捷键 ctrl/cmd + c & v',
-        video: 'http://tb1.bdstatic.com/next-designer/copy.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/copy.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/copy.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/copy.jpg'
     }, {
         title: '绝对定位',
         description: '把元素固定在某个点',
-        video: 'http://tb1.bdstatic.com/next-designer/absolute.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/absolute.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/absolute.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/absolute.jpg'
     }]
 }, {
     title: '进阶学习',
     lists: [{
         title: '组合',
         description: '任意多个元素可以成组',
-        video: 'http://tb1.bdstatic.com/next-designer/group.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/group.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/group.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/group.jpg'
     }, {
         title: '事件系统',
         description: '基本事件',
-        video: 'http://tb1.bdstatic.com/next-designer/event-basic.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/event-basic.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/event-basic.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/event-basic.jpg'
     }, {
         title: '修改属性',
         description: '修改自己的属性',
-        video: 'http://tb1.bdstatic.com/next-designer/change-props.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/change-props.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/change-props.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/change-props.jpg'
     }, {
         title: '事件联动',
         description: '可以指使任何组件触发动作',
-        video: 'http://tb1.bdstatic.com/next-designer/event-emit.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/event-emit.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/event-emit.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/event-emit.jpg'
     }, {
         title: '外部传参',
         description: '能够读取url参数，native参数',
-        video: 'http://tb1.bdstatic.com/next-designer/insert-variable.mp4',
-        image: 'http://tb1.bdstatic.com/next-designer/insert-variable.jpg'
+        video: 'https://tb1.bdstatic.com/next-designer/insert-variable.mp4',
+        image: 'https://tb1.bdstatic.com/next-designer/insert-variable.jpg'
     }]
 }]
 

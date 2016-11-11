@@ -116,6 +116,9 @@ export default (
 
         <Route path="design"
                getComponent={getDesignHome}/>
+        <Route path="design%C2%A0"
+               getComponent={getDesignHome}/>
+
         <Route path="design/space"
                getComponent={getDesignSpace}/>
         <Route path="design/explore"
