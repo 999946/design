@@ -153,6 +153,24 @@ export default class DesignerHome extends React.Component<typings.PropsDefine, t
                             Designer
                         </div>
                         <div className="description">跨三端在线设计平台</div>
+                        <div className="description-demo">
+                            优秀案例
+                            <a className="demo-link"
+                               href="http://next.baidu.com/web/8a6e673e0c0687ec28d25cfa?_fitInWeb=pc&_width=375"
+                               target="_blank">贴吧首页</a>
+                            <a className="demo-link"
+                               href="http://next.baidu.com/native/5f3c21f373106218986e40fa?_fitInWeb=mobile&_width=375"
+                               target="_blank">吧友热议</a>
+                        </div>
+                        <div className="description-demo">
+                            案例编辑
+                            <a className="demo-link"
+                               href="http://next.baidu.com/design/editor/8a6e673e0c0687ec28d25cfa?type=web&isExplore=1"
+                               target="_blank">贴吧首页</a>
+                            <a className="demo-link"
+                               href="http://next.baidu.com/design/editor/5f3c21f373106218986e40fa?type=native&isExplore=1"
+                               target="_blank">吧友热议</a>
+                        </div>
                         <div className="button-group">
                             <Link to="/design/explore"
                                   className="hero-jump">

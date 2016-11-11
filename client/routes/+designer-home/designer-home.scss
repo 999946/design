@@ -29,8 +29,8 @@
 }
 
 .hero {
-    height: 300px !important;
-    padding-top: 80px;
+    height: 330px !important;
+    padding-top: 50px;
     &.hero-designer {
         background-image: linear-gradient(225deg, #431f7b, #9d5cbf 86%, #9d69b7 0);
     }
@@ -70,6 +70,19 @@
             font-weight: bold;
             color: rgba(255, 255, 255, 0.8);
             font-size: 25px;
+        }
+        .description-demo {
+            margin-top: 10px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+        }
+        .demo-link {
+            padding: 0 5px;
+            color: #5baeff;
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
     .button-group {
