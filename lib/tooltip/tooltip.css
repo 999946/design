@@ -1,10 +1,11 @@
 .nt-web-tooltip-tooltip {
   visibility: hidden;
-  background-color: black;
-  color: #fff;
+  background: #394b59;
+  color: #f5f8fa;
+  border-radius: 3px;
   text-align: center;
-  padding: 5px 10px;
-  border-radius: 6px;
+  padding: 7px 12px;
+  box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 2px 4px rgba(16, 22, 26, 0.2), 0 8px 24px rgba(16, 22, 26, 0.2);
   position: absolute;
   z-index: 1;
   opacity: 0;
@@ -19,7 +20,7 @@
     margin-top: -5px;
     margin-right: -10px;
     border: 5px solid transparent;
-    border-left-color: black; }
+    border-left-color: #394b59; }
   .nt-web-tooltip-tooltip.top::after {
     content: " ";
     position: absolute;
@@ -27,7 +28,7 @@
     left: 50%;
     margin-left: -5px;
     border: 5px solid transparent;
-    border-top-color: black; }
+    border-top-color: #394b59; }
   .nt-web-tooltip-tooltip.right::after {
     content: " ";
     position: absolute;
@@ -36,7 +37,7 @@
     margin-top: -5px;
     margin-left: -10px;
     border: 5px solid transparent;
-    border-right-color: black; }
+    border-right-color: #394b59; }
   .nt-web-tooltip-tooltip.bottom::after {
     content: " ";
     position: absolute;
@@ -45,7 +46,7 @@
     margin-left: -5px;
     margin-top: -10px;
     border: 5px solid transparent;
-    border-bottom-color: black; }
+    border-bottom-color: #394b59; }
   .nt-web-tooltip-tooltip.active {
     opacity: 1;
     visibility: visible; }
