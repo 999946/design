@@ -176,6 +176,7 @@ export default class ToolTip extends React.Component <typings.PropsDefine, typin
         const tooltipProps = {
             className: classNames({
                 '_namespace': true,
+                'simple': this.props.simple,
                 'active': this.state.show,
                 [position]: true
             }),
