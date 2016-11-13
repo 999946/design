@@ -11,6 +11,15 @@
     opacity: 0;
     transition: opacity .3s;
     white-space: nowrap;
+
+    // 简单样式
+    &.simple {
+        box-shadow: none;
+        &.left::after, &.top::after, &.right::after, &.bottom::after {
+            border: none !important;
+        }
+    }
+
     &.left::after {
         content: " ";
         position: absolute;
