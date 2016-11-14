@@ -1,6 +1,6 @@
 {
   "name": "gaea-helper",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "盖亚-组件辅助",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",

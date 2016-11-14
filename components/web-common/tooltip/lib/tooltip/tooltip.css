@@ -12,6 +12,10 @@
   -webkit-transition: opacity .3s;
   transition: opacity .3s;
   white-space: nowrap; }
+  .nt-web-tooltip-tooltip.simple {
+    box-shadow: none; }
+    .nt-web-tooltip-tooltip.simple.left::after, .nt-web-tooltip-tooltip.simple.top::after, .nt-web-tooltip-tooltip.simple.right::after, .nt-web-tooltip-tooltip.simple.bottom::after {
+      border: none !important; }
   .nt-web-tooltip-tooltip.left::after {
     content: " ";
     position: absolute;

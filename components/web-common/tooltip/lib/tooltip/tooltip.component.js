@@ -201,6 +201,7 @@ var ToolTip = function (_React$Component) {
             var tooltipProps = {
                 className: classNames((0, _defineProperty3.default)({
                     'nt-web-tooltip-tooltip': true,
+                    'simple': this.props.simple,
                     'active': this.state.show
                 }, position, true)),
                 style: toolTipStyle
