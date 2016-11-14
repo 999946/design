@@ -100,3 +100,8 @@ declare module 'react-html5video' {
     export default defaultExport
     export {Controls, Play, Mute, Seek, Fullscreen, Time, Overlay}
 }
+
+declare module 'antd' {
+    const api: any
+    export = api
+}
