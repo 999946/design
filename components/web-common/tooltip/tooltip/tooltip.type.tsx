@@ -62,8 +62,8 @@ export class Props implements PropsDefine {
             <div>tool tip!</div>
         )
     }
-    zIndex = 100
-    shadowZIndex = 99
+    zIndex = 102
+    shadowZIndex = 101
     position = 'top' as Position
     type = 'hover' as ShowType
     showShadow = false
