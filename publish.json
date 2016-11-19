@@ -1,7 +1,7 @@
 [
   {
-    "userPublishLevel": "major",
-    "publishLevel": "major",
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
         "name": "inject-instance",
@@ -107,7 +107,7 @@
       },
       "packageJson": {
         "name": "inject-instance",
-        "version": "0.0.0",
+        "version": "1.0.0",
         "description": "实例注入",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -126,6 +126,6 @@
       "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "0.0.0"
+    "preVersion": "1.0.0"
   }
 ]
