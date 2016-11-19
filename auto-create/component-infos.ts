@@ -1543,7 +1543,7 @@ routerMap.set('editor/gaea-editor', (callback: any) => {
                             
                         documents.push({
                             type: require('../components/editor/gaea-editor/gaea-editor/gaea-editor.type'),
-                            typeCode: require('-!text!../../components/editor/gaea-editor/gaea-editor/gaea-editor.type.ts'),
+                            typeCode: require('-!text!../../components/editor/gaea-editor/gaea-editor/gaea-editor.type.tsx'),
                             typePath: 'components/editor/gaea-editor/gaea-editor/gaea-editor.type',
                             componentName: 'GaeaEditor',
                             sourceCode: require('-!text!../../components/editor/gaea-editor/gaea-editor/gaea-editor.component.tsx')

@@ -160,6 +160,14 @@ export default [{
         isWeb: true,
         isIos: true,
         isAndroid: true
+    }, {
+        name: 'inject-instance',
+        chinese: '实例注入',
+        isWeb: true,
+        isIos: true,
+        isAndroid: true,
+        git: 'https://github.com/ascoders/inject-instance.git',
+        npm: 'inject-instance'
     }]
 }, {
     name: 'wefan',
