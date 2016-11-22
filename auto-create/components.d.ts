@@ -209,6 +209,12 @@ export interface TransparentlyNativePropsPropsDefine {}
 
                 }
             
+                declare module 'nt-inject-instance' {    
+                    export interface injectInstance {}
+export interface inject {}
+
+                }
+            
                 declare module 'nt-wefan-button' {    
                     export interface Button {}
 export interface ButtonPropsDefine {}

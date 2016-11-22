@@ -1338,6 +1338,27 @@ routerMap.set('common/transparently-native-props', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('common/inject-instance', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/inject-instance/demo/1.basic').default,
+                            code: require('-!text!../../components/common/inject-instance/demo/1.basic.tsx')
+                        })
+                    
+                            
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/common/inject-instance/package.json')),
+                                documents,
+                                main: require('../components/common/inject-instance/index')
+                            })
+                        })
+                    })
 routerMap.set('wefan/button', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []
