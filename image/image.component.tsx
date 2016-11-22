@@ -24,7 +24,7 @@ export default class ImageComponent extends React.Component <typings.PropsDefine
         })
     }
 
-    handleLoadSuccess() {
+    handleLoadSuccess(event?: any) {
         this.fallbackLoadCounter = 0
 
         if (this.state.source === this.props.source) {
