@@ -159,7 +159,7 @@ export default class Designer extends React.Component<typings.PropsDefine, typin
             <div className="_namespace">
                 {React.createElement(this.Gaea, {
                     customComponents: this.customComponents,
-                    baseComponents: baseComponents,
+                    commonComponents: baseComponents,
                     onSave: this.handleSave.bind(this),
                     defaultValue: editorContent && editorContent.content,
                     defaultSetting: editorInfo.settings,
