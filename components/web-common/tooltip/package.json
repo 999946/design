@@ -1,5 +1,5 @@
 {
-  "name": "nt-tooltip",
+  "name": "nt-web-tooltip",
   "version": "1.2.2",
   "description": "工具提示",
   "main": "lib/index.js",

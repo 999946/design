@@ -2,8 +2,8 @@
   "name": "gaea-model",
   "version": "1.0.12",
   "description": "盖亚-定义文件",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "main": "src/index.js",
+  "typings": "src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/ascoders/gaea-model.git"
