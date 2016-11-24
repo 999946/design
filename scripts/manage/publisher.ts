@@ -4,7 +4,7 @@
 
 import * as config from '../../config'
 import components from '../../components'
-import {exec, execSync} from 'child_process'
+import { exec, execSync } from 'child_process'
 import * as path from 'path'
 import * as fs from 'fs'
 import hasChange from './utils/has-change'
@@ -33,10 +33,10 @@ const rootPackageJson = packageJsonManage.getPackageJSON('./')
 /**
  * 初始化所有组件信息
  */
-const getAllComponentsInfoWithDep = ()=> {
+const getAllComponentsInfoWithDep = () => {
     // 获取所有组件以及依赖信息
-    components.forEach(category=> {
-        category.components.forEach(component=> {
+    components.forEach(category => {
+        category.components.forEach(component => {
             // 如果没有 package.json 就创建一个
             createPackageJsonIfNotExist(component, category)
 
@@ -49,12 +49,12 @@ const getAllComponentsInfoWithDep = ()=> {
 /**
  * 将一个组件添加到这次依赖的发布组件
  */
-const addComponentToPublishComponents = (component: Components.ComponentConfig, category: Components.Category, publishLevel: Components.PublishLevel, isUserOperate: boolean = false)=> {
+const addComponentToPublishComponents = (component: Components.ComponentConfig, category: Components.Category, publishLevel: Components.PublishLevel, isUserOperate: boolean = false) => {
     // 从全部组件信息中找到这个组件的全信息
-    const componentInfoWithDep = allComponentsInfoWithDep.find(componentInfoWithDep=>componentInfoWithDep.component.name === component.name && componentInfoWithDep.category.name === category.name)
+    const componentInfoWithDep = allComponentsInfoWithDep.find(componentInfoWithDep => componentInfoWithDep.component.name === component.name && componentInfoWithDep.category.name === category.name)
 
     // 从发布组件库中找到这个组件的信息
-    let publishComponentIndex = allPublishComponents.findIndex(publishComponent=>publishComponent.componentInfoWithDep.component.name === component.name && publishComponent.componentInfoWithDep.category.name === category.name)
+    let publishComponentIndex = allPublishComponents.findIndex(publishComponent => publishComponent.componentInfoWithDep.component.name === component.name && publishComponent.componentInfoWithDep.category.name === category.name)
 
     // 如果这个组件已经在依赖中, 如果这次发布的版本号比之前的高, 更新
     if (publishComponentIndex > -1) {
@@ -95,7 +95,7 @@ const addComponentToPublishComponents = (component: Components.ComponentConfig, 
 /**
  * 对比发布级别的大小
  */
-const comparePublishLevel = (targetLevel: string, beforeLevel: string)=> {
+const comparePublishLevel = (targetLevel: string, beforeLevel: string) => {
     // 相等的情况
     if (targetLevel === beforeLevel) {
         return 0
@@ -120,12 +120,12 @@ const comparePublishLevel = (targetLevel: string, beforeLevel: string)=> {
 /**
  * 遍历要发布的组件, 将没有依赖的（或者依赖了组件,但是在模拟发布队列中）组件添加到模拟发布队列中
  */
-const pushNoDepPublishComponents = ()=> {
+const pushNoDepPublishComponents = () => {
     // 为了防止对模拟发布列表的修改影响本次判断, 做一份拷贝
     const simulationsCopy = simulations.concat()
 
     // 遍历要发布的组件
-    allPublishComponents.forEach(publishComponent=> {
+    allPublishComponents.forEach(publishComponent => {
         // 过滤已经在发布队列中的组件
         let isPublishInSimulation = false
         for (let simulation of simulationsCopy) {
@@ -141,7 +141,7 @@ const pushNoDepPublishComponents = ()=> {
         // 是否依赖了本次发布的组件
         let isRelyToPublishComponent = false
 
-        publishComponent.componentInfoWithDep.dependence.forEach(dependence=> {
+        publishComponent.componentInfoWithDep.dependence.forEach(dependence => {
             if (dependence.type === 'npm') {
                 // 不看 npm 依赖
                 return
@@ -180,7 +180,7 @@ const pushNoDepPublishComponents = ()=> {
 /**
  * 创建 package.json
  */
-const createPackageJsonIfNotExist = (component: Components.ComponentConfig, category: Components.Category)=> {
+const createPackageJsonIfNotExist = (component: Components.ComponentConfig, category: Components.Category) => {
     const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
     // 如果当前组件没有 package.json, 就创建一个
     if (!fs.existsSync(`${componentPath}/package.json`)) {
@@ -209,13 +209,13 @@ const createPackageJsonIfNotExist = (component: Components.ComponentConfig, cate
 /**
  * 根据组件信息, 寻找这个组件所有依赖
  */
-const getInfoWithDependencies = (component: Components.ComponentConfig, category: Components.Category)=> {
+const getInfoWithDependencies = (component: Components.ComponentConfig, category: Components.Category) => {
     const componentPath = `${config.componentsPath}/${category.name}/${component.name}`
 
     // 找到这个目录下所有 ts tsx 文件, 排除 gif demo 用来做依赖解析
-    const filesPath: Array<string> = execSync(`find ${componentPath} -name "*.ts" -not -path "${componentPath}/${config.componentBuildPath}/*" -or -name "*.tsx" -not -path "${componentPath}/${config.componentBuildPath}/*" -not -path "${componentPath}/demo/*" -not -path "${componentPath}/test/*"`).toString().split('\n').filter(filePath=>filePath !== '')
+    const filesPath: Array<string> = execSync(`find ${componentPath} -name "*.ts" -not -path "${componentPath}/${config.componentBuildPath}/*" -or -name "*.tsx" -not -path "${componentPath}/${config.componentBuildPath}/*" -not -path "${componentPath}/demo/*" -not -path "${componentPath}/test/*"`).toString().split('\n').filter(filePath => filePath !== '')
 
-    const importPaths: Map<string,string> = new Map()
+    const importPaths: Map<string, string> = new Map()
 
     // 当前模块的依赖文件
     let deps: Components.FullInfoWithDependence = {
@@ -225,7 +225,7 @@ const getInfoWithDependencies = (component: Components.ComponentConfig, category
         dependence: []
     }
 
-    filesPath.forEach(filePath=> {
+    filesPath.forEach(filePath => {
         const source = fs.readFileSync(filePath).toString()
         const regex = /import\s+[a-zA-Z{},\s\*_\$]*(from)?\s?\'([^']+)\'/g
 
@@ -274,7 +274,7 @@ const getInfoWithDependencies = (component: Components.ComponentConfig, category
 /**
  * 根据传进来的参数, 获取组件信息
  */
-const getComponentInfoByFullPath = (publishFullPath: string)=> {
+const getComponentInfoByFullPath = (publishFullPath: string) => {
     const publishFullPathSplit = publishFullPath.split('#')
     // 发布目录
     const publishSecondPath = publishFullPathSplit[0]
@@ -290,13 +290,13 @@ const getComponentInfoByFullPath = (publishFullPath: string)=> {
     const publishComponentName = publishPathSplit[1]
 
     // 发布分类信息
-    const publishCategory = components.find(category=>category.name === publishCategoryName)
+    const publishCategory = components.find(category => category.name === publishCategoryName)
     if (!publishCategory) {
         consoleLog.error(`${publishCategoryName} 分类不存在`)
     }
 
     // 发布组件信息
-    const publishComponent = publishCategory.components.find(item=>item.name === publishComponentName)
+    const publishComponent = publishCategory.components.find(item => item.name === publishComponentName)
     if (!publishComponent) {
         consoleLog.error(`${publishComponentName} 组件不存在`)
     }
@@ -314,8 +314,8 @@ const getComponentInfoByFullPath = (publishFullPath: string)=> {
 /**
  * 读取发布列表逐一发布
  */
-const writeNowPublishToPackageJson = ()=> {
-    simulations.forEach(publishInfo=> {
+const writeNowPublishToPackageJson = () => {
+    simulations.forEach(publishInfo => {
         // 更新自己的依赖
         let dependences: {
             [name: string]: string
@@ -325,10 +325,10 @@ const writeNowPublishToPackageJson = ()=> {
             [name: string]: string
         } = {}
 
-        publishInfo.componentInfoWithDep.dependence.forEach(dependence=> {
+        publishInfo.componentInfoWithDep.dependence.forEach(dependence => {
             if (dependence.type === 'npm') {
                 // 对几个重要模块特殊处理
-                const customPackageInfo = config.customNpmPackage.find(customPackage=>customPackage.name === dependence.name)
+                const customPackageInfo = config.customNpmPackage.find(customPackage => customPackage.name === dependence.name)
                 if (customPackageInfo) {
                     // 如果在配置文件中, 用配置文件中的版本号
                     switch (customPackageInfo.type) {
@@ -350,7 +350,7 @@ const writeNowPublishToPackageJson = ()=> {
             } else {
                 // 组件的依赖, 用其发布后的版本号
                 // 优先在模拟发布队列中寻找, 找不到再从整个组件中找
-                const dependenceFullInfo = simulations.find(simulation=>simulation.componentInfoWithDep.category.name === dependence.category && simulation.componentInfoWithDep.component.name === dependence.name)
+                const dependenceFullInfo = simulations.find(simulation => simulation.componentInfoWithDep.category.name === dependence.category && simulation.componentInfoWithDep.component.name === dependence.name)
                 if (dependenceFullInfo) {
                     // 在发布队列找到了, 用其发布后的版本号
                     const moduleName = componentHelper.getPackageName(dependenceFullInfo.componentInfoWithDep.category.name, dependenceFullInfo.componentInfoWithDep.component.name)
@@ -363,7 +363,7 @@ const writeNowPublishToPackageJson = ()=> {
                     }
                 } else {
                     // 发布队列没找到, 从完整组件中寻找
-                    const dependenceInfo = allComponentsInfoWithDep.find(componentInfo=>componentInfo.category.name === dependence.category && componentInfo.component.name === dependence.name)
+                    const dependenceInfo = allComponentsInfoWithDep.find(componentInfo => componentInfo.category.name === dependence.category && componentInfo.component.name === dependence.name)
                     const moduleName = componentHelper.getPackageName(dependenceInfo.category.name, dependenceInfo.component.name)
                     const version = dependenceInfo.packageJson.version
 
@@ -385,7 +385,7 @@ const writeNowPublishToPackageJson = ()=> {
     })
 }
 
-export default (publishFullPaths: Array<string>)=> {
+export default (publishFullPaths: Array<string>) => {
     if (hasChange('./')) {
         return consoleLog.error('不能有未提交修改')
     }
@@ -403,7 +403,7 @@ export default (publishFullPaths: Array<string>)=> {
     const realPublishFullPaths: Array<string> = []
 
     // 如果提交路径只有 components 或 components/[category] 就发布所有组件 或者 整个分类
-    publishFullPaths.forEach(publishFullPath=> {
+    publishFullPaths.forEach(publishFullPath => {
         if (publishFullPath.indexOf('#') === -1) {
             consoleLog.error('发布级别必填, eg: [your path]#major 可选项: major | minor | patch')
         }
@@ -426,21 +426,21 @@ export default (publishFullPaths: Array<string>)=> {
 
         if (publishFullComponentPathSplit.length === 1 && publishFullComponentPathSplit[0] === 'components') {
             // 发布全部组件
-            components.forEach(category=> {
-                category.components.forEach(component=> {
+            components.forEach(category => {
+                category.components.forEach(component => {
                     const publishPath = `${category.name}/${component.name}#${publishFullPathSplit[1]}`
-                    if (realPublishFullPaths.findIndex(real=>real === publishPath) === -1) {
+                    if (realPublishFullPaths.findIndex(real => real === publishPath) === -1) {
                         realPublishFullPaths.push(publishPath)
                     }
                 })
             })
         } else if (publishFullComponentPathSplit.length === 1 && publishFullComponentPathSplit[0] !== 'components') {
             // 发布整个分类
-            components.forEach(category=> {
+            components.forEach(category => {
                 if (category.name === publishFullComponentPathSplit[0]) {
-                    category.components.forEach(component=> {
+                    category.components.forEach(component => {
                         const publishPath = `${category.name}/${component.name}#${publishFullPathSplit[1]}`
-                        if (realPublishFullPaths.findIndex(real=>real === publishPath) === -1) {
+                        if (realPublishFullPaths.findIndex(real => real === publishPath) === -1) {
                             realPublishFullPaths.push(publishPath)
                         }
                     })
@@ -448,25 +448,25 @@ export default (publishFullPaths: Array<string>)=> {
             })
         } else if (publishFullComponentPathSplit.length === 2 && publishFullComponentPathSplit[0] === 'components') {
             // 发布整个分类
-            components.forEach(category=> {
+            components.forEach(category => {
                 if (category.name === publishFullComponentPathSplit[1]) {
-                    category.components.forEach(component=> {
+                    category.components.forEach(component => {
                         const publishPath = `${category.name}/${component.name}#${publishFullPathSplit[1]}`
-                        if (realPublishFullPaths.findIndex(real=>real === publishPath) === -1) {
+                        if (realPublishFullPaths.findIndex(real => real === publishPath) === -1) {
                             realPublishFullPaths.push(publishPath)
                         }
                     })
                 }
             })
         } else {
-            if (realPublishFullPaths.findIndex(real=>real === publishFullPath) === -1) {
+            if (realPublishFullPaths.findIndex(real => real === publishFullPath) === -1) {
                 realPublishFullPaths.push(publishFullPath)
             }
         }
     })
 
     // 统计出所有要发布的组件（可能因为依赖而连带发布的）
-    realPublishFullPaths.forEach(publishFullPath=> {
+    realPublishFullPaths.forEach(publishFullPath => {
         let componentInfo = getComponentInfoByFullPath(publishFullPath)
 
         // 编译 lib 目录
@@ -478,8 +478,8 @@ export default (publishFullPaths: Array<string>)=> {
         if (componentInfo.publishLevel === 'major') {
             // 如果发布的是主版本, 所有对其直接依赖的组件都要更新 patch
             // 寻找依赖这个组件的组件
-            allComponentsInfoWithDep.forEach(componentInfoWithDep=> {
-                componentInfoWithDep.dependence.forEach(dep=> {
+            allComponentsInfoWithDep.forEach(componentInfoWithDep => {
+                componentInfoWithDep.dependence.forEach(dep => {
                     if (dep.type === 'component' && dep.category === componentInfo.publishCategory.name && dep.name === componentInfo.publishComponent.name) {
                         // 这个组件依赖了当前要发布的组件, 而且这个发布的还是主版本号, 因此给它发布一个 minor 版本
                         // 不需要更新其它依赖, package.json 更新依赖只有要发布的组件才会享受, 其它的又不发布, 不需要更新依赖, 保持版本号更新发个新版本就行了, 他自己的依赖会在发布他的时候修正
@@ -523,7 +523,7 @@ export default (publishFullPaths: Array<string>)=> {
             execSync(`git commit -m "发布组件"`)
 
             // 再循环一遍, 这次从根目录已经提交了
-            simulations.forEach(publishInfo=> {
+            simulations.forEach(publishInfo => {
                 const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
 
                 const gitSource = componentHelper.getGit(publishInfo.componentInfoWithDep.category.name, publishInfo.componentInfoWithDep.component.name)
@@ -538,8 +538,23 @@ export default (publishFullPaths: Array<string>)=> {
                     // 因为这个 tag 也打到了根目录, 所以在根目录删除这个 tag
                     execSync(`git tag -d v${publishInfo.componentInfoWithDep.packageJson.version}`)
                 } else {
-                    exec(`cd ${publishPath}; npm publish`)
+                    // 公有发布
+                    execSync(`cd ${publishPath}; npm publish`)
+
+                    // 公有组件删除编译后产生的 lib 目录
+                    execSync(`rm -rf ${publishPath}/lib`)
                 }
+            })
+
+            // 如果有公有模块发布，lib 会被删除，产生了改动，再add一次
+            execSync(`git add -A`)
+            execSync(`git commit -m "发布组件"`)
+
+            // 再循环一遍, 这次从根目录已经提交了
+            simulations.forEach(publishInfo => {
+                const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
+
+                const gitSource = componentHelper.getGit(publishInfo.componentInfoWithDep.category.name, publishInfo.componentInfoWithDep.component.name)
 
                 // push 到 master
                 execSync(`git subtree push -P ${publishPath} ${gitSource} master`)
