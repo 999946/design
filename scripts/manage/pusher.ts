@@ -4,14 +4,14 @@
 
 import * as config from '../../config'
 import components from '../../components'
-import {exec, execSync} from 'child_process'
+import { exec, execSync } from 'child_process'
 import * as path from 'path'
 import * as fs from 'fs'
 import * as _ from 'lodash'
 import consoleLog from './utils/console-log'
 import * as componentHelper from './utils/component-helper'
 
-export default (message: string)=> {
+export default (message: string) => {
     // 本地要提交的组件
     const pushLists: Array<{
         categoryName: string
@@ -22,9 +22,12 @@ export default (message: string)=> {
     if (gitStatus.indexOf('nothing to commit, working directory clean') > -1) {
         consoleLog.error('没有改动')
     } else {
+        // 删除组件所有产出
+        execSync('find ./components -name "lib" | xargs rm -rf')
+
         const diffNameListString = execSync(`git diff --name-only`).toString()
         const diffNameList = diffNameListString.split('\n')
-        diffNameList.forEach(filePath=> {
+        diffNameList.forEach(filePath => {
             filePath = _.trim(filePath)
             if (filePath === '') {
                 return
@@ -33,7 +36,7 @@ export default (message: string)=> {
             const filePathSplit = filePath.split('/')
             if (filePathSplit.length >= 3 && filePathSplit[0] === config.componentsPath) {
                 // 如果不在提交列表中， push 进去
-                if (pushLists.findIndex(item=>item.categoryName === filePathSplit[1] && item.componentName === filePathSplit[2]) === -1) {
+                if (pushLists.findIndex(item => item.categoryName === filePathSplit[1] && item.componentName === filePathSplit[2]) === -1) {
                     pushLists.push({
                         categoryName: filePathSplit[1],
                         componentName: filePathSplit[2]
@@ -46,10 +49,10 @@ export default (message: string)=> {
     execSync(`git add -A`)
     execSync(`git commit -m "${message}"`)
 
-    components.forEach(category=> {
-        category.components.forEach(component=> {
+    components.forEach(category => {
+        category.components.forEach(component => {
             // 在提交列表中才 push
-            if (pushLists.findIndex(item=>item.categoryName === category.name && item.componentName === component.name) > -1) {
+            if (pushLists.findIndex(item => item.categoryName === category.name && item.componentName === component.name) > -1) {
                 // 组件根目录
                 const componentRootPath = `${config.componentsPath}/${category.name}/${component.name}`
 
