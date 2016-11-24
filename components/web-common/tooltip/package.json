@@ -1,6 +1,6 @@
 {
   "name": "nt-web-tooltip",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "工具提示",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",

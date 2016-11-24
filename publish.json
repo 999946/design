@@ -74,10 +74,10 @@
       },
       "packageJson": {
         "name": "gaea-model",
-        "version": "1.0.11",
+        "version": "1.0.12",
         "description": "盖亚-定义文件",
-        "main": "lib/index.js",
-        "typings": "lib/index.d.ts",
+        "main": "src/index.js",
+        "typings": "src/index.d.ts",
         "repository": {
           "type": "git",
           "url": "https://github.com/ascoders/gaea-model.git"
@@ -93,7 +93,7 @@
       "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "1.0.11"
+    "preVersion": "1.0.12"
   },
   {
     "userPublishLevel": "patch",
@@ -169,7 +169,7 @@
       },
       "packageJson": {
         "name": "gaea-helper",
-        "version": "1.0.11",
+        "version": "1.0.12",
         "description": "盖亚-组件辅助",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -188,7 +188,182 @@
       "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "1.0.11"
+    "preVersion": "1.0.12"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "tooltip",
+        "chinese": "工具提示",
+        "isWeb": true
+      },
+      "category": {
+        "name": "web-common",
+        "chinese": "web通用",
+        "prefix": "nt-web",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "button",
+            "chinese": "按钮",
+            "isWeb": true
+          },
+          {
+            "name": "input",
+            "chinese": "输入框",
+            "isWeb": true
+          },
+          {
+            "name": "number",
+            "chinese": "数字框",
+            "isWeb": true
+          },
+          {
+            "name": "auto-complete",
+            "chinese": "自动完成",
+            "isWeb": true
+          },
+          {
+            "name": "switch",
+            "chinese": "开关",
+            "isWeb": true
+          },
+          {
+            "name": "radio",
+            "chinese": "单选框",
+            "isWeb": true
+          },
+          {
+            "name": "checkbox",
+            "chinese": "多选框",
+            "isWeb": true
+          },
+          {
+            "name": "select",
+            "chinese": "下拉选择框",
+            "isWeb": true
+          },
+          {
+            "name": "collapse",
+            "chinese": "手风琴",
+            "isWeb": true
+          },
+          {
+            "name": "tooltip",
+            "chinese": "工具提示",
+            "isWeb": true
+          },
+          {
+            "name": "message",
+            "chinese": "全局消息",
+            "isWeb": true
+          },
+          {
+            "name": "modal",
+            "chinese": "模态框",
+            "isWeb": true
+          },
+          {
+            "name": "tabs",
+            "chinese": "标签页",
+            "isWeb": true
+          },
+          {
+            "name": "tree",
+            "chinese": "树",
+            "isWeb": true
+          },
+          {
+            "name": "json-tree",
+            "chinese": "json 树",
+            "isWeb": true
+          },
+          {
+            "name": "margin-padding-editor",
+            "chinese": "内/外边距编辑器",
+            "isWeb": true
+          },
+          {
+            "name": "badge",
+            "chinese": "徽标",
+            "isWeb": true
+          },
+          {
+            "name": "loading",
+            "chinese": "进度条",
+            "isWeb": true
+          },
+          {
+            "name": "timeago",
+            "chinese": "友好时间",
+            "isWeb": true
+          },
+          {
+            "name": "image-preload",
+            "chinese": "图片预加载",
+            "isWeb": true
+          },
+          {
+            "name": "render-to",
+            "chinese": "任意位置渲染",
+            "isWeb": true
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "nt-web-tooltip",
+        "version": "1.2.2",
+        "description": "工具提示",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/next-component/common-tooltip.git"
+        },
+        "keywords": [
+          "tooltip"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {
+          "classnames": "^2.2.5",
+          "nt-auto-bind": "^2.0.5",
+          "nt-transparently-props": "^0.0.5"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-dom": "^0.14.0 || ^15.0.0"
+        }
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "react-dom"
+        },
+        {
+          "type": "npm",
+          "name": "classnames"
+        },
+        {
+          "type": "component",
+          "name": "auto-bind",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "transparently-props",
+          "category": "common"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "1.2.2"
   },
   {
     "userPublishLevel": "patch",
@@ -264,7 +439,7 @@
       },
       "packageJson": {
         "name": "gaea-preview",
-        "version": "1.0.11",
+        "version": "1.0.12",
         "description": "盖亚-查看器",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -281,7 +456,7 @@
           "lodash": "^4.15.0",
           "lz-string": "^1.4.4",
           "nt-auto-bind": "^2.0.5",
-          "gaea-model": "^1.0.11"
+          "gaea-model": "^1.0.12"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0"
@@ -313,7 +488,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.11"
+    "preVersion": "1.0.12"
   },
   {
     "userPublishLevel": "patch",
@@ -387,7 +562,7 @@
       },
       "packageJson": {
         "name": "gaea-web-components",
-        "version": "1.0.11",
+        "version": "1.0.12",
         "description": "盖亚-网页组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -403,7 +578,7 @@
         "dependencies": {
           "nt-web-button": "^1.0.5",
           "nt-transparently-props": "^0.0.5",
-          "gaea-helper": "^1.0.11",
+          "gaea-helper": "^1.0.12",
           "nt-transparently-native-props": "^0.0.1",
           "nt-web-input": "^1.0.6",
           "nt-web-modal": "^0.0.5",
@@ -460,7 +635,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.11"
+    "preVersion": "1.0.12"
   },
   {
     "userPublishLevel": "patch",
@@ -536,7 +711,7 @@
       },
       "packageJson": {
         "name": "gaea-native-components",
-        "version": "1.0.14",
+        "version": "1.0.15",
         "description": "盖亚-原生组件",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -551,7 +726,7 @@
         "license": "ISC",
         "dependencies": {
           "nt-transparently-native-props": "^0.0.1",
-          "gaea-helper": "^1.0.11",
+          "gaea-helper": "^1.0.12",
           "nt-swiper": "^1.0.1"
         },
         "peerDependencies": {
@@ -586,7 +761,7 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.14"
+    "preVersion": "1.0.15"
   },
   {
     "userPublishLevel": "patch",
@@ -660,7 +835,7 @@
       },
       "packageJson": {
         "name": "gaea-editor",
-        "version": "1.0.11",
+        "version": "1.0.12",
         "description": "盖亚",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -698,11 +873,11 @@
           "classnames": "^2.2.5",
           "jquery": "^3.1.0",
           "nt-web-tree": "^1.0.5",
-          "gaea-preview": "^1.0.11",
+          "gaea-preview": "^1.0.12",
           "reflect-metadata": "^0.1.8",
           "inversify": "^2.0.1",
           "inversify-inject-decorators": "^2.0.0",
-          "gaea-model": "^1.0.11"
+          "gaea-model": "^1.0.12"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -848,13 +1023,13 @@
           "category": "web-common"
         },
         {
+          "type": "npm",
+          "name": "classnames"
+        },
+        {
           "type": "component",
           "name": "modal",
           "category": "web-common"
-        },
-        {
-          "type": "npm",
-          "name": "classnames"
         },
         {
           "type": "npm",
@@ -885,18 +1060,6 @@
           "category": "editor"
         },
         {
-          "type": "npm",
-          "name": "reflect-metadata"
-        },
-        {
-          "type": "npm",
-          "name": "inversify"
-        },
-        {
-          "type": "npm",
-          "name": "inversify-inject-decorators"
-        },
-        {
           "type": "component",
           "name": "gaea-model",
           "category": "editor"
@@ -904,6 +1067,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.11"
+    "preVersion": "1.0.12"
   }
 ]

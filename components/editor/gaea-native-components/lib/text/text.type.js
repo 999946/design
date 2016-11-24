@@ -30,7 +30,7 @@ var PropsGaea = function PropsGaea() {
         field: 'text',
         label: '内容',
         editor: 'text',
-        editable: true,
+        editable: true
     }, '排版', index_1.gaeaHelper.fontEditor, '布局', index_1.gaeaHelper.marginPaddingEditor, index_1.gaeaHelper.widthHeightEditor, index_1.gaeaHelper.overflowEditor, '特效', index_1.gaeaHelper.opacityEditor];
 };
 
