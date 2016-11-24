@@ -4,142 +4,128 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "gaea-web-components",
-        "chinese": "盖亚-网页组件",
+        "name": "inject-instance",
+        "chinese": "实例注入",
         "isWeb": true,
-        "git": "https://github.com/ascoders/gaea-web-components.git",
-        "npm": "gaea-web-components"
+        "isIos": true,
+        "isAndroid": true,
+        "git": "https://github.com/ascoders/inject-instance.git",
+        "npm": "inject-instance"
       },
       "category": {
-        "name": "editor",
-        "chinese": "编辑器",
-        "prefix": "nt-editor",
+        "name": "common",
+        "chinese": "通用",
+        "prefix": "nt",
         "isPrivate": false,
         "components": [
           {
-            "name": "gaea-editor",
-            "chinese": "盖亚-编辑器",
+            "name": "button",
+            "chinese": "按钮",
             "isWeb": true,
-            "git": "https://github.com/ascoders/gaea-editor.git",
-            "npm": "gaea-editor"
-          },
-          {
-            "name": "gaea-preview",
-            "chinese": "盖亚-查看器",
-            "isWeb": true,
-            "isAndroid": true,
             "isIos": true,
-            "git": "https://github.com/ascoders/gaea-preview.git",
-            "npm": "gaea-preview"
+            "isAndroid": true
           },
           {
-            "name": "gaea-web-components",
-            "chinese": "盖亚-网页组件",
-            "isWeb": true,
-            "git": "https://github.com/ascoders/gaea-web-components.git",
-            "npm": "gaea-web-components"
+            "name": "line",
+            "chinese": "线",
+            "isWeb": true
           },
           {
-            "name": "gaea-native-components",
-            "chinese": "盖亚-原生组件",
+            "name": "image",
+            "chinese": "图片",
             "isWeb": true,
-            "isAndroid": true,
+            "isIos": true
+          },
+          {
+            "name": "gif",
+            "chinese": "GIF",
+            "isWeb": true,
+            "isIos": true
+          },
+          {
+            "name": "image-zoom",
+            "chinese": "图片手势操作",
+            "git": "https://github.com/ascoders/react-native-image-zoom.git",
+            "npm": "react-native-image-pan-zoom",
             "isIos": true,
-            "git": "https://github.com/ascoders/gaea-native-components.git",
-            "npm": "gaea-native-components"
+            "isAndroid": true
           },
           {
-            "name": "gaea-model",
-            "chinese": "盖亚-定义",
+            "name": "image-viewer",
+            "chinese": "大图浏览",
+            "git": "https://github.com/ascoders/react-native-image-viewer.git",
+            "npm": "react-native-image-zoom-viewer",
             "isWeb": true,
-            "isAndroid": true,
             "isIos": true,
-            "git": "https://github.com/ascoders/gaea-model.git",
-            "npm": "gaea-model",
-            "ignoreBuild": true
+            "isAndroid": true
           },
           {
-            "name": "gaea-helper",
-            "chinese": "盖亚-组件辅助",
+            "name": "swiper",
+            "chinese": "轮播",
             "isWeb": true,
-            "isAndroid": true,
             "isIos": true,
-            "git": "https://github.com/ascoders/gaea-helper.git",
-            "npm": "gaea-helper"
+            "isAndroid": true
+          },
+          {
+            "name": "transmit-transparently",
+            "chinese": "透传",
+            "isWeb": true,
+            "isIos": true,
+            "isAndroid": true
+          },
+          {
+            "name": "auto-bind",
+            "chinese": "自动绑定",
+            "isWeb": true,
+            "isIos": true,
+            "isAndroid": true
+          },
+          {
+            "name": "transparently-props",
+            "chinese": "透传属性定义",
+            "isWeb": true,
+            "isIos": true,
+            "isAndroid": true
+          },
+          {
+            "name": "transparently-native-props",
+            "chinese": "Native透传属性定义",
+            "isWeb": true,
+            "isIos": true,
+            "isAndroid": true
+          },
+          {
+            "name": "inject-instance",
+            "chinese": "实例注入",
+            "isWeb": true,
+            "isIos": true,
+            "isAndroid": true,
+            "git": "https://github.com/ascoders/inject-instance.git",
+            "npm": "inject-instance"
           }
         ]
       },
       "packageJson": {
-        "name": "gaea-web-components",
-        "version": "1.0.13",
-        "description": "盖亚-网页组件",
+        "name": "inject-instance",
+        "version": "1.0.1",
+        "description": "实例注入",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/ascoders/gaea-web-components.git"
+          "url": "https://github.com/ascoders/inject-instance.git"
         },
         "keywords": [
-          "gaea-web-components"
+          "inject-instance"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {
-          "nt-web-button": "^1.0.5",
-          "nt-transparently-props": "^0.0.5",
-          "gaea-helper": "^1.0.13",
-          "nt-transparently-native-props": "^0.0.1",
-          "nt-web-input": "^1.0.6",
-          "nt-web-modal": "^0.0.5",
-          "react-slick": "^0.14.5"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-native": "*"
-        }
+        "dependencies": {},
+        "peerDependencies": {}
       },
-      "dependence": [
-        {
-          "type": "npm",
-          "name": "react"
-        },
-        {
-          "type": "component",
-          "name": "button",
-          "category": "web-common"
-        },
-        {
-          "type": "component",
-          "name": "transparently-props",
-          "category": "common"
-        },
-        {
-          "type": "component",
-          "name": "gaea-helper",
-          "category": "editor"
-        },
-        {
-          "type": "component",
-          "name": "transparently-native-props",
-          "category": "common"
-        },
-        {
-          "type": "component",
-          "name": "input",
-          "category": "web-common"
-        },
-        {
-          "type": "component",
-          "name": "modal",
-          "category": "web-common"
-        },
-        {
-          "type": "npm",
-          "name": "react-slick"
-        }
-      ]
+      "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "1.0.13"
+    "preVersion": "1.0.1"
   }
 ]
