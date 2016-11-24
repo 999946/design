@@ -52,18 +52,17 @@ export default (message: string) => {
     components.forEach(category => {
         category.components.forEach(component => {
             // 在提交列表中才 push
-            //if (pushLists.findIndex(item => item.categoryName === category.name && item.componentName === component.name) > -1) {
-            // 组件根目录
-            const componentRootPath = `${config.componentsPath}/${category.name}/${component.name}`
+            if (pushLists.findIndex(item => item.categoryName === category.name && item.componentName === component.name) > -1) {
+                // 组件根目录
+                const componentRootPath = `${config.componentsPath}/${category.name}/${component.name}`
 
-            const gitSource = componentHelper.getGit(category.name, component.name)
+                const gitSource = componentHelper.getGit(category.name, component.name)
 
-            // 如果组件存在, 提交
-            if (fs.existsSync(componentRootPath)) {
-                console.log(`git subtree push -P ${componentRootPath} ${gitSource} master`)
-                exec(`git subtree push -P ${componentRootPath} ${gitSource} master`)
+                // 如果组件存在, 提交
+                if (fs.existsSync(componentRootPath)) {
+                    exec(`git subtree push -P ${componentRootPath} ${gitSource} master`)
+                }
             }
-            //}
         })
     })
 
