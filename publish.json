@@ -107,7 +107,7 @@
       },
       "packageJson": {
         "name": "inject-instance",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "实例注入",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -126,6 +126,6 @@
       "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "1.0.1"
+    "preVersion": "1.0.2"
   }
 ]
