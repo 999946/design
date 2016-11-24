@@ -45,9 +45,10 @@ declare namespace FitGaea {
         gaeaNativeEventData?: Array<EventData>
         /**
          * 存储变量信息
-         * TODO: ObservableMap<VariableData>
          */
-        gaeaVariables?: any
+        gaeaVariables?: {
+            [field: string]: VariableData
+        }
 
         [x: string]: any
     }
