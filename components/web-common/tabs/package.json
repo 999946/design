@@ -1,6 +1,6 @@
 {
   "name": "nt-web-tabs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "标签页",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -17,7 +17,8 @@
     "classnames": "^2.2.5",
     "nt-transmit-transparently": "^1.0.7",
     "nt-transparently-props": "^0.0.5",
-    "jquery": "^3.1.0"
+    "jquery": "^3.1.0",
+    "nt-auto-bind": "^2.0.5"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
