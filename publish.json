@@ -4,147 +4,287 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "tabs",
-        "chinese": "标签页",
-        "isWeb": true
+        "name": "gaea-model",
+        "chinese": "盖亚-定义",
+        "isWeb": true,
+        "isAndroid": true,
+        "isIos": true,
+        "git": "https://github.com/ascoders/gaea-model.git",
+        "npm": "gaea-model",
+        "ignoreBuild": true
       },
       "category": {
-        "name": "web-common",
-        "chinese": "web通用",
-        "prefix": "nt-web",
+        "name": "editor",
+        "chinese": "编辑器",
+        "prefix": "nt-editor",
         "isPrivate": false,
         "components": [
           {
-            "name": "button",
-            "chinese": "按钮",
-            "isWeb": true
+            "name": "gaea-editor",
+            "chinese": "盖亚-编辑器",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-editor.git",
+            "npm": "gaea-editor"
           },
           {
-            "name": "input",
-            "chinese": "输入框",
-            "isWeb": true
+            "name": "gaea-preview",
+            "chinese": "盖亚-查看器",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-preview.git",
+            "npm": "gaea-preview"
           },
           {
-            "name": "number",
-            "chinese": "数字框",
-            "isWeb": true
+            "name": "gaea-web-components",
+            "chinese": "盖亚-网页组件",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-web-components.git",
+            "npm": "gaea-web-components"
           },
           {
-            "name": "auto-complete",
-            "chinese": "自动完成",
-            "isWeb": true
+            "name": "gaea-native-components",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-native-components.git",
+            "npm": "gaea-native-components"
           },
           {
-            "name": "switch",
-            "chinese": "开关",
-            "isWeb": true
+            "name": "gaea-model",
+            "chinese": "盖亚-定义",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model",
+            "ignoreBuild": true
           },
           {
-            "name": "radio",
-            "chinese": "单选框",
-            "isWeb": true
-          },
-          {
-            "name": "checkbox",
-            "chinese": "多选框",
-            "isWeb": true
-          },
-          {
-            "name": "select",
-            "chinese": "下拉选择框",
-            "isWeb": true
-          },
-          {
-            "name": "collapse",
-            "chinese": "手风琴",
-            "isWeb": true
-          },
-          {
-            "name": "tooltip",
-            "chinese": "工具提示",
-            "isWeb": true
-          },
-          {
-            "name": "message",
-            "chinese": "全局消息",
-            "isWeb": true
-          },
-          {
-            "name": "modal",
-            "chinese": "模态框",
-            "isWeb": true
-          },
-          {
-            "name": "tabs",
-            "chinese": "标签页",
-            "isWeb": true
-          },
-          {
-            "name": "tree",
-            "chinese": "树",
-            "isWeb": true
-          },
-          {
-            "name": "json-tree",
-            "chinese": "json 树",
-            "isWeb": true
-          },
-          {
-            "name": "margin-padding-editor",
-            "chinese": "内/外边距编辑器",
-            "isWeb": true
-          },
-          {
-            "name": "badge",
-            "chinese": "徽标",
-            "isWeb": true
-          },
-          {
-            "name": "loading",
-            "chinese": "进度条",
-            "isWeb": true
-          },
-          {
-            "name": "timeago",
-            "chinese": "友好时间",
-            "isWeb": true
-          },
-          {
-            "name": "image-preload",
-            "chinese": "图片预加载",
-            "isWeb": true
-          },
-          {
-            "name": "render-to",
-            "chinese": "任意位置渲染",
-            "isWeb": true
+            "name": "gaea-helper",
+            "chinese": "盖亚-组件辅助",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-helper.git",
+            "npm": "gaea-helper"
           }
         ]
       },
       "packageJson": {
-        "name": "nt-web-tabs",
-        "version": "1.0.5",
-        "description": "标签页",
+        "name": "gaea-model",
+        "version": "1.0.13",
+        "description": "盖亚-定义文件",
+        "main": "src/index.js",
+        "typings": "src/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/ascoders/gaea-model.git"
+        },
+        "keywords": [
+          "gaea-model"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {},
+        "peerDependencies": {}
+      },
+      "dependence": []
+    },
+    "isUserOperate": true,
+    "preVersion": "1.0.13"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "gaea-helper",
+        "chinese": "盖亚-组件辅助",
+        "isWeb": true,
+        "isAndroid": true,
+        "isIos": true,
+        "git": "https://github.com/ascoders/gaea-helper.git",
+        "npm": "gaea-helper"
+      },
+      "category": {
+        "name": "editor",
+        "chinese": "编辑器",
+        "prefix": "nt-editor",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "gaea-editor",
+            "chinese": "盖亚-编辑器",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-editor.git",
+            "npm": "gaea-editor"
+          },
+          {
+            "name": "gaea-preview",
+            "chinese": "盖亚-查看器",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-preview.git",
+            "npm": "gaea-preview"
+          },
+          {
+            "name": "gaea-web-components",
+            "chinese": "盖亚-网页组件",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-web-components.git",
+            "npm": "gaea-web-components"
+          },
+          {
+            "name": "gaea-native-components",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-native-components.git",
+            "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-定义",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model",
+            "ignoreBuild": true
+          },
+          {
+            "name": "gaea-helper",
+            "chinese": "盖亚-组件辅助",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-helper.git",
+            "npm": "gaea-helper"
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "gaea-helper",
+        "version": "1.0.13",
+        "description": "盖亚-组件辅助",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/web-common-tabs.git"
+          "url": "https://github.com/ascoders/gaea-helper.git"
         },
         "keywords": [
-          "tabs"
+          "gaea-helper"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {},
+        "peerDependencies": {}
+      },
+      "dependence": []
+    },
+    "isUserOperate": true,
+    "preVersion": "1.0.13"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "gaea-preview",
+        "chinese": "盖亚-查看器",
+        "isWeb": true,
+        "isAndroid": true,
+        "isIos": true,
+        "git": "https://github.com/ascoders/gaea-preview.git",
+        "npm": "gaea-preview"
+      },
+      "category": {
+        "name": "editor",
+        "chinese": "编辑器",
+        "prefix": "nt-editor",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "gaea-editor",
+            "chinese": "盖亚-编辑器",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-editor.git",
+            "npm": "gaea-editor"
+          },
+          {
+            "name": "gaea-preview",
+            "chinese": "盖亚-查看器",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-preview.git",
+            "npm": "gaea-preview"
+          },
+          {
+            "name": "gaea-web-components",
+            "chinese": "盖亚-网页组件",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-web-components.git",
+            "npm": "gaea-web-components"
+          },
+          {
+            "name": "gaea-native-components",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-native-components.git",
+            "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-定义",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model",
+            "ignoreBuild": true
+          },
+          {
+            "name": "gaea-helper",
+            "chinese": "盖亚-组件辅助",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-helper.git",
+            "npm": "gaea-helper"
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "gaea-preview",
+        "version": "1.0.13",
+        "description": "盖亚-查看器",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/ascoders/gaea-preview.git"
+        },
+        "keywords": [
+          "gaea-preview"
         ],
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "classnames": "^2.2.5",
-          "nt-transmit-transparently": "^1.0.7",
-          "nt-transparently-props": "^0.0.5",
-          "jquery": "^3.1.0"
+          "lodash": "^4.15.0",
+          "lz-string": "^1.4.4",
+          "nt-auto-bind": "^2.0.5",
+          "gaea-model": "^1.0.13"
         },
         "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-dom": "^0.14.0 || ^15.0.0"
+          "react": "^0.14.0 || ^15.0.0"
         }
       },
       "dependence": [
@@ -154,12 +294,134 @@
         },
         {
           "type": "npm",
-          "name": "classnames"
+          "name": "lodash"
+        },
+        {
+          "type": "npm",
+          "name": "lz-string"
         },
         {
           "type": "component",
-          "name": "transmit-transparently",
+          "name": "auto-bind",
           "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "gaea-model",
+          "category": "editor"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "1.0.13"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "gaea-web-components",
+        "chinese": "盖亚-网页组件",
+        "isWeb": true,
+        "git": "https://github.com/ascoders/gaea-web-components.git",
+        "npm": "gaea-web-components"
+      },
+      "category": {
+        "name": "editor",
+        "chinese": "编辑器",
+        "prefix": "nt-editor",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "gaea-editor",
+            "chinese": "盖亚-编辑器",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-editor.git",
+            "npm": "gaea-editor"
+          },
+          {
+            "name": "gaea-preview",
+            "chinese": "盖亚-查看器",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-preview.git",
+            "npm": "gaea-preview"
+          },
+          {
+            "name": "gaea-web-components",
+            "chinese": "盖亚-网页组件",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-web-components.git",
+            "npm": "gaea-web-components"
+          },
+          {
+            "name": "gaea-native-components",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-native-components.git",
+            "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-定义",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model",
+            "ignoreBuild": true
+          },
+          {
+            "name": "gaea-helper",
+            "chinese": "盖亚-组件辅助",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-helper.git",
+            "npm": "gaea-helper"
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "gaea-web-components",
+        "version": "1.0.14",
+        "description": "盖亚-网页组件",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/ascoders/gaea-web-components.git"
+        },
+        "keywords": [
+          "gaea-web-components"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {
+          "nt-web-button": "^1.0.5",
+          "nt-transparently-props": "^0.0.5",
+          "gaea-helper": "^1.0.13",
+          "nt-transparently-native-props": "^0.0.1",
+          "nt-web-input": "^1.0.6",
+          "nt-web-modal": "^0.0.5",
+          "react-slick": "^0.14.5"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0"
+        }
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "component",
+          "name": "button",
+          "category": "web-common"
         },
         {
           "type": "component",
@@ -167,22 +429,159 @@
           "category": "common"
         },
         {
-          "type": "npm",
-          "name": "react-dom"
-        },
-        {
-          "type": "npm",
-          "name": "jquery"
+          "type": "component",
+          "name": "gaea-helper",
+          "category": "editor"
         },
         {
           "type": "component",
-          "name": "auto-bind",
+          "name": "transparently-native-props",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "input",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "modal",
+          "category": "web-common"
+        },
+        {
+          "type": "npm",
+          "name": "react-slick"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "1.0.14"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "gaea-native-components",
+        "chinese": "盖亚-原生组件",
+        "isWeb": true,
+        "isAndroid": true,
+        "isIos": true,
+        "git": "https://github.com/ascoders/gaea-native-components.git",
+        "npm": "gaea-native-components"
+      },
+      "category": {
+        "name": "editor",
+        "chinese": "编辑器",
+        "prefix": "nt-editor",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "gaea-editor",
+            "chinese": "盖亚-编辑器",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-editor.git",
+            "npm": "gaea-editor"
+          },
+          {
+            "name": "gaea-preview",
+            "chinese": "盖亚-查看器",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-preview.git",
+            "npm": "gaea-preview"
+          },
+          {
+            "name": "gaea-web-components",
+            "chinese": "盖亚-网页组件",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-web-components.git",
+            "npm": "gaea-web-components"
+          },
+          {
+            "name": "gaea-native-components",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-native-components.git",
+            "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-定义",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model",
+            "ignoreBuild": true
+          },
+          {
+            "name": "gaea-helper",
+            "chinese": "盖亚-组件辅助",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-helper.git",
+            "npm": "gaea-helper"
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "gaea-native-components",
+        "version": "1.0.16",
+        "description": "盖亚-原生组件",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/ascoders/gaea-native-components.git"
+        },
+        "keywords": [
+          "gaea-native-components"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {
+          "nt-transparently-native-props": "^0.0.1",
+          "gaea-helper": "^1.0.13",
+          "nt-swiper": "^1.0.1"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-native": "*"
+        }
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "npm",
+          "name": "react-native"
+        },
+        {
+          "type": "component",
+          "name": "transparently-native-props",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "gaea-helper",
+          "category": "editor"
+        },
+        {
+          "type": "component",
+          "name": "swiper",
           "category": "common"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.5"
+    "preVersion": "1.0.16"
   },
   {
     "userPublishLevel": "patch",
@@ -256,7 +655,7 @@
       },
       "packageJson": {
         "name": "gaea-editor",
-        "version": "1.0.13",
+        "version": "1.0.14",
         "description": "盖亚",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -274,7 +673,7 @@
           "react-color": "^2.3.2",
           "nt-auto-bind": "^2.0.5",
           "nt-web-tooltip": "^1.2.3",
-          "inject-instance": "^1.0.1",
+          "inject-instance": "^1.0.5",
           "mobx": "^2.4.3",
           "sortablejs": "git://github.com/RubaXa/Sortable.git#dev",
           "lodash": "^4.15.0",
@@ -288,7 +687,7 @@
           "nt-web-margin-padding-editor": "^1.1.6",
           "nt-web-switch": "^1.0.5",
           "nt-web-input": "^1.0.6",
-          "nt-web-tabs": "^1.0.5",
+          "nt-web-tabs": "^1.0.6",
           "nt-web-modal": "^0.0.5",
           "nt-web-auto-complete": "^1.0.0",
           "classnames": "^2.2.5",
@@ -485,6 +884,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.0.13"
+    "preVersion": "1.0.14"
   }
 ]

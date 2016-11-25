@@ -1,6 +1,6 @@
 {
   "name": "gaea-model",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "盖亚-定义文件",
   "main": "src/index.js",
   "typings": "src/index.d.ts",
