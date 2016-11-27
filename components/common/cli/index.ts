@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import * as path from 'path'
+import * as fs from 'fs'
 import { execSync } from 'child_process'
 import * as commander from 'commander'
 
@@ -18,6 +19,17 @@ const getFilesBySuffix = (suffix: string, modulePath: string): Array<string> => 
 /**
  * 把引用还原
  */
+const repairImportPath = (filePath: string) => {
+    const source = fs.readFileSync(filePath).toString()
+    const regex = /import\s+[a-zA-Z{},\s\*_\$]*(from)?\s?\'([^']+)\'/g
+
+    let match: Array<string>
+    while ((match = regex.exec(source)) != null) {
+        // 引用的路径
+        const importPath = match[2] as string
+        console.log(importPath)
+    }
+}
 
 commander.version('1.0.0')
     .option('-i, --init', '把项目初始化到能用的程度')
@@ -27,9 +39,11 @@ if (commander['init']) {
     // 找到当前目录下所有 ts,tsx 文件
     const tsFilePaths = getFilesBySuffix('ts', process.cwd())
     const tsxFilePaths = getFilesBySuffix('tsx', process.cwd())
-    const allTsFilePaths = tsFilePaths.concat(tsxFilePaths)
 
-    allTsFilePaths.forEach(tsFilePath => {
-        console.log(tsFilePath)
+    tsFilePaths.concat(tsxFilePaths).forEach(tsOrTsxFilePath => {
+        repairImportPath(tsOrTsxFilePath)
     })
+
+    // 执行 npm install
+    // execSync('npm install')
 }
