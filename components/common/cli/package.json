@@ -1,5 +1,5 @@
 {
-  "name": "nt-cli",
+  "name": "nt-repair-cli",
   "version": "3.0.0",
   "description": "本地运行脚本",
   "main": "lib/index.js",
