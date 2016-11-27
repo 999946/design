@@ -25,7 +25,6 @@ const repairImportPath = (filePath: string) => {
 
     // 拿前文件路径和根路径长度相减，得到相对层数
     const relativeLayer = filePath.split('/').length - process.cwd().split('/').length
-    console.log('层级', relativeLayer)
 
     let match: Array<string>
     while ((match = regex.exec(source)) != null) {
@@ -33,7 +32,21 @@ const repairImportPath = (filePath: string) => {
         const importPath = match[2] as string
         if (importPath.startsWith('./') || importPath.startsWith('../')) {
             // 相对路径
-            console.log(importPath)
+            const importPathSplit = importPath.split('/')
+
+            if (importPathSplit.length <= relativeLayer) {
+                continue
+            }
+
+            // 如果把层级去了，还有 ../ 开头，那一定是引相对组件
+            let relativeLayerCopy = relativeLayer
+            while (relativeLayer > 0) {
+                importPathSplit.unshift()
+                relativeLayerCopy--
+            }
+            if (importPathSplit[0] === '../') {
+                console.log('引用组件', importPathSplit[1], importPathSplit[2])
+            }
         } else {
             console.log('引了 npm 包，不做处理', importPath)
         }
