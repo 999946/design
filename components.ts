@@ -168,6 +168,10 @@ export default [{
         isAndroid: true,
         git: 'https://github.com/ascoders/inject-instance.git',
         npm: 'inject-instance'
+    }, {
+        name: 'cli',
+        chinese: '本地运行脚本',
+        isWeb: true
     }]
 }, {
     name: 'wefan',
