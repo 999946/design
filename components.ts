@@ -171,7 +171,8 @@ export default [{
     }, {
         name: 'cli',
         chinese: '本地运行脚本',
-        isWeb: true
+        isWeb: true,
+        npm: 'next-cli'
     }]
 }, {
     name: 'wefan',
