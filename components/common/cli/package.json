@@ -1,6 +1,6 @@
 {
   "name": "nt-cli",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "本地运行脚本",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
