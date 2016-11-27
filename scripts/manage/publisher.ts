@@ -341,7 +341,10 @@ const writeNowPublishToPackageJson = () => {
                     }
                 } else {
                     // 否则直接在根目录的 package.json 中寻找版本号
-                    if (!rootPackageJson.dependencies[dependence.name]) {
+                    // 在 dev 和非 dev 找都算
+                    const rootDepVersion = rootPackageJson.dependencies[dependence.name] || rootPackageJson.devDependencies[dependence.name]
+
+                    if (!rootDepVersion) {
                         if (config.nodeModules.findIndex(name => name === dependence.name) > -1) {
                             // 如果属于 node 的模块，依赖版本号都不用加
                         } else {
@@ -350,7 +353,7 @@ const writeNowPublishToPackageJson = () => {
                         }
                     }
                     // npm 的依赖用根目录的版本号
-                    dependences[dependence.name] = rootPackageJson.dependencies[dependence.name]
+                    dependences[dependence.name] = rootDepVersion
                 }
             } else {
                 // 组件的依赖, 用其发布后的版本号
