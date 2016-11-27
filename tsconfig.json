@@ -17,7 +17,12 @@
         ],
         "moduleResolution": "node",
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "paths": {
+            "nt-auto-bind": [
+                "components/common/auto-bind/index"
+            ]
+        }
     },
     "awesomeTypescriptLoaderOptions": {
         "useWebpackText": true,
