@@ -110,7 +110,7 @@
       },
       "packageJson": {
         "name": "nt-repair-cli",
-        "version": "4.0.2",
+        "version": "4.0.3",
         "description": "本地运行脚本",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -138,11 +138,15 @@
         },
         {
           "type": "npm",
+          "name": "child_process"
+        },
+        {
+          "type": "npm",
           "name": "commander"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "4.0.2"
+    "preVersion": "4.0.3"
   }
 ]
