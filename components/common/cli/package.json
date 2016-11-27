@@ -14,5 +14,8 @@
   "author": "ascoders",
   "license": "ISC",
   "dependencies": {},
-  "peerDependencies": {}
+  "peerDependencies": {},
+  "bin": {
+    "nt-repair-cli": "./lib/index.js"
+  }
 }
