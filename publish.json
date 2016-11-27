@@ -6,7 +6,8 @@
       "component": {
         "name": "cli",
         "chinese": "本地运行脚本",
-        "isWeb": true
+        "isWeb": true,
+        "npm": "nt-repair-cli"
       },
       "category": {
         "name": "common",
@@ -102,13 +103,14 @@
           {
             "name": "cli",
             "chinese": "本地运行脚本",
-            "isWeb": true
+            "isWeb": true,
+            "npm": "nt-repair-cli"
           }
         ]
       },
       "packageJson": {
         "name": "nt-cli",
-        "version": "0.0.0",
+        "version": "1.0.0",
         "description": "本地运行脚本",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -132,6 +134,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "0.0.0"
+    "preVersion": "1.0.0"
   }
 ]
