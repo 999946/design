@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import * as path from 'path'
-const commander = require('commander')
+import * as commander from 'commander'
 
 commander.version('1.0.0')
     .option('-i, --init', '把项目初始化到能用的程度')
