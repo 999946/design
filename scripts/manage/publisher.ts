@@ -547,8 +547,10 @@ export default (publishFullPaths: Array<string>) => {
             })
 
             // 如果有公有模块发布，lib 会被删除，产生了改动，再add一次
-            execSync(`git add -A`)
-            execSync(`git commit -m "发布组件"`)
+            try {
+                execSync(`git add -A`)
+                execSync(`git commit -m "发布组件"`)
+            } catch (error) { }
 
             // 再循环一遍, 这次从根目录已经提交了
             simulations.forEach(publishInfo => {
