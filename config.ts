@@ -56,4 +56,4 @@ export const routerBasename = process.env['NODE_ENV'] === 'production' ? routerB
 export const staticPathPrefixProduction = process.env['PRODUCTION'] ? 'http://tb1.bdstatic.com/static/next-design' : '/'
 
 // 属于 node 模块，不检查依赖，也不会放在依赖里
-export const nodeModules = ['path','fs']
+export const nodeModules = ['path', 'fs', 'child_process']
