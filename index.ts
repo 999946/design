@@ -44,7 +44,7 @@ const repairImportPath = (filePath: string) => {
                 importPathSplit.unshift()
                 relativeLayerCopy--
             }
-            if (importPathSplit[0] === '../') {
+            if (importPathSplit[0] === '..') {
                 console.log('引用组件', importPathSplit[1], importPathSplit[2])
             }
         } else {
