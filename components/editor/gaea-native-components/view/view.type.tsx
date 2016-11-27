@@ -1,11 +1,11 @@
-import {TransparentlyNativePropsPropsDefine} from '../../../common/transparently-native-props/index'
-import {gaeaHelper} from '../../gaea-helper/index'
+import { TransparentlyNativePropsPropsDefine } from '../../../common/transparently-native-props/index'
+import { gaeaHelper } from '../../gaea-helper/index'
 import * as ReactNaitve from 'react-native'
 
 export interface PropsDefine extends TransparentlyNativePropsPropsDefine {
     style?: ReactNaitve.ViewStyle
 
-    onClick?: ()=>void
+    onClick?: () => void
     gaeaEvent?: FitGaea.GaeaEvent
     gaeaEventData?: Array<FitGaea.EventData>
 
@@ -36,17 +36,17 @@ export class PropsGaea {
         gaeaHelper.opacityEditor
     ]
     gaeaEvent = {
-        types: [{
+        triggers: [{
             name: '点击',
             type: 'onClick',
             selfCallback: true
         }],
-        events: [{
+        effects: [{
             name: '跳转网址',
-            event: 'jumpUrl'
+            type: 'jumpUrl'
         }, {
             name: '回退',
-            event: 'call',
+            type: 'call',
             call: {
                 functionName: 'back'
             }
@@ -70,7 +70,7 @@ export class Props extends PropsGaea implements PropsDefine {
         }
     )
 
-    onClick = ()=> {
+    onClick = () => {
 
     }
 }

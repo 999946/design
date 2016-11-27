@@ -3,7 +3,7 @@ declare namespace FitGaea {
 
     }
 
-    export type Component = React.ComponentClass<FitGaea.ComponentProps> 
+    export type Component = React.ComponentClass<FitGaea.ComponentProps>
 
     /**
      * 组件信息
@@ -190,8 +190,8 @@ declare namespace FitGaea {
      * 事件设置
      */
     export interface GaeaEvent {
-        types: Array<EventTriggerCondition>
-        events: Array<EventAction>
+        triggers: Array<EventTriggerCondition>
+        effects: Array<EventAction>
     }
 
     export interface EventData {
@@ -219,7 +219,7 @@ declare namespace FitGaea {
         // 动作类型
         // call: 调用传进来的方法
         // jumpUrl: 跳转一个网址
-        event: string
+        type: string
         call?: EventCallType
     }
 

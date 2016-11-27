@@ -38,12 +38,12 @@ export class PropsGaea {
         gaeaHelper.opacityEditor
     ]
     gaeaEvent = {
-        types: [{
+        triggers: [{
             name: '滚动时',
             type: 'onScroll',
             selfCallback: true
         }],
-        events: [] as any
+        effects: [] as any
     }
 }
 

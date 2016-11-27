@@ -11,7 +11,7 @@ export default class ViewComponent extends React.Component <typings.PropsDefine,
         let hasClick = false
         if (this.props.gaeaEventData) {
             this.props.gaeaEventData.forEach(data=> {
-                if (data.typeIndex > -1 && this.props.gaeaEvent.types[data.typeIndex].selfCallback && data.type === 'onClick') {
+                if (data.typeIndex > -1 && this.props.gaeaEvent.triggers[data.typeIndex].selfCallback && data.type === 'onClick') {
                     hasClick = true
                 }
             })
