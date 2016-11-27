@@ -23,11 +23,20 @@ const repairImportPath = (filePath: string) => {
     const source = fs.readFileSync(filePath).toString()
     const regex = /import\s+[a-zA-Z{},\s\*_\$]*(from)?\s?\'([^']+)\'/g
 
+    // 拿前文件路径和根路径长度相减，得到相对层数
+    const relativeLayer = filePath.split('/').length - process.cwd().split('/').length
+    console.log('层级', relativeLayer)
+
     let match: Array<string>
     while ((match = regex.exec(source)) != null) {
         // 引用的路径
         const importPath = match[2] as string
-        console.log(path.join(filePath, importPath))
+        if (importPath.startsWith('./') || importPath.startsWith('../')) {
+            // 相对路径
+            console.log(path.join(filePath, importPath))
+        } else {
+            console.log('引了 npm 包，不做处理')
+        }
     }
 }
 
