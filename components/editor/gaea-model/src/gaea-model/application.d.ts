@@ -3,6 +3,8 @@ declare namespace FitGaea {
 
     }
 
+    export type Component = React.ComponentClass<FitGaea.ComponentProps> 
+
     /**
      * 组件信息
      */
