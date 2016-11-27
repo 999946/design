@@ -74,7 +74,7 @@
       },
       "packageJson": {
         "name": "gaea-model",
-        "version": "1.0.17",
+        "version": "1.0.18",
         "description": "盖亚-定义文件",
         "main": "index.js",
         "typings": "src/index.d.ts",
@@ -93,6 +93,6 @@
       "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "1.0.17"
+    "preVersion": "1.0.18"
   }
 ]
