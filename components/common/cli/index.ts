@@ -27,7 +27,7 @@ const repairImportPath = (filePath: string) => {
     while ((match = regex.exec(source)) != null) {
         // 引用的路径
         const importPath = match[2] as string
-        console.log(importPath)
+        console.log(path.join(filePath, importPath))
     }
 }
 
