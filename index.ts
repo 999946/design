@@ -40,7 +40,7 @@ const repairImportPath = (filePath: string) => {
 
             // 如果把层级去了，还有 ../ 开头，那一定是引相对组件
             let relativeLayerCopy = relativeLayer
-            while (relativeLayer > 0) {
+            while (relativeLayerCopy > 0) {
                 importPathSplit.unshift()
                 relativeLayerCopy--
             }
