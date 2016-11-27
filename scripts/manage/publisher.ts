@@ -519,8 +519,12 @@ export default (publishFullPaths: Array<string>) => {
             writeNowPublishToPackageJson()
 
             // 这时候已经有组件的 package.json 修改了, 根目录提交
-            execSync(`git add -A`)
-            execSync(`git commit -m "发布组件"`)
+            try {
+                execSync(`git add -A`)
+                execSync(`git commit -m "发布组件"`)
+            } catch (error) {
+                consoleLog.error('第一次发布 ' + error)
+            }
 
             // 再循环一遍, 这次从根目录已经提交了
             simulations.forEach(publishInfo => {
@@ -550,7 +554,9 @@ export default (publishFullPaths: Array<string>) => {
             try {
                 execSync(`git add -A`)
                 execSync(`git commit -m "发布组件"`)
-            } catch (error) { }
+            } catch (error) {
+                consoleLog.error('第二次发布 ' + error)
+            }
 
             // 再循环一遍, 这次从根目录已经提交了
             simulations.forEach(publishInfo => {
