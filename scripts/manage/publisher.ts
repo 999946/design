@@ -342,7 +342,12 @@ const writeNowPublishToPackageJson = () => {
                 } else {
                     // 否则直接在根目录的 package.json 中寻找版本号
                     if (!rootPackageJson.dependencies[dependence.name]) {
-                        consoleLog.error(`${dependence.name} 的依赖没有在根项目中安装`)
+                        if (config.nodeModules.findIndex(name => name === dependence.name) > -1) {
+                            // 如果属于 node 的模块，依赖版本号都不用加
+                        } else {
+                            // 否则报错
+                            consoleLog.error(`${dependence.name} 的依赖没有在根项目中安装`)
+                        }
                     }
                     // npm 的依赖用根目录的版本号
                     dependences[dependence.name] = rootPackageJson.dependencies[dependence.name]
