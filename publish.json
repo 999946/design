@@ -110,7 +110,7 @@
       },
       "packageJson": {
         "name": "nt-repair-cli",
-        "version": "4.0.1",
+        "version": "4.0.2",
         "description": "本地运行脚本",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -123,7 +123,9 @@
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {},
+        "dependencies": {
+          "commander": "^2.9.0"
+        },
         "peerDependencies": {},
         "bin": {
           "nt-repair-cli": "./lib/index.js"
@@ -141,6 +143,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "4.0.1"
+    "preVersion": "4.0.2"
   }
 ]
