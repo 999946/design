@@ -33,9 +33,9 @@ const repairImportPath = (filePath: string) => {
         const importPath = match[2] as string
         if (importPath.startsWith('./') || importPath.startsWith('../')) {
             // 相对路径
-            console.log(path.join(filePath, importPath))
+            console.log(importPath)
         } else {
-            console.log('引了 npm 包，不做处理')
+            console.log('引了 npm 包，不做处理', importPath)
         }
     }
 }
