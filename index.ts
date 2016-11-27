@@ -34,13 +34,13 @@ const repairImportPath = (filePath: string) => {
             // 相对路径
             const importPathSplit = importPath.split('/')
 
-            if (importPathSplit.length <= relativeLayer) {
+            if (importPathSplit.length < relativeLayer + 1) {
                 continue
             }
 
             // 如果把层级去了，还有 ../ 开头，那一定是引相对组件
             let relativeLayerCopy = relativeLayer
-            while (relativeLayerCopy > 0) {
+            while (relativeLayerCopy > -1) {
                 importPathSplit.unshift()
                 relativeLayerCopy--
             }
