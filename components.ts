@@ -172,7 +172,7 @@ export default [{
         name: 'cli',
         chinese: '本地运行脚本',
         isWeb: true,
-        npm: 'next-cli'
+        npm: 'nt-repair-cli'
     }]
 }, {
     name: 'wefan',
