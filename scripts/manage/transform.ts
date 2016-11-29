@@ -87,10 +87,10 @@ const relativeImportPath = (component: Components.ComponentConfig, category: Com
                 // 自己肯定不会引自己的包名，所以一定是其它的
                 if (defaultInfo.category.name === category.name) {
                     // 是同一个类别下的
-                    importRelativePath = path.join('../'.repeat(filePathSplit.length - 2), defaultInfo.component.name, 'index')
+                    importRelativePath = path.join('../'.repeat(filePathSplit.length), defaultInfo.component.name, 'index')
                 } else {
                     // 不是同一个类别下的
-                    importRelativePath = path.join('../'.repeat(filePathSplit.length - 3), defaultInfo.category.name, defaultInfo.component.name, 'index')
+                    importRelativePath = path.join('../'.repeat(filePathSplit.length - 1), defaultInfo.category.name, defaultInfo.component.name, 'index')
                 }
 
                 const importName = _.trim(match[0])
