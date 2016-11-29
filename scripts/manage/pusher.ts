@@ -19,15 +19,15 @@ export default (message: string) => {
         componentName: string
     }> = []
 
+    // 转换为绝对路径
+    transform.toAbsolute()
+
     const gitStatus = execSync(`git status`).toString()
     if (gitStatus.indexOf('nothing to commit, working directory clean') > -1) {
         consoleLog.error('没有改动')
     } else {
         // 删除组件所有产出
         execSync('find ./components -name "lib" | xargs rm -rf')
-
-        // 引用路径改为绝对路径
-        transform.toAbsolute()
 
         const diffNameListString = execSync(`git diff --name-only`).toString()
         const diffNameList = diffNameListString.split('\n')
@@ -71,7 +71,4 @@ export default (message: string) => {
     })
 
     exec(`git push origin master`)
-
-    // 引用路径改为相对路径
-    transform.toRelative()
 }
