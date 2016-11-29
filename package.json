@@ -21,7 +21,8 @@
     "manage": "node built/scripts/manage/index.js",
     "production": "rm -rf built-production && PRODUCTION=1 npm run start-before-production && PRODUCTION=1 npm run gulp-production && PRODUCTION=1 npm run client-build-production",
     "production-local": "rm -rf built-production && npm run start-before-production && npm run gulp-production && npm run client-build-production",
-    "clean": "pkill node; pkill gulp; pkill built/server/main.js; pkill built/scripts/webpack/webpack-server.js; pgrep node;"
+    "clean": "pkill node; pkill gulp; pkill built/server/main.js; pkill built/scripts/webpack/webpack-server.js; pgrep node;",
+    "status": ""
   },
   "repository": {
     "type": "git",
