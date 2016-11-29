@@ -24,6 +24,7 @@ export default (message: string) => {
 
     const gitStatus = execSync(`git status`).toString()
     if (gitStatus.indexOf('nothing to commit, working directory clean') > -1) {
+        transform.toRelative()
         consoleLog.error('没有改动')
     } else {
         // 删除组件所有产出
@@ -70,5 +71,6 @@ export default (message: string) => {
         })
     })
 
-    exec(`git push origin master`)
+    execSync(`git push origin master`)
+    transform.toRelative()
 }
