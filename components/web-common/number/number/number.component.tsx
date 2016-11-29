@@ -4,7 +4,7 @@ import * as classNames from 'classnames'
 
 import {Select} from '../../select/index'
 import {Input} from '../../input/index'
-import {others} from '../../../common/transmit-transparently'
+import {others} from '../../../common/transmit-transparently/index'
 import {autoBindMethod} from '../../../common/auto-bind/index'
 import parseToNumber from './parse-to-number'
 

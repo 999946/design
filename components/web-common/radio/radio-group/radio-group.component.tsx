@@ -3,7 +3,7 @@ import * as typings from './radio-group.type'
 import * as classNames from 'classnames'
 
 import {Button, ButtonGroup} from '../../button/index'
-import {TransmitTransparently} from '../../../common/transmit-transparently'
+import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 
 import './radio-group.scss'
 
