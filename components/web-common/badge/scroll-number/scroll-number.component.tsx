@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as typings from './scroll-number.type'
 
-import {TransmitTransparently} from '../../../common/transmit-transparently/index'
+import {TransmitTransparently} from 'nt-transmit-transparently'
 import * as _ from 'lodash'
 import {isCssAnimationSupported} from 'css-animation'
 

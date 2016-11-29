@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as classNames from 'classnames'
 import * as typings from './tree-node.type'
 
-import {TransmitTransparently} from '../../../common/transmit-transparently/index'
+import {TransmitTransparently} from 'nt-transmit-transparently'
 
 import './tree-node.scss'
 

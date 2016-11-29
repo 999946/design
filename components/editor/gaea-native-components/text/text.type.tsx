@@ -1,5 +1,5 @@
-import {TransparentlyNativePropsPropsDefine} from '../../../common/transparently-native-props/index'
-import {gaeaHelper} from '../../gaea-helper/index'
+import {TransparentlyNativePropsPropsDefine} from 'nt-transparently-native-props'
+import {gaeaHelper} from 'gaea-helper'
 import * as ReactNaitve from 'react-native'
 
 export interface PropsDefine extends TransparentlyNativePropsPropsDefine {

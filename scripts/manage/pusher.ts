@@ -10,6 +10,7 @@ import * as fs from 'fs'
 import * as _ from 'lodash'
 import consoleLog from './utils/console-log'
 import * as componentHelper from './utils/component-helper'
+import * as transform from './transform'
 
 export default (message: string) => {
     // 本地要提交的组件
@@ -24,6 +25,9 @@ export default (message: string) => {
     } else {
         // 删除组件所有产出
         execSync('find ./components -name "lib" | xargs rm -rf')
+
+        // 引用路径改为绝对路径
+        transform.toAbsolute()
 
         const diffNameListString = execSync(`git diff --name-only`).toString()
         const diffNameList = diffNameListString.split('\n')
@@ -67,4 +71,7 @@ export default (message: string) => {
     })
 
     exec(`git push origin master`)
+
+    // 引用路径改为相对路径
+    transform.toRelative()
 }

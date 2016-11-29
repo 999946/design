@@ -5,8 +5,8 @@ import * as classNames from 'classnames'
 import * as $ from 'jquery'
 import * as _ from 'lodash'
 
-import Input from '../../input/index'
-import {others} from '../../../common/transmit-transparently/index'
+import Input from 'nt-web-input'
+import {others} from 'nt-transmit-transparently'
 import Option from '../option/option.component'
 import OptionGroup from '../opt-group/opt-group.component'
 

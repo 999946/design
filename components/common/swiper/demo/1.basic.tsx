@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {observer} from 'mobx-react'
 import Swiper from '../index'
-import Image from '../../image/index'
+import Image from 'nt-image'
 
 @observer
 export default class Demo extends React.Component <any, any> {

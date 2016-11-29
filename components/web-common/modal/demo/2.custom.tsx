@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {observer} from 'mobx-react'
 import Modal from '../index'
-import Button from '../../button/index'
+import Button from 'nt-web-button'
 
 @observer
 export default class Demo extends React.Component <any, any> {
