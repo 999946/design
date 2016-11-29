@@ -4,7 +4,7 @@ import { exec, execSync } from 'child_process'
 import * as path from 'path'
 import * as fs from 'fs'
 import * as _ from 'lodash'
-import { getPackageName } from './utils/component-helper'
+import { getPackageName, isCustomPackageName, getCategoryAndComponentNameByPackageName } from './utils/component-helper'
 
 /**
  * 根据后缀找文件
@@ -18,9 +18,9 @@ const getFilesBySuffix = (suffix: string, modulePath: string): Array<string> => 
 }
 
 /**
- * 把引用还原
+ * 把引用变成绝对路径
  */
-const repairImportPath = (component: Components.ComponentConfig, category: Components.Category, filePath: string) => {
+const absoluteImportPath = (component: Components.ComponentConfig, category: Components.Category, filePath: string) => {
     let source = fs.readFileSync(filePath).toString()
     const regex = /import\s+([a-zA-Z{},\s\*_\$]*)(from)?\s?\'([^']+)\'/g
 
@@ -44,13 +44,64 @@ const repairImportPath = (component: Components.ComponentConfig, category: Compo
                 const importName = _.trim(match[0])
                 const packageName = getPackageName(importFullPathSplit[1], importFullPathSplit[2])
                 if (importName === '') {
-                    return `import 'packageName'`
+                    return `import '${packageName}'`
                 } else {
                     return `import ${importName} '${packageName}'`
                 }
             }
         } else {
             // 引了 npm 包，不做处理
+            return substring
+        }
+    })
+
+    // 保存文件到本地
+    fs.writeFileSync(filePath, source)
+}
+
+/**
+ * 把引用变成相对路径
+ */
+const relativeImportPath = (component: Components.ComponentConfig, category: Components.Category, filePath: string) => {
+    let source = fs.readFileSync(filePath).toString()
+    const regex = /import\s+([a-zA-Z{},\s\*_\$]*)(from)?\s?\'([^']+)\'/g
+
+    // 拿前文件路径和根路径长度相减，得到相对层数
+    const relativeLayer = filePath.split('/').length - process.cwd().split('/').length
+
+    source = source.replace(regex, (substring: string, ...match: Array<string>) => {
+        // 引用的路径
+        const importPath = match[2] as string
+        if (!importPath.startsWith('./') && !importPath.startsWith('../')) {
+            if (!isCustomPackageName(importPath)) {
+                // 不是定制组件，不做处理
+                return substring
+            } else {
+                const defaultInfo = getCategoryAndComponentNameByPackageName(importPath)
+                const filePathSplit = filePath.split('/')
+                filePathSplit.pop()
+
+                // 引用的相对路径
+                let importRelativePath = ''
+
+                // 自己肯定不会引自己的包名，所以一定是其它的
+                if (defaultInfo.category.name === category.name) {
+                    // 是同一个类别下的
+                    importRelativePath = path.join(filePath, '../'.repeat(filePathSplit.length - 2), defaultInfo.component.name, 'index')
+                } else {
+                    // 不是同一个类别下的
+                    importRelativePath = path.join(filePath, '../'.repeat(filePathSplit.length - 3), defaultInfo.category.name, defaultInfo.component.name, 'index')
+                }
+
+                const importName = _.trim(match[0])
+                if (importName === '') {
+                    return `import '${importRelativePath}'`
+                } else {
+                    return `import ${importName} '${importRelativePath}'`
+                }
+            }
+        } else {
+            // 相对引用，不做处理
             return substring
         }
     })
@@ -71,7 +122,7 @@ export const toAbsolute = () => {
             const tsxFilePaths = getFilesBySuffix('tsx', componentRootPath)
 
             tsFilePaths.concat(tsxFilePaths).forEach(tsOrTsxFilePath => {
-                repairImportPath(component, category, tsOrTsxFilePath)
+                absoluteImportPath(component, category, tsOrTsxFilePath)
             })
         })
     })
@@ -83,7 +134,14 @@ export const toAbsolute = () => {
 export const toRelative = () => {
     components.forEach(category => {
         category.components.forEach(component => {
+            const componentRootPath = `${config.componentsPath}/${category.name}/${component.name}`
+            // 读取文件内容
+            const tsFilePaths = getFilesBySuffix('ts', componentRootPath)
+            const tsxFilePaths = getFilesBySuffix('tsx', componentRootPath)
 
+            tsFilePaths.concat(tsxFilePaths).forEach(tsOrTsxFilePath => {
+                relativeImportPath(component, category, tsOrTsxFilePath)
+            })
         })
     })
 }

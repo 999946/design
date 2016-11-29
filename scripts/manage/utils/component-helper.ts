@@ -70,3 +70,5 @@ export const isCustomPackageName = (packageName: string) => {
 export const getCategoryAndComponentNameByPackageName = (packageName: string) => {
     return packageNameMap.get(packageName)
 }
+
+
