@@ -537,7 +537,6 @@ export default (publishFullPaths: Array<string>) => {
             execSync(`git add -A`)
             execSync(`git commit -m "发布组件"`)
 
-
             // 再循环一遍, 这次从根目录已经提交了
             simulations.forEach(publishInfo => {
                 const publishPath = `${config.componentsPath}/${publishInfo.componentInfoWithDep.category.name}/${publishInfo.componentInfoWithDep.component.name}`
