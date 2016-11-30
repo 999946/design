@@ -4,10 +4,13 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "cli",
-        "chinese": "本地运行脚本",
+        "name": "image-viewer",
+        "chinese": "大图浏览",
+        "git": "https://github.com/ascoders/react-native-image-viewer.git",
+        "npm": "react-native-image-zoom-viewer",
         "isWeb": true,
-        "npm": "nt-repair-cli"
+        "isIos": true,
+        "isAndroid": true
       },
       "category": {
         "name": "common",
@@ -109,48 +112,57 @@
         ]
       },
       "packageJson": {
-        "name": "nt-repair-cli",
-        "version": "4.0.12",
-        "description": "本地运行脚本",
+        "name": "react-native-image-zoom-viewer",
+        "version": "1.2.26",
+        "description": "大图浏览",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/next-component/common-cli.git"
+          "url": "https://github.com/ascoders/react-native-image-viewer.git"
         },
         "keywords": [
-          "cli"
+          "image-viewer"
         ],
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
-          "commander": "^2.9.0"
+          "nt-auto-bind": "^2.0.5",
+          "nt-transmit-transparently": "^1.0.7",
+          "react-native-image-pan-zoom": "^1.1.9"
         },
-        "peerDependencies": {},
-        "bin": {
-          "nt-repair-cli": "./lib/index.js"
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-native": "*"
         }
       },
       "dependence": [
         {
           "type": "npm",
-          "name": "path"
+          "name": "react"
         },
         {
           "type": "npm",
-          "name": "fs"
+          "name": "react-native"
         },
         {
-          "type": "npm",
-          "name": "child_process"
+          "type": "component",
+          "name": "auto-bind",
+          "category": "common"
         },
         {
-          "type": "npm",
-          "name": "commander"
+          "type": "component",
+          "name": "transmit-transparently",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "image-zoom",
+          "category": "common"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "4.0.12"
+    "preVersion": "1.2.26"
   }
 ]
