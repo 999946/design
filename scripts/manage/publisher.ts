@@ -15,6 +15,7 @@ import * as builder from './builder'
 import showPublishTable from './utils/publish-table'
 import * as formatJson from 'format-json'
 import * as componentHelper from './utils/component-helper'
+import * as transform from './transform'
 const prompt = require('prompt')
 
 // 所有组件以及依赖信息
@@ -394,9 +395,13 @@ const writeNowPublishToPackageJson = () => {
 }
 
 export default (publishFullPaths: Array<string>) => {
+    transform.toAbsolute()
+
     if (hasChange('./')) {
         return consoleLog.error('不能有未提交修改')
     }
+
+    transform.toRelative()
 
     if (publishFullPaths.length === 0) {
         return consoleLog.error('发布目录不能为空')
@@ -523,6 +528,8 @@ export default (publishFullPaths: Array<string>) => {
         }
 
         if (result.publish) {
+            transform.toAbsolute()
+
             // 根据发布信息, 写入 package.json
             writeNowPublishToPackageJson()
 
@@ -575,6 +582,8 @@ export default (publishFullPaths: Array<string>) => {
 
             // 根目录提交
             execSync(`git push`)
+
+            transform.toRelative()
         }
     })
 }
