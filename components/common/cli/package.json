@@ -18,6 +18,6 @@
   },
   "peerDependencies": {},
   "bin": {
-    "nt-repair-cli": "./lib/index.js"
+    "nt-repair-cli": "./lib/cli.js"
   }
 }

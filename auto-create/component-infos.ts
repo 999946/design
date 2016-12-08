@@ -1359,6 +1359,27 @@ routerMap.set('common/inject-instance', (callback: any) => {
                             })
                         })
                     })
+routerMap.set('common/cli', (callback: any) => {
+                        const demoLists: any = []
+                        const documents: any = []
+                        
+                        require.ensure([], function (require: any) {
+                            
+                        demoLists.push({
+                            Class: require('../components/common/cli/demo/1.basic').default,
+                            code: require('-!text!../../components/common/cli/demo/1.basic.tsx')
+                        })
+                    
+                            
+                            
+                            callback({
+                                demos: demoLists,
+                                packageJson: JSON.parse(require('-!text!../components/common/cli/package.json')),
+                                documents,
+                                main: require('../components/common/cli/index')
+                            })
+                        })
+                    })
 routerMap.set('wefan/button', (callback: any) => {
                         const demoLists: any = []
                         const documents: any = []

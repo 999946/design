@@ -51,8 +51,10 @@ export default (message: string) => {
         })
     }
 
-    execSync(`git add -A`)
-    execSync(`git commit -m "${message}"`)
+    try{
+        execSync(`git add -A`)
+        execSync(`git commit -m "${message}"`)
+    }catch(error){}
 
     components.forEach(category => {
         category.components.forEach(component => {
