@@ -20,6 +20,9 @@ export default ()=> {
         return
     }
 
+    // 先拉主项目，再拉子项目
+    execSync(`git pull origin master`)
+
     components.forEach(category=> {
         category.components.forEach(component=> {
             // 组件根目录
@@ -116,6 +119,4 @@ export default ()=> {
             }
         })
     })
-
-    execSync(`git pull origin master`)
 }
