@@ -112,7 +112,6 @@ export default class Home extends React.Component <typings.PropsDefine, typings.
 
                 <div className="body-container">
 
-
                 </div>
 
                 <div className="footer">

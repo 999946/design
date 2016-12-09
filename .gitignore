@@ -9,3 +9,4 @@ built/
 built-production/
 built-components/
 publish.json
+.happypack

@@ -2,6 +2,22 @@ import * as webpack from 'webpack'
 import * as config from '../../config'
 import * as path from 'path'
 import alias from './alias'
+const HappyPack = require('happypack')
+const happyThreadPool = HappyPack.ThreadPool({ size: 5 })
+
+function createHappyPlugin(id: string, loaders: Array<string>) {
+    return new HappyPack({
+        id: id,
+        loaders: loaders,
+        threadPool: happyThreadPool,
+
+        // disable happy caching with HAPPY_CACHE=0
+        cache: process.env.HAPPY_CACHE === '1',
+
+        // make happy more verbose with HAPPY_VERBOSE=1
+        verbose: process.env.HAPPY_VERBOSE === '1'
+    })
+}
 
 const webpackConfig = {
     debug: true,
@@ -27,26 +43,26 @@ const webpackConfig = {
             {
                 test: /\.(jsx|js)?$/,
                 exclude: [/node_modules/],
-                loaders: ['react-hot', 'html-path']
+                loader: 'happypack/loader?id=js'
             }, {
                 test: /\.(scss)/,
                 exclude: [/node_modules/],
-                loaders: ['style', 'css', 'autoprefixer', 'sass', 'css-path']
+                loader: 'happypack/loader?id=scss'
             }, {
                 test: /\.(css)/,
-                loaders: ['style', 'css']
+                loader: 'happypack/loader?id=css'
             }, {
                 test: /\.(png|jpg|gif)$/,
-                loaders: ['url?limit=3000&name=img/[hash:8].[name].[ext]']
+                loader: 'happypack/loader?id=image'
             }, {
                 test: /\.(woff|woff2|ttf|eot|svg)/,
-                loaders: ['url?limit=3000&name=font/[hash:8].[name].[ext]']
+                loader: 'happypack/loader?id=font'
             }, {
                 test: /\.json$/,
-                loader: 'json-loader'
+                loader: 'happypack/loader?id=json'
             }, {
                 test: /\.md$/,
-                loader: 'text-loader'
+                loader: 'happypack/loader?id=md'
             }
         ]
     },
@@ -66,7 +82,14 @@ const webpackConfig = {
         new webpack.DllReferencePlugin({
             context: '.',
             manifest: require(path.join(process.cwd(), 'built/output/static/dll/library-mainfest.json'))
-        })
+        }),
+        createHappyPlugin('js', ['react-hot', 'html-path']),
+        createHappyPlugin('scss', ['style', 'css', 'autoprefixer', 'sass', 'css-path']),
+        createHappyPlugin('css', ['style', 'css']),
+        createHappyPlugin('image', ['url?limit=3000&name=img/[hash:8].[name].[ext]']),
+        createHappyPlugin('font', ['url?limit=3000&name=font/[hash:8].[name].[ext]']),
+        createHappyPlugin('json', ['json-loader']),
+        createHappyPlugin('md', ['text-loader'])
     ]
 }
 
