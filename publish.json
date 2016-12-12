@@ -4,159 +4,6 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "image-zoom",
-        "chinese": "图片手势操作",
-        "git": "https://github.com/ascoders/react-native-image-zoom.git",
-        "npm": "react-native-image-pan-zoom",
-        "isIos": true,
-        "isAndroid": true
-      },
-      "category": {
-        "name": "common",
-        "chinese": "通用",
-        "prefix": "nt",
-        "isPrivate": false,
-        "components": [
-          {
-            "name": "button",
-            "chinese": "按钮",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "line",
-            "chinese": "线",
-            "isWeb": true
-          },
-          {
-            "name": "image",
-            "chinese": "图片",
-            "isWeb": true,
-            "isIos": true
-          },
-          {
-            "name": "gif",
-            "chinese": "GIF",
-            "isWeb": true,
-            "isIos": true
-          },
-          {
-            "name": "image-zoom",
-            "chinese": "图片手势操作",
-            "git": "https://github.com/ascoders/react-native-image-zoom.git",
-            "npm": "react-native-image-pan-zoom",
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "image-viewer",
-            "chinese": "大图浏览",
-            "git": "https://github.com/ascoders/react-native-image-viewer.git",
-            "npm": "react-native-image-zoom-viewer",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "swiper",
-            "chinese": "轮播",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "transmit-transparently",
-            "chinese": "透传",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "auto-bind",
-            "chinese": "自动绑定",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "transparently-props",
-            "chinese": "透传属性定义",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "transparently-native-props",
-            "chinese": "Native透传属性定义",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "inject-instance",
-            "chinese": "实例注入",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true,
-            "git": "https://github.com/ascoders/inject-instance.git",
-            "npm": "inject-instance"
-          },
-          {
-            "name": "cli",
-            "chinese": "本地运行脚本",
-            "isWeb": true,
-            "npm": "nt-repair-cli"
-          }
-        ]
-      },
-      "packageJson": {
-        "name": "react-native-image-pan-zoom",
-        "version": "1.1.9",
-        "description": "图片手势操作",
-        "main": "lib/index.js",
-        "typings": "lib/index.d.ts",
-        "repository": {
-          "type": "git",
-          "url": "https://github.com/ascoders/react-native-image-zoom.git"
-        },
-        "keywords": [
-          "image-zoom"
-        ],
-        "author": "ascoders",
-        "license": "ISC",
-        "dependencies": {
-          "nt-auto-bind": "^2.0.5"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-native": "*"
-        }
-      },
-      "dependence": [
-        {
-          "type": "npm",
-          "name": "react"
-        },
-        {
-          "type": "npm",
-          "name": "react-native"
-        },
-        {
-          "type": "component",
-          "name": "auto-bind",
-          "category": "common"
-        }
-      ]
-    },
-    "isUserOperate": true,
-    "preVersion": "1.1.9"
-  },
-  {
-    "userPublishLevel": "patch",
-    "publishLevel": "patch",
-    "componentInfoWithDep": {
-      "component": {
         "name": "image-viewer",
         "chinese": "大图浏览",
         "git": "https://github.com/ascoders/react-native-image-viewer.git",
@@ -266,7 +113,7 @@
       },
       "packageJson": {
         "name": "react-native-image-zoom-viewer",
-        "version": "1.2.36",
+        "version": "1.2.37",
         "description": "大图浏览",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
@@ -282,7 +129,7 @@
         "dependencies": {
           "nt-auto-bind": "^2.0.5",
           "nt-transmit-transparently": "^1.0.7",
-          "react-native-image-pan-zoom": "^1.1.9"
+          "react-native-image-pan-zoom": "^1.1.10"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
@@ -316,6 +163,6 @@
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.2.36"
+    "preVersion": "1.2.37"
   }
 ]
