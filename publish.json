@@ -4,165 +4,95 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "image-viewer",
-        "chinese": "大图浏览",
-        "git": "https://github.com/ascoders/react-native-image-viewer.git",
-        "npm": "react-native-image-zoom-viewer",
+        "name": "gaea-model",
+        "chinese": "盖亚-定义",
         "isWeb": true,
+        "isAndroid": true,
         "isIos": true,
-        "isAndroid": true
+        "git": "https://github.com/ascoders/gaea-model.git",
+        "npm": "gaea-model",
+        "ignoreBuild": true
       },
       "category": {
-        "name": "common",
-        "chinese": "通用",
-        "prefix": "nt",
+        "name": "editor",
+        "chinese": "编辑器",
+        "prefix": "nt-editor",
         "isPrivate": false,
         "components": [
           {
-            "name": "button",
-            "chinese": "按钮",
+            "name": "gaea-editor",
+            "chinese": "盖亚-编辑器",
             "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
+            "git": "https://github.com/ascoders/gaea-editor.git",
+            "npm": "gaea-editor"
           },
           {
-            "name": "line",
-            "chinese": "线",
-            "isWeb": true
-          },
-          {
-            "name": "image",
-            "chinese": "图片",
+            "name": "gaea-preview",
+            "chinese": "盖亚-查看器",
             "isWeb": true,
-            "isIos": true
-          },
-          {
-            "name": "gif",
-            "chinese": "GIF",
-            "isWeb": true,
-            "isIos": true
-          },
-          {
-            "name": "image-zoom",
-            "chinese": "图片手势操作",
-            "git": "https://github.com/ascoders/react-native-image-zoom.git",
-            "npm": "react-native-image-pan-zoom",
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "image-viewer",
-            "chinese": "大图浏览",
-            "git": "https://github.com/ascoders/react-native-image-viewer.git",
-            "npm": "react-native-image-zoom-viewer",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "swiper",
-            "chinese": "轮播",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "transmit-transparently",
-            "chinese": "透传",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "auto-bind",
-            "chinese": "自动绑定",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "transparently-props",
-            "chinese": "透传属性定义",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "transparently-native-props",
-            "chinese": "Native透传属性定义",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "inject-instance",
-            "chinese": "实例注入",
-            "isWeb": true,
-            "isIos": true,
             "isAndroid": true,
-            "git": "https://github.com/ascoders/inject-instance.git",
-            "npm": "inject-instance"
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-preview.git",
+            "npm": "gaea-preview"
           },
           {
-            "name": "cli",
-            "chinese": "本地运行脚本",
+            "name": "gaea-web-components",
+            "chinese": "盖亚-网页组件",
             "isWeb": true,
-            "npm": "nt-repair-cli"
+            "git": "https://github.com/ascoders/gaea-web-components.git",
+            "npm": "gaea-web-components"
+          },
+          {
+            "name": "gaea-native-components",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-native-components.git",
+            "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-定义",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model",
+            "ignoreBuild": true
+          },
+          {
+            "name": "gaea-helper",
+            "chinese": "盖亚-组件辅助",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-helper.git",
+            "npm": "gaea-helper"
           }
         ]
       },
       "packageJson": {
-        "name": "react-native-image-zoom-viewer",
-        "version": "1.2.43",
-        "description": "大图浏览",
-        "main": "lib/index.js",
-        "typings": "lib/index.d.ts",
+        "name": "gaea-model",
+        "version": "1.0.27",
+        "description": "盖亚-定义文件",
+        "main": "index.js",
+        "typings": "src/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/ascoders/react-native-image-viewer.git"
+          "url": "https://github.com/ascoders/gaea-model.git"
         },
         "keywords": [
-          "image-viewer"
+          "gaea-model"
         ],
         "author": "ascoders",
         "license": "ISC",
-        "dependencies": {
-          "nt-auto-bind": "^2.0.5",
-          "nt-transmit-transparently": "^1.0.7",
-          "react-native-image-pan-zoom": "^1.1.10"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-native": "*"
-        }
+        "dependencies": {},
+        "peerDependencies": {}
       },
-      "dependence": [
-        {
-          "type": "npm",
-          "name": "react"
-        },
-        {
-          "type": "npm",
-          "name": "react-native"
-        },
-        {
-          "type": "component",
-          "name": "auto-bind",
-          "category": "common"
-        },
-        {
-          "type": "component",
-          "name": "transmit-transparently",
-          "category": "common"
-        },
-        {
-          "type": "component",
-          "name": "image-zoom",
-          "category": "common"
-        }
-      ]
+      "dependence": []
     },
     "isUserOperate": true,
-    "preVersion": "1.2.43"
+    "preVersion": "1.0.27"
   }
 ]
