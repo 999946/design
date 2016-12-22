@@ -8,7 +8,7 @@ declare namespace FitGaea {
     /**
      * 组件信息
      */
-    export interface ComponentProps extends __React.HTMLProps<any> {
+    export interface ComponentProps extends React.HTMLProps<any> {
         /**
          * 唯一的 key,用来唯一标识这个组件,所有盖亚内部组件都以 gaea- 为前缀
          */

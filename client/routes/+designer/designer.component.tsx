@@ -112,8 +112,8 @@ export default class Designer extends React.Component<typings.PropsDefine, typin
     /**
      * 触发发布
      */
-    async handlePublish(versionInfo: FitGaea.GetPublishListResult, callback: Function) {
-        await this.props.editorAction.publish(this.props.params.id, versionInfo)
+    async handlePublish(version: string, callback: Function) {
+        await this.props.editorAction.publish(this.props.params.id, version)
         callback()
     }
 
