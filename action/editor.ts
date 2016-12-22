@@ -104,10 +104,10 @@ export default class EditorAction {
     }
 
     @action('发布版本')
-    async publish(appId: string, versionInfo: FitGaea.GetPublishListResult) {
+    async publish(appId: string, version: string) {
         this.fetch.post<Http.EditorPublishRequest, {}>('/publishVersion', {
             app_id: appId,
-            version: versionInfo.version
+            version: version
         })
     }
 
