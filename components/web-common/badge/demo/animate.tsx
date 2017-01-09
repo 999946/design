@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {observer} from 'mobx-react'
 import Badge from '../index'
-import {Button, ButtonGroup} from '../../button/index'
+import {Button, ButtonGroup} from 'nt-web-button'
 
 const boxStyle = {
     width: 42,

@@ -1,4 +1,4 @@
-import {gaeaHelper} from '../../gaea-helper/index'
+import {gaeaHelper} from 'gaea-helper'
 import * as CustomView from '../view/view.type'
 
 export interface PropsDefine extends CustomView.PropsDefine {

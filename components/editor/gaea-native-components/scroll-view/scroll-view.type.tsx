@@ -1,4 +1,4 @@
-import {gaeaHelper} from '../../gaea-helper/index'
+import {gaeaHelper} from 'gaea-helper'
 import * as ReactNaitve from 'react-native'
 import {ScrollViewProperties} from 'react-native'
 

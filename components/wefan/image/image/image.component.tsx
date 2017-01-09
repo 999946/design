@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as typings from './image.type'
-import Gif from '../../../common/gif/index'
-import {TransmitTransparently} from '../../../common/transmit-transparently/index'
+import Gif from 'nt-gif'
+import {TransmitTransparently} from 'nt-transmit-transparently'
 import {Image} from 'react-native'
 
 @TransmitTransparently('fallbackSource', 'fallbackColor', 'fallbackAddon', 'pressToReload', 'firstSource', 'onPress')

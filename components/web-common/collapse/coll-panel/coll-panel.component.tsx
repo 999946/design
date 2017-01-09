@@ -4,7 +4,7 @@ import * as $ from 'jquery'
 import * as classNames from 'classnames'
 import * as typings from './coll-panel.type'
 
-import {TransmitTransparently} from '../../../common/transmit-transparently/index'
+import {TransmitTransparently} from 'nt-transmit-transparently'
 
 import './coll-panel.scss'
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {observer} from 'mobx-react'
 import Radio from '../index'
-import Checkbox from '../../checkbox/index'
+import Checkbox from 'nt-web-checkbox'
 
 @observer
 export default class Demo extends React.Component <any, any> {

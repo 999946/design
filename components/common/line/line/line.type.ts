@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {ViewProperties} from 'react-native'
-import {TransparentlyNativePropsPropsDefine} from '../../transparently-native-props/index'
+import {TransparentlyNativePropsPropsDefine} from 'nt-transparently-native-props'
 
 export interface PropsDefine extends ViewProperties, TransparentlyNativePropsPropsDefine {
     /**

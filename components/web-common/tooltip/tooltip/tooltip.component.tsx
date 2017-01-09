@@ -4,7 +4,7 @@ import * as classNames from 'classnames'
 import * as typings from './tooltip.type'
 import './tooltip.scss'
 
-import {autoBindMethod} from '../../../common/auto-bind/index'
+import {autoBindMethod} from 'nt-auto-bind'
 
 export default class ToolTip extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()

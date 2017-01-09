@@ -2,10 +2,10 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import * as typings from './margin-padding-editor.type'
 import * as classNames from 'classnames'
-import {autoBindMethod} from '../../../common/auto-bind/index'
+import {autoBindMethod} from 'nt-auto-bind'
 import './margin-padding-editor.scss'
 
-import {TransmitTransparently} from '../../../common/transmit-transparently/index'
+import {TransmitTransparently} from 'nt-transmit-transparently'
 
 @TransmitTransparently()
 export default class MarginPaddingEditor extends React.Component <typings.PropsDefine, typings.StateDefine> {

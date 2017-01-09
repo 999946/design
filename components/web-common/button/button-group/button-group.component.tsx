@@ -3,7 +3,7 @@ import * as classNames from 'classnames'
 import * as typings from './button-group.type'
 import './button-group.scss'
 
-import {TransmitTransparently} from '../../../common/transmit-transparently/index'
+import {TransmitTransparently} from 'nt-transmit-transparently'
 
 @TransmitTransparently('className')
 export default class ButtonGroup extends React.Component <typings.PropsDefine, typings.StateDefine> {

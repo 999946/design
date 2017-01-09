@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as typings from './image.type'
 import {TouchableOpacity, Image} from 'react-native'
-import {TransmitTransparently} from '../../transmit-transparently/index'
+import {TransmitTransparently} from 'nt-transmit-transparently'
 
 @TransmitTransparently('fallbackSource', 'fallbackColor', 'pressToReload', 'fallbackAddon', 'fallbackHideImage')
 export default class ImageComponent extends React.Component <typings.PropsDefine, typings.StateDefine> {

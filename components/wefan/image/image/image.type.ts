@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {GifPropsDefine} from '../../../common/gif/index'
+import {GifPropsDefine} from 'nt-gif'
 
 export interface PropsDefine extends GifPropsDefine {
     others?: any
