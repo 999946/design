@@ -4,8 +4,8 @@ import * as $ from 'jquery'
 import * as typings from './tabs.type'
 import * as classNames from 'classnames'
 
-import {TransmitTransparently} from 'nt-transmit-transparently'
-import {autoBindMethod} from 'nt-auto-bind'
+import {TransmitTransparently} from '../../../common/transmit-transparently/index'
+import {autoBindMethod} from '../../../common/auto-bind/index'
 
 import './tabs.scss'
 
