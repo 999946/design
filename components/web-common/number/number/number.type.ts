@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {InputPropsDefine} from 'nt-web-input'
+import {InputPropsDefine} from '../../input/index'
 
 export interface PropsDefine extends InputPropsDefine {
     /**

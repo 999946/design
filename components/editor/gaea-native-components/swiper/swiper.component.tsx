@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as typings from './swiper.type'
-import Swiper from 'nt-swiper'
+import Swiper from '../../../common/swiper/index'
 
 export default class SwiperComponent extends React.Component <typings.PropsDefine, typings.StateDefine> {
     static defaultProps: typings.PropsDefine = new typings.Props()

@@ -1,6 +1,6 @@
-import {TransparentlyNativePropsPropsDefine} from 'nt-transparently-native-props'
-import {gaeaHelper} from 'gaea-helper'
-import {SwiperPropsDefine} from 'nt-swiper'
+import {TransparentlyNativePropsPropsDefine} from '../../../common/transparently-native-props/index'
+import {gaeaHelper} from '../../gaea-helper/index'
+import {SwiperPropsDefine} from '../../../common/swiper/index'
 import * as ReactNaitve from 'react-native'
 
 export interface PropsDefine extends SwiperPropsDefine, TransparentlyNativePropsPropsDefine {

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as typings from './tab-panel.type'
 import * as classNames from 'classnames'
-import {TransmitTransparently} from 'nt-transmit-transparently'
+import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 
 import './tab-panel.scss'
 

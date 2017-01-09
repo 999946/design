@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {TreePropsDefine} from 'nt-web-tree'
-import {TransparentlyPropsPropsDefine} from 'nt-transparently-props'
+import {TreePropsDefine} from '../../tree/index'
+import {TransparentlyPropsPropsDefine} from '../../../common/transparently-props/index'
 
 export interface PropsDefine extends TransparentlyPropsPropsDefine {
     /**

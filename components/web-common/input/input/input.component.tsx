@@ -3,7 +3,7 @@ import * as typings from './input.type'
 import * as classNames from 'classnames'
 import * as _ from 'lodash'
 
-import {TransmitTransparently} from 'nt-transmit-transparently'
+import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 import validator from './validate'
 
 import './input.scss'

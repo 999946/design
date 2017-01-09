@@ -1,8 +1,8 @@
 import * as React from 'react'
 import * as typings from './button.type'
 import {TouchableOpacity, Text} from 'react-native'
-import {TransmitTransparently} from 'nt-transmit-transparently'
-import {autoBindMethod} from 'nt-auto-bind'
+import {TransmitTransparently} from '../../transmit-transparently/index'
+import {autoBindMethod} from '../../auto-bind/index'
 
 @TransmitTransparently()
 export default class Button extends React.Component<typings.PropsDefine, typings.StateDefine> {

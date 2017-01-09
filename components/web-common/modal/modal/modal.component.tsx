@@ -3,8 +3,8 @@ import * as ReactDOM from 'react-dom'
 import * as typings from './modal.type'
 import * as classNames from 'classnames'
 
-import Button from 'nt-web-button'
-import {TransmitTransparently} from 'nt-transmit-transparently'
+import Button from '../../button/index'
+import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 
 import './modal.scss'
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {observer} from 'mobx-react'
 import Message from '../index'
-import Button from 'nt-web-button'
+import Button from '../../button/index'
 
 @observer
 export default class Demo extends React.Component <any, any> {

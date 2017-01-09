@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {TouchableOpacityProperties} from 'react-native'
-import {TransparentlyNativePropsPropsDefine} from 'nt-transparently-native-props'
+import {TransparentlyNativePropsPropsDefine} from '../../transparently-native-props/index'
 
 export interface PropsDefine extends TouchableOpacityProperties, TransparentlyNativePropsPropsDefine {
     /**

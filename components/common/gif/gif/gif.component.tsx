@@ -1,8 +1,8 @@
 import * as React from 'react'
 import * as typings from './gif.type'
-import Image from 'nt-image'
+import Image from '../../image/index'
 import {View} from 'react-native'
-import {TransmitTransparently} from 'nt-transmit-transparently'
+import {TransmitTransparently} from '../../transmit-transparently/index'
 
 @TransmitTransparently('fallbackSource', 'fallbackColor', 'fallbackAddon', 'pressToReload', 'firstSource', 'fallbackHideImage', 'onPress')
 export default class Gif extends React.Component <typings.PropsDefine, typings.StateDefine> {

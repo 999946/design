@@ -4,8 +4,8 @@ import * as typings from './auto-complete.type'
 import * as classNames from 'classnames'
 import * as $ from 'jquery'
 
-import Input from 'nt-web-input'
-import {TransmitTransparently} from 'nt-transmit-transparently'
+import Input from '../../input/index'
+import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 
 let interval: any = null
 

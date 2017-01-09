@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {TransparentlyPropsPropsDefine} from 'nt-transparently-props'
+import {TransparentlyPropsPropsDefine} from '../../../common/transparently-props/index'
 import {CSSProperties} from 'react'
 
 export type Position = 'left' | 'top' | 'right' | 'bottom'

@@ -3,7 +3,7 @@ import * as typings from './option.type'
 import * as classNames from 'classnames'
 
 import * as _ from 'lodash'
-import {others} from 'nt-transmit-transparently'
+import {others} from '../../../common/transmit-transparently/index'
 
 import './option.scss'
 

@@ -4,7 +4,7 @@ import * as ReactDOM from 'react-dom'
 import * as typings from './button.type'
 import './button.scss'
 
-import {others} from 'nt-transmit-transparently'
+import {others} from '../../../common/transmit-transparently/index'
 
 const hasClass = (obj: HTMLElement, cls: string) => {
     return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'))

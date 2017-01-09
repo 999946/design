@@ -2,8 +2,8 @@ import * as React from 'react'
 import * as typings from './json-tree.type'
 import * as classNames from 'classnames'
 
-import {Tree, TreeNode} from 'nt-web-tree'
-import {TransmitTransparently} from 'nt-transmit-transparently'
+import {Tree, TreeNode} from '../../tree/index'
+import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 
 import './json-tree.scss'
 

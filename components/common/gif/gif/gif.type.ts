@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ImagePropsDefine} from 'nt-image'
+import {ImagePropsDefine} from '../../image/index'
 
 export interface PropsDefine extends ImagePropsDefine {
     /**

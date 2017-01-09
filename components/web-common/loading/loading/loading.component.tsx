@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as typings from './loading.type'
 import * as classNames from 'classnames'
 
-import {TransmitTransparently} from 'nt-transmit-transparently'
+import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 
 import './loading.scss'
 

@@ -3,7 +3,7 @@ import * as typings from './timeago.type'
 import * as moment from 'moment'
 import * as _ from 'lodash'
 
-import {TransmitTransparently} from 'nt-transmit-transparently'
+import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 
 @TransmitTransparently()
 export default class Timeago extends React.Component <typings.PropsDefine, typings.StateDefine> {

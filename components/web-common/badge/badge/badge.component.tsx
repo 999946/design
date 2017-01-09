@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as typings from './badge.type'
 import * as classNames from 'classnames'
 
-import {TransmitTransparently} from 'nt-transmit-transparently'
+import {TransmitTransparently} from '../../../common/transmit-transparently/index'
 import * as Animate from 'rc-animate'
 import ScrollNumber from '../scroll-number/scroll-number.component'
 

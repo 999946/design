@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as typings from './line.type'
 import {View} from 'react-native'
-import {TransmitTransparently} from 'nt-transmit-transparently'
+import {TransmitTransparently} from '../../transmit-transparently/index'
 
 @TransmitTransparently('style')
 export default class Line extends React.Component <typings.PropsDefine, typings.StateDefine> {
