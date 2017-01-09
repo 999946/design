@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as typings from './button.type'
-import CommonButton from 'nt-button'
+import CommonButton from '../../../common/button/index'
 import styles from './button.style'
 
 export default class Button extends React.Component <typings.PropsDefine, typings.StateDefine> {
