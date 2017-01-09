@@ -4,133 +4,148 @@
     "publishLevel": "patch",
     "componentInfoWithDep": {
       "component": {
-        "name": "image-zoom",
-        "chinese": "图片手势操作",
-        "git": "https://github.com/ascoders/react-native-image-zoom.git",
-        "npm": "react-native-image-pan-zoom",
-        "isIos": true,
-        "isAndroid": true
+        "name": "tabs",
+        "chinese": "标签页",
+        "isWeb": true
       },
       "category": {
-        "name": "common",
-        "chinese": "通用",
-        "prefix": "nt",
+        "name": "web-common",
+        "chinese": "web通用",
+        "prefix": "nt-web",
         "isPrivate": false,
         "components": [
           {
             "name": "button",
             "chinese": "按钮",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "line",
-            "chinese": "线",
             "isWeb": true
           },
           {
-            "name": "image",
-            "chinese": "图片",
-            "isWeb": true,
-            "isIos": true
+            "name": "input",
+            "chinese": "输入框",
+            "isWeb": true
           },
           {
-            "name": "gif",
-            "chinese": "GIF",
-            "isWeb": true,
-            "isIos": true
+            "name": "number",
+            "chinese": "数字框",
+            "isWeb": true
           },
           {
-            "name": "image-zoom",
-            "chinese": "图片手势操作",
-            "git": "https://github.com/ascoders/react-native-image-zoom.git",
-            "npm": "react-native-image-pan-zoom",
-            "isIos": true,
-            "isAndroid": true
+            "name": "auto-complete",
+            "chinese": "自动完成",
+            "isWeb": true
           },
           {
-            "name": "image-viewer",
-            "chinese": "大图浏览",
-            "git": "https://github.com/ascoders/react-native-image-viewer.git",
-            "npm": "react-native-image-zoom-viewer",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
+            "name": "switch",
+            "chinese": "开关",
+            "isWeb": true
           },
           {
-            "name": "swiper",
-            "chinese": "轮播",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
+            "name": "radio",
+            "chinese": "单选框",
+            "isWeb": true
           },
           {
-            "name": "transmit-transparently",
-            "chinese": "透传",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
+            "name": "checkbox",
+            "chinese": "多选框",
+            "isWeb": true
           },
           {
-            "name": "auto-bind",
-            "chinese": "自动绑定",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
+            "name": "select",
+            "chinese": "下拉选择框",
+            "isWeb": true
           },
           {
-            "name": "transparently-props",
-            "chinese": "透传属性定义",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
+            "name": "collapse",
+            "chinese": "手风琴",
+            "isWeb": true
           },
           {
-            "name": "transparently-native-props",
-            "chinese": "Native透传属性定义",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
+            "name": "tooltip",
+            "chinese": "工具提示",
+            "isWeb": true
           },
           {
-            "name": "inject-instance",
-            "chinese": "实例注入",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true,
-            "git": "https://github.com/ascoders/inject-instance.git",
-            "npm": "inject-instance"
+            "name": "message",
+            "chinese": "全局消息",
+            "isWeb": true
           },
           {
-            "name": "cli",
-            "chinese": "本地运行脚本",
-            "isWeb": true,
-            "npm": "nt-repair-cli"
+            "name": "modal",
+            "chinese": "模态框",
+            "isWeb": true
+          },
+          {
+            "name": "tabs",
+            "chinese": "标签页",
+            "isWeb": true
+          },
+          {
+            "name": "tree",
+            "chinese": "树",
+            "isWeb": true
+          },
+          {
+            "name": "json-tree",
+            "chinese": "json 树",
+            "isWeb": true
+          },
+          {
+            "name": "margin-padding-editor",
+            "chinese": "内/外边距编辑器",
+            "isWeb": true
+          },
+          {
+            "name": "badge",
+            "chinese": "徽标",
+            "isWeb": true
+          },
+          {
+            "name": "loading",
+            "chinese": "进度条",
+            "isWeb": true
+          },
+          {
+            "name": "timeago",
+            "chinese": "友好时间",
+            "isWeb": true
+          },
+          {
+            "name": "image-preload",
+            "chinese": "图片预加载",
+            "isWeb": true
+          },
+          {
+            "name": "render-to",
+            "chinese": "任意位置渲染",
+            "isWeb": true
           }
         ]
       },
       "packageJson": {
-        "name": "react-native-image-pan-zoom",
-        "version": "1.1.11",
-        "description": "图片手势操作",
+        "name": "nt-web-tabs",
+        "version": "1.0.6",
+        "description": "标签页",
         "main": "lib/index.js",
         "typings": "lib/index.d.ts",
         "repository": {
           "type": "git",
-          "url": "https://github.com/ascoders/react-native-image-zoom.git"
+          "url": "https://github.com/next-component/web-common-tabs.git"
         },
         "keywords": [
-          "image-zoom"
+          "tabs"
         ],
         "author": "ascoders",
         "license": "ISC",
         "dependencies": {
+          "classnames": "^2.2.5",
+          "nt-transmit-transparently": "^1.0.7",
+          "nt-transparently-props": "^0.0.5",
+          "jquery": "^3.1.0",
           "nt-auto-bind": "^2.0.5"
         },
         "peerDependencies": {
           "react": "^0.14.0 || ^15.0.0",
-          "react-native": "*"
+          "react-dom": "^0.14.0 || ^15.0.0"
         }
       },
       "dependence": [
@@ -140,157 +155,7 @@
         },
         {
           "type": "npm",
-          "name": "react-native"
-        }
-      ]
-    },
-    "isUserOperate": true,
-    "preVersion": "1.1.11"
-  },
-  {
-    "userPublishLevel": "patch",
-    "publishLevel": "patch",
-    "componentInfoWithDep": {
-      "component": {
-        "name": "image-viewer",
-        "chinese": "大图浏览",
-        "git": "https://github.com/ascoders/react-native-image-viewer.git",
-        "npm": "react-native-image-zoom-viewer",
-        "isWeb": true,
-        "isIos": true,
-        "isAndroid": true
-      },
-      "category": {
-        "name": "common",
-        "chinese": "通用",
-        "prefix": "nt",
-        "isPrivate": false,
-        "components": [
-          {
-            "name": "button",
-            "chinese": "按钮",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "line",
-            "chinese": "线",
-            "isWeb": true
-          },
-          {
-            "name": "image",
-            "chinese": "图片",
-            "isWeb": true,
-            "isIos": true
-          },
-          {
-            "name": "gif",
-            "chinese": "GIF",
-            "isWeb": true,
-            "isIos": true
-          },
-          {
-            "name": "image-zoom",
-            "chinese": "图片手势操作",
-            "git": "https://github.com/ascoders/react-native-image-zoom.git",
-            "npm": "react-native-image-pan-zoom",
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "image-viewer",
-            "chinese": "大图浏览",
-            "git": "https://github.com/ascoders/react-native-image-viewer.git",
-            "npm": "react-native-image-zoom-viewer",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "swiper",
-            "chinese": "轮播",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "transmit-transparently",
-            "chinese": "透传",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "auto-bind",
-            "chinese": "自动绑定",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "transparently-props",
-            "chinese": "透传属性定义",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "transparently-native-props",
-            "chinese": "Native透传属性定义",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true
-          },
-          {
-            "name": "inject-instance",
-            "chinese": "实例注入",
-            "isWeb": true,
-            "isIos": true,
-            "isAndroid": true,
-            "git": "https://github.com/ascoders/inject-instance.git",
-            "npm": "inject-instance"
-          },
-          {
-            "name": "cli",
-            "chinese": "本地运行脚本",
-            "isWeb": true,
-            "npm": "nt-repair-cli"
-          }
-        ]
-      },
-      "packageJson": {
-        "name": "react-native-image-zoom-viewer",
-        "version": "1.2.46",
-        "description": "大图浏览",
-        "main": "lib/index.js",
-        "typings": "lib/index.d.ts",
-        "repository": {
-          "type": "git",
-          "url": "https://github.com/ascoders/react-native-image-viewer.git"
-        },
-        "keywords": [
-          "image-viewer"
-        ],
-        "author": "ascoders",
-        "license": "ISC",
-        "dependencies": {
-          "nt-transmit-transparently": "^1.0.7",
-          "react-native-image-pan-zoom": "^1.1.11"
-        },
-        "peerDependencies": {
-          "react": "^0.14.0 || ^15.0.0",
-          "react-native": "*"
-        }
-      },
-      "dependence": [
-        {
-          "type": "npm",
-          "name": "react"
-        },
-        {
-          "type": "npm",
-          "name": "react-native"
+          "name": "classnames"
         },
         {
           "type": "component",
@@ -299,12 +164,323 @@
         },
         {
           "type": "component",
-          "name": "image-zoom",
+          "name": "transparently-props",
+          "category": "common"
+        },
+        {
+          "type": "npm",
+          "name": "react-dom"
+        },
+        {
+          "type": "npm",
+          "name": "jquery"
+        },
+        {
+          "type": "component",
+          "name": "auto-bind",
           "category": "common"
         }
       ]
     },
     "isUserOperate": true,
-    "preVersion": "1.2.46"
+    "preVersion": "1.0.6"
+  },
+  {
+    "userPublishLevel": "patch",
+    "publishLevel": "patch",
+    "componentInfoWithDep": {
+      "component": {
+        "name": "gaea-editor",
+        "chinese": "盖亚-编辑器",
+        "isWeb": true,
+        "git": "https://github.com/ascoders/gaea-editor.git",
+        "npm": "gaea-editor"
+      },
+      "category": {
+        "name": "editor",
+        "chinese": "编辑器",
+        "prefix": "nt-editor",
+        "isPrivate": false,
+        "components": [
+          {
+            "name": "gaea-editor",
+            "chinese": "盖亚-编辑器",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-editor.git",
+            "npm": "gaea-editor"
+          },
+          {
+            "name": "gaea-preview",
+            "chinese": "盖亚-查看器",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-preview.git",
+            "npm": "gaea-preview"
+          },
+          {
+            "name": "gaea-web-components",
+            "chinese": "盖亚-网页组件",
+            "isWeb": true,
+            "git": "https://github.com/ascoders/gaea-web-components.git",
+            "npm": "gaea-web-components"
+          },
+          {
+            "name": "gaea-native-components",
+            "chinese": "盖亚-原生组件",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-native-components.git",
+            "npm": "gaea-native-components"
+          },
+          {
+            "name": "gaea-model",
+            "chinese": "盖亚-定义",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-model.git",
+            "npm": "gaea-model",
+            "ignoreBuild": true
+          },
+          {
+            "name": "gaea-helper",
+            "chinese": "盖亚-组件辅助",
+            "isWeb": true,
+            "isAndroid": true,
+            "isIos": true,
+            "git": "https://github.com/ascoders/gaea-helper.git",
+            "npm": "gaea-helper"
+          }
+        ]
+      },
+      "packageJson": {
+        "name": "gaea-editor",
+        "version": "1.0.23",
+        "description": "盖亚",
+        "main": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/ascoders/gaea.git"
+        },
+        "keywords": [
+          "gaea"
+        ],
+        "author": "ascoders",
+        "license": "ISC",
+        "dependencies": {
+          "inject-instance": "^1.0.5",
+          "mobx": "^2.4.3",
+          "sortablejs": "git://github.com/RubaXa/Sortable.git#dev",
+          "lodash": "^4.15.0",
+          "lz-string": "^1.4.4",
+          "keymaster": "^1.6.2",
+          "nt-auto-bind": "^2.0.5",
+          "nt-web-message": "^1.0.5",
+          "nt-web-button": "^1.0.5",
+          "nt-web-number": "^1.0.2",
+          "nt-web-select": "^0.0.4",
+          "nt-web-tooltip": "^1.2.3",
+          "nt-web-checkbox": "^1.0.5",
+          "nt-web-margin-padding-editor": "^1.1.6",
+          "nt-web-switch": "^1.0.5",
+          "nt-web-input": "^1.0.6",
+          "nt-web-tabs": "^1.0.6",
+          "nt-web-modal": "^0.0.5",
+          "mobx-react": "^3.5.5",
+          "nt-web-auto-complete": "^1.0.0",
+          "classnames": "^2.2.5",
+          "jquery": "^3.1.0",
+          "nt-web-tree": "^1.0.5",
+          "gaea-preview": "^1.0.18",
+          "react-color": "^2.3.2",
+          "gaea-model": "^1.0.28"
+        },
+        "peerDependencies": {
+          "react": "^0.14.0 || ^15.0.0",
+          "react-dom": "^0.14.0 || ^15.0.0"
+        }
+      },
+      "dependence": [
+        {
+          "type": "npm",
+          "name": "react"
+        },
+        {
+          "type": "component",
+          "name": "inject-instance",
+          "category": "common"
+        },
+        {
+          "type": "npm",
+          "name": "mobx"
+        },
+        {
+          "type": "npm",
+          "name": "sortablejs"
+        },
+        {
+          "type": "npm",
+          "name": "lodash"
+        },
+        {
+          "type": "npm",
+          "name": "lz-string"
+        },
+        {
+          "type": "npm",
+          "name": "keymaster"
+        },
+        {
+          "type": "component",
+          "name": "auto-bind",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "message",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "button",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "number",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "select",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "tooltip",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "checkbox",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "margin-padding-editor",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "switch",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "input",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "tabs",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "auto-bind",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "modal",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "button",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "input",
+          "category": "web-common"
+        },
+        {
+          "type": "npm",
+          "name": "mobx-react"
+        },
+        {
+          "type": "component",
+          "name": "input",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "auto-complete",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "button",
+          "category": "web-common"
+        },
+        {
+          "type": "npm",
+          "name": "classnames"
+        },
+        {
+          "type": "component",
+          "name": "modal",
+          "category": "web-common"
+        },
+        {
+          "type": "npm",
+          "name": "react-dom"
+        },
+        {
+          "type": "npm",
+          "name": "jquery"
+        },
+        {
+          "type": "component",
+          "name": "tree",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "tree",
+          "category": "web-common"
+        },
+        {
+          "type": "component",
+          "name": "auto-bind",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "auto-bind",
+          "category": "common"
+        },
+        {
+          "type": "component",
+          "name": "gaea-preview",
+          "category": "editor"
+        },
+        {
+          "type": "npm",
+          "name": "react-color"
+        },
+        {
+          "type": "component",
+          "name": "gaea-model",
+          "category": "editor"
+        }
+      ]
+    },
+    "isUserOperate": true,
+    "preVersion": "1.0.23"
   }
 ]
