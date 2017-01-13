@@ -134,7 +134,7 @@ declare namespace FitGaea {
         /**
          * 值类型, 默认为字符串
          */
-        type?: string
+            type?: string
         /**
          * 为空时的值，默认为 null
          */
@@ -142,7 +142,7 @@ declare namespace FitGaea {
         /**
          * 控制 number 单位
          */
-        number?: {
+            number?: {
             units: Array<Number>
             currentUnit: string
             max?: number
@@ -260,13 +260,12 @@ declare namespace FitGaea {
         url?: string
     }
 
-    export interface EventActionCall {
-        // 函数在 map 里的 key
-        key?: string
-    }
-
     export interface EventActionEvent {
         emit?: string
+    }
+
+    export interface EventActionCall {
+        functionName?: string
     }
 
     export interface ExternalParameter {
@@ -278,7 +277,7 @@ declare namespace FitGaea {
          * 类型
          * number string boolean
          */
-        type: string
+            type: string
     }
 
     /**
