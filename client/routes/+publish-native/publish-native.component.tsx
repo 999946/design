@@ -67,7 +67,8 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
 
         this.setState({
             isReady: true,
-            value: result.content
+            value: result.content,
+            settings: result.settings
         }, ()=> {
             this.props.event.emit(this.props.event.sceneLoaded)
         })
@@ -93,7 +94,8 @@ export default class PublishNative extends React.Component <typings.PropsDefine,
             customComponents: this.CustomComponents,
             value: this.state.value,
             onCall: handleBrowserCall,
-            params: this.props.location.query
+            params: this.props.location.query,
+            settings: this.state.settings
         })
     }
 }

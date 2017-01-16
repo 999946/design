@@ -54,7 +54,8 @@ export default class PublishWeb extends React.Component <typings.PropsDefine, ty
 
         this.setState({
             isReady: true,
-            value: result.content
+            value: result.content,
+            settings: result.settings
         }, ()=> {
             this.props.event.emit(this.props.event.sceneLoaded)
         })
@@ -76,7 +77,8 @@ export default class PublishWeb extends React.Component <typings.PropsDefine, ty
             baseComponents: this.GaeaWebComponents,
             value: this.state.value,
             onCall: handleBrowserCall,
-            params: this.props.location.query
+            params: this.props.location.query,
+            settings: this.state.settings
         })
     }
 }

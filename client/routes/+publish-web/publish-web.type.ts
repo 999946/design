@@ -19,6 +19,7 @@ export class Props implements PropsDefine {
 export interface StateDefine {
     isReady?: boolean
     value?: string
+    settings?: string
 }
 
 export class State implements StateDefine {

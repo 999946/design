@@ -6,11 +6,13 @@ import TextInput from './text-input/text-input.component'
 import Switch from './switch/switch.component'
 import Image from './image/image.component'
 import Swiper from './swiper/swiper.component'
+import ListView from './list-view/list-view.component'
 
 export default [
     View,
     ViewAbsolute,
     ScrollView,
+    ListView,
     Text,
     TextInput,
     Switch,
