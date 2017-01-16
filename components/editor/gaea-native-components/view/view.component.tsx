@@ -18,7 +18,7 @@ export default class ViewComponent extends React.Component <typings.PropsDefine,
         }
 
         if (!this.props.gaeaPreview) {
-            // 编辑模式只给 view
+            // 编辑模式只给 editor
             return (
                 <View style={this.props.style}>{this.props.children}</View>
             )

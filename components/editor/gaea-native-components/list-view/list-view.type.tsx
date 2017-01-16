@@ -4,12 +4,14 @@ import * as ReactNaitve from 'react-native'
 
 export interface PropsDefine extends TransparentlyNativePropsPropsDefine {
     style?: ReactNaitve.ViewStyle
+    gaeaPreview?: boolean
 }
 
 export class PropsGaea {
     gaeaName = 'ListView'
     gaeaIcon = 'square-o'
     gaeaUniqueKey = 'gaea-list-view'
+    canDragIn = true
     gaeaEdit = [
         'ListView',
         {
