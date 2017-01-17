@@ -13,10 +13,6 @@ declare module 'autoprefixer' {
     export = api
 }
 
-declare module 'postcss' {
-    const api: any
-    export = api
-}
 
 declare module 'format-json' {
     const api: {

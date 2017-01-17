@@ -52,6 +52,11 @@ declare namespace FitGaea {
             [field: string]: VariableData
         }
 
+        /**
+         * 渲染编辑回调
+         */
+        // renderEditer?:(React.ComponentClass<FitGaea.ComponentProps>,{})=>void
+
         [x: string]: any
     }
 

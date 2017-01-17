@@ -1,7 +1,6 @@
 export default (...classes: Array<any>) => {
     const classMap = new Map<string, any>()
     const instanceMap = new Map<string, any>()
-
     classes.forEach(eachClass => {
         if (classMap.has(eachClass.name)) {
             throw `duplicate className: ${eachClass.name}`
