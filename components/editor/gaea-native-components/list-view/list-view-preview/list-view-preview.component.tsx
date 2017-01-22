@@ -71,7 +71,7 @@ export default class ImageComponent extends React.Component <typings.PropsDefine
                 }
 
                 this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(data),
+                    dataSource: this.state.dataSource.cloneWithRows(listData.list),
                     lists: listData.list,
                     initRequestFinished: true,
                     page: 1,

@@ -42,7 +42,7 @@ export class PropsGaea {
         },
         {
             field: 'listPath',
-            label: '请求接口地址',
+            label: '使用字段路径',
             editor: 'text'
         },
         '布局',
