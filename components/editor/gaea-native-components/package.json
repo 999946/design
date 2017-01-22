@@ -1,6 +1,6 @@
 {
   "name": "gaea-native-components",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "盖亚-原生组件",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -15,7 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "nt-transparently-native-props": "^0.0.1",
-    "gaea-helper": "^1.0.18",
+    "gaea-helper": "^1.0.19",
+    "lodash": "^4.15.0",
     "nt-swiper": "^1.0.1"
   },
   "peerDependencies": {
