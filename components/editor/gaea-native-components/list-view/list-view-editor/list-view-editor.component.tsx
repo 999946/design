@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as typings from './list-view-editor.type'
+import * as typings from '../list-view.type'
 import {View} from 'react-native'
 
 export default class ViewComponent extends React.Component <typings.PropsDefine, typings.StateDefine> {

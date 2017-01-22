@@ -1,5 +1,5 @@
-import { TransparentlyNativePropsPropsDefine } from 'nt-transparently-native-props'
-import { gaeaHelper } from 'gaea-helper'
+import {TransparentlyNativePropsPropsDefine} from 'nt-transparently-native-props'
+import {gaeaHelper} from 'gaea-helper'
 import * as ReactNaitve from 'react-native'
 
 export interface PropsDefine extends TransparentlyNativePropsPropsDefine {
@@ -13,6 +13,8 @@ export interface PropsDefine extends TransparentlyNativePropsPropsDefine {
      * 是否在预览状态
      */
     gaeaPreview?: boolean
+
+    gaeaData?: any
 }
 
 export class PropsGaea {

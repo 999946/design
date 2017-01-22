@@ -6,11 +6,17 @@ export default class ViewComponent extends React.Component <typings.PropsDefine,
     static defaultProps: typings.PropsDefine = new typings.Props()
     public state: typings.StateDefine = new typings.State()
 
+    renderChildren() {
+        return React.Children.map(this.props.children, (child: any) => React.cloneElement(child, {
+            gaeaData: this.props.gaeaData
+        }))
+    }
+
     render() {
         // 如果有点击事件，就换成 Touchable
         let hasClick = false
         if (this.props.gaeaEventData) {
-            this.props.gaeaEventData.forEach(data=> {
+            this.props.gaeaEventData.forEach(data => {
                 if (data.typeIndex > -1 && this.props.gaeaEvent.triggers[data.typeIndex].selfCallback && data.type === 'onClick') {
                     hasClick = true
                 }
@@ -20,7 +26,7 @@ export default class ViewComponent extends React.Component <typings.PropsDefine,
         if (!this.props.gaeaPreview) {
             // 编辑模式只给 editor
             return (
-                <View style={this.props.style}>{this.props.children}</View>
+                <View style={this.props.style}>{this.renderChildren()}</View>
             )
         }
 
@@ -30,14 +36,14 @@ export default class ViewComponent extends React.Component <typings.PropsDefine,
                 <TouchableWithoutFeedback style={this.props.style}
                                           onPress={this.props.onClick.bind(this)}>
                     <View style={this.props.style}>
-                        {this.props.children}
+                        {this.renderChildren()}
                     </View>
                 </TouchableWithoutFeedback>
             )
         }
 
         return (
-            <View style={this.props.style}>{this.props.children}</View>
+            <View style={this.props.style}>{this.renderChildren()}</View>
         )
     }
 }

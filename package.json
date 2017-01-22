@@ -86,6 +86,7 @@
     "highlight.js": "^9.6.0",
     "inversify": "^2.0.1",
     "inversify-inject-decorators": "^2.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.1.0",
     "keymaster": "^1.6.2",
     "koa": "^1.2.1",

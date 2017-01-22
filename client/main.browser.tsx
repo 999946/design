@@ -9,6 +9,9 @@ import Routes from './routes'
 import './main.browser.scss'
 import 'font-awesome/css/font-awesome.min.css'
 
+import 'es6-promise'
+import 'isomorphic-fetch'
+
 const MainRouter = (
     <Router history={browserHistory}>
         {Routes}

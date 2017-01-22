@@ -51,6 +51,10 @@ declare namespace FitGaea {
         gaeaVariables?: {
             [field: string]: VariableData
         }
+        /**
+         * 父组件传递的数据
+         */
+        gaeaData?: any
 
         /**
          * 渲染编辑回调

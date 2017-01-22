@@ -180,10 +180,10 @@ export const border = {
     borderRightColor: null as any,
     borderTopColor: null as any,
 
-    borderBottomWidth: null as any,
-    borderRightWidth: null as any,
-    borderTopWidth: null as any,
-    borderLeftWidth: null as any,
+    borderBottomWidth: 0,
+    borderRightWidth: 0,
+    borderTopWidth: 0,
+    borderLeftWidth: 0,
 
     borderLeftStyle: 'none',
     borderTopStyle: 'none',
@@ -192,22 +192,19 @@ export const border = {
 }
 
 export const borderNative = {
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    borderTopLeftRadius: 0,
-    borderTopRightRadius: 0,
+    borderBottomLeftRadius: null as any,
+    borderBottomRightRadius: null as any,
+    borderTopLeftRadius: null as any,
+    borderTopRightRadius: null as any,
 
     borderColor: null as any,
 
-    borderBottomWidth: null as any,
-    borderRightWidth: null as any,
-    borderTopWidth: null as any,
-    borderLeftWidth: null as any,
+    borderBottomWidth: 0,
+    borderRightWidth: 0,
+    borderTopWidth: 0,
+    borderLeftWidth: 0,
 
-    borderLeftStyle: null as any,
-    borderTopStyle: null as any,
-    borderRightStyle: null as any,
-    borderBottomStyle: null as any
+    borderStyle: null as any
 }
 
 export const borderEditor = {
